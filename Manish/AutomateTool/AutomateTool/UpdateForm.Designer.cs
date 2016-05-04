@@ -47,6 +47,7 @@
             this.Controls.Add(this.listBox1);
             this.Name = "UpdateForm";
             this.Text = "UpdateForm";
+            this.Load += new System.EventHandler(this.UpdateForm_Load);
             this.ResumeLayout(false);
 
         }

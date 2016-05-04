@@ -1,11 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace AutomateTool
@@ -22,6 +15,11 @@ namespace AutomateTool
             listBox1.Items.Add("PHY");
             listBox1.Items.Add("HIS");
             listBox1.Items.Add("MIN");
+        }
+
+        private void UpdateForm_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

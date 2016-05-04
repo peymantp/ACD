@@ -24,11 +24,18 @@ namespace AutomateTool
             uf.Show(); 
         }
 
+
         private void button1_Click(object sender, EventArgs e)
         {
             ProgramDetails pd = new ProgramDetails();
             pd.addList(); 
             pd.Show(); 
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            CurriculumCreator cc = new CurriculumCreator();
+            cc.Show();
         }
     }
 }
