@@ -24,6 +24,7 @@ namespace ACD
 
         private void buttonCreate_Click(object sender, EventArgs e)
         {
+            errorProvider1.Clear();
             CreateCourse();
         }
 
