@@ -26,5 +26,7 @@ namespace ACD
         {
 
         }
+
+        private void button5_Click(object sender, EventArgs e) => new CourseForm().Show();
     }
 }

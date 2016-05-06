@@ -27,7 +27,7 @@ namespace ACD
             this.Format = Format;
             foreach (Course VARIABLE in Prerequisities)
             {
-                this.Prerequisities.Add(VARIABLE);
+                this.Prerequisites.Add(VARIABLE);
             }
             this.HasLab = HasLab;
         }
@@ -50,7 +50,7 @@ namespace ACD
             this.Format = Format;
             foreach (Course VARIABLE in Prerequisities)
             {
-                this.Prerequisities.Add(VARIABLE);
+                this.Prerequisites.Add(VARIABLE);
             }
         }
         public Course(string CourseNumber, string Core, string CourseName, string Description, double CreditHours, Course[] Prerequisities, bool HasLab)
@@ -71,7 +71,7 @@ namespace ACD
             this.CreditHours = CreditHours;
             foreach (Course VARIABLE in Prerequisities)
             {
-                this.Prerequisities.Add(VARIABLE);
+                this.Prerequisites.Add(VARIABLE);
             }
             this.HasLab = HasLab;
         }
@@ -130,7 +130,7 @@ namespace ACD
             this.CreditHours = CreditHours;
             foreach (Course VARIABLE in Prerequisities)
             {
-                this.Prerequisities.Add(VARIABLE);
+                this.Prerequisites.Add(VARIABLE);
             }
         }
         public Course(string CourseNumber, string Core, string CourseName, string Description, double CreditHours, bool HasLab)
@@ -167,7 +167,7 @@ namespace ACD
             this.Description = Description;
             this.CreditHours = CreditHours;
         }
-        public List<Course> Prerequisities = new List<Course>();
+        public List<Course> Prerequisites = new List<Course>();
 
         public bool HasLab { get; set; }
 
