@@ -22,43 +22,76 @@ public class CreateExcelWorksheet
         if (ws == null)
         {
             Console.WriteLine("Worksheet could not be created. Check that your office installation and project references are correct.");
-        }
-
-        // Select the Excel cells, in the range a1 to h8 in the worksheet.
-        Range aRange = ws.get_Range("A1", "H8");
-
-        if (aRange == null)
+        } else
         {
-            Console.WriteLine("Could not get a range. Check to be sure you have the correct versions of the office DLLs.");
+            Console.WriteLine("Creating Excel document...");
         }
 
-        // Fill the cells in the C1 to C7 range of the worksheet with the number 6.
-        Object[] args = new Object[1];
-        aRange.GetType().InvokeMember("Value", BindingFlags.SetProperty, null, aRange, args);
-        
+        //In the future, this will determine which faculty gets queried.
+        //This also means we'll have to add WHERE clauses to the queries below.
+        String faculty = "Geology";
+
+        // Add the headers
+        Range aRange = ws.get_Range("A1", "A2");
+        aRange[1].Value2 = "Program Level Outcomes";
+        aRange[2].Value2 = "Performance Indicators";
+        aRange.Columns.AutoFit();
+
         using (SqlConnection myConnection = new SqlConnection("Server = tcp:vaxas.database.windows.net,1433; Database = vaxasDatabase; User ID = vaxasAdmin@vaxas; Password = Study1327; Encrypt = True; TrustServerCertificate = False; Connection Timeout = 30"))
         {
-
-            string oString = "Select * from dbo.Course";
-            SqlCommand oCmd = new SqlCommand(oString, myConnection);
-
             myConnection.Open();
+
+            string oString;
+            SqlCommand oCmd;
+
+            int performanceIndicatorsCount = 0;
+            
+            oString = "Select count(PerformanceIndicator) as Count from dbo.PerformanceIndicator";
+            oCmd = new SqlCommand(oString, myConnection);
             using (SqlDataReader oReader = oCmd.ExecuteReader())
             {
                 while (oReader.Read())
                 {
-                    aRange[1].Value2 = oReader["CourseNumber"].ToString();
-                    aRange[2].Value2 = oReader["Core"].ToString();
-                    aRange[3].Value2 = oReader["CourseName"].ToString();
-                    aRange[4].Value2 = oReader["Description"].ToString();
-                    aRange[5].Value2 = oReader["CreditHours"].ToString();
-                    aRange[6].Value2 = oReader["Format"].ToString();
-                    aRange[7].Value2 = oReader["Prerequisites"].ToString();
-                    aRange[8].Value2 = oReader["hasLab"].ToString();
+                    performanceIndicatorsCount = Int32.Parse(oReader["Count"].ToString());
+                }
+            }
+
+            oString = "select * from dbo.NumberedOutcomes order by 1,2";
+            oCmd = new SqlCommand(oString, myConnection);
+            using (SqlDataReader oReader = oCmd.ExecuteReader())
+            {
+                Range bRange = ws.get_Range("B2", Number2String(performanceIndicatorsCount + 1, true) + "2");
+                Range cRange = ws.get_Range("B3", Number2String(performanceIndicatorsCount + 1, true) + "3");
+                Range dRange = ws.get_Range("B1", Number2String(performanceIndicatorsCount + 1, true) + "1");
+                int i = 1;
+
+                while (oReader.Read())
+                {
+                    
+                    bRange[i].Value2 = oReader["PerformanceIndicator"].ToString();
+                    cRange[i].Value2 = oReader["LearningLevel"].ToString();
+                    dRange[i].Value2 = oReader["ProgramLevelOutcomes"].ToString();
+                    i++;
                 }
 
-                myConnection.Close();
+                for (i = 1; i <= 10; i++) 
+                {
+                    ws.Columns[i].ColumnWidth = 18;
+                    ws.Rows[i].RowHeight = 18 * 5;
+                }
+
+                bRange.WrapText = true;
+                cRange.WrapText = true;
+                dRange.WrapText = true;
             }
+
+            myConnection.Close();
         }
+    }
+
+    private static String Number2String(int number, bool isCaps)
+    {
+        Char c = (Char)((isCaps ? 65 : 97) + (number - 1));
+        return c.ToString();
     }
 }
