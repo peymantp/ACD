@@ -104,9 +104,7 @@ namespace ACD
             this.CreditHours = CreditHours;
         }
         public List<Course> Prerequisites = new List<Course>();
-
         public bool HasLab { get; set; }
-
         public string CourseNumber
         {
             get { return CourseNumber; }
@@ -124,7 +122,6 @@ namespace ACD
                 CourseNumber = value;
             }
         }
-
         public string Core
         {
             get { return Core; }
@@ -142,7 +139,6 @@ namespace ACD
                 Core = value;
             }
         }
-
         public string CourseName
         {
             get { return CourseName; }
@@ -160,7 +156,6 @@ namespace ACD
                 CourseName = value;
             }
         }
-
         public string Description
         {
             get
@@ -189,7 +184,6 @@ namespace ACD
                 CreditHours = value;
             }
         }
-
         public string Format
         {
             get { return Format; }
