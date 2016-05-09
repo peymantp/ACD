@@ -9,6 +9,7 @@ public class CreateExcelWorksheet
     static void Main()
     {
         Microsoft.Office.Interop.Excel.Application xlApp = new Microsoft.Office.Interop.Excel.Application();
+        xlApp.DisplayAlerts = false;
 
         if (xlApp == null)
         {
@@ -65,10 +66,8 @@ public class CreateExcelWorksheet
                 Range cRange = ws.get_Range("B3", Number2String(performanceIndicatorsCount + 1, true) + "3");
                 Range dRange = ws.get_Range("B1", Number2String(performanceIndicatorsCount + 1, true) + "1");
                 int i = 1;
-                int ii = 1;
-                int j = 2;
-                int k = 2;
-                int cellsMerged = 0;
+                int j = performanceIndicatorsCount + 1;
+                int k = j;
 
                 while (oReader.Read())
                 {
@@ -77,48 +76,32 @@ public class CreateExcelWorksheet
                     cRange[i].Value2 = oReader["LearningLevel"].ToString();
                     dRange[i].Value2 = oReader["ProgramLevelOutcomes"].ToString();
 
-                    if (i > 2 && dRange[i-1].Value2.Equals(dRange[i].Value2))
-                    {
-                        
-                    } else
-                    {
-                        if(i >2 ){
-                            ws.Range[ws.Cells[1, i ], ws.Cells[1, j]].Merge();
-                            j = i;
-                        }
-                    }
-
-                    /*if (i > 2 && !(dRange[ii - 1].Value2.Equals(dRange[ii].Value2)))
-                    {
-                        k = ii - 1;
-                        ws.Range[ws.Cells[1, j], ws.Cells[1, k]].Merge();
-                        j = ii - cellsMerged + 1;
-                        k = ii - cellsMerged + 1;
-                        ii -= cellsMerged + 1;
-                        //Console.WriteLine(j + " " + k);
-                    } else
-                    {
-                        cellsMerged++;
-                    }
-
-                    Debug.WriteLine(i + ": " + (string)(ws.Cells[1, i] as Range).Value);
-                    if (i > 1)
-
-                        Debug.WriteLine(i + "-1: " + (string)(ws.Cells[1, i - 1] as Range).Value);*/
-
                     i++;
-                    //ii++;
+                }
+
+                while (j > 1)
+                {
+                    if (!(((string)(ws.Cells[1, j-1] as Range).Value).Equals((string)(ws.Cells[1, j] as Range).Value)))
+                    {
+                        ws.Range[ws.Cells[1, k], ws.Cells[1, j]].Merge();
+                        k = j - 1;
+                    }
+                    
+                    j--;
                 }
 
                 for (i = 1; i <= 10; i++) 
                 {
                     ws.Columns[i].ColumnWidth = 18;
                     ws.Rows[i].RowHeight = 18 * 5;
+                    
                 }
 
                 bRange.WrapText = true;
                 cRange.WrapText = true;
                 dRange.WrapText = true;
+                aRange.WrapText = true;
+               
             }
 
             myConnection.Close();
