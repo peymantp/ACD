@@ -8,10 +8,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using MaterialSkin.Controls;
 
 namespace ACD
 {
-    public partial class MainForm : Form
+    public partial class MainForm : MaterialForm
     {
         List<Course> coursesList = new List<Course>();
         public MainForm()
@@ -33,7 +34,7 @@ namespace ACD
             [Prerequisites] VARCHAR (250) NULL,
             [hasLab]        INT           NULL,
             CONSTRAINT [pk_Course] PRIMARY KEY CLUSTERED ([CourseNumber] ASC, [Core] ASC)
-            */
+            
             using (SqlConnection myConnection = new SqlConnection("Server = tcp:vaxas.database.windows.net,1433; Database = vaxasDatabase; User ID = vaxasAdmin@vaxas; Password = Study1327; Encrypt = True; TrustServerCertificate = False; Connection Timeout = 30"))
             {
                 myConnection.Open();
@@ -56,24 +57,13 @@ namespace ACD
                     }
                 }
             }
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button4_Click(object sender, EventArgs e)
-        {
-
+            */
         }
 
         private void button5_Click(object sender, EventArgs e) => new CourseForm().Show();
 
         private void MainForm_Load(object sender, EventArgs e)
         {
-            // TODO: This line of code loads data into the 'vaxasDatabaseDataSet.Course' table. You can move, or remove it, as needed.
-            this.courseTableAdapter.Fill(this.vaxasDatabaseDataSet.Course);
             // TODO: This line of code loads data into the 'vaxasDatabaseDataSet.Course' table. You can move, or remove it, as needed.
             this.courseTableAdapter.Fill(this.vaxasDatabaseDataSet.Course);
 
