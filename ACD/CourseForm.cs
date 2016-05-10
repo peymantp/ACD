@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MaterialSkin.Controls;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -10,7 +11,7 @@ using System.Windows.Forms;
 
 namespace ACD
 {
-    public partial class CourseForm : Form
+    public partial class CourseForm : MaterialForm
     {
         public CourseForm()
         {
