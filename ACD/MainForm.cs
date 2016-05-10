@@ -33,7 +33,7 @@ namespace ACD
             [Prerequisites] VARCHAR (250) NULL,
             [hasLab]        INT           NULL,
             CONSTRAINT [pk_Course] PRIMARY KEY CLUSTERED ([CourseNumber] ASC, [Core] ASC)
-            */
+            
             using (SqlConnection myConnection = new SqlConnection("Server = tcp:vaxas.database.windows.net,1433; Database = vaxasDatabase; User ID = vaxasAdmin@vaxas; Password = Study1327; Encrypt = True; TrustServerCertificate = False; Connection Timeout = 30"))
             {
                 myConnection.Open();
@@ -56,6 +56,7 @@ namespace ACD
                     }
                 }
             }
+            */
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -72,8 +73,6 @@ namespace ACD
 
         private void MainForm_Load(object sender, EventArgs e)
         {
-            // TODO: This line of code loads data into the 'vaxasDatabaseDataSet.Course' table. You can move, or remove it, as needed.
-            this.courseTableAdapter.Fill(this.vaxasDatabaseDataSet.Course);
             // TODO: This line of code loads data into the 'vaxasDatabaseDataSet.Course' table. You can move, or remove it, as needed.
             this.courseTableAdapter.Fill(this.vaxasDatabaseDataSet.Course);
 
