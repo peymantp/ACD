@@ -8,10 +8,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using MaterialSkin.Controls;
 
 namespace ACD
 {
-    public partial class MainForm : Form
+    public partial class MainForm : MaterialForm
     {
         List<Course> coursesList = new List<Course>();
         public MainForm()
@@ -57,16 +58,6 @@ namespace ACD
                 }
             }
             */
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button4_Click(object sender, EventArgs e)
-        {
-
         }
 
         private void button5_Click(object sender, EventArgs e) => new CourseForm().Show();
