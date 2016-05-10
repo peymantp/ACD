@@ -69,5 +69,14 @@ namespace ACD
         }
 
         private void button5_Click(object sender, EventArgs e) => new CourseForm().Show();
+
+        private void MainForm_Load(object sender, EventArgs e)
+        {
+            // TODO: This line of code loads data into the 'vaxasDatabaseDataSet.Course' table. You can move, or remove it, as needed.
+            this.courseTableAdapter.Fill(this.vaxasDatabaseDataSet.Course);
+            // TODO: This line of code loads data into the 'vaxasDatabaseDataSet.Course' table. You can move, or remove it, as needed.
+            this.courseTableAdapter.Fill(this.vaxasDatabaseDataSet.Course);
+
+        }
     }
 }

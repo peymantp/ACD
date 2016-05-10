@@ -62,6 +62,11 @@
     <Compile Include="Program.cs" />
     <Compile Include="ProgramLevel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="vaxasDatabaseDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>vaxasDatabaseDataSet.xsd</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="CourseForm.resx">
       <DependentUpon>CourseForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -86,6 +91,17 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <None Include="vaxasDatabaseDataSet.xsc">
+      <DependentUpon>vaxasDatabaseDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="vaxasDatabaseDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>vaxasDatabaseDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="vaxasDatabaseDataSet.xss">
+      <DependentUpon>vaxasDatabaseDataSet.xsd</DependentUpon>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
