@@ -1,13 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Data.SqlClient;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 using MaterialSkin.Controls;
 using MaterialSkin;
 
@@ -21,9 +13,9 @@ namespace ACD
         public MainForm()
         {
             InitializeComponent();
-            skinManager = MaterialSkinManager.Instance;
+            /*skinManager = MaterialSkinManager.Instance;
             skinManager.AddFormToManage(this);
-            skinManager.ColorScheme = new ColorScheme(Primary.Cyan200, Primary.LightBlue800, Primary.Blue200,Accent.Lime400,TextShade.BLACK); 
+            skinManager.ColorScheme = new ColorScheme(Primary.Cyan200, Primary.LightBlue800, Primary.Blue200,Accent.Lime400,TextShade.BLACK); */ 
             pullData();
         }
 
@@ -71,8 +63,14 @@ namespace ACD
         private void MainForm_Load(object sender, EventArgs e)
         {
             // TODO: This line of code loads data into the 'vaxasDatabaseDataSet.Course' table. You can move, or remove it, as needed.
-            this.courseTableAdapter.Fill(this.vaxasDatabaseDataSet.Course);
+            //this.courseTableAdapter.Fill(this.vaxasDatabaseDataSet.Course);
 
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            ProgramLevelForm plf = new ProgramLevelForm();
+            plf.Show(); 
         }
     }
 }
