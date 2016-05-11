@@ -8,6 +8,8 @@ public class CreateExcelWorksheet
 {
     static Worksheet ws;
     static String faculty;
+    static readonly int cellSize = 18;
+
     static void Main()
     {
         CreateNewExcelDocument();
@@ -18,7 +20,6 @@ public class CreateExcelWorksheet
             myConnection.Open();
 
             GenerateXAxis(myConnection);
-
 
             myConnection.Close();
         }
@@ -62,12 +63,18 @@ public class CreateExcelWorksheet
 
         aRange.WrapText = true;
 
-        ws.Cells[1, 1].Interior.Color = XlRgbColor.rgbLightBlue;
-        ws.Cells[2, 1].Interior.Color = XlRgbColor.rgbLightBlue;
+        aRange.Interior.Color = XlRgbColor.rgbLightBlue;
+        bRange.Interior.Color = XlRgbColor.rgbLightBlue;
 
-        ws.Cells[1, 1].Font.Bold = true;
-        ws.Cells[2, 1].Font.Bold = true;
+        aRange.Font.Bold = true;
+        bRange.Font.Bold = true;
 
+        aRange.HorizontalAlignment = Microsoft.Office.Interop.Excel.XlHAlign.xlHAlignCenter;
+        aRange.VerticalAlignment =  Microsoft.Office.Interop.Excel.XlVAlign.xlVAlignCenter;
+
+        bRange.HorizontalAlignment = Microsoft.Office.Interop.Excel.XlHAlign.xlHAlignCenter;
+        bRange.VerticalAlignment = Microsoft.Office.Interop.Excel.XlVAlign.xlVAlignCenter;
+        
         string oString;
         SqlCommand oCmd;
 
@@ -90,14 +97,20 @@ public class CreateExcelWorksheet
         Range progRange = ws.get_Range("B1", GetExcelColumnName(performanceIndicatorsCount + 3) + "1");
         Range perfRange = ws.get_Range("B2", GetExcelColumnName(performanceIndicatorsCount + 3) + "2");
         
-        progRange.ColumnWidth = 18;
-        progRange.RowHeight = 18 * 5;
+        progRange.ColumnWidth = cellSize;
+        progRange.RowHeight = cellSize * 5;
 
-        perfRange.ColumnWidth = 18;
-        perfRange.RowHeight = 18 * 5;
+        perfRange.ColumnWidth = cellSize;
+        perfRange.RowHeight = cellSize * 5;
 
-        perfRange.WrapText = true;
         progRange.WrapText = true;
+        perfRange.WrapText = true;
+
+        progRange.HorizontalAlignment = Microsoft.Office.Interop.Excel.XlHAlign.xlHAlignCenter;
+        progRange.VerticalAlignment = Microsoft.Office.Interop.Excel.XlVAlign.xlVAlignCenter;
+
+        perfRange.HorizontalAlignment = Microsoft.Office.Interop.Excel.XlHAlign.xlHAlignCenter;
+        perfRange.VerticalAlignment = Microsoft.Office.Interop.Excel.XlVAlign.xlVAlignCenter;
 
         int i = 3;
         int j = performanceIndicatorsCount + 3;
@@ -107,8 +120,9 @@ public class CreateExcelWorksheet
         {
             while (oReader.Read())
             {
-                perfRange[i].Value2 = oReader["PerformanceIndicator"].ToString();
+
                 progRange[i].Value2 = oReader["ProgramLevel"].ToString();
+                perfRange[i].Value2 = oReader["PerformanceIndicator"].ToString();
                 i++;
             }
         }
@@ -141,7 +155,6 @@ public class CreateExcelWorksheet
         }
 
         Range nullDescriptions = ws.get_Range(GetExcelColumnName(i) + "1", GetExcelColumnName(performanceIndicatorsCount + 3) + "1");
-        
         nullDescriptions.Font.Bold = true;
     }
 
