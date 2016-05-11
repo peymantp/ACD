@@ -9,15 +9,21 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using MaterialSkin.Controls;
+using MaterialSkin;
 
 namespace ACD
 {
     public partial class MainForm : MaterialForm
     {
+        //#510104
         List<Course> coursesList = new List<Course>();
+        private MaterialSkinManager skinManager; 
         public MainForm()
         {
             InitializeComponent();
+            skinManager = MaterialSkinManager.Instance;
+            skinManager.AddFormToManage(this);
+            skinManager.ColorScheme = new ColorScheme(Primary.Cyan200, Primary.LightBlue800, Primary.Blue200,Accent.Lime400,TextShade.BLACK); 
             pullData();
         }
 

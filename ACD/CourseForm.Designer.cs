@@ -32,7 +32,7 @@ namespace ACD
         {
             this.components = new System.ComponentModel.Container();
             this.labelNumber = new MaterialSkin.Controls.MaterialLabel();
-            this.textBoxName = new System.Windows.Forms.TextBox();
+            this.textBoxName = new MaterialSkin.Controls.MaterialSingleLineTextField();
             this.textBoxCore = new System.Windows.Forms.TextBox();
             this.labelCore = new MaterialSkin.Controls.MaterialLabel();
             this.textBoxNumber = new System.Windows.Forms.TextBox();
@@ -45,8 +45,8 @@ namespace ACD
             this.labelFormat = new MaterialSkin.Controls.MaterialLabel();
             this.labelPrereq = new MaterialSkin.Controls.MaterialLabel();
             this.panelPrereq = new System.Windows.Forms.Panel();
-            this.buttonCreate = new MaterialRaisedButton();
-            this.buttonCancel = new MaterialRaisedButton();
+            this.buttonCreate = new MaterialSkin.Controls.MaterialRaisedButton();
+            this.buttonCancel = new MaterialSkin.Controls.MaterialRaisedButton();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.labelhasLab = new MaterialSkin.Controls.MaterialLabel();
             this.checkBoxHasLab = new System.Windows.Forms.CheckBox();
@@ -59,28 +59,35 @@ namespace ACD
             this.labelNumber.Depth = 0;
             this.labelNumber.Font = new System.Drawing.Font("Roboto", 11F);
             this.labelNumber.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.labelNumber.Location = new System.Drawing.Point(59, 160);
-            this.labelNumber.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.labelNumber.Location = new System.Drawing.Point(37, 131);
             this.labelNumber.MouseState = MaterialSkin.MouseState.HOVER;
             this.labelNumber.Name = "labelNumber";
-            this.labelNumber.Size = new System.Drawing.Size(90, 27);
+            this.labelNumber.Size = new System.Drawing.Size(62, 19);
             this.labelNumber.TabIndex = 0;
             this.labelNumber.Text = "Number";
             // 
             // textBoxName
             // 
-            this.textBoxName.Location = new System.Drawing.Point(162, 80);
-            this.textBoxName.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.textBoxName.Depth = 0;
+            this.textBoxName.Hint = "";
+            this.textBoxName.Location = new System.Drawing.Point(107, 68);
+            this.textBoxName.MaxLength = 32767;
+            this.textBoxName.MouseState = MaterialSkin.MouseState.HOVER;
             this.textBoxName.Name = "textBoxName";
-            this.textBoxName.Size = new System.Drawing.Size(403, 26);
+            this.textBoxName.PasswordChar = '\0';
+            this.textBoxName.SelectedText = "";
+            this.textBoxName.SelectionLength = 0;
+            this.textBoxName.SelectionStart = 0;
+            this.textBoxName.Size = new System.Drawing.Size(269, 23);
             this.textBoxName.TabIndex = 1;
+            this.textBoxName.TabStop = false;
+            this.textBoxName.UseSystemPasswordChar = false;
             // 
             // textBoxCore
             // 
-            this.textBoxCore.Location = new System.Drawing.Point(162, 120);
-            this.textBoxCore.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.textBoxCore.Location = new System.Drawing.Point(107, 104);
             this.textBoxCore.Name = "textBoxCore";
-            this.textBoxCore.Size = new System.Drawing.Size(403, 26);
+            this.textBoxCore.Size = new System.Drawing.Size(270, 20);
             this.textBoxCore.TabIndex = 3;
             // 
             // labelCore
@@ -89,20 +96,18 @@ namespace ACD
             this.labelCore.Depth = 0;
             this.labelCore.Font = new System.Drawing.Font("Roboto", 11F);
             this.labelCore.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.labelCore.Location = new System.Drawing.Point(91, 120);
-            this.labelCore.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.labelCore.Location = new System.Drawing.Point(58, 103);
             this.labelCore.MouseState = MaterialSkin.MouseState.HOVER;
             this.labelCore.Name = "labelCore";
-            this.labelCore.Size = new System.Drawing.Size(58, 27);
+            this.labelCore.Size = new System.Drawing.Size(41, 19);
             this.labelCore.TabIndex = 2;
             this.labelCore.Text = "Core";
             // 
             // textBoxNumber
             // 
-            this.textBoxNumber.Location = new System.Drawing.Point(162, 160);
-            this.textBoxNumber.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.textBoxNumber.Location = new System.Drawing.Point(107, 130);
             this.textBoxNumber.Name = "textBoxNumber";
-            this.textBoxNumber.Size = new System.Drawing.Size(403, 26);
+            this.textBoxNumber.Size = new System.Drawing.Size(270, 20);
             this.textBoxNumber.TabIndex = 5;
             // 
             // labelName
@@ -111,21 +116,19 @@ namespace ACD
             this.labelName.Depth = 0;
             this.labelName.Font = new System.Drawing.Font("Roboto", 11F);
             this.labelName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.labelName.Location = new System.Drawing.Point(78, 80);
-            this.labelName.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.labelName.Location = new System.Drawing.Point(50, 72);
             this.labelName.MouseState = MaterialSkin.MouseState.HOVER;
             this.labelName.Name = "labelName";
-            this.labelName.Size = new System.Drawing.Size(71, 27);
+            this.labelName.Size = new System.Drawing.Size(49, 19);
             this.labelName.TabIndex = 4;
             this.labelName.Text = "Name";
             // 
             // textBoxDesc
             // 
-            this.textBoxDesc.Location = new System.Drawing.Point(162, 200);
-            this.textBoxDesc.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.textBoxDesc.Location = new System.Drawing.Point(107, 156);
             this.textBoxDesc.Multiline = true;
             this.textBoxDesc.Name = "textBoxDesc";
-            this.textBoxDesc.Size = new System.Drawing.Size(403, 84);
+            this.textBoxDesc.Size = new System.Drawing.Size(270, 56);
             this.textBoxDesc.TabIndex = 7;
             // 
             // labelDesc
@@ -134,20 +137,18 @@ namespace ACD
             this.labelDesc.Depth = 0;
             this.labelDesc.Font = new System.Drawing.Font("Roboto", 11F);
             this.labelDesc.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.labelDesc.Location = new System.Drawing.Point(34, 198);
-            this.labelDesc.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.labelDesc.Location = new System.Drawing.Point(15, 173);
             this.labelDesc.MouseState = MaterialSkin.MouseState.HOVER;
             this.labelDesc.Name = "labelDesc";
-            this.labelDesc.Size = new System.Drawing.Size(122, 27);
+            this.labelDesc.Size = new System.Drawing.Size(86, 19);
             this.labelDesc.TabIndex = 6;
             this.labelDesc.Text = "Description";
             // 
             // textBoxCredHr
             // 
-            this.textBoxCredHr.Location = new System.Drawing.Point(162, 295);
-            this.textBoxCredHr.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.textBoxCredHr.Location = new System.Drawing.Point(109, 218);
             this.textBoxCredHr.Name = "textBoxCredHr";
-            this.textBoxCredHr.Size = new System.Drawing.Size(403, 26);
+            this.textBoxCredHr.Size = new System.Drawing.Size(270, 20);
             this.textBoxCredHr.TabIndex = 9;
             // 
             // labelCredHr
@@ -156,20 +157,18 @@ namespace ACD
             this.labelCredHr.Depth = 0;
             this.labelCredHr.Font = new System.Drawing.Font("Roboto", 11F);
             this.labelCredHr.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.labelCredHr.Location = new System.Drawing.Point(27, 293);
-            this.labelCredHr.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.labelCredHr.Location = new System.Drawing.Point(12, 219);
             this.labelCredHr.MouseState = MaterialSkin.MouseState.HOVER;
             this.labelCredHr.Name = "labelCredHr";
-            this.labelCredHr.Size = new System.Drawing.Size(129, 27);
+            this.labelCredHr.Size = new System.Drawing.Size(91, 19);
             this.labelCredHr.TabIndex = 8;
             this.labelCredHr.Text = "Credit hours";
             // 
             // textBoxFormat
             // 
-            this.textBoxFormat.Location = new System.Drawing.Point(162, 335);
-            this.textBoxFormat.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.textBoxFormat.Location = new System.Drawing.Point(108, 255);
             this.textBoxFormat.Name = "textBoxFormat";
-            this.textBoxFormat.Size = new System.Drawing.Size(403, 26);
+            this.textBoxFormat.Size = new System.Drawing.Size(270, 20);
             this.textBoxFormat.TabIndex = 11;
             // 
             // labelFormat
@@ -178,11 +177,10 @@ namespace ACD
             this.labelFormat.Depth = 0;
             this.labelFormat.Font = new System.Drawing.Font("Roboto", 11F);
             this.labelFormat.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.labelFormat.Location = new System.Drawing.Point(67, 335);
-            this.labelFormat.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.labelFormat.Location = new System.Drawing.Point(44, 254);
             this.labelFormat.MouseState = MaterialSkin.MouseState.HOVER;
             this.labelFormat.Name = "labelFormat";
-            this.labelFormat.Size = new System.Drawing.Size(82, 27);
+            this.labelFormat.Size = new System.Drawing.Size(57, 19);
             this.labelFormat.TabIndex = 10;
             this.labelFormat.Text = "Format";
             // 
@@ -192,29 +190,29 @@ namespace ACD
             this.labelPrereq.Depth = 0;
             this.labelPrereq.Font = new System.Drawing.Font("Roboto", 11F);
             this.labelPrereq.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.labelPrereq.Location = new System.Drawing.Point(16, 416);
-            this.labelPrereq.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.labelPrereq.Location = new System.Drawing.Point(5, 370);
             this.labelPrereq.MouseState = MaterialSkin.MouseState.HOVER;
             this.labelPrereq.Name = "labelPrereq";
-            this.labelPrereq.Size = new System.Drawing.Size(140, 27);
+            this.labelPrereq.Size = new System.Drawing.Size(98, 19);
             this.labelPrereq.TabIndex = 12;
             this.labelPrereq.Text = "Prerequisites";
             // 
             // panelPrereq
             // 
             this.panelPrereq.AutoScroll = true;
-            this.panelPrereq.Location = new System.Drawing.Point(162, 420);
-            this.panelPrereq.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.panelPrereq.Location = new System.Drawing.Point(108, 326);
             this.panelPrereq.Name = "panelPrereq";
-            this.panelPrereq.Size = new System.Drawing.Size(405, 182);
+            this.panelPrereq.Size = new System.Drawing.Size(270, 118);
             this.panelPrereq.TabIndex = 13;
             // 
             // buttonCreate
             // 
-            this.buttonCreate.Location = new System.Drawing.Point(454, 623);
-            this.buttonCreate.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.buttonCreate.Depth = 0;
+            this.buttonCreate.Location = new System.Drawing.Point(108, 450);
+            this.buttonCreate.MouseState = MaterialSkin.MouseState.HOVER;
             this.buttonCreate.Name = "buttonCreate";
-            this.buttonCreate.Size = new System.Drawing.Size(112, 35);
+            this.buttonCreate.Primary = true;
+            this.buttonCreate.Size = new System.Drawing.Size(75, 23);
             this.buttonCreate.TabIndex = 14;
             this.buttonCreate.Text = "Create";
             this.buttonCreate.UseVisualStyleBackColor = true;
@@ -222,10 +220,12 @@ namespace ACD
             // 
             // buttonCancel
             // 
-            this.buttonCancel.Location = new System.Drawing.Point(162, 623);
-            this.buttonCancel.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.buttonCancel.Depth = 0;
+            this.buttonCancel.Location = new System.Drawing.Point(303, 450);
+            this.buttonCancel.MouseState = MaterialSkin.MouseState.HOVER;
             this.buttonCancel.Name = "buttonCancel";
-            this.buttonCancel.Size = new System.Drawing.Size(112, 35);
+            this.buttonCancel.Primary = true;
+            this.buttonCancel.Size = new System.Drawing.Size(75, 23);
             this.buttonCancel.TabIndex = 15;
             this.buttonCancel.Text = "Cancel";
             this.buttonCancel.UseVisualStyleBackColor = true;
@@ -242,29 +242,27 @@ namespace ACD
             this.labelhasLab.Depth = 0;
             this.labelhasLab.Font = new System.Drawing.Font("Roboto", 11F);
             this.labelhasLab.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.labelhasLab.Location = new System.Drawing.Point(64, 377);
-            this.labelhasLab.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.labelhasLab.Location = new System.Drawing.Point(39, 291);
             this.labelhasLab.MouseState = MaterialSkin.MouseState.HOVER;
             this.labelhasLab.Name = "labelhasLab";
-            this.labelhasLab.Size = new System.Drawing.Size(85, 27);
+            this.labelhasLab.Size = new System.Drawing.Size(60, 19);
             this.labelhasLab.TabIndex = 16;
             this.labelhasLab.Text = "Has lab";
             // 
             // checkBoxHasLab
             // 
             this.checkBoxHasLab.AutoSize = true;
-            this.checkBoxHasLab.Location = new System.Drawing.Point(164, 383);
-            this.checkBoxHasLab.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.checkBoxHasLab.Location = new System.Drawing.Point(108, 296);
             this.checkBoxHasLab.Name = "checkBoxHasLab";
-            this.checkBoxHasLab.Size = new System.Drawing.Size(22, 21);
+            this.checkBoxHasLab.Size = new System.Drawing.Size(15, 14);
             this.checkBoxHasLab.TabIndex = 17;
             this.checkBoxHasLab.UseVisualStyleBackColor = true;
             // 
             // CourseForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(674, 703);
+            this.ClientSize = new System.Drawing.Size(464, 501);
             this.Controls.Add(this.checkBoxHasLab);
             this.Controls.Add(this.labelhasLab);
             this.Controls.Add(this.buttonCancel);
@@ -283,7 +281,6 @@ namespace ACD
             this.Controls.Add(this.labelCore);
             this.Controls.Add(this.textBoxName);
             this.Controls.Add(this.labelNumber);
-            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "CourseForm";
             this.Text = "CourseForm";
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
