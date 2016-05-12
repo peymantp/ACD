@@ -62,14 +62,15 @@ namespace ACD
 
         private void MainForm_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'vaxasDatabaseDataSet.PerformanceIndicator' table. You can move, or remove it, as needed.
+            this.performanceIndicatorTableAdapter.Fill(this.vaxasDatabaseDataSet.PerformanceIndicator);
             // TODO: This line of code loads data into the 'vaxasDatabaseDataSet.Course' table. You can move, or remove it, as needed.
             this.courseTableAdapter.Fill(this.vaxasDatabaseDataSet.Course);
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            ProgramLevelForm plf = new ProgramLevelForm();
-            plf.Show(); 
+            new ProgramLevelForm().Show();
         }
     }
 }

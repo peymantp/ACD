@@ -38,7 +38,6 @@ namespace ACD
             this.button3 = new MaterialSkin.Controls.MaterialRaisedButton();
             this.button4 = new MaterialSkin.Controls.MaterialRaisedButton();
             this.comboBox3 = new System.Windows.Forms.ComboBox();
-            this.performanceIndicatorBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.vaxasDatabaseDataSet = new ACD.vaxasDatabaseDataSet();
             this.label4 = new MaterialSkin.Controls.MaterialLabel();
             this.comboBox2 = new System.Windows.Forms.ComboBox();
@@ -48,7 +47,6 @@ namespace ACD
             this.button7 = new MaterialSkin.Controls.MaterialRaisedButton();
             this.button5 = new MaterialSkin.Controls.MaterialRaisedButton();
             this.comboBox4 = new System.Windows.Forms.ComboBox();
-            this.courseBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.label5 = new MaterialSkin.Controls.MaterialLabel();
             this.comboBox5 = new System.Windows.Forms.ComboBox();
             this.label7 = new MaterialSkin.Controls.MaterialLabel();
@@ -57,14 +55,16 @@ namespace ACD
             this.panel3 = new System.Windows.Forms.Panel();
             this.comboBox6 = new System.Windows.Forms.ComboBox();
             this.label6 = new MaterialSkin.Controls.MaterialLabel();
+            this.courseBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.courseTableAdapter = new ACD.vaxasDatabaseDataSetTableAdapters.CourseTableAdapter();
-            this.performanceIndicatorTableAdapter1 = new ACD.vaxasDatabaseDataSetTableAdapters.PerformanceIndicatorTableAdapter();
+            this.performanceIndicatorBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.performanceIndicatorTableAdapter = new ACD.vaxasDatabaseDataSetTableAdapters.PerformanceIndicatorTableAdapter();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.performanceIndicatorBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.vaxasDatabaseDataSet)).BeginInit();
             this.panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.courseBindingSource)).BeginInit();
             this.panel3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.courseBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.performanceIndicatorBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // comboBox1
@@ -156,11 +156,6 @@ namespace ACD
             this.comboBox3.Size = new System.Drawing.Size(180, 28);
             this.comboBox3.TabIndex = 7;
             // 
-            // performanceIndicatorBindingSource
-            // 
-            this.performanceIndicatorBindingSource.DataMember = "PerformanceIndicator";
-            this.performanceIndicatorBindingSource.DataSource = this.vaxasDatabaseDataSet;
-            // 
             // vaxasDatabaseDataSet
             // 
             this.vaxasDatabaseDataSet.DataSetName = "vaxasDatabaseDataSet";
@@ -182,7 +177,6 @@ namespace ACD
             // 
             // comboBox2
             // 
-            this.comboBox2.DataSource = this.performanceIndicatorBindingSource;
             this.comboBox2.FormattingEnabled = true;
             this.comboBox2.Location = new System.Drawing.Point(9, 58);
             this.comboBox2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
@@ -271,11 +265,6 @@ namespace ACD
             this.comboBox4.Size = new System.Drawing.Size(180, 28);
             this.comboBox4.TabIndex = 7;
             // 
-            // courseBindingSource
-            // 
-            this.courseBindingSource.DataMember = "Course";
-            this.courseBindingSource.DataSource = this.vaxasDatabaseDataSet;
-            // 
             // label5
             // 
             this.label5.AutoSize = true;
@@ -292,15 +281,12 @@ namespace ACD
             // 
             // comboBox5
             // 
-            this.comboBox5.DataSource = this.performanceIndicatorBindingSource;
-            this.comboBox5.DisplayMember = "Key";
             this.comboBox5.FormattingEnabled = true;
             this.comboBox5.Location = new System.Drawing.Point(12, 46);
             this.comboBox5.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.comboBox5.Name = "comboBox5";
             this.comboBox5.Size = new System.Drawing.Size(180, 28);
             this.comboBox5.TabIndex = 5;
-            this.comboBox5.ValueMember = "Key";
             // 
             // label7
             // 
@@ -380,13 +366,23 @@ namespace ACD
             this.label6.TabIndex = 10;
             this.label6.Text = "Program level outcome";
             // 
+            // courseBindingSource
+            // 
+            this.courseBindingSource.DataMember = "Course";
+            this.courseBindingSource.DataSource = this.vaxasDatabaseDataSet;
+            // 
             // courseTableAdapter
             // 
             this.courseTableAdapter.ClearBeforeFill = true;
             // 
-            // performanceIndicatorTableAdapter1
+            // performanceIndicatorBindingSource
             // 
-            this.performanceIndicatorTableAdapter1.ClearBeforeFill = true;
+            this.performanceIndicatorBindingSource.DataMember = "PerformanceIndicator";
+            this.performanceIndicatorBindingSource.DataSource = this.vaxasDatabaseDataSet;
+            // 
+            // performanceIndicatorTableAdapter
+            // 
+            this.performanceIndicatorTableAdapter.ClearBeforeFill = true;
             // 
             // MainForm
             // 
@@ -403,13 +399,13 @@ namespace ACD
             this.Load += new System.EventHandler(this.MainForm_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.performanceIndicatorBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.vaxasDatabaseDataSet)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.courseBindingSource)).EndInit();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.courseBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.performanceIndicatorBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -442,8 +438,8 @@ namespace ACD
         private vaxasDatabaseDataSet vaxasDatabaseDataSet;
         private System.Windows.Forms.BindingSource courseBindingSource;
         private vaxasDatabaseDataSetTableAdapters.CourseTableAdapter courseTableAdapter;
-        private vaxasDatabaseDataSetTableAdapters.PerformanceIndicatorTableAdapter performanceIndicatorTableAdapter1;
         private System.Windows.Forms.BindingSource performanceIndicatorBindingSource;
+        private vaxasDatabaseDataSetTableAdapters.PerformanceIndicatorTableAdapter performanceIndicatorTableAdapter;
     }
 }
 

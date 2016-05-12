@@ -1411,6 +1411,8 @@ namespace ACD {
             
             private global::System.Data.DataColumn columnKey;
             
+            private global::System.Data.DataColumn columnNumberOfElectives;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public CourseGroupDataTable() {
@@ -1462,6 +1464,14 @@ namespace ACD {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn NumberOfElectivesColumn {
+                get {
+                    return this.columnNumberOfElectives;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -1497,11 +1507,12 @@ namespace ACD {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public CourseGroupRow AddCourseGroupRow(string Name, string Key) {
+            public CourseGroupRow AddCourseGroupRow(string Name, string Key, int NumberOfElectives) {
                 CourseGroupRow rowCourseGroupRow = ((CourseGroupRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         Name,
-                        Key};
+                        Key,
+                        NumberOfElectives};
                 rowCourseGroupRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowCourseGroupRow);
                 return rowCourseGroupRow;
@@ -1534,6 +1545,7 @@ namespace ACD {
             internal void InitVars() {
                 this.columnName = base.Columns["Name"];
                 this.columnKey = base.Columns["Key"];
+                this.columnNumberOfElectives = base.Columns["NumberOfElectives"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1543,6 +1555,8 @@ namespace ACD {
                 base.Columns.Add(this.columnName);
                 this.columnKey = new global::System.Data.DataColumn("Key", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnKey);
+                this.columnNumberOfElectives = new global::System.Data.DataColumn("NumberOfElectives", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnNumberOfElectives);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnName,
                                 this.columnKey}, true));
@@ -1550,6 +1564,7 @@ namespace ACD {
                 this.columnName.MaxLength = 100;
                 this.columnKey.AllowDBNull = false;
                 this.columnKey.MaxLength = 250;
+                this.columnNumberOfElectives.AllowDBNull = false;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2783,6 +2798,17 @@ namespace ACD {
                 }
                 set {
                     this[this.tableCourseGroup.KeyColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public int NumberOfElectives {
+                get {
+                    return ((int)(this[this.tableCourseGroup.NumberOfElectivesColumn]));
+                }
+                set {
+                    this[this.tableCourseGroup.NumberOfElectivesColumn] = value;
                 }
             }
         }
@@ -4489,31 +4515,36 @@ SELECT Description, CreditHours, Format, hasLab, [Key], Name, Number FROM Course
             tableMapping.DataSetTable = "CourseGroup";
             tableMapping.ColumnMappings.Add("Name", "Name");
             tableMapping.ColumnMappings.Add("Key", "Key");
+            tableMapping.ColumnMappings.Add("NumberOfElectives", "NumberOfElectives");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = "DELETE FROM [dbo].[CourseGroup] WHERE (([Name] = @Original_Name) AND ([Key] = @Or" +
-                "iginal_Key))";
+            this._adapter.DeleteCommand.CommandText = "DELETE FROM [CourseGroup] WHERE (([Name] = @Original_Name) AND ([Key] = @Original" +
+                "_Key) AND ([NumberOfElectives] = @Original_NumberOfElectives))";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Name", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Name", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Key", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Key", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_NumberOfElectives", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "NumberOfElectives", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[CourseGroup] ([Name], [Key]) VALUES (@Name, @Key);\r\nSELECT Nam" +
-                "e, [Key] FROM CourseGroup WHERE ([Key] = @Key) AND (Name = @Name)";
+            this._adapter.InsertCommand.CommandText = "INSERT INTO [CourseGroup] ([Name], [Key], [NumberOfElectives]) VALUES (@Name, @Ke" +
+                "y, @NumberOfElectives);\r\nSELECT Name, [Key], NumberOfElectives FROM CourseGroup " +
+                "WHERE ([Key] = @Key) AND (Name = @Name)";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Name", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Name", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Key", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Key", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@NumberOfElectives", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "NumberOfElectives", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = "UPDATE [dbo].[CourseGroup] SET [Name] = @Name, [Key] = @Key WHERE (([Name] = @Ori" +
-                "ginal_Name) AND ([Key] = @Original_Key));\r\nSELECT Name, [Key] FROM CourseGroup W" +
-                "HERE ([Key] = @Key) AND (Name = @Name)";
+            this._adapter.UpdateCommand.CommandText = @"UPDATE [CourseGroup] SET [Name] = @Name, [Key] = @Key, [NumberOfElectives] = @NumberOfElectives WHERE (([Name] = @Original_Name) AND ([Key] = @Original_Key) AND ([NumberOfElectives] = @Original_NumberOfElectives));
+SELECT Name, [Key], NumberOfElectives FROM CourseGroup WHERE ([Key] = @Key) AND (Name = @Name)";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Name", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Name", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Key", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Key", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@NumberOfElectives", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "NumberOfElectives", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Name", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Name", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Key", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Key", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_NumberOfElectives", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "NumberOfElectives", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -4529,7 +4560,7 @@ SELECT Description, CreditHours, Format, hasLab, [Key], Name, Number FROM Course
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT Name, [Key] FROM dbo.CourseGroup";
+            this._commandCollection[0].CommandText = "SELECT Name, [Key], NumberOfElectives FROM CourseGroup";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -4590,7 +4621,7 @@ SELECT Description, CreditHours, Format, hasLab, [Key], Name, Number FROM Course
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(string Original_Name, string Original_Key) {
+        public virtual int Delete(string Original_Name, string Original_Key, int Original_NumberOfElectives) {
             if ((Original_Name == null)) {
                 throw new global::System.ArgumentNullException("Original_Name");
             }
@@ -4603,6 +4634,7 @@ SELECT Description, CreditHours, Format, hasLab, [Key], Name, Number FROM Course
             else {
                 this.Adapter.DeleteCommand.Parameters[1].Value = ((string)(Original_Key));
             }
+            this.Adapter.DeleteCommand.Parameters[2].Value = ((int)(Original_NumberOfElectives));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
             if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -4623,7 +4655,7 @@ SELECT Description, CreditHours, Format, hasLab, [Key], Name, Number FROM Course
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(string Name, string Key) {
+        public virtual int Insert(string Name, string Key, int NumberOfElectives) {
             if ((Name == null)) {
                 throw new global::System.ArgumentNullException("Name");
             }
@@ -4636,6 +4668,7 @@ SELECT Description, CreditHours, Format, hasLab, [Key], Name, Number FROM Course
             else {
                 this.Adapter.InsertCommand.Parameters[1].Value = ((string)(Key));
             }
+            this.Adapter.InsertCommand.Parameters[2].Value = ((int)(NumberOfElectives));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
             if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -4656,7 +4689,7 @@ SELECT Description, CreditHours, Format, hasLab, [Key], Name, Number FROM Course
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(string Name, string Key, string Original_Name, string Original_Key) {
+        public virtual int Update(string Name, string Key, int NumberOfElectives, string Original_Name, string Original_Key, int Original_NumberOfElectives) {
             if ((Name == null)) {
                 throw new global::System.ArgumentNullException("Name");
             }
@@ -4669,18 +4702,20 @@ SELECT Description, CreditHours, Format, hasLab, [Key], Name, Number FROM Course
             else {
                 this.Adapter.UpdateCommand.Parameters[1].Value = ((string)(Key));
             }
+            this.Adapter.UpdateCommand.Parameters[2].Value = ((int)(NumberOfElectives));
             if ((Original_Name == null)) {
                 throw new global::System.ArgumentNullException("Original_Name");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[2].Value = ((string)(Original_Name));
+                this.Adapter.UpdateCommand.Parameters[3].Value = ((string)(Original_Name));
             }
             if ((Original_Key == null)) {
                 throw new global::System.ArgumentNullException("Original_Key");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[3].Value = ((string)(Original_Key));
+                this.Adapter.UpdateCommand.Parameters[4].Value = ((string)(Original_Key));
             }
+            this.Adapter.UpdateCommand.Parameters[5].Value = ((int)(Original_NumberOfElectives));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
             if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -4701,8 +4736,8 @@ SELECT Description, CreditHours, Format, hasLab, [Key], Name, Number FROM Course
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(string Original_Name, string Original_Key) {
-            return this.Update(Original_Name, Original_Key, Original_Name, Original_Key);
+        public virtual int Update(int NumberOfElectives, string Original_Name, string Original_Key, int Original_NumberOfElectives) {
+            return this.Update(Original_Name, Original_Key, NumberOfElectives, Original_Name, Original_Key, Original_NumberOfElectives);
         }
     }
     
