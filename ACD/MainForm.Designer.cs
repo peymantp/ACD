@@ -86,7 +86,7 @@ namespace ACD
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.MouseState = MaterialSkin.MouseState.HOVER;
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(82, 19);
+            this.label1.Size = new System.Drawing.Size(96, 27);
             this.label1.TabIndex = 2;
             this.label1.Text = "Program";
             // 
@@ -114,7 +114,7 @@ namespace ACD
             this.panel1.Controls.Add(this.comboBox2);
             this.panel1.Controls.Add(this.label3);
             this.panel1.Controls.Add(this.label2);
-            this.panel1.Location = new System.Drawing.Point(3, 127);
+            this.panel1.Location = new System.Drawing.Point(4, 154);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(347, 215);
             this.panel1.TabIndex = 4;
