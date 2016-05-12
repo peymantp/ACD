@@ -86,9 +86,9 @@ namespace ACD
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.MouseState = MaterialSkin.MouseState.HOVER;
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(117, 27);
+            this.label1.Size = new System.Drawing.Size(82, 19);
             this.label1.TabIndex = 2;
-            this.label1.Text = "Curriculum";
+            this.label1.Text = "Program";
             // 
             // label2
             // 
@@ -114,8 +114,7 @@ namespace ACD
             this.panel1.Controls.Add(this.comboBox2);
             this.panel1.Controls.Add(this.label3);
             this.panel1.Controls.Add(this.label2);
-            this.panel1.Location = new System.Drawing.Point(4, 195);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.panel1.Location = new System.Drawing.Point(3, 127);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(347, 215);
             this.panel1.TabIndex = 4;
@@ -342,6 +341,7 @@ namespace ACD
             this.button1.TabIndex = 11;
             this.button1.Text = "Add";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // panel3
             // 
@@ -399,7 +399,7 @@ namespace ACD
             this.Controls.Add(this.comboBox1);
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "MainForm";
-            this.Text = "Texas A & M Redesign Tool";
+            this.Text = "Texas A&M Program Redesign Tool";
             this.Load += new System.EventHandler(this.MainForm_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
