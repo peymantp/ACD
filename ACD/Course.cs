@@ -14,8 +14,8 @@ namespace ACD
         private string _courseName;
         private string _description;
         private string _format;
-        private double _creditHours;
-        public Course(string CourseNumber, string Core, string CourseName, string Description, double CreditHours, string Format, Course[] Prerequisities, bool HasLab)
+        private float _creditHours;
+        public Course(string CourseNumber, string Core, string CourseName, string Description, float CreditHours, string Format, Course[] Prerequisities, bool HasLab)
         {
             this.CourseNumber = CourseNumber;
             this.Core = Core;
@@ -29,7 +29,7 @@ namespace ACD
             }
             this.HasLab = HasLab;
         }
-        public Course(string CourseNumber, string Core, string CourseName, string Description, double CreditHours, string Format, Course[] Prerequisities)
+        public Course(string CourseNumber, string Core, string CourseName, string Description, float CreditHours, string Format, Course[] Prerequisities)
         {
             this.CourseNumber = CourseNumber;
             this.CourseNumber = CourseNumber;
@@ -43,7 +43,7 @@ namespace ACD
                 this.Prerequisites.Add(VARIABLE);
             }
         }
-        public Course(string CourseNumber, string Core, string CourseName, string Description, double CreditHours, Course[] Prerequisities, bool HasLab)
+        public Course(string CourseNumber, string Core, string CourseName, string Description, float CreditHours, Course[] Prerequisities, bool HasLab)
         {
             this.CourseNumber = CourseNumber;
             this.CourseNumber = CourseNumber;
@@ -57,7 +57,7 @@ namespace ACD
             }
             this.HasLab = HasLab;
         }
-        public Course(string CourseNumber, string Core, string CourseName, string Description, double CreditHours, string Format,  bool HasLab)
+        public Course(string CourseNumber, string Core, string CourseName, string Description, float CreditHours, string Format,  bool HasLab)
         {
             this.CourseNumber = CourseNumber;
             if (CourseNumber == null) throw new ArgumentNullException(nameof(CourseNumber));
@@ -69,7 +69,7 @@ namespace ACD
             this.Format = Format;
             this.HasLab = HasLab;
         }
-        public Course(string CourseNumber, string Core, string CourseName, string Description, double CreditHours, string Format)
+        public Course(string CourseNumber, string Core, string CourseName, string Description, float CreditHours, string Format)
         {
             this.CourseNumber = CourseNumber;
             this.CourseNumber = CourseNumber;
@@ -79,7 +79,7 @@ namespace ACD
             this.CreditHours = CreditHours;
             this.Format = Format;
         }
-        public Course(string CourseNumber, string Core, string CourseName, string Description, double CreditHours, Course[] Prerequisities)
+        public Course(string CourseNumber, string Core, string CourseName, string Description, float CreditHours, Course[] Prerequisities)
         {
             this.CourseNumber = CourseNumber;
             this.Core = Core;
@@ -91,7 +91,7 @@ namespace ACD
                 this.Prerequisites.Add(VARIABLE);
             }
         }
-        public Course(string CourseNumber, string Core, string CourseName, string Description, double CreditHours, bool HasLab)
+        public Course(string CourseNumber, string Core, string CourseName, string Description, float CreditHours, bool HasLab)
         {
             this.CourseNumber = CourseNumber;
             this.Core = Core;
@@ -100,7 +100,7 @@ namespace ACD
             this.CreditHours = CreditHours;
             this.HasLab = HasLab;
         }
-        public Course(string CourseNumber, string Core, string CourseName, string Description, double CreditHours)
+        public Course(string CourseNumber, string Core, string CourseName, string Description, float CreditHours)
         {
             this.CourseNumber = CourseNumber;
             this.Core = Core;
@@ -178,7 +178,7 @@ namespace ACD
                 _description = value;
             }
         }
-        public double CreditHours
+        public float CreditHours
         {
             get { return _creditHours; }
             set
