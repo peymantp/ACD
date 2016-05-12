@@ -26,9 +26,9 @@ namespace ACD.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=vaxas.database.windows.net;Initial Catalog=vaxasDatabase;Persist Secu" +
-            "rity Info=True;User ID=vaxasAdmin;Password=Study1327;Asynchronous Processing=Tru" +
-            "e")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=vaxas.database.windows.net;Initial Catalog=vaxasDatabase;User ID=vaxa" +
+            "sAdmin;Password=texasa&m1;Asynchronous Processing=True;Encrypt=True;MultiSubnetF" +
+            "ailover=False")]
         public string vaxasDatabaseConnectionString {
             get {
                 return ((string)(this["vaxasDatabaseConnectionString"]));

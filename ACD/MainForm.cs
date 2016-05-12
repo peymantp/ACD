@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
 using MaterialSkin.Controls;
 using MaterialSkin;
 
@@ -12,6 +13,7 @@ namespace ACD
         private MaterialSkinManager skinManager; 
         public MainForm()
         {
+            
             InitializeComponent();
             skinManager = MaterialSkinManager.Instance;
             skinManager.AddFormToManage(this);
