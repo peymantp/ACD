@@ -13,9 +13,9 @@ namespace ACD
         public MainForm()
         {
             InitializeComponent();
-            /*skinManager = MaterialSkinManager.Instance;
+            skinManager = MaterialSkinManager.Instance;
             skinManager.AddFormToManage(this);
-            skinManager.ColorScheme = new ColorScheme(Primary.Cyan200, Primary.LightBlue800, Primary.Blue200,Accent.Lime400,TextShade.BLACK); */ 
+            skinManager.ColorScheme = new ColorScheme(Primary.BlueGrey800, Primary.BlueGrey900, Primary.BlueGrey500, Accent.LightBlue200, TextShade.WHITE);
             pullData();
         }
 
@@ -62,15 +62,15 @@ namespace ACD
 
         private void MainForm_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'vaxasDatabaseDataSet.PerformanceIndicator' table. You can move, or remove it, as needed.
+            this.performanceIndicatorTableAdapter.Fill(this.vaxasDatabaseDataSet.PerformanceIndicator);
             // TODO: This line of code loads data into the 'vaxasDatabaseDataSet.Course' table. You can move, or remove it, as needed.
-            //this.courseTableAdapter.Fill(this.vaxasDatabaseDataSet.Course);
-
+            this.courseTableAdapter.Fill(this.vaxasDatabaseDataSet.Course);
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            ProgramLevelForm plf = new ProgramLevelForm();
-            plf.Show(); 
+            new ProgramLevelForm().Show();
         }
     }
 }
