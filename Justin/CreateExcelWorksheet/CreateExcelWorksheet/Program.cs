@@ -205,10 +205,12 @@ public class CreateExcelWorksheet
         groupRange.VerticalAlignment = Microsoft.Office.Interop.Excel.XlVAlign.xlVAlignCenter;
 
         groupRange.Interior.Color = XlRgbColor.rgbLightBlue;
-        groupRange.Font.Bold = true;
+        courseNumRange.Interior.Color = XlRgbColor.rgbMistyRose;
+        courseNameRange.Interior.Color = XlRgbColor.rgbMistyRose;
 
-        //oString = "select grp.Name, COUNT(crs.Name) + AVG(grp.NumberOfElectives) as NumCourses from Course crs left join CourseGroup grp on SUBSTRING(crs.\"Key\", 1, CASE CHARINDEX('_', crs.\"Key\") WHEN 0 THEN LEN(crs.\"Key\") ELSE CHARINDEX('_', crs.\"Key\")-1 END) = grp.\"Key\" and SUBSTRING(crs.\"Key\", CASE CHARINDEX('_', crs.\"Key\") WHEN 0 THEN LEN(crs.\"Key\")+1 ELSE CHARINDEX('_', crs.\"Key\")+1 END, 1000) = grp.\"Name\" where grp.\"Key\" = '" + faculty + "' group by grp.Name order by 2 desc,1";
-        oString = "select grp.Name as \"Group\", crs.Name as \"Course\", grp.NumberOfElectives,  ROW_NUMBER() over (partition by grp.\"Key\" order by grp.\"Name\", crs.Name) as num1 from Course crs left join CourseGroup grp on SUBSTRING(crs.\"Key\", 1, CASE CHARINDEX('_', crs.\"Key\") WHEN 0 THEN LEN(crs.\"Key\") ELSE CHARINDEX('_', crs.\"Key\")-1 END) = grp.\"Key\" and SUBSTRING(crs.\"Key\", CASE CHARINDEX('_', crs.\"Key\") WHEN 0 THEN LEN(crs.\"Key\")+1 ELSE CHARINDEX('_', crs.\"Key\")+1 END, 1000) = grp.\"Name\" where grp.\"Key\" = '" + faculty + "' order by 3";
+        groupRange.Font.Bold = true;
+        
+        oString = "select grp.Name as \"Group\", crs.Name as \"Course\", grp.NumberOfElectives,  ROW_NUMBER() over (partition by grp.\"Key\" order by grp.\"Name\", crs.Name) as num1 from Course crs left join CourseGroup grp on SUBSTRING(crs.\"Key\", 1, CASE CHARINDEX('_', crs.\"Key\") WHEN 0 THEN LEN(crs.\"Key\") ELSE CHARINDEX('_', crs.\"Key\")-1 END) = grp.\"Key\" and SUBSTRING(crs.\"Key\", CASE CHARINDEX('_', crs.\"Key\") WHEN 0 THEN LEN(crs.\"Key\")+1 ELSE CHARINDEX('_', crs.\"Key\")+1 END, 1000) = grp.\"Name\" where grp.\"Key\" = '" + faculty + "' order by 4";
         oCmd = new SqlCommand(oString, myConnection);
 
         int i = 1;
@@ -222,12 +224,7 @@ public class CreateExcelWorksheet
         {
             while (oReader.Read())
             {
-                Debug.WriteLine("i: " + i);
-                Debug.WriteLine("numCourses: " + numCourses);
-                Debug.WriteLine("lastNumElectives: " + lastNumElectives);
-                Debug.WriteLine("lastGroup: " + lastGroup);
-                Debug.WriteLine("thisGroup: " + oReader["Group"].ToString());
-                Debug.WriteLine("");
+                numCourses++;
 
                 if (i > 1 && !lastGroup.Equals(oReader["Group"].ToString()))
                 {
@@ -256,12 +253,13 @@ public class CreateExcelWorksheet
 
                 lastGroup = oReader["Group"].ToString();
                 lastNumElectives = Int32.Parse(oReader["NumberOfElectives"].ToString());
-                numCourses++;
                 i++;
             }
         }
         if (lastNumElectives > 0)
         {
+            numCourses++;
+
             for (int l = numCourses; l < lastNumElectives + numCourses; l++)
             {
                 groupRange[i].Value2 = lastGroup;
@@ -286,6 +284,17 @@ public class CreateExcelWorksheet
 
             j--;
         }
+
+        //Colouring a cell seems to remove the border.
+        //This is a temporary fix.
+        int color = 13421772;
+
+        for (int z = 1; z < numAllCourses + 3; z++)
+        {
+            BorderAround(ws.UsedRange.Cells[1][z], color);
+            BorderAround(ws.UsedRange.Cells[2][z], color);
+            BorderAround(ws.UsedRange.Cells[3][z], color);
+        }
     }
 
     private static string GetExcelColumnName(int columnNumber)
@@ -302,5 +311,20 @@ public class CreateExcelWorksheet
         }
 
         return columnName;
+    }
+
+    private static void BorderAround(Range range, int colour)
+    {
+        Borders borders = range.Borders;
+        borders[XlBordersIndex.xlEdgeLeft].LineStyle = XlLineStyle.xlContinuous;
+        borders[XlBordersIndex.xlEdgeTop].LineStyle = XlLineStyle.xlContinuous;
+        borders[XlBordersIndex.xlEdgeBottom].LineStyle = XlLineStyle.xlContinuous;
+        borders[XlBordersIndex.xlEdgeRight].LineStyle = XlLineStyle.xlContinuous;
+        borders.Color = colour;
+        borders[XlBordersIndex.xlInsideVertical].LineStyle = XlLineStyle.xlLineStyleNone;
+        borders[XlBordersIndex.xlInsideHorizontal].LineStyle = XlLineStyle.xlLineStyleNone;
+        borders[XlBordersIndex.xlDiagonalUp].LineStyle = XlLineStyle.xlLineStyleNone;
+        borders[XlBordersIndex.xlDiagonalDown].LineStyle = XlLineStyle.xlLineStyleNone;
+        borders = null;
     }
 }
