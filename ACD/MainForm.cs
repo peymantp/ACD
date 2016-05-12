@@ -23,7 +23,7 @@ namespace ACD
             InitializeComponent();
             skinManager = MaterialSkinManager.Instance;
             skinManager.AddFormToManage(this);
-            skinManager.ColorScheme = new ColorScheme(Primary.Cyan200, Primary.LightBlue800, Primary.Blue200,Accent.Lime400,TextShade.BLACK); 
+            skinManager.ColorScheme = new ColorScheme(Primary.BlueGrey800, Primary.BlueGrey900, Primary.BlueGrey500, Accent.LightBlue200, TextShade.WHITE);
             pullData();
         }
 

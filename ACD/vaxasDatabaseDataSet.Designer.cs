@@ -36,6 +36,8 @@ namespace ACD {
         
         private PrerequisiteCoursesDataTable tablePrerequisiteCourses;
         
+        private LearningLevelDataTable tableLearningLevel;
+        
         private global::System.Data.SchemaSerializationMode _schemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -81,6 +83,9 @@ namespace ACD {
                 }
                 if ((ds.Tables["PrerequisiteCourses"] != null)) {
                     base.Tables.Add(new PrerequisiteCoursesDataTable(ds.Tables["PrerequisiteCourses"]));
+                }
+                if ((ds.Tables["LearningLevel"] != null)) {
+                    base.Tables.Add(new LearningLevelDataTable(ds.Tables["LearningLevel"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -157,6 +162,16 @@ namespace ACD {
         public PrerequisiteCoursesDataTable PrerequisiteCourses {
             get {
                 return this.tablePrerequisiteCourses;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Browsable(false)]
+        [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
+        public LearningLevelDataTable LearningLevel {
+            get {
+                return this.tableLearningLevel;
             }
         }
         
@@ -245,6 +260,9 @@ namespace ACD {
                 if ((ds.Tables["PrerequisiteCourses"] != null)) {
                     base.Tables.Add(new PrerequisiteCoursesDataTable(ds.Tables["PrerequisiteCourses"]));
                 }
+                if ((ds.Tables["LearningLevel"] != null)) {
+                    base.Tables.Add(new LearningLevelDataTable(ds.Tables["LearningLevel"]));
+                }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
                 this.Namespace = ds.Namespace;
@@ -314,6 +332,12 @@ namespace ACD {
                     this.tablePrerequisiteCourses.InitVars();
                 }
             }
+            this.tableLearningLevel = ((LearningLevelDataTable)(base.Tables["LearningLevel"]));
+            if ((initTable == true)) {
+                if ((this.tableLearningLevel != null)) {
+                    this.tableLearningLevel.InitVars();
+                }
+            }
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -336,6 +360,8 @@ namespace ACD {
             base.Tables.Add(this.tableFaculty);
             this.tablePrerequisiteCourses = new PrerequisiteCoursesDataTable();
             base.Tables.Add(this.tablePrerequisiteCourses);
+            this.tableLearningLevel = new LearningLevelDataTable();
+            base.Tables.Add(this.tableLearningLevel);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -371,6 +397,12 @@ namespace ACD {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private bool ShouldSerializePrerequisiteCourses() {
+            return false;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        private bool ShouldSerializeLearningLevel() {
             return false;
         }
         
@@ -446,6 +478,9 @@ namespace ACD {
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         public delegate void PrerequisiteCoursesRowChangeEventHandler(object sender, PrerequisiteCoursesRowChangeEvent e);
+        
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        public delegate void LearningLevelRowChangeEventHandler(object sender, LearningLevelRowChangeEvent e);
         
         /// <summary>
         ///Represents the strongly named DataTable class.
@@ -1085,9 +1120,7 @@ namespace ACD {
             
             private global::System.Data.DataColumn columnDescription;
             
-            private global::System.Data.DataColumn columnCourseNumber;
-            
-            private global::System.Data.DataColumn columnCore;
+            private global::System.Data.DataColumn columnKey;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
@@ -1140,17 +1173,9 @@ namespace ACD {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn CourseNumberColumn {
+            public global::System.Data.DataColumn KeyColumn {
                 get {
-                    return this.columnCourseNumber;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn CoreColumn {
-                get {
-                    return this.columnCore;
+                    return this.columnKey;
                 }
             }
             
@@ -1191,13 +1216,12 @@ namespace ACD {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public ProgramLevelRow AddProgramLevelRow(string Name, string Description, string CourseNumber, string Core) {
+            public ProgramLevelRow AddProgramLevelRow(string Name, string Description, string Key) {
                 ProgramLevelRow rowProgramLevelRow = ((ProgramLevelRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         Name,
                         Description,
-                        CourseNumber,
-                        Core};
+                        Key};
                 rowProgramLevelRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowProgramLevelRow);
                 return rowProgramLevelRow;
@@ -1205,11 +1229,10 @@ namespace ACD {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public ProgramLevelRow FindByNameCourseNumberCore(string Name, string CourseNumber, string Core) {
+            public ProgramLevelRow FindByNameKey(string Name, string Key) {
                 return ((ProgramLevelRow)(this.Rows.Find(new object[] {
                             Name,
-                            CourseNumber,
-                            Core})));
+                            Key})));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1231,8 +1254,7 @@ namespace ACD {
             internal void InitVars() {
                 this.columnName = base.Columns["Name"];
                 this.columnDescription = base.Columns["Description"];
-                this.columnCourseNumber = base.Columns["CourseNumber"];
-                this.columnCore = base.Columns["Core"];
+                this.columnKey = base.Columns["Key"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1242,21 +1264,16 @@ namespace ACD {
                 base.Columns.Add(this.columnName);
                 this.columnDescription = new global::System.Data.DataColumn("Description", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnDescription);
-                this.columnCourseNumber = new global::System.Data.DataColumn("CourseNumber", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnCourseNumber);
-                this.columnCore = new global::System.Data.DataColumn("Core", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnCore);
+                this.columnKey = new global::System.Data.DataColumn("Key", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnKey);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnName,
-                                this.columnCourseNumber,
-                                this.columnCore}, true));
+                                this.columnKey}, true));
                 this.columnName.AllowDBNull = false;
                 this.columnName.MaxLength = 50;
                 this.columnDescription.MaxLength = 250;
-                this.columnCourseNumber.AllowDBNull = false;
-                this.columnCourseNumber.MaxLength = 10;
-                this.columnCore.AllowDBNull = false;
-                this.columnCore.MaxLength = 50;
+                this.columnKey.AllowDBNull = false;
+                this.columnKey.MaxLength = 250;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2195,6 +2212,300 @@ namespace ACD {
         }
         
         /// <summary>
+        ///Represents the strongly named DataTable class.
+        ///</summary>
+        [global::System.Serializable()]
+        [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
+        public partial class LearningLevelDataTable : global::System.Data.TypedTableBase<LearningLevelRow> {
+            
+            private global::System.Data.DataColumn columnPerformanceIndicatorKey;
+            
+            private global::System.Data.DataColumn columnCouresKey;
+            
+            private global::System.Data.DataColumn columnValue;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public LearningLevelDataTable() {
+                this.TableName = "LearningLevel";
+                this.BeginInit();
+                this.InitClass();
+                this.EndInit();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            internal LearningLevelDataTable(global::System.Data.DataTable table) {
+                this.TableName = table.TableName;
+                if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
+                    this.CaseSensitive = table.CaseSensitive;
+                }
+                if ((table.Locale.ToString() != table.DataSet.Locale.ToString())) {
+                    this.Locale = table.Locale;
+                }
+                if ((table.Namespace != table.DataSet.Namespace)) {
+                    this.Namespace = table.Namespace;
+                }
+                this.Prefix = table.Prefix;
+                this.MinimumCapacity = table.MinimumCapacity;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected LearningLevelDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+                    base(info, context) {
+                this.InitVars();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn PerformanceIndicatorKeyColumn {
+                get {
+                    return this.columnPerformanceIndicatorKey;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn CouresKeyColumn {
+                get {
+                    return this.columnCouresKey;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn ValueColumn {
+                get {
+                    return this.columnValue;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            [global::System.ComponentModel.Browsable(false)]
+            public int Count {
+                get {
+                    return this.Rows.Count;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public LearningLevelRow this[int index] {
+                get {
+                    return ((LearningLevelRow)(this.Rows[index]));
+                }
+            }
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public event LearningLevelRowChangeEventHandler LearningLevelRowChanging;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public event LearningLevelRowChangeEventHandler LearningLevelRowChanged;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public event LearningLevelRowChangeEventHandler LearningLevelRowDeleting;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public event LearningLevelRowChangeEventHandler LearningLevelRowDeleted;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void AddLearningLevelRow(LearningLevelRow row) {
+                this.Rows.Add(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public LearningLevelRow AddLearningLevelRow(string PerformanceIndicatorKey, string CouresKey, string Value) {
+                LearningLevelRow rowLearningLevelRow = ((LearningLevelRow)(this.NewRow()));
+                object[] columnValuesArray = new object[] {
+                        PerformanceIndicatorKey,
+                        CouresKey,
+                        Value};
+                rowLearningLevelRow.ItemArray = columnValuesArray;
+                this.Rows.Add(rowLearningLevelRow);
+                return rowLearningLevelRow;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public LearningLevelRow FindByPerformanceIndicatorKeyCouresKeyValue(string PerformanceIndicatorKey, string CouresKey, string Value) {
+                return ((LearningLevelRow)(this.Rows.Find(new object[] {
+                            PerformanceIndicatorKey,
+                            CouresKey,
+                            Value})));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public override global::System.Data.DataTable Clone() {
+                LearningLevelDataTable cln = ((LearningLevelDataTable)(base.Clone()));
+                cln.InitVars();
+                return cln;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override global::System.Data.DataTable CreateInstance() {
+                return new LearningLevelDataTable();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            internal void InitVars() {
+                this.columnPerformanceIndicatorKey = base.Columns["PerformanceIndicatorKey"];
+                this.columnCouresKey = base.Columns["CouresKey"];
+                this.columnValue = base.Columns["Value"];
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            private void InitClass() {
+                this.columnPerformanceIndicatorKey = new global::System.Data.DataColumn("PerformanceIndicatorKey", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnPerformanceIndicatorKey);
+                this.columnCouresKey = new global::System.Data.DataColumn("CouresKey", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnCouresKey);
+                this.columnValue = new global::System.Data.DataColumn("Value", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnValue);
+                this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
+                                this.columnPerformanceIndicatorKey,
+                                this.columnCouresKey,
+                                this.columnValue}, true));
+                this.columnPerformanceIndicatorKey.AllowDBNull = false;
+                this.columnPerformanceIndicatorKey.MaxLength = 250;
+                this.columnCouresKey.AllowDBNull = false;
+                this.columnCouresKey.MaxLength = 250;
+                this.columnValue.AllowDBNull = false;
+                this.columnValue.MaxLength = 10;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public LearningLevelRow NewLearningLevelRow() {
+                return ((LearningLevelRow)(this.NewRow()));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
+                return new LearningLevelRow(builder);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override global::System.Type GetRowType() {
+                return typeof(LearningLevelRow);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanged(e);
+                if ((this.LearningLevelRowChanged != null)) {
+                    this.LearningLevelRowChanged(this, new LearningLevelRowChangeEvent(((LearningLevelRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanging(e);
+                if ((this.LearningLevelRowChanging != null)) {
+                    this.LearningLevelRowChanging(this, new LearningLevelRowChangeEvent(((LearningLevelRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleted(e);
+                if ((this.LearningLevelRowDeleted != null)) {
+                    this.LearningLevelRowDeleted(this, new LearningLevelRowChangeEvent(((LearningLevelRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleting(e);
+                if ((this.LearningLevelRowDeleting != null)) {
+                    this.LearningLevelRowDeleting(this, new LearningLevelRowChangeEvent(((LearningLevelRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void RemoveLearningLevelRow(LearningLevelRow row) {
+                this.Rows.Remove(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
+                global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
+                global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
+                vaxasDatabaseDataSet ds = new vaxasDatabaseDataSet();
+                global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
+                any1.Namespace = "http://www.w3.org/2001/XMLSchema";
+                any1.MinOccurs = new decimal(0);
+                any1.MaxOccurs = decimal.MaxValue;
+                any1.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any1);
+                global::System.Xml.Schema.XmlSchemaAny any2 = new global::System.Xml.Schema.XmlSchemaAny();
+                any2.Namespace = "urn:schemas-microsoft-com:xml-diffgram-v1";
+                any2.MinOccurs = new decimal(1);
+                any2.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any2);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute1 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute1.Name = "namespace";
+                attribute1.FixedValue = ds.Namespace;
+                type.Attributes.Add(attribute1);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute2.Name = "tableTypeName";
+                attribute2.FixedValue = "LearningLevelDataTable";
+                type.Attributes.Add(attribute2);
+                type.Particle = sequence;
+                global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
+                if (xs.Contains(dsSchema.TargetNamespace)) {
+                    global::System.IO.MemoryStream s1 = new global::System.IO.MemoryStream();
+                    global::System.IO.MemoryStream s2 = new global::System.IO.MemoryStream();
+                    try {
+                        global::System.Xml.Schema.XmlSchema schema = null;
+                        dsSchema.Write(s1);
+                        for (global::System.Collections.IEnumerator schemas = xs.Schemas(dsSchema.TargetNamespace).GetEnumerator(); schemas.MoveNext(); ) {
+                            schema = ((global::System.Xml.Schema.XmlSchema)(schemas.Current));
+                            s2.SetLength(0);
+                            schema.Write(s2);
+                            if ((s1.Length == s2.Length)) {
+                                s1.Position = 0;
+                                s2.Position = 0;
+                                for (; ((s1.Position != s1.Length) 
+                                            && (s1.ReadByte() == s2.ReadByte())); ) {
+                                    ;
+                                }
+                                if ((s1.Position == s1.Length)) {
+                                    return type;
+                                }
+                            }
+                        }
+                    }
+                    finally {
+                        if ((s1 != null)) {
+                            s1.Close();
+                        }
+                        if ((s2 != null)) {
+                            s2.Close();
+                        }
+                    }
+                }
+                xs.Add(dsSchema);
+                return type;
+            }
+        }
+        
+        /// <summary>
         ///Represents strongly named DataRow class.
         ///</summary>
         public partial class CourseRow : global::System.Data.DataRow {
@@ -2417,23 +2728,12 @@ namespace ACD {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string CourseNumber {
+            public string Key {
                 get {
-                    return ((string)(this[this.tableProgramLevel.CourseNumberColumn]));
+                    return ((string)(this[this.tableProgramLevel.KeyColumn]));
                 }
                 set {
-                    this[this.tableProgramLevel.CourseNumberColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string Core {
-                get {
-                    return ((string)(this[this.tableProgramLevel.CoreColumn]));
-                }
-                set {
-                    this[this.tableProgramLevel.CoreColumn] = value;
+                    this[this.tableProgramLevel.KeyColumn] = value;
                 }
             }
             
@@ -2546,6 +2846,54 @@ namespace ACD {
                 }
                 set {
                     this[this.tablePrerequisiteCourses.KeyColumn] = value;
+                }
+            }
+        }
+        
+        /// <summary>
+        ///Represents strongly named DataRow class.
+        ///</summary>
+        public partial class LearningLevelRow : global::System.Data.DataRow {
+            
+            private LearningLevelDataTable tableLearningLevel;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            internal LearningLevelRow(global::System.Data.DataRowBuilder rb) : 
+                    base(rb) {
+                this.tableLearningLevel = ((LearningLevelDataTable)(this.Table));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string PerformanceIndicatorKey {
+                get {
+                    return ((string)(this[this.tableLearningLevel.PerformanceIndicatorKeyColumn]));
+                }
+                set {
+                    this[this.tableLearningLevel.PerformanceIndicatorKeyColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string CouresKey {
+                get {
+                    return ((string)(this[this.tableLearningLevel.CouresKeyColumn]));
+                }
+                set {
+                    this[this.tableLearningLevel.CouresKeyColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Value {
+                get {
+                    return ((string)(this[this.tableLearningLevel.ValueColumn]));
+                }
+                set {
+                    this[this.tableLearningLevel.ValueColumn] = value;
                 }
             }
         }
@@ -2740,6 +3088,40 @@ namespace ACD {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public PrerequisiteCoursesRow Row {
+                get {
+                    return this.eventRow;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataRowAction Action {
+                get {
+                    return this.eventAction;
+                }
+            }
+        }
+        
+        /// <summary>
+        ///Row event argument class
+        ///</summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        public class LearningLevelRowChangeEvent : global::System.EventArgs {
+            
+            private LearningLevelRow eventRow;
+            
+            private global::System.Data.DataRowAction eventAction;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public LearningLevelRowChangeEvent(LearningLevelRow row, global::System.Data.DataRowAction action) {
+                this.eventRow = row;
+                this.eventAction = action;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public LearningLevelRow Row {
                 get {
                     return this.eventRow;
                 }
@@ -3431,11 +3813,15 @@ SELECT Description, CreditHours, Format, hasLab, [Key], Name, Number FROM Course
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private void InitCommandCollection() {
-            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
+            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[2];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = "SELECT Name, [Key] FROM PerformanceIndicator";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[1].Connection = this.Connection;
+            this._commandCollection[1].CommandText = "SELECT DISTINCT Name, [Key] FROM PerformanceIndicator";
+            this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -3460,6 +3846,19 @@ SELECT Description, CreditHours, Format, hasLab, [Key], Name, Number FROM Course
             vaxasDatabaseDataSet.PerformanceIndicatorDataTable dataTable = new vaxasDatabaseDataSet.PerformanceIndicatorDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
+        public virtual int FillBy(vaxasDatabaseDataSet.PerformanceIndicatorDataTable dataTable) {
+            this.Adapter.SelectCommand = this.CommandCollection[1];
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -3734,44 +4133,35 @@ SELECT Description, CreditHours, Format, hasLab, [Key], Name, Number FROM Course
             tableMapping.DataSetTable = "ProgramLevel";
             tableMapping.ColumnMappings.Add("Name", "Name");
             tableMapping.ColumnMappings.Add("Description", "Description");
-            tableMapping.ColumnMappings.Add("CourseNumber", "CourseNumber");
-            tableMapping.ColumnMappings.Add("Core", "Core");
+            tableMapping.ColumnMappings.Add("Key", "Key");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = "DELETE FROM [dbo].[ProgramLevel] WHERE (([Name] = @Original_Name) AND ((@IsNull_D" +
-                "escription = 1 AND [Description] IS NULL) OR ([Description] = @Original_Descript" +
-                "ion)) AND ([CourseNumber] = @Original_CourseNumber) AND ([Core] = @Original_Core" +
-                "))";
+            this._adapter.DeleteCommand.CommandText = "DELETE FROM [ProgramLevel] WHERE (([Name] = @Original_Name) AND ([Key] = @Origina" +
+                "l_Key))";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Name", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Name", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Description", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Description", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Description", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Description", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_CourseNumber", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CourseNumber", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Core", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Core", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Key", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Key", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = @"INSERT INTO [dbo].[ProgramLevel] ([Name], [Description], [CourseNumber], [Core]) VALUES (@Name, @Description, @CourseNumber, @Core);
-SELECT Name, Description, CourseNumber, Core FROM ProgramLevel WHERE (Core = @Core) AND (CourseNumber = @CourseNumber) AND (Name = @Name)";
+            this._adapter.InsertCommand.CommandText = "INSERT INTO [ProgramLevel] ([Name], [Description], [Key]) VALUES (@Name, @Descrip" +
+                "tion, @Key);\r\nSELECT Name, Description, [Key] FROM ProgramLevel WHERE ([Key] = @" +
+                "Key) AND (Name = @Name)";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Name", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Name", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Description", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Description", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CourseNumber", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CourseNumber", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Core", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Core", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Key", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Key", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE [dbo].[ProgramLevel] SET [Name] = @Name, [Description] = @Description, [CourseNumber] = @CourseNumber, [Core] = @Core WHERE (([Name] = @Original_Name) AND ((@IsNull_Description = 1 AND [Description] IS NULL) OR ([Description] = @Original_Description)) AND ([CourseNumber] = @Original_CourseNumber) AND ([Core] = @Original_Core));
-SELECT Name, Description, CourseNumber, Core FROM ProgramLevel WHERE (Core = @Core) AND (CourseNumber = @CourseNumber) AND (Name = @Name)";
+            this._adapter.UpdateCommand.CommandText = "UPDATE [ProgramLevel] SET [Name] = @Name, [Description] = @Description, [Key] = @" +
+                "Key WHERE (([Name] = @Original_Name) AND ([Key] = @Original_Key));\r\nSELECT Name," +
+                " Description, [Key] FROM ProgramLevel WHERE ([Key] = @Key) AND (Name = @Name)";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Name", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Name", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Description", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Description", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CourseNumber", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CourseNumber", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Core", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Core", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Key", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Key", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Name", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Name", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Description", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Description", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Description", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Description", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_CourseNumber", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CourseNumber", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Core", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Core", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Key", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Key", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -3787,7 +4177,7 @@ SELECT Name, Description, CourseNumber, Core FROM ProgramLevel WHERE (Core = @Co
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT Name, Description, CourseNumber, Core FROM dbo.ProgramLevel";
+            this._commandCollection[0].CommandText = "SELECT Name, Description, [Key] FROM ProgramLevel";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -3848,32 +4238,18 @@ SELECT Name, Description, CourseNumber, Core FROM ProgramLevel WHERE (Core = @Co
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(string Original_Name, string Original_Description, string Original_CourseNumber, string Original_Core) {
+        public virtual int Delete(string Original_Name, string Original_Key) {
             if ((Original_Name == null)) {
                 throw new global::System.ArgumentNullException("Original_Name");
             }
             else {
                 this.Adapter.DeleteCommand.Parameters[0].Value = ((string)(Original_Name));
             }
-            if ((Original_Description == null)) {
-                this.Adapter.DeleteCommand.Parameters[1].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[2].Value = global::System.DBNull.Value;
+            if ((Original_Key == null)) {
+                throw new global::System.ArgumentNullException("Original_Key");
             }
             else {
-                this.Adapter.DeleteCommand.Parameters[1].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[2].Value = ((string)(Original_Description));
-            }
-            if ((Original_CourseNumber == null)) {
-                throw new global::System.ArgumentNullException("Original_CourseNumber");
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[3].Value = ((string)(Original_CourseNumber));
-            }
-            if ((Original_Core == null)) {
-                throw new global::System.ArgumentNullException("Original_Core");
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[4].Value = ((string)(Original_Core));
+                this.Adapter.DeleteCommand.Parameters[1].Value = ((string)(Original_Key));
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
             if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -3895,7 +4271,7 @@ SELECT Name, Description, CourseNumber, Core FROM ProgramLevel WHERE (Core = @Co
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(string Name, string Description, string CourseNumber, string Core) {
+        public virtual int Insert(string Name, string Description, string Key) {
             if ((Name == null)) {
                 throw new global::System.ArgumentNullException("Name");
             }
@@ -3908,17 +4284,11 @@ SELECT Name, Description, CourseNumber, Core FROM ProgramLevel WHERE (Core = @Co
             else {
                 this.Adapter.InsertCommand.Parameters[1].Value = ((string)(Description));
             }
-            if ((CourseNumber == null)) {
-                throw new global::System.ArgumentNullException("CourseNumber");
+            if ((Key == null)) {
+                throw new global::System.ArgumentNullException("Key");
             }
             else {
-                this.Adapter.InsertCommand.Parameters[2].Value = ((string)(CourseNumber));
-            }
-            if ((Core == null)) {
-                throw new global::System.ArgumentNullException("Core");
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[3].Value = ((string)(Core));
+                this.Adapter.InsertCommand.Parameters[2].Value = ((string)(Key));
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
             if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -3940,7 +4310,7 @@ SELECT Name, Description, CourseNumber, Core FROM ProgramLevel WHERE (Core = @Co
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(string Name, string Description, string CourseNumber, string Core, string Original_Name, string Original_Description, string Original_CourseNumber, string Original_Core) {
+        public virtual int Update(string Name, string Description, string Key, string Original_Name, string Original_Key) {
             if ((Name == null)) {
                 throw new global::System.ArgumentNullException("Name");
             }
@@ -3953,43 +4323,23 @@ SELECT Name, Description, CourseNumber, Core FROM ProgramLevel WHERE (Core = @Co
             else {
                 this.Adapter.UpdateCommand.Parameters[1].Value = ((string)(Description));
             }
-            if ((CourseNumber == null)) {
-                throw new global::System.ArgumentNullException("CourseNumber");
+            if ((Key == null)) {
+                throw new global::System.ArgumentNullException("Key");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[2].Value = ((string)(CourseNumber));
-            }
-            if ((Core == null)) {
-                throw new global::System.ArgumentNullException("Core");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[3].Value = ((string)(Core));
+                this.Adapter.UpdateCommand.Parameters[2].Value = ((string)(Key));
             }
             if ((Original_Name == null)) {
                 throw new global::System.ArgumentNullException("Original_Name");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[4].Value = ((string)(Original_Name));
+                this.Adapter.UpdateCommand.Parameters[3].Value = ((string)(Original_Name));
             }
-            if ((Original_Description == null)) {
-                this.Adapter.UpdateCommand.Parameters[5].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[6].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[5].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[6].Value = ((string)(Original_Description));
-            }
-            if ((Original_CourseNumber == null)) {
-                throw new global::System.ArgumentNullException("Original_CourseNumber");
+            if ((Original_Key == null)) {
+                throw new global::System.ArgumentNullException("Original_Key");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[7].Value = ((string)(Original_CourseNumber));
-            }
-            if ((Original_Core == null)) {
-                throw new global::System.ArgumentNullException("Original_Core");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[8].Value = ((string)(Original_Core));
+                this.Adapter.UpdateCommand.Parameters[4].Value = ((string)(Original_Key));
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
             if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -4011,8 +4361,8 @@ SELECT Name, Description, CourseNumber, Core FROM ProgramLevel WHERE (Core = @Co
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(string Description, string Original_Name, string Original_Description, string Original_CourseNumber, string Original_Core) {
-            return this.Update(Original_Name, Description, Original_CourseNumber, Original_Core, Original_Name, Original_Description, Original_CourseNumber, Original_Core);
+        public virtual int Update(string Description, string Original_Name, string Original_Key) {
+            return this.Update(Original_Name, Description, Original_Key, Original_Name, Original_Key);
         }
     }
     
@@ -5007,6 +5357,375 @@ SELECT Name, Description, CourseNumber, Core FROM ProgramLevel WHERE (Core = @Co
     }
     
     /// <summary>
+    ///Represents the connection and commands used to retrieve and save data.
+    ///</summary>
+    [global::System.ComponentModel.DesignerCategoryAttribute("code")]
+    [global::System.ComponentModel.ToolboxItem(true)]
+    [global::System.ComponentModel.DataObjectAttribute(true)]
+    [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
+        ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
+    [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+    public partial class LearningLevelTableAdapter : global::System.ComponentModel.Component {
+        
+        private global::System.Data.SqlClient.SqlDataAdapter _adapter;
+        
+        private global::System.Data.SqlClient.SqlConnection _connection;
+        
+        private global::System.Data.SqlClient.SqlTransaction _transaction;
+        
+        private global::System.Data.SqlClient.SqlCommand[] _commandCollection;
+        
+        private bool _clearBeforeFill;
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        public LearningLevelTableAdapter() {
+            this.ClearBeforeFill = true;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        protected internal global::System.Data.SqlClient.SqlDataAdapter Adapter {
+            get {
+                if ((this._adapter == null)) {
+                    this.InitAdapter();
+                }
+                return this._adapter;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        internal global::System.Data.SqlClient.SqlConnection Connection {
+            get {
+                if ((this._connection == null)) {
+                    this.InitConnection();
+                }
+                return this._connection;
+            }
+            set {
+                this._connection = value;
+                if ((this.Adapter.InsertCommand != null)) {
+                    this.Adapter.InsertCommand.Connection = value;
+                }
+                if ((this.Adapter.DeleteCommand != null)) {
+                    this.Adapter.DeleteCommand.Connection = value;
+                }
+                if ((this.Adapter.UpdateCommand != null)) {
+                    this.Adapter.UpdateCommand.Connection = value;
+                }
+                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
+                    if ((this.CommandCollection[i] != null)) {
+                        ((global::System.Data.SqlClient.SqlCommand)(this.CommandCollection[i])).Connection = value;
+                    }
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        internal global::System.Data.SqlClient.SqlTransaction Transaction {
+            get {
+                return this._transaction;
+            }
+            set {
+                this._transaction = value;
+                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
+                    this.CommandCollection[i].Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.DeleteCommand != null))) {
+                    this.Adapter.DeleteCommand.Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.InsertCommand != null))) {
+                    this.Adapter.InsertCommand.Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.UpdateCommand != null))) {
+                    this.Adapter.UpdateCommand.Transaction = this._transaction;
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        protected global::System.Data.SqlClient.SqlCommand[] CommandCollection {
+            get {
+                if ((this._commandCollection == null)) {
+                    this.InitCommandCollection();
+                }
+                return this._commandCollection;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        public bool ClearBeforeFill {
+            get {
+                return this._clearBeforeFill;
+            }
+            set {
+                this._clearBeforeFill = value;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        private void InitAdapter() {
+            this._adapter = new global::System.Data.SqlClient.SqlDataAdapter();
+            global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
+            tableMapping.SourceTable = "Table";
+            tableMapping.DataSetTable = "LearningLevel";
+            tableMapping.ColumnMappings.Add("PerformanceIndicatorKey", "PerformanceIndicatorKey");
+            tableMapping.ColumnMappings.Add("CouresKey", "CouresKey");
+            tableMapping.ColumnMappings.Add("Value", "Value");
+            this._adapter.TableMappings.Add(tableMapping);
+            this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
+            this._adapter.DeleteCommand.Connection = this.Connection;
+            this._adapter.DeleteCommand.CommandText = "DELETE FROM [dbo].[LearningLevel] WHERE (([PerformanceIndicatorKey] = @Original_P" +
+                "erformanceIndicatorKey) AND ([CouresKey] = @Original_CouresKey) AND ([Value] = @" +
+                "Original_Value))";
+            this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_PerformanceIndicatorKey", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PerformanceIndicatorKey", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_CouresKey", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CouresKey", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Value", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Value", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
+            this._adapter.InsertCommand.Connection = this.Connection;
+            this._adapter.InsertCommand.CommandText = @"INSERT INTO [dbo].[LearningLevel] ([PerformanceIndicatorKey], [CouresKey], [Value]) VALUES (@PerformanceIndicatorKey, @CouresKey, @Value);
+SELECT PerformanceIndicatorKey, CouresKey, Value FROM LearningLevel WHERE (CouresKey = @CouresKey) AND (PerformanceIndicatorKey = @PerformanceIndicatorKey) AND (Value = @Value)";
+            this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@PerformanceIndicatorKey", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PerformanceIndicatorKey", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CouresKey", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CouresKey", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Value", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Value", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
+            this._adapter.UpdateCommand.Connection = this.Connection;
+            this._adapter.UpdateCommand.CommandText = @"UPDATE [dbo].[LearningLevel] SET [PerformanceIndicatorKey] = @PerformanceIndicatorKey, [CouresKey] = @CouresKey, [Value] = @Value WHERE (([PerformanceIndicatorKey] = @Original_PerformanceIndicatorKey) AND ([CouresKey] = @Original_CouresKey) AND ([Value] = @Original_Value));
+SELECT PerformanceIndicatorKey, CouresKey, Value FROM LearningLevel WHERE (CouresKey = @CouresKey) AND (PerformanceIndicatorKey = @PerformanceIndicatorKey) AND (Value = @Value)";
+            this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@PerformanceIndicatorKey", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PerformanceIndicatorKey", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CouresKey", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CouresKey", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Value", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Value", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_PerformanceIndicatorKey", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PerformanceIndicatorKey", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_CouresKey", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CouresKey", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Value", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Value", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        private void InitConnection() {
+            this._connection = new global::System.Data.SqlClient.SqlConnection();
+            this._connection.ConnectionString = global::ACD.Properties.Settings.Default.vaxasDatabaseConnectionString;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        private void InitCommandCollection() {
+            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
+            this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[0].Connection = this.Connection;
+            this._commandCollection[0].CommandText = "SELECT PerformanceIndicatorKey, CouresKey, Value FROM dbo.LearningLevel";
+            this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
+        public virtual int Fill(vaxasDatabaseDataSet.LearningLevelDataTable dataTable) {
+            this.Adapter.SelectCommand = this.CommandCollection[0];
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
+        public virtual vaxasDatabaseDataSet.LearningLevelDataTable GetData() {
+            this.Adapter.SelectCommand = this.CommandCollection[0];
+            vaxasDatabaseDataSet.LearningLevelDataTable dataTable = new vaxasDatabaseDataSet.LearningLevelDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual int Update(vaxasDatabaseDataSet.LearningLevelDataTable dataTable) {
+            return this.Adapter.Update(dataTable);
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual int Update(vaxasDatabaseDataSet dataSet) {
+            return this.Adapter.Update(dataSet, "LearningLevel");
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual int Update(global::System.Data.DataRow dataRow) {
+            return this.Adapter.Update(new global::System.Data.DataRow[] {
+                        dataRow});
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual int Update(global::System.Data.DataRow[] dataRows) {
+            return this.Adapter.Update(dataRows);
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
+        public virtual int Delete(string Original_PerformanceIndicatorKey, string Original_CouresKey, string Original_Value) {
+            if ((Original_PerformanceIndicatorKey == null)) {
+                throw new global::System.ArgumentNullException("Original_PerformanceIndicatorKey");
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[0].Value = ((string)(Original_PerformanceIndicatorKey));
+            }
+            if ((Original_CouresKey == null)) {
+                throw new global::System.ArgumentNullException("Original_CouresKey");
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[1].Value = ((string)(Original_CouresKey));
+            }
+            if ((Original_Value == null)) {
+                throw new global::System.ArgumentNullException("Original_Value");
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[2].Value = ((string)(Original_Value));
+            }
+            global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
+            if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                this.Adapter.DeleteCommand.Connection.Open();
+            }
+            try {
+                int returnValue = this.Adapter.DeleteCommand.ExecuteNonQuery();
+                return returnValue;
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    this.Adapter.DeleteCommand.Connection.Close();
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
+        public virtual int Insert(string PerformanceIndicatorKey, string CouresKey, string Value) {
+            if ((PerformanceIndicatorKey == null)) {
+                throw new global::System.ArgumentNullException("PerformanceIndicatorKey");
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[0].Value = ((string)(PerformanceIndicatorKey));
+            }
+            if ((CouresKey == null)) {
+                throw new global::System.ArgumentNullException("CouresKey");
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[1].Value = ((string)(CouresKey));
+            }
+            if ((Value == null)) {
+                throw new global::System.ArgumentNullException("Value");
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[2].Value = ((string)(Value));
+            }
+            global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
+            if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                this.Adapter.InsertCommand.Connection.Open();
+            }
+            try {
+                int returnValue = this.Adapter.InsertCommand.ExecuteNonQuery();
+                return returnValue;
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    this.Adapter.InsertCommand.Connection.Close();
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
+        public virtual int Update(string PerformanceIndicatorKey, string CouresKey, string Value, string Original_PerformanceIndicatorKey, string Original_CouresKey, string Original_Value) {
+            if ((PerformanceIndicatorKey == null)) {
+                throw new global::System.ArgumentNullException("PerformanceIndicatorKey");
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[0].Value = ((string)(PerformanceIndicatorKey));
+            }
+            if ((CouresKey == null)) {
+                throw new global::System.ArgumentNullException("CouresKey");
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[1].Value = ((string)(CouresKey));
+            }
+            if ((Value == null)) {
+                throw new global::System.ArgumentNullException("Value");
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[2].Value = ((string)(Value));
+            }
+            if ((Original_PerformanceIndicatorKey == null)) {
+                throw new global::System.ArgumentNullException("Original_PerformanceIndicatorKey");
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[3].Value = ((string)(Original_PerformanceIndicatorKey));
+            }
+            if ((Original_CouresKey == null)) {
+                throw new global::System.ArgumentNullException("Original_CouresKey");
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[4].Value = ((string)(Original_CouresKey));
+            }
+            if ((Original_Value == null)) {
+                throw new global::System.ArgumentNullException("Original_Value");
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[5].Value = ((string)(Original_Value));
+            }
+            global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
+            if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                this.Adapter.UpdateCommand.Connection.Open();
+            }
+            try {
+                int returnValue = this.Adapter.UpdateCommand.ExecuteNonQuery();
+                return returnValue;
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    this.Adapter.UpdateCommand.Connection.Close();
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
+        public virtual int Update(string Original_PerformanceIndicatorKey, string Original_CouresKey, string Original_Value) {
+            return this.Update(Original_PerformanceIndicatorKey, Original_CouresKey, Original_Value, Original_PerformanceIndicatorKey, Original_CouresKey, Original_Value);
+        }
+    }
+    
+    /// <summary>
     ///TableAdapterManager is used to coordinate TableAdapters in the dataset to enable Hierarchical Update scenarios
     ///</summary>
     [global::System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -5029,6 +5748,8 @@ SELECT Name, Description, CourseNumber, Core FROM ProgramLevel WHERE (Core = @Co
         private FacultyTableAdapter _facultyTableAdapter;
         
         private PrerequisiteCoursesTableAdapter _prerequisiteCoursesTableAdapter;
+        
+        private LearningLevelTableAdapter _learningLevelTableAdapter;
         
         private bool _backupDataSetBeforeUpdate;
         
@@ -5131,6 +5852,20 @@ SELECT Name, Description, CourseNumber, Core FROM ProgramLevel WHERE (Core = @Co
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.EditorAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterManagerPropertyEditor, Microso" +
+            "ft.VSDesigner, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3" +
+            "a", "System.Drawing.Design.UITypeEditor")]
+        public LearningLevelTableAdapter LearningLevelTableAdapter {
+            get {
+                return this._learningLevelTableAdapter;
+            }
+            set {
+                this._learningLevelTableAdapter = value;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         public bool BackupDataSetBeforeUpdate {
             get {
                 return this._backupDataSetBeforeUpdate;
@@ -5172,6 +5907,10 @@ SELECT Name, Description, CourseNumber, Core FROM ProgramLevel WHERE (Core = @Co
                             && (this._prerequisiteCoursesTableAdapter.Connection != null))) {
                     return this._prerequisiteCoursesTableAdapter.Connection;
                 }
+                if (((this._learningLevelTableAdapter != null) 
+                            && (this._learningLevelTableAdapter.Connection != null))) {
+                    return this._learningLevelTableAdapter.Connection;
+                }
                 return null;
             }
             set {
@@ -5201,6 +5940,9 @@ SELECT Name, Description, CourseNumber, Core FROM ProgramLevel WHERE (Core = @Co
                     count = (count + 1);
                 }
                 if ((this._prerequisiteCoursesTableAdapter != null)) {
+                    count = (count + 1);
+                }
+                if ((this._learningLevelTableAdapter != null)) {
                     count = (count + 1);
                 }
                 return count;
@@ -5268,6 +6010,15 @@ SELECT Name, Description, CourseNumber, Core FROM ProgramLevel WHERE (Core = @Co
                     allChangedRows.AddRange(updatedRows);
                 }
             }
+            if ((this._learningLevelTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.LearningLevel.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
+                if (((updatedRows != null) 
+                            && (0 < updatedRows.Length))) {
+                    result = (result + this._learningLevelTableAdapter.Update(updatedRows));
+                    allChangedRows.AddRange(updatedRows);
+                }
+            }
             return result;
         }
         
@@ -5326,6 +6077,14 @@ SELECT Name, Description, CourseNumber, Core FROM ProgramLevel WHERE (Core = @Co
                     allAddedRows.AddRange(addedRows);
                 }
             }
+            if ((this._learningLevelTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.LearningLevel.Select(null, null, global::System.Data.DataViewRowState.Added);
+                if (((addedRows != null) 
+                            && (0 < addedRows.Length))) {
+                    result = (result + this._learningLevelTableAdapter.Update(addedRows));
+                    allAddedRows.AddRange(addedRows);
+                }
+            }
             return result;
         }
         
@@ -5336,6 +6095,14 @@ SELECT Name, Description, CourseNumber, Core FROM ProgramLevel WHERE (Core = @Co
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private int UpdateDeletedRows(vaxasDatabaseDataSet dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows) {
             int result = 0;
+            if ((this._learningLevelTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.LearningLevel.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+                if (((deletedRows != null) 
+                            && (0 < deletedRows.Length))) {
+                    result = (result + this._learningLevelTableAdapter.Update(deletedRows));
+                    allChangedRows.AddRange(deletedRows);
+                }
+            }
             if ((this._prerequisiteCoursesTableAdapter != null)) {
                 global::System.Data.DataRow[] deletedRows = dataSet.PrerequisiteCourses.Select(null, null, global::System.Data.DataViewRowState.Deleted);
                 if (((deletedRows != null) 
@@ -5453,6 +6220,11 @@ SELECT Name, Description, CourseNumber, Core FROM ProgramLevel WHERE (Core = @Co
                 throw new global::System.ArgumentException("All TableAdapters managed by a TableAdapterManager must use the same connection s" +
                         "tring.");
             }
+            if (((this._learningLevelTableAdapter != null) 
+                        && (this.MatchTableAdapterConnection(this._learningLevelTableAdapter.Connection) == false))) {
+                throw new global::System.ArgumentException("All TableAdapters managed by a TableAdapterManager must use the same connection s" +
+                        "tring.");
+            }
             global::System.Data.IDbConnection workConnection = this.Connection;
             if ((workConnection == null)) {
                 throw new global::System.ApplicationException("TableAdapterManager contains no connection information. Set each TableAdapterMana" +
@@ -5539,6 +6311,15 @@ SELECT Name, Description, CourseNumber, Core FROM ProgramLevel WHERE (Core = @Co
                         adaptersWithAcceptChangesDuringUpdate.Add(this._prerequisiteCoursesTableAdapter.Adapter);
                     }
                 }
+                if ((this._learningLevelTableAdapter != null)) {
+                    revertConnections.Add(this._learningLevelTableAdapter, this._learningLevelTableAdapter.Connection);
+                    this._learningLevelTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(workConnection));
+                    this._learningLevelTableAdapter.Transaction = ((global::System.Data.SqlClient.SqlTransaction)(workTransaction));
+                    if (this._learningLevelTableAdapter.Adapter.AcceptChangesDuringUpdate) {
+                        this._learningLevelTableAdapter.Adapter.AcceptChangesDuringUpdate = false;
+                        adaptersWithAcceptChangesDuringUpdate.Add(this._learningLevelTableAdapter.Adapter);
+                    }
+                }
                 // 
                 //---- Perform updates -----------
                 //
@@ -5620,6 +6401,10 @@ SELECT Name, Description, CourseNumber, Core FROM ProgramLevel WHERE (Core = @Co
                 if ((this._prerequisiteCoursesTableAdapter != null)) {
                     this._prerequisiteCoursesTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(revertConnections[this._prerequisiteCoursesTableAdapter]));
                     this._prerequisiteCoursesTableAdapter.Transaction = null;
+                }
+                if ((this._learningLevelTableAdapter != null)) {
+                    this._learningLevelTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(revertConnections[this._learningLevelTableAdapter]));
+                    this._learningLevelTableAdapter.Transaction = null;
                 }
                 if ((0 < adaptersWithAcceptChangesDuringUpdate.Count)) {
                     global::System.Data.Common.DataAdapter[] adapters = new System.Data.Common.DataAdapter[adaptersWithAcceptChangesDuringUpdate.Count];
