@@ -9,97 +9,13 @@ namespace ACD
     public class Course
     {
         public List<Course> Prerequisites = new List<Course>();
-        private string _courseNumber;
-        private string _core;
-        private string _courseName;
-        private string _description;
-        private string _format;
-        private float _creditHours;
-        public Course(string CourseNumber, string Core, string CourseName, string Description, float CreditHours, string Format, Course[] Prerequisities, bool HasLab)
-        {
-            this.CourseNumber = CourseNumber;
-            this.Core = Core;
-            this.CourseName = CourseName;
-            this.Description = Description;
-            this.CreditHours = CreditHours;
-            this.Format = Format;
-            foreach (Course VARIABLE in Prerequisities)
-            {
-                this.Prerequisites.Add(VARIABLE);
-            }
-            this.HasLab = HasLab;
-        }
-        public Course(string CourseNumber, string Core, string CourseName, string Description, float CreditHours, string Format, Course[] Prerequisities)
-        {
-            this.CourseNumber = CourseNumber;
-            this.CourseNumber = CourseNumber;
-            this.Core = Core;
-            this.CourseName = CourseName;
-            this.Description = Description;
-            this.CreditHours = CreditHours;
-            this.Format = Format;
-            foreach (Course VARIABLE in Prerequisities)
-            {
-                this.Prerequisites.Add(VARIABLE);
-            }
-        }
-        public Course(string CourseNumber, string Core, string CourseName, string Description, float CreditHours, Course[] Prerequisities, bool HasLab)
-        {
-            this.CourseNumber = CourseNumber;
-            this.CourseNumber = CourseNumber;
-            this.Core = Core;
-            this.CourseName = CourseName;
-            this.Description = Description;
-            this.CreditHours = CreditHours;
-            foreach (Course VARIABLE in Prerequisities)
-            {
-                this.Prerequisites.Add(VARIABLE);
-            }
-            this.HasLab = HasLab;
-        }
-        public Course(string CourseNumber, string Core, string CourseName, string Description, float CreditHours, string Format,  bool HasLab)
-        {
-            this.CourseNumber = CourseNumber;
-            if (CourseNumber == null) throw new ArgumentNullException(nameof(CourseNumber));
-            this.CourseNumber = CourseNumber;
-            this.Core = Core;
-            this.CourseName = CourseName;
-            this.Description = Description;
-            this.CreditHours = CreditHours;
-            this.Format = Format;
-            this.HasLab = HasLab;
-        }
-        public Course(string CourseNumber, string Core, string CourseName, string Description, float CreditHours, string Format)
-        {
-            this.CourseNumber = CourseNumber;
-            this.CourseNumber = CourseNumber;
-            this.Core = Core;
-            this.CourseName = CourseName;
-            this.Description = Description;
-            this.CreditHours = CreditHours;
-            this.Format = Format;
-        }
-        public Course(string CourseNumber, string Core, string CourseName, string Description, float CreditHours, Course[] Prerequisities)
-        {
-            this.CourseNumber = CourseNumber;
-            this.Core = Core;
-            this.CourseName = CourseName;
-            this.Description = Description;
-            this.CreditHours = CreditHours;
-            foreach (Course VARIABLE in Prerequisities)
-            {
-                this.Prerequisites.Add(VARIABLE);
-            }
-        }
-        public Course(string CourseNumber, string Core, string CourseName, string Description, float CreditHours, bool HasLab)
-        {
-            this.CourseNumber = CourseNumber;
-            this.Core = Core;
-            this.CourseName = CourseName;
-            this.Description = Description;
-            this.CreditHours = CreditHours;
-            this.HasLab = HasLab;
-        }
+        public List<Course> Postrequisites = new List<Course>(); //todo add to constructor
+        private string courseNumber_;
+        private string core_; //coursegroup
+        private string courseName_;
+        private string description_;
+        private string format_;
+        private float creditHours_;
         public Course(string CourseNumber, string Core, string CourseName, string Description, float CreditHours)
         {
             this.CourseNumber = CourseNumber;
@@ -113,7 +29,7 @@ namespace ACD
         
         public string CourseNumber
         {
-            get { return _courseNumber; }
+            get { return courseNumber_; }
             set
             {
                 if (value.Length > 10)
@@ -125,13 +41,26 @@ namespace ACD
                 {
                     throw new ArgumentNullException("value can not be null or empty");
                 }
-                _courseNumber = value;
+                courseNumber_ = value;
             }
         }
-        
+        public void addPostrequisites()
+        {
+            foreach (Course VARIABLE in Postrequisites)
+            {
+                this.Prerequisites.Add(VARIABLE);
+            }
+        }
+        public void addPrerequisites()
+        {
+            foreach (Course VARIABLE in Prerequisites)
+            {
+                this.Prerequisites.Add(VARIABLE);
+            }
+        }
         public string Core
         {
-            get { return _core; }
+            get { return core_; }
             set
             {
                 if (value.Length > 50)
@@ -143,12 +72,12 @@ namespace ACD
                 {
                     throw new ArgumentNullException("value can not be null or empty");
                 }
-                _core = value;
+                core_ = value;
             }
         }
         public string CourseName
         {
-            get { return _courseName; }
+            get { return courseName_; }
             set
             {
                 if (value.Length > 50)
@@ -160,14 +89,14 @@ namespace ACD
                 {
                     throw new ArgumentNullException("value can not be null or empty");
                 }
-                _courseName = value;
+                courseName_ = value;
             }
         }
         public string Description
         {
             get
             {
-                return _description;
+                return description_;
             }
             set
             {
@@ -175,12 +104,12 @@ namespace ACD
                 {
                     throw new ArgumentNullException("value can not be null or empty");
                 }
-                _description = value;
+                description_ = value;
             }
         }
         public float CreditHours
         {
-            get { return _creditHours; }
+            get { return creditHours_; }
             set
             {
                 if (value < 1)
@@ -188,12 +117,12 @@ namespace ACD
                     //System.Windows.Forms.MessageBox.Show("Course number to large");
                     throw new Exception("Can't have 0 hours for a Course");
                 }
-                _creditHours = value;
+                creditHours_ = value;
             }
         }
         public string Format
         {
-            get { return _format; }
+            get { return format_; }
             set
             {
                 if (value.Length > 50)
@@ -205,7 +134,7 @@ namespace ACD
                 {
                     throw new ArgumentNullException("value can not be null or empty");
                 }
-                _format = value;
+                format_ = value;
             }
         }
     }
