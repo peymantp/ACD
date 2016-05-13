@@ -34,7 +34,7 @@ namespace ACD
             try
             {
                 new Course(textBoxNumber.Text, textBoxCore.Text, textBoxName.Text, textBoxDesc.Text,
-                    Double.Parse(textBoxCredHr.Text));
+                    float.Parse(textBoxCredHr.Text));
             }
             catch (Exception e)
             {
