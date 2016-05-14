@@ -31,63 +31,63 @@ namespace ACD
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.label1 = new MaterialSkin.Controls.MaterialLabel();
+            this.comboBoxProgram = new System.Windows.Forms.ComboBox();
+            this.labelProgram = new MaterialSkin.Controls.MaterialLabel();
             this.performanceIndicatorBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.vaxasDatabaseDataSet = new ACD.vaxasDatabaseDataSet();
             this.courseBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.courseTableAdapter = new ACD.vaxasDatabaseDataSetTableAdapters.CourseTableAdapter();
             this.performanceIndicatorTableAdapter = new ACD.vaxasDatabaseDataSetTableAdapters.PerformanceIndicatorTableAdapter();
-            this.materialLabel1 = new MaterialSkin.Controls.MaterialLabel();
-            this.materialLabel2 = new MaterialSkin.Controls.MaterialLabel();
-            this.materialLabel3 = new MaterialSkin.Controls.MaterialLabel();
-            this.materialLabel4 = new MaterialSkin.Controls.MaterialLabel();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
-            this.comboBox3 = new System.Windows.Forms.ComboBox();
-            this.comboBox4 = new System.Windows.Forms.ComboBox();
-            this.comboBox5 = new System.Windows.Forms.ComboBox();
-            this.materialRaisedButton1 = new MaterialSkin.Controls.MaterialRaisedButton();
-            this.materialRaisedButton2 = new MaterialSkin.Controls.MaterialRaisedButton();
-            this.materialRaisedButton3 = new MaterialSkin.Controls.MaterialRaisedButton();
-            this.materialRaisedButton4 = new MaterialSkin.Controls.MaterialRaisedButton();
-            this.materialRaisedButton5 = new MaterialSkin.Controls.MaterialRaisedButton();
-            this.materialRaisedButton6 = new MaterialSkin.Controls.MaterialRaisedButton();
-            this.materialRaisedButton7 = new MaterialSkin.Controls.MaterialRaisedButton();
-            this.materialRaisedButton8 = new MaterialSkin.Controls.MaterialRaisedButton();
-            this.materialRaisedButton9 = new MaterialSkin.Controls.MaterialRaisedButton();
-            this.materialRaisedButton10 = new MaterialSkin.Controls.MaterialRaisedButton();
-            this.materialRaisedButton11 = new MaterialSkin.Controls.MaterialRaisedButton();
-            this.materialRaisedButton12 = new MaterialSkin.Controls.MaterialRaisedButton();
-            this.materialRaisedButton13 = new MaterialSkin.Controls.MaterialRaisedButton();
-            this.materialRaisedButton14 = new MaterialSkin.Controls.MaterialRaisedButton();
-            this.materialRaisedButton15 = new MaterialSkin.Controls.MaterialRaisedButton();
+            this.labelOutcomes = new MaterialSkin.Controls.MaterialLabel();
+            this.labelIndicators = new MaterialSkin.Controls.MaterialLabel();
+            this.labelCores = new MaterialSkin.Controls.MaterialLabel();
+            this.labelCourses = new MaterialSkin.Controls.MaterialLabel();
+            this.comboBoxOutcome = new System.Windows.Forms.ComboBox();
+            this.comboBoxIndicator = new System.Windows.Forms.ComboBox();
+            this.comboBoxCore = new System.Windows.Forms.ComboBox();
+            this.comboBoxCourse = new System.Windows.Forms.ComboBox();
+            this.ButtonProgramAdd = new MaterialSkin.Controls.MaterialRaisedButton();
+            this.ButtonProgramDelete = new MaterialSkin.Controls.MaterialRaisedButton();
+            this.outcomeButtonAdd = new MaterialSkin.Controls.MaterialRaisedButton();
+            this.outcomeButtonDelete = new MaterialSkin.Controls.MaterialRaisedButton();
+            this.indicatorButtonAdd = new MaterialSkin.Controls.MaterialRaisedButton();
+            this.indicatorButtonDelete = new MaterialSkin.Controls.MaterialRaisedButton();
+            this.coreButtonAdd = new MaterialSkin.Controls.MaterialRaisedButton();
+            this.coreButtonDelete = new MaterialSkin.Controls.MaterialRaisedButton();
+            this.courseButtonAdd = new MaterialSkin.Controls.MaterialRaisedButton();
+            this.courseButtonDelete = new MaterialSkin.Controls.MaterialRaisedButton();
+            this.ButtonProgramEdit = new MaterialSkin.Controls.MaterialRaisedButton();
+            this.outcomeButtonEdit = new MaterialSkin.Controls.MaterialRaisedButton();
+            this.indicatorButtonEdit = new MaterialSkin.Controls.MaterialRaisedButton();
+            this.coreButtonEdit = new MaterialSkin.Controls.MaterialRaisedButton();
+            this.courseButtonEdit = new MaterialSkin.Controls.MaterialRaisedButton();
             this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.performanceIndicatorBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.vaxasDatabaseDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.courseBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
-            // comboBox1
+            // comboBoxProgram
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(93, 76);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(121, 21);
-            this.comboBox1.TabIndex = 1;
-            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
+            this.comboBoxProgram.FormattingEnabled = true;
+            this.comboBoxProgram.Location = new System.Drawing.Point(93, 76);
+            this.comboBoxProgram.Name = "comboBoxProgram";
+            this.comboBoxProgram.Size = new System.Drawing.Size(121, 21);
+            this.comboBoxProgram.TabIndex = 1;
+            this.comboBoxProgram.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
-            // label1
+            // labelProgram
             // 
-            this.label1.AutoSize = true;
-            this.label1.Depth = 0;
-            this.label1.Font = new System.Drawing.Font("Roboto", 11F);
-            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.label1.Location = new System.Drawing.Point(8, 76);
-            this.label1.MouseState = MaterialSkin.MouseState.HOVER;
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(66, 19);
-            this.label1.TabIndex = 2;
-            this.label1.Text = "Program";
+            this.labelProgram.AutoSize = true;
+            this.labelProgram.Depth = 0;
+            this.labelProgram.Font = new System.Drawing.Font("Roboto", 11F);
+            this.labelProgram.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.labelProgram.Location = new System.Drawing.Point(8, 76);
+            this.labelProgram.MouseState = MaterialSkin.MouseState.HOVER;
+            this.labelProgram.Name = "labelProgram";
+            this.labelProgram.Size = new System.Drawing.Size(74, 19);
+            this.labelProgram.TabIndex = 2;
+            this.labelProgram.Text = "Programs";
             // 
             // performanceIndicatorBindingSource
             // 
@@ -112,270 +112,270 @@ namespace ACD
             // 
             this.performanceIndicatorTableAdapter.ClearBeforeFill = true;
             // 
-            // materialLabel1
+            // labelOutcomes
             // 
-            this.materialLabel1.AutoSize = true;
-            this.materialLabel1.Depth = 0;
-            this.materialLabel1.Font = new System.Drawing.Font("Roboto", 11F);
-            this.materialLabel1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialLabel1.Location = new System.Drawing.Point(8, 127);
-            this.materialLabel1.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialLabel1.Name = "materialLabel1";
-            this.materialLabel1.Size = new System.Drawing.Size(78, 19);
-            this.materialLabel1.TabIndex = 4;
-            this.materialLabel1.Text = "Outcomes";
+            this.labelOutcomes.AutoSize = true;
+            this.labelOutcomes.Depth = 0;
+            this.labelOutcomes.Font = new System.Drawing.Font("Roboto", 11F);
+            this.labelOutcomes.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.labelOutcomes.Location = new System.Drawing.Point(8, 127);
+            this.labelOutcomes.MouseState = MaterialSkin.MouseState.HOVER;
+            this.labelOutcomes.Name = "labelOutcomes";
+            this.labelOutcomes.Size = new System.Drawing.Size(78, 19);
+            this.labelOutcomes.TabIndex = 4;
+            this.labelOutcomes.Text = "Outcomes";
             // 
-            // materialLabel2
+            // labelIndicators
             // 
-            this.materialLabel2.AutoSize = true;
-            this.materialLabel2.Depth = 0;
-            this.materialLabel2.Font = new System.Drawing.Font("Roboto", 11F);
-            this.materialLabel2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialLabel2.Location = new System.Drawing.Point(8, 171);
-            this.materialLabel2.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialLabel2.Name = "materialLabel2";
-            this.materialLabel2.Size = new System.Drawing.Size(76, 19);
-            this.materialLabel2.TabIndex = 5;
-            this.materialLabel2.Text = "Indicators";
+            this.labelIndicators.AutoSize = true;
+            this.labelIndicators.Depth = 0;
+            this.labelIndicators.Font = new System.Drawing.Font("Roboto", 11F);
+            this.labelIndicators.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.labelIndicators.Location = new System.Drawing.Point(8, 171);
+            this.labelIndicators.MouseState = MaterialSkin.MouseState.HOVER;
+            this.labelIndicators.Name = "labelIndicators";
+            this.labelIndicators.Size = new System.Drawing.Size(76, 19);
+            this.labelIndicators.TabIndex = 5;
+            this.labelIndicators.Text = "Indicators";
             // 
-            // materialLabel3
+            // labelCores
             // 
-            this.materialLabel3.AutoSize = true;
-            this.materialLabel3.Depth = 0;
-            this.materialLabel3.Font = new System.Drawing.Font("Roboto", 11F);
-            this.materialLabel3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialLabel3.Location = new System.Drawing.Point(8, 220);
-            this.materialLabel3.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialLabel3.Name = "materialLabel3";
-            this.materialLabel3.Size = new System.Drawing.Size(41, 19);
-            this.materialLabel3.TabIndex = 6;
-            this.materialLabel3.Text = "Core";
+            this.labelCores.AutoSize = true;
+            this.labelCores.Depth = 0;
+            this.labelCores.Font = new System.Drawing.Font("Roboto", 11F);
+            this.labelCores.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.labelCores.Location = new System.Drawing.Point(8, 220);
+            this.labelCores.MouseState = MaterialSkin.MouseState.HOVER;
+            this.labelCores.Name = "labelCores";
+            this.labelCores.Size = new System.Drawing.Size(49, 19);
+            this.labelCores.TabIndex = 6;
+            this.labelCores.Text = "Cores";
             // 
-            // materialLabel4
+            // labelCourses
             // 
-            this.materialLabel4.AutoSize = true;
-            this.materialLabel4.Depth = 0;
-            this.materialLabel4.Font = new System.Drawing.Font("Roboto", 11F);
-            this.materialLabel4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialLabel4.Location = new System.Drawing.Point(8, 266);
-            this.materialLabel4.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialLabel4.Name = "materialLabel4";
-            this.materialLabel4.Size = new System.Drawing.Size(65, 19);
-            this.materialLabel4.TabIndex = 7;
-            this.materialLabel4.Text = "Courses";
+            this.labelCourses.AutoSize = true;
+            this.labelCourses.Depth = 0;
+            this.labelCourses.Font = new System.Drawing.Font("Roboto", 11F);
+            this.labelCourses.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.labelCourses.Location = new System.Drawing.Point(8, 266);
+            this.labelCourses.MouseState = MaterialSkin.MouseState.HOVER;
+            this.labelCourses.Name = "labelCourses";
+            this.labelCourses.Size = new System.Drawing.Size(65, 19);
+            this.labelCourses.TabIndex = 7;
+            this.labelCourses.Text = "Courses";
             // 
-            // comboBox2
+            // comboBoxOutcome
             // 
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(93, 127);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(121, 21);
-            this.comboBox2.TabIndex = 8;
+            this.comboBoxOutcome.FormattingEnabled = true;
+            this.comboBoxOutcome.Location = new System.Drawing.Point(93, 127);
+            this.comboBoxOutcome.Name = "comboBoxOutcome";
+            this.comboBoxOutcome.Size = new System.Drawing.Size(121, 21);
+            this.comboBoxOutcome.TabIndex = 8;
             // 
-            // comboBox3
+            // comboBoxIndicator
             // 
-            this.comboBox3.FormattingEnabled = true;
-            this.comboBox3.Location = new System.Drawing.Point(93, 172);
-            this.comboBox3.Name = "comboBox3";
-            this.comboBox3.Size = new System.Drawing.Size(121, 21);
-            this.comboBox3.TabIndex = 9;
+            this.comboBoxIndicator.FormattingEnabled = true;
+            this.comboBoxIndicator.Location = new System.Drawing.Point(93, 172);
+            this.comboBoxIndicator.Name = "comboBoxIndicator";
+            this.comboBoxIndicator.Size = new System.Drawing.Size(121, 21);
+            this.comboBoxIndicator.TabIndex = 9;
             // 
-            // comboBox4
+            // comboBoxCore
             // 
-            this.comboBox4.FormattingEnabled = true;
-            this.comboBox4.Location = new System.Drawing.Point(93, 221);
-            this.comboBox4.Name = "comboBox4";
-            this.comboBox4.Size = new System.Drawing.Size(121, 21);
-            this.comboBox4.TabIndex = 10;
+            this.comboBoxCore.FormattingEnabled = true;
+            this.comboBoxCore.Location = new System.Drawing.Point(93, 221);
+            this.comboBoxCore.Name = "comboBoxCore";
+            this.comboBoxCore.Size = new System.Drawing.Size(121, 21);
+            this.comboBoxCore.TabIndex = 10;
             // 
-            // comboBox5
+            // comboBoxCourse
             // 
-            this.comboBox5.FormattingEnabled = true;
-            this.comboBox5.Location = new System.Drawing.Point(93, 268);
-            this.comboBox5.Name = "comboBox5";
-            this.comboBox5.Size = new System.Drawing.Size(121, 21);
-            this.comboBox5.TabIndex = 11;
+            this.comboBoxCourse.FormattingEnabled = true;
+            this.comboBoxCourse.Location = new System.Drawing.Point(93, 268);
+            this.comboBoxCourse.Name = "comboBoxCourse";
+            this.comboBoxCourse.Size = new System.Drawing.Size(121, 21);
+            this.comboBoxCourse.TabIndex = 11;
             // 
-            // materialRaisedButton1
+            // ButtonProgramAdd
             // 
-            this.materialRaisedButton1.Depth = 0;
-            this.materialRaisedButton1.Location = new System.Drawing.Point(228, 75);
-            this.materialRaisedButton1.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialRaisedButton1.Name = "materialRaisedButton1";
-            this.materialRaisedButton1.Primary = true;
-            this.materialRaisedButton1.Size = new System.Drawing.Size(75, 23);
-            this.materialRaisedButton1.TabIndex = 12;
-            this.materialRaisedButton1.Text = "Add";
-            this.materialRaisedButton1.UseVisualStyleBackColor = true;
+            this.ButtonProgramAdd.Depth = 0;
+            this.ButtonProgramAdd.Location = new System.Drawing.Point(228, 75);
+            this.ButtonProgramAdd.MouseState = MaterialSkin.MouseState.HOVER;
+            this.ButtonProgramAdd.Name = "ButtonProgramAdd";
+            this.ButtonProgramAdd.Primary = true;
+            this.ButtonProgramAdd.Size = new System.Drawing.Size(75, 23);
+            this.ButtonProgramAdd.TabIndex = 12;
+            this.ButtonProgramAdd.Text = "Add";
+            this.ButtonProgramAdd.UseVisualStyleBackColor = true;
             // 
-            // materialRaisedButton2
+            // ButtonProgramDelete
             // 
-            this.materialRaisedButton2.Depth = 0;
-            this.materialRaisedButton2.Location = new System.Drawing.Point(321, 74);
-            this.materialRaisedButton2.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialRaisedButton2.Name = "materialRaisedButton2";
-            this.materialRaisedButton2.Primary = true;
-            this.materialRaisedButton2.Size = new System.Drawing.Size(75, 23);
-            this.materialRaisedButton2.TabIndex = 13;
-            this.materialRaisedButton2.Text = "Delete";
-            this.materialRaisedButton2.UseVisualStyleBackColor = true;
+            this.ButtonProgramDelete.Depth = 0;
+            this.ButtonProgramDelete.Location = new System.Drawing.Point(321, 74);
+            this.ButtonProgramDelete.MouseState = MaterialSkin.MouseState.HOVER;
+            this.ButtonProgramDelete.Name = "ButtonProgramDelete";
+            this.ButtonProgramDelete.Primary = true;
+            this.ButtonProgramDelete.Size = new System.Drawing.Size(75, 23);
+            this.ButtonProgramDelete.TabIndex = 13;
+            this.ButtonProgramDelete.Text = "Delete";
+            this.ButtonProgramDelete.UseVisualStyleBackColor = true;
             // 
-            // materialRaisedButton3
+            // outcomeButtonAdd
             // 
-            this.materialRaisedButton3.Depth = 0;
-            this.materialRaisedButton3.Location = new System.Drawing.Point(228, 124);
-            this.materialRaisedButton3.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialRaisedButton3.Name = "materialRaisedButton3";
-            this.materialRaisedButton3.Primary = true;
-            this.materialRaisedButton3.Size = new System.Drawing.Size(75, 23);
-            this.materialRaisedButton3.TabIndex = 14;
-            this.materialRaisedButton3.Text = "Add";
-            this.materialRaisedButton3.UseVisualStyleBackColor = true;
+            this.outcomeButtonAdd.Depth = 0;
+            this.outcomeButtonAdd.Location = new System.Drawing.Point(228, 124);
+            this.outcomeButtonAdd.MouseState = MaterialSkin.MouseState.HOVER;
+            this.outcomeButtonAdd.Name = "outcomeButtonAdd";
+            this.outcomeButtonAdd.Primary = true;
+            this.outcomeButtonAdd.Size = new System.Drawing.Size(75, 23);
+            this.outcomeButtonAdd.TabIndex = 14;
+            this.outcomeButtonAdd.Text = "Add";
+            this.outcomeButtonAdd.UseVisualStyleBackColor = true;
             // 
-            // materialRaisedButton4
+            // outcomeButtonDelete
             // 
-            this.materialRaisedButton4.Depth = 0;
-            this.materialRaisedButton4.Location = new System.Drawing.Point(321, 124);
-            this.materialRaisedButton4.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialRaisedButton4.Name = "materialRaisedButton4";
-            this.materialRaisedButton4.Primary = true;
-            this.materialRaisedButton4.Size = new System.Drawing.Size(75, 23);
-            this.materialRaisedButton4.TabIndex = 15;
-            this.materialRaisedButton4.Text = "delete";
-            this.materialRaisedButton4.UseVisualStyleBackColor = true;
+            this.outcomeButtonDelete.Depth = 0;
+            this.outcomeButtonDelete.Location = new System.Drawing.Point(321, 124);
+            this.outcomeButtonDelete.MouseState = MaterialSkin.MouseState.HOVER;
+            this.outcomeButtonDelete.Name = "outcomeButtonDelete";
+            this.outcomeButtonDelete.Primary = true;
+            this.outcomeButtonDelete.Size = new System.Drawing.Size(75, 23);
+            this.outcomeButtonDelete.TabIndex = 15;
+            this.outcomeButtonDelete.Text = "delete";
+            this.outcomeButtonDelete.UseVisualStyleBackColor = true;
             // 
-            // materialRaisedButton5
+            // indicatorButtonAdd
             // 
-            this.materialRaisedButton5.Depth = 0;
-            this.materialRaisedButton5.Location = new System.Drawing.Point(228, 173);
-            this.materialRaisedButton5.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialRaisedButton5.Name = "materialRaisedButton5";
-            this.materialRaisedButton5.Primary = true;
-            this.materialRaisedButton5.Size = new System.Drawing.Size(75, 23);
-            this.materialRaisedButton5.TabIndex = 16;
-            this.materialRaisedButton5.Text = "Add";
-            this.materialRaisedButton5.UseVisualStyleBackColor = true;
+            this.indicatorButtonAdd.Depth = 0;
+            this.indicatorButtonAdd.Location = new System.Drawing.Point(228, 173);
+            this.indicatorButtonAdd.MouseState = MaterialSkin.MouseState.HOVER;
+            this.indicatorButtonAdd.Name = "indicatorButtonAdd";
+            this.indicatorButtonAdd.Primary = true;
+            this.indicatorButtonAdd.Size = new System.Drawing.Size(75, 23);
+            this.indicatorButtonAdd.TabIndex = 16;
+            this.indicatorButtonAdd.Text = "Add";
+            this.indicatorButtonAdd.UseVisualStyleBackColor = true;
             // 
-            // materialRaisedButton6
+            // indicatorButtonDelete
             // 
-            this.materialRaisedButton6.Depth = 0;
-            this.materialRaisedButton6.Location = new System.Drawing.Point(321, 173);
-            this.materialRaisedButton6.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialRaisedButton6.Name = "materialRaisedButton6";
-            this.materialRaisedButton6.Primary = true;
-            this.materialRaisedButton6.Size = new System.Drawing.Size(75, 23);
-            this.materialRaisedButton6.TabIndex = 17;
-            this.materialRaisedButton6.Text = "delete";
-            this.materialRaisedButton6.UseVisualStyleBackColor = true;
+            this.indicatorButtonDelete.Depth = 0;
+            this.indicatorButtonDelete.Location = new System.Drawing.Point(321, 173);
+            this.indicatorButtonDelete.MouseState = MaterialSkin.MouseState.HOVER;
+            this.indicatorButtonDelete.Name = "indicatorButtonDelete";
+            this.indicatorButtonDelete.Primary = true;
+            this.indicatorButtonDelete.Size = new System.Drawing.Size(75, 23);
+            this.indicatorButtonDelete.TabIndex = 17;
+            this.indicatorButtonDelete.Text = "delete";
+            this.indicatorButtonDelete.UseVisualStyleBackColor = true;
             // 
-            // materialRaisedButton7
+            // coreButtonAdd
             // 
-            this.materialRaisedButton7.Depth = 0;
-            this.materialRaisedButton7.Location = new System.Drawing.Point(228, 219);
-            this.materialRaisedButton7.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialRaisedButton7.Name = "materialRaisedButton7";
-            this.materialRaisedButton7.Primary = true;
-            this.materialRaisedButton7.Size = new System.Drawing.Size(75, 23);
-            this.materialRaisedButton7.TabIndex = 18;
-            this.materialRaisedButton7.Text = "Add";
-            this.materialRaisedButton7.UseVisualStyleBackColor = true;
+            this.coreButtonAdd.Depth = 0;
+            this.coreButtonAdd.Location = new System.Drawing.Point(228, 219);
+            this.coreButtonAdd.MouseState = MaterialSkin.MouseState.HOVER;
+            this.coreButtonAdd.Name = "coreButtonAdd";
+            this.coreButtonAdd.Primary = true;
+            this.coreButtonAdd.Size = new System.Drawing.Size(75, 23);
+            this.coreButtonAdd.TabIndex = 18;
+            this.coreButtonAdd.Text = "Add";
+            this.coreButtonAdd.UseVisualStyleBackColor = true;
             // 
-            // materialRaisedButton8
+            // coreButtonDelete
             // 
-            this.materialRaisedButton8.Depth = 0;
-            this.materialRaisedButton8.Location = new System.Drawing.Point(321, 223);
-            this.materialRaisedButton8.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialRaisedButton8.Name = "materialRaisedButton8";
-            this.materialRaisedButton8.Primary = true;
-            this.materialRaisedButton8.Size = new System.Drawing.Size(75, 23);
-            this.materialRaisedButton8.TabIndex = 19;
-            this.materialRaisedButton8.Text = "Delete";
-            this.materialRaisedButton8.UseVisualStyleBackColor = true;
+            this.coreButtonDelete.Depth = 0;
+            this.coreButtonDelete.Location = new System.Drawing.Point(321, 223);
+            this.coreButtonDelete.MouseState = MaterialSkin.MouseState.HOVER;
+            this.coreButtonDelete.Name = "coreButtonDelete";
+            this.coreButtonDelete.Primary = true;
+            this.coreButtonDelete.Size = new System.Drawing.Size(75, 23);
+            this.coreButtonDelete.TabIndex = 19;
+            this.coreButtonDelete.Text = "Delete";
+            this.coreButtonDelete.UseVisualStyleBackColor = true;
             // 
-            // materialRaisedButton9
+            // courseButtonAdd
             // 
-            this.materialRaisedButton9.Depth = 0;
-            this.materialRaisedButton9.Location = new System.Drawing.Point(228, 266);
-            this.materialRaisedButton9.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialRaisedButton9.Name = "materialRaisedButton9";
-            this.materialRaisedButton9.Primary = true;
-            this.materialRaisedButton9.Size = new System.Drawing.Size(75, 23);
-            this.materialRaisedButton9.TabIndex = 20;
-            this.materialRaisedButton9.Text = "add";
-            this.materialRaisedButton9.UseVisualStyleBackColor = true;
+            this.courseButtonAdd.Depth = 0;
+            this.courseButtonAdd.Location = new System.Drawing.Point(228, 266);
+            this.courseButtonAdd.MouseState = MaterialSkin.MouseState.HOVER;
+            this.courseButtonAdd.Name = "courseButtonAdd";
+            this.courseButtonAdd.Primary = true;
+            this.courseButtonAdd.Size = new System.Drawing.Size(75, 23);
+            this.courseButtonAdd.TabIndex = 20;
+            this.courseButtonAdd.Text = "add";
+            this.courseButtonAdd.UseVisualStyleBackColor = true;
             // 
-            // materialRaisedButton10
+            // courseButtonDelete
             // 
-            this.materialRaisedButton10.Depth = 0;
-            this.materialRaisedButton10.Location = new System.Drawing.Point(321, 268);
-            this.materialRaisedButton10.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialRaisedButton10.Name = "materialRaisedButton10";
-            this.materialRaisedButton10.Primary = true;
-            this.materialRaisedButton10.Size = new System.Drawing.Size(75, 23);
-            this.materialRaisedButton10.TabIndex = 21;
-            this.materialRaisedButton10.Text = "delete";
-            this.materialRaisedButton10.UseVisualStyleBackColor = true;
+            this.courseButtonDelete.Depth = 0;
+            this.courseButtonDelete.Location = new System.Drawing.Point(321, 268);
+            this.courseButtonDelete.MouseState = MaterialSkin.MouseState.HOVER;
+            this.courseButtonDelete.Name = "courseButtonDelete";
+            this.courseButtonDelete.Primary = true;
+            this.courseButtonDelete.Size = new System.Drawing.Size(75, 23);
+            this.courseButtonDelete.TabIndex = 21;
+            this.courseButtonDelete.Text = "delete";
+            this.courseButtonDelete.UseVisualStyleBackColor = true;
             // 
-            // materialRaisedButton11
+            // ButtonProgramEdit
             // 
-            this.materialRaisedButton11.Depth = 0;
-            this.materialRaisedButton11.Location = new System.Drawing.Point(418, 75);
-            this.materialRaisedButton11.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialRaisedButton11.Name = "materialRaisedButton11";
-            this.materialRaisedButton11.Primary = true;
-            this.materialRaisedButton11.Size = new System.Drawing.Size(75, 23);
-            this.materialRaisedButton11.TabIndex = 22;
-            this.materialRaisedButton11.Text = "Edit";
-            this.materialRaisedButton11.UseVisualStyleBackColor = true;
+            this.ButtonProgramEdit.Depth = 0;
+            this.ButtonProgramEdit.Location = new System.Drawing.Point(418, 75);
+            this.ButtonProgramEdit.MouseState = MaterialSkin.MouseState.HOVER;
+            this.ButtonProgramEdit.Name = "ButtonProgramEdit";
+            this.ButtonProgramEdit.Primary = true;
+            this.ButtonProgramEdit.Size = new System.Drawing.Size(75, 23);
+            this.ButtonProgramEdit.TabIndex = 22;
+            this.ButtonProgramEdit.Text = "Edit";
+            this.ButtonProgramEdit.UseVisualStyleBackColor = true;
             // 
-            // materialRaisedButton12
+            // outcomeButtonEdit
             // 
-            this.materialRaisedButton12.BackColor = System.Drawing.SystemColors.Control;
-            this.materialRaisedButton12.Depth = 0;
-            this.materialRaisedButton12.Location = new System.Drawing.Point(418, 125);
-            this.materialRaisedButton12.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialRaisedButton12.Name = "materialRaisedButton12";
-            this.materialRaisedButton12.Primary = true;
-            this.materialRaisedButton12.Size = new System.Drawing.Size(75, 23);
-            this.materialRaisedButton12.TabIndex = 23;
-            this.materialRaisedButton12.Text = "Edit";
-            this.materialRaisedButton12.UseVisualStyleBackColor = false;
+            this.outcomeButtonEdit.BackColor = System.Drawing.SystemColors.Control;
+            this.outcomeButtonEdit.Depth = 0;
+            this.outcomeButtonEdit.Location = new System.Drawing.Point(418, 125);
+            this.outcomeButtonEdit.MouseState = MaterialSkin.MouseState.HOVER;
+            this.outcomeButtonEdit.Name = "outcomeButtonEdit";
+            this.outcomeButtonEdit.Primary = true;
+            this.outcomeButtonEdit.Size = new System.Drawing.Size(75, 23);
+            this.outcomeButtonEdit.TabIndex = 23;
+            this.outcomeButtonEdit.Text = "Edit";
+            this.outcomeButtonEdit.UseVisualStyleBackColor = false;
             // 
-            // materialRaisedButton13
+            // indicatorButtonEdit
             // 
-            this.materialRaisedButton13.Depth = 0;
-            this.materialRaisedButton13.Location = new System.Drawing.Point(418, 173);
-            this.materialRaisedButton13.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialRaisedButton13.Name = "materialRaisedButton13";
-            this.materialRaisedButton13.Primary = true;
-            this.materialRaisedButton13.Size = new System.Drawing.Size(75, 23);
-            this.materialRaisedButton13.TabIndex = 24;
-            this.materialRaisedButton13.Text = "edit";
-            this.materialRaisedButton13.UseVisualStyleBackColor = true;
+            this.indicatorButtonEdit.Depth = 0;
+            this.indicatorButtonEdit.Location = new System.Drawing.Point(418, 173);
+            this.indicatorButtonEdit.MouseState = MaterialSkin.MouseState.HOVER;
+            this.indicatorButtonEdit.Name = "indicatorButtonEdit";
+            this.indicatorButtonEdit.Primary = true;
+            this.indicatorButtonEdit.Size = new System.Drawing.Size(75, 23);
+            this.indicatorButtonEdit.TabIndex = 24;
+            this.indicatorButtonEdit.Text = "edit";
+            this.indicatorButtonEdit.UseVisualStyleBackColor = true;
             // 
-            // materialRaisedButton14
+            // coreButtonEdit
             // 
-            this.materialRaisedButton14.Depth = 0;
-            this.materialRaisedButton14.Location = new System.Drawing.Point(418, 223);
-            this.materialRaisedButton14.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialRaisedButton14.Name = "materialRaisedButton14";
-            this.materialRaisedButton14.Primary = true;
-            this.materialRaisedButton14.Size = new System.Drawing.Size(75, 23);
-            this.materialRaisedButton14.TabIndex = 25;
-            this.materialRaisedButton14.Text = "edit";
-            this.materialRaisedButton14.UseVisualStyleBackColor = true;
+            this.coreButtonEdit.Depth = 0;
+            this.coreButtonEdit.Location = new System.Drawing.Point(418, 223);
+            this.coreButtonEdit.MouseState = MaterialSkin.MouseState.HOVER;
+            this.coreButtonEdit.Name = "coreButtonEdit";
+            this.coreButtonEdit.Primary = true;
+            this.coreButtonEdit.Size = new System.Drawing.Size(75, 23);
+            this.coreButtonEdit.TabIndex = 25;
+            this.coreButtonEdit.Text = "edit";
+            this.coreButtonEdit.UseVisualStyleBackColor = true;
             // 
-            // materialRaisedButton15
+            // courseButtonEdit
             // 
-            this.materialRaisedButton15.Depth = 0;
-            this.materialRaisedButton15.Location = new System.Drawing.Point(418, 268);
-            this.materialRaisedButton15.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialRaisedButton15.Name = "materialRaisedButton15";
-            this.materialRaisedButton15.Primary = true;
-            this.materialRaisedButton15.Size = new System.Drawing.Size(75, 23);
-            this.materialRaisedButton15.TabIndex = 26;
-            this.materialRaisedButton15.Text = "edit";
-            this.materialRaisedButton15.UseVisualStyleBackColor = true;
+            this.courseButtonEdit.Depth = 0;
+            this.courseButtonEdit.Location = new System.Drawing.Point(418, 268);
+            this.courseButtonEdit.MouseState = MaterialSkin.MouseState.HOVER;
+            this.courseButtonEdit.Name = "courseButtonEdit";
+            this.courseButtonEdit.Primary = true;
+            this.courseButtonEdit.Size = new System.Drawing.Size(75, 23);
+            this.courseButtonEdit.TabIndex = 26;
+            this.courseButtonEdit.Text = "edit";
+            this.courseButtonEdit.UseVisualStyleBackColor = true;
             // 
             // button1
             // 
@@ -393,31 +393,31 @@ namespace ACD
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(517, 374);
             this.Controls.Add(this.button1);
-            this.Controls.Add(this.materialRaisedButton15);
-            this.Controls.Add(this.materialRaisedButton14);
-            this.Controls.Add(this.materialRaisedButton13);
-            this.Controls.Add(this.materialRaisedButton12);
-            this.Controls.Add(this.materialRaisedButton11);
-            this.Controls.Add(this.materialRaisedButton10);
-            this.Controls.Add(this.materialRaisedButton9);
-            this.Controls.Add(this.materialRaisedButton8);
-            this.Controls.Add(this.materialRaisedButton7);
-            this.Controls.Add(this.materialRaisedButton6);
-            this.Controls.Add(this.materialRaisedButton5);
-            this.Controls.Add(this.materialRaisedButton4);
-            this.Controls.Add(this.materialRaisedButton3);
-            this.Controls.Add(this.materialRaisedButton2);
-            this.Controls.Add(this.materialRaisedButton1);
-            this.Controls.Add(this.comboBox5);
-            this.Controls.Add(this.comboBox4);
-            this.Controls.Add(this.comboBox3);
-            this.Controls.Add(this.comboBox2);
-            this.Controls.Add(this.materialLabel4);
-            this.Controls.Add(this.materialLabel3);
-            this.Controls.Add(this.materialLabel2);
-            this.Controls.Add(this.materialLabel1);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.courseButtonEdit);
+            this.Controls.Add(this.coreButtonEdit);
+            this.Controls.Add(this.indicatorButtonEdit);
+            this.Controls.Add(this.outcomeButtonEdit);
+            this.Controls.Add(this.ButtonProgramEdit);
+            this.Controls.Add(this.courseButtonDelete);
+            this.Controls.Add(this.courseButtonAdd);
+            this.Controls.Add(this.coreButtonDelete);
+            this.Controls.Add(this.coreButtonAdd);
+            this.Controls.Add(this.indicatorButtonDelete);
+            this.Controls.Add(this.indicatorButtonAdd);
+            this.Controls.Add(this.outcomeButtonDelete);
+            this.Controls.Add(this.outcomeButtonAdd);
+            this.Controls.Add(this.ButtonProgramDelete);
+            this.Controls.Add(this.ButtonProgramAdd);
+            this.Controls.Add(this.comboBoxCourse);
+            this.Controls.Add(this.comboBoxCore);
+            this.Controls.Add(this.comboBoxIndicator);
+            this.Controls.Add(this.comboBoxOutcome);
+            this.Controls.Add(this.labelCourses);
+            this.Controls.Add(this.labelCores);
+            this.Controls.Add(this.labelIndicators);
+            this.Controls.Add(this.labelOutcomes);
+            this.Controls.Add(this.labelProgram);
+            this.Controls.Add(this.comboBoxProgram);
             this.Name = "MainForm";
             this.Text = "Texas A&M Program Redesign Tool";
             this.Load += new System.EventHandler(this.MainForm_Load);
@@ -430,36 +430,36 @@ namespace ACD
         }
 
         #endregion
-        private System.Windows.Forms.ComboBox comboBox1;
-        private MaterialLabel label1;
+        private System.Windows.Forms.ComboBox comboBoxProgram;
+        private MaterialLabel labelProgram;
         private vaxasDatabaseDataSet vaxasDatabaseDataSet;
         private System.Windows.Forms.BindingSource courseBindingSource;
         private vaxasDatabaseDataSetTableAdapters.CourseTableAdapter courseTableAdapter;
         private System.Windows.Forms.BindingSource performanceIndicatorBindingSource;
         private vaxasDatabaseDataSetTableAdapters.PerformanceIndicatorTableAdapter performanceIndicatorTableAdapter;
-        private MaterialLabel materialLabel1;
-        private MaterialLabel materialLabel2;
-        private MaterialLabel materialLabel3;
-        private MaterialLabel materialLabel4;
-        private System.Windows.Forms.ComboBox comboBox2;
-        private System.Windows.Forms.ComboBox comboBox3;
-        private System.Windows.Forms.ComboBox comboBox4;
-        private System.Windows.Forms.ComboBox comboBox5;
-        private MaterialRaisedButton materialRaisedButton1;
-        private MaterialRaisedButton materialRaisedButton2;
-        private MaterialRaisedButton materialRaisedButton3;
-        private MaterialRaisedButton materialRaisedButton4;
-        private MaterialRaisedButton materialRaisedButton5;
-        private MaterialRaisedButton materialRaisedButton6;
-        private MaterialRaisedButton materialRaisedButton7;
-        private MaterialRaisedButton materialRaisedButton8;
-        private MaterialRaisedButton materialRaisedButton9;
-        private MaterialRaisedButton materialRaisedButton10;
-        private MaterialRaisedButton materialRaisedButton11;
-        private MaterialRaisedButton materialRaisedButton12;
-        private MaterialRaisedButton materialRaisedButton13;
-        private MaterialRaisedButton materialRaisedButton14;
-        private MaterialRaisedButton materialRaisedButton15;
+        private MaterialLabel labelOutcomes;
+        private MaterialLabel labelIndicators;
+        private MaterialLabel labelCores;
+        private MaterialLabel labelCourses;
+        private System.Windows.Forms.ComboBox comboBoxOutcome;
+        private System.Windows.Forms.ComboBox comboBoxIndicator;
+        private System.Windows.Forms.ComboBox comboBoxCore;
+        private System.Windows.Forms.ComboBox comboBoxCourse;
+        private MaterialRaisedButton ButtonProgramAdd;
+        private MaterialRaisedButton ButtonProgramDelete;
+        private MaterialRaisedButton outcomeButtonAdd;
+        private MaterialRaisedButton outcomeButtonDelete;
+        private MaterialRaisedButton indicatorButtonAdd;
+        private MaterialRaisedButton indicatorButtonDelete;
+        private MaterialRaisedButton coreButtonAdd;
+        private MaterialRaisedButton coreButtonDelete;
+        private MaterialRaisedButton courseButtonAdd;
+        private MaterialRaisedButton courseButtonDelete;
+        private MaterialRaisedButton ButtonProgramEdit;
+        private MaterialRaisedButton outcomeButtonEdit;
+        private MaterialRaisedButton indicatorButtonEdit;
+        private MaterialRaisedButton coreButtonEdit;
+        private MaterialRaisedButton courseButtonEdit;
         private System.Windows.Forms.Button button1;
     }
 }
