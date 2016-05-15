@@ -213,7 +213,6 @@ namespace ACD
             this.ButtonProgramAdd.TabIndex = 12;
             this.ButtonProgramAdd.Text = "Add";
             this.ButtonProgramAdd.UseVisualStyleBackColor = true;
-            this.ButtonProgramAdd.Click += new System.EventHandler(this.ButtonProgramAdd_Click);
             // 
             // ButtonProgramDelete
             // 

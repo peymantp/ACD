@@ -115,7 +115,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(399, 302);
+            this.ClientSize = new System.Drawing.Size(399, 275);
             this.Controls.Add(this.TextFieldPerformanceIndicator);
             this.Controls.Add(this.ButtonSave);
             this.Controls.Add(this.ButtonCancel);
