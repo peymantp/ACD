@@ -1,6 +1,7 @@
 ﻿using System;
 using Microsoft.Office.Interop.Excel;
 using System.Data.SqlClient;
+using System.Collections.Generic;
 using System.Diagnostics;
 
 public class CreateExcelWorksheet
@@ -9,10 +10,19 @@ public class CreateExcelWorksheet
     static String faculty;
     static readonly int CELL_SIZE = 18;
 
+    static int performanceIndicatorsCount;
+    static int numAllCourses;
+
+    static SortedDictionary<String, int> xAxis;
+    static SortedDictionary<String, int> yAxis;
+
     static void Main()
     {
         CreateNewExcelDocument();
         faculty = "Geos";
+
+        xAxis = new SortedDictionary<String, int>();
+        yAxis = new SortedDictionary<String, int>();
 
         string password = Console.ReadLine();
 
@@ -22,6 +32,8 @@ public class CreateExcelWorksheet
 
             GenerateXAxis(myConnection);
             GenerateYAxis(myConnection);
+            InsertLearningLevels(myConnection);
+            Merge();
 
             myConnection.Close();
         }
@@ -80,7 +92,7 @@ public class CreateExcelWorksheet
         string oString;
         SqlCommand oCmd;
 
-        int performanceIndicatorsCount = 0;
+        performanceIndicatorsCount = 0;
 
         oString = "Select count(Name) as Count from PerformanceIndicator where \"Key\" like '" + faculty + "%'";
         oCmd = new SqlCommand(oString, myConnection);
@@ -93,11 +105,11 @@ public class CreateExcelWorksheet
             }
         }
 
-        oString = "select prog.\"Description\", CONVERT(int, progNum), CONVERT(int, perfNum), case when (prog.\"Description\" is not null) then progNum + '. ' + prog.\"Name\"  + ': ' + prog.\"Description\" else progNum + '. ' + prog.\"Name\" end as ProgramLevel, progNum + '.' + perfNum + ' ' + perf.\"Name\" as PerformanceIndicator from (select CONVERT(varchar(10), perfTemp.num2) as perfNum, perfTemp.\"Name\", perfTemp.\"Key\" from (select ROW_NUMBER() over (partition by \"Key\" order by \"Name\") as num2, Name, \"Key\" from PerformanceIndicator where SUBSTRING(\"Key\", 1, CASE CHARINDEX('_', \"Key\") WHEN 0 THEN LEN(\"Key\") ELSE CHARINDEX('_', \"Key\")-1 END) = '" + faculty + "') perfTemp ) perf left join (select CONVERT(varchar(10), progTemp.num2) as progNum, progTemp.\"Name\", progTemp.\"Description\", progTemp.\"Key\" from (select ROW_NUMBER() over (partition by \"Key\" order by \"Description\" desc, \"Name\") as num2, Name, \"Description\", \"Key\" from ProgramLevel where \"Key\" = '" + faculty + "') progTemp ) prog on SUBSTRING(perf.\"Key\", CASE CHARINDEX('_', perf.\"Key\") WHEN 0 THEN LEN(perf.\"Key\")+1 ELSE CHARINDEX('_', perf.\"Key\")+1 END, 1000) = prog.\"Name\" and SUBSTRING(perf.\"Key\", 1, CASE CHARINDEX('_', perf.\"Key\") WHEN 0 THEN LEN(perf.\"Key\") ELSE CHARINDEX('_', perf.\"Key\")-1 END) = prog.\"Key\" order by 1 desc, 2,3,4,5";
+        oString = "select prog.\"Description\", CONVERT(int, progNum), CONVERT(int, perfNum), case when (prog.\"Description\" is not null) then progNum + '. ' + prog.\"Name\"  + ': ' + prog.\"Description\" else progNum + '. ' + prog.\"Name\" end as ProgramLevel, progNum + '.' + perfNum + ' ' + perf.\"Name\" as PerformanceIndicator, prog.\"Name\" as progNameNoNum, perf.\"Name\" as perfNameNoNum from (select CONVERT(varchar(10), perfTemp.num2) as perfNum, perfTemp.\"Name\", perfTemp.\"Key\" from (select ROW_NUMBER() over (partition by \"Key\" order by \"Name\") as num2, Name, \"Key\" from PerformanceIndicator where SUBSTRING(\"Key\", 1, CASE CHARINDEX('_', \"Key\") WHEN 0 THEN LEN(\"Key\") ELSE CHARINDEX('_', \"Key\")-1 END) = '" + faculty + "') perfTemp ) perf left join (select CONVERT(varchar(10), progTemp.num2) as progNum, progTemp.\"Name\", progTemp.\"Description\", progTemp.\"Key\" from (select ROW_NUMBER() over (partition by \"Key\" order by \"Description\" desc, \"Name\") as num2, Name, \"Description\", \"Key\" from ProgramLevel where \"Key\" = '" + faculty + "') progTemp ) prog on SUBSTRING(perf.\"Key\", CASE CHARINDEX('_', perf.\"Key\") WHEN 0 THEN LEN(perf.\"Key\")+1 ELSE CHARINDEX('_', perf.\"Key\")+1 END, 1000) = prog.\"Name\" and SUBSTRING(perf.\"Key\", 1, CASE CHARINDEX('_', perf.\"Key\") WHEN 0 THEN LEN(perf.\"Key\") ELSE CHARINDEX('_', perf.\"Key\")-1 END) = prog.\"Key\" order by 1 desc, 2,3,4,5";
         oCmd = new SqlCommand(oString, myConnection);
 
-        Range progRange = ws.get_Range("B1", GetExcelColumnName(performanceIndicatorsCount + 3) + "1");
-        Range perfRange = ws.get_Range("B2", GetExcelColumnName(performanceIndicatorsCount + 3) + "2");
+        Range progRange = ws.get_Range("D1", GetExcelColumnName(performanceIndicatorsCount + 3) + "1");
+        Range perfRange = ws.get_Range("D2", GetExcelColumnName(performanceIndicatorsCount + 3) + "2");
         
         progRange.ColumnWidth = CELL_SIZE;
         progRange.RowHeight = CELL_SIZE * 5;
@@ -114,35 +126,22 @@ public class CreateExcelWorksheet
         perfRange.HorizontalAlignment = Microsoft.Office.Interop.Excel.XlHAlign.xlHAlignCenter;
         perfRange.VerticalAlignment = Microsoft.Office.Interop.Excel.XlVAlign.xlVAlignCenter;
         
-        int i = 3;
-        int j = performanceIndicatorsCount + 3;
-        int k = j;
+        int i = 1;
 
         using (SqlDataReader oReader = oCmd.ExecuteReader())
         {
             while (oReader.Read())
             {
-                progRange[i].Value2 = oReader["ProgramLevel"].ToString();
-                perfRange[i].Value2 = oReader["PerformanceIndicator"].ToString();
+                String programLevel = oReader["ProgramLevel"].ToString();
+                String performanceIndicator = oReader["PerformanceIndicator"].ToString();
+
+                progRange[i].Value2 = programLevel;
+                perfRange[i].Value2 = performanceIndicator;
+
+                xAxis.Add(faculty + "_" + oReader["progNameNoNum"].ToString() + "_" + oReader["perfNameNoNum"].ToString(), i + 3);
+
                 i++;
             }
-        }
-
-        while (true)
-        {
-            if (j == 4)
-            {
-                ws.Range[ws.Cells[1, k], ws.Cells[1, 4]].Merge();
-                k = j - 1;
-                break;
-            }
-            else if (!(((string)(ws.Cells[1, j - 1] as Range).Value).Equals((string)(ws.Cells[1, j] as Range).Value)))
-            {
-                ws.Range[ws.Cells[1, k], ws.Cells[1, j]].Merge();
-                k = j - 1;
-            }
-
-            j--;
         }
 
         for (i = 4; i <= performanceIndicatorsCount + 3; i++)
@@ -164,7 +163,7 @@ public class CreateExcelWorksheet
         SqlCommand oCmd;
         
         int numCourses = 0;
-        int numAllCourses = 0;
+        numAllCourses = 0;
 
         oString = "select sum(a.NumCourses) as AllCourses from (select grp.Name, COUNT(crs.Name) + AVG(grp.NumberOfElectives) as NumCourses from Course crs left join CourseGroup grp on SUBSTRING(crs.\"Key\", 1, CASE CHARINDEX('_', crs.\"Key\") WHEN 0 THEN LEN(crs.\"Key\") ELSE CHARINDEX('_', crs.\"Key\")-1 END) = grp.\"Key\" and SUBSTRING(crs.\"Key\", CASE CHARINDEX('_', crs.\"Key\") WHEN 0 THEN LEN(crs.\"Key\")+1 ELSE CHARINDEX('_', crs.\"Key\")+1 END, 1000) = grp.\"Name\" where grp.\"Key\" = '" + faculty + "' group by grp.Name) a";
         oCmd = new SqlCommand(oString, myConnection);
@@ -216,8 +215,6 @@ public class CreateExcelWorksheet
         oCmd = new SqlCommand(oString, myConnection);
 
         int i = 1;
-        int j = numAllCourses + 2;
-        int k = j;
 
         String lastGroup = null;
         int lastNumElectives = 0;
@@ -236,21 +233,32 @@ public class CreateExcelWorksheet
                         {
                             groupRange[i].Value2 = lastGroup;
                             courseNumRange[i].Value2 = l;
+
                             i++;
                         }
                     }
 
-                    groupRange[i].Value2 = oReader["Group"].ToString();
+                    String courseGroup = oReader["Group"].ToString();
+                    String course = oReader["Course"].ToString();
+
+                    groupRange[i].Value2 = courseGroup;
                     courseNumRange[i].Value2 = "Course " + oReader["num1"].ToString();
-                    courseNameRange[i].Value2 = oReader["Course"].ToString();
+                    courseNameRange[i].Value2 = course;
+
+                    yAxis.Add(faculty + "_" + courseGroup + "_" + course, i + 2);
 
                     numCourses = 1;
                 }
                 else
                 {
-                    groupRange[i].Value2 = oReader["Group"].ToString();
+                    String courseGroup = oReader["Group"].ToString();
+                    String course = oReader["Course"].ToString();
+
+                    groupRange[i].Value2 = courseGroup;
                     courseNumRange[i].Value2 = "Course " + oReader["num1"].ToString();
-                    courseNameRange[i].Value2 = oReader["Course"].ToString();
+                    courseNameRange[i].Value2 = course;
+
+                    yAxis.Add(faculty + "_" + courseGroup + "_" + course, i + 2);
                 }
 
                 lastGroup = oReader["Group"].ToString();
@@ -268,23 +276,6 @@ public class CreateExcelWorksheet
                 courseNumRange[i].Value2 = l;
                 i++;
             }
-        }
-
-        while (true)
-        {
-            if (j == 3)
-            {
-                ws.Range[ws.Cells[k, 1], ws.Cells[3, 1]].Merge();
-                k = j - 1;
-                break;
-            }
-            else if (!(((string)(ws.Cells[j - 1, 1] as Range).Value).Equals((string)(ws.Cells[j, 1] as Range).Value)))
-            {
-                ws.Range[ws.Cells[k, 1], ws.Cells[j, 1]].Merge();
-                k = j - 1;
-            }
-
-            j--;
         }
 
         //Colouring a cell seems to remove the border.
@@ -328,5 +319,86 @@ public class CreateExcelWorksheet
         borders[XlBordersIndex.xlDiagonalUp].LineStyle = XlLineStyle.xlLineStyleNone;
         borders[XlBordersIndex.xlDiagonalDown].LineStyle = XlLineStyle.xlLineStyleNone;
         borders = null;
+    }
+
+    private static void InsertLearningLevels(SqlConnection myConnection)
+    {
+        string oString;
+        SqlCommand oCmd;
+
+        oString = "select * from LearningLevel where SUBSTRING(\"PerformanceIndicatorKey\", 1, CASE CHARINDEX('_', \"PerformanceIndicatorKey\") WHEN 0 THEN LEN(\"PerformanceIndicatorKey\") ELSE CHARINDEX('_', \"PerformanceIndicatorKey\")-1 END) = '" + faculty + "'";
+
+       oCmd = new SqlCommand(oString, myConnection);
+
+        using (SqlDataReader oReader = oCmd.ExecuteReader())
+        {
+
+            foreach (KeyValuePair<string, int> kvp in xAxis)
+            {
+                Debug.WriteLine("xKey = {0}, xValue = {1}",
+                    kvp.Key, kvp.Value);
+            }
+
+            foreach (KeyValuePair<string, int> kvp in yAxis)
+            {
+                Debug.WriteLine("yKey = {0}, yValue = {1}",
+                    kvp.Key, kvp.Value);
+            }
+
+            while (oReader.Read())
+            {
+                Debug.WriteLine("x: " + oReader["PerformanceIndicatorKey"].ToString());
+                Debug.WriteLine("y: " + oReader["CouresKey"].ToString());
+
+                //Include error checking to see if the key exists in the dictionary
+                int x = xAxis[oReader["PerformanceIndicatorKey"].ToString()];
+                int y = yAxis[oReader["CouresKey"].ToString()];
+
+                (ws.Cells[y, x] as Range).Value = oReader["Value"].ToString();
+            }
+        }
+    }
+
+    private static void Merge()
+    {
+        int j = performanceIndicatorsCount + 3;
+        int k = j;
+
+        while (true)
+        {
+            if (j == 4)
+            {
+                ws.Range[ws.Cells[1, k], ws.Cells[1, 4]].Merge();
+                k = j - 1;
+                break;
+            }
+            else if (!(((string)(ws.Cells[1, j - 1] as Range).Value).Equals((string)(ws.Cells[1, j] as Range).Value)))
+            {
+                ws.Range[ws.Cells[1, k], ws.Cells[1, j]].Merge();
+                k = j - 1;
+            }
+
+            j--;
+        }
+
+        j = numAllCourses + 2;
+        k = j;
+
+        while (true)
+        {
+            if (j == 3)
+            {
+                ws.Range[ws.Cells[k, 1], ws.Cells[3, 1]].Merge();
+                k = j - 1;
+                break;
+            }
+            else if (!(((string)(ws.Cells[j - 1, 1] as Range).Value).Equals((string)(ws.Cells[j, 1] as Range).Value)))
+            {
+                ws.Range[ws.Cells[k, 1], ws.Cells[j, 1]].Merge();
+                k = j - 1;
+            }
+
+            j--;
+        }
     }
 }
