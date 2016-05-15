@@ -99,25 +99,69 @@ namespace ACD
 
         private void programOutcomesButtonAdd_Click(object sender, EventArgs e) => new ProgramOutcomeForm().ShowDialog(); 
 
+<<<<<<< HEAD
         private void ButtonProgramAdd_Click(object sender, EventArgs e) => new ProgramForm().ShowDialog();
+=======
+        private void ButtonProgramAdd_Click(object sender, EventArgs e)
+        {
+            var result = new ProgramForm().ShowDialog();
+            if (System.Windows.Forms.DialogResult.OK == result)
+            {
+                comboBoxProgram.Items.Clear();
+                comboBoxProgram.Items.Insert(0, "Select a Program");
+                comboBoxProgram.SelectedIndex = 0;
+                programDs.Clear();
+                programAdapter.Fill(programDs);
+                foreach (DataRow r in programDs.Tables["Table"].Rows)
+                {
+                    comboBoxProgram.Items.Add(r["Name"]);
+                }
+            }
+        }
+>>>>>>> 4922923facba1c0abb063fb3cc5821a64c1fb14a
 
         private void ButtonProgramDelete_Click(object sender, EventArgs e)
         {
             if(!comboBoxProgram.Text.Equals("Select a Program"))
             {
-                programDs.Tables["Table"].Rows[programDs.Tables["Table"].Rows.IndexOf(programDs.Tables["Table"].Rows.Find(comboBoxProgram.Text))].Delete();
-
-                new SqlCommandBuilder(programAdapter);
-                programAdapter.Update(programDs);
-                programAdapter.Fill(programDs);
-
-                comboBoxProgram.Items.Clear();
-                comboBoxProgram.Items.Insert(0, "Select a Program");
-                comboBoxProgram.SelectedIndex = 0;
-
-                foreach (DataRow r in programDs.Tables["Table"].Rows)
+                var result = new DeleteDialog(comboBoxProgram.Text).ShowDialog();
+                if (System.Windows.Forms.DialogResult.OK == result && programDs.Tables["Table"].Rows.Contains(comboBoxProgram.Text))
                 {
-                    comboBoxProgram.Items.Add(r["Name"]);
+                    programDs.Tables["Table"].Rows[programDs.Tables["Table"].Rows.IndexOf(programDs.Tables["Table"].Rows.Find(comboBoxProgram.Text))].Delete();
+
+                    new SqlCommandBuilder(programAdapter);
+                    programAdapter.Update(programDs);
+                    programDs.Clear();
+                    programAdapter.Fill(programDs);
+
+                    comboBoxProgram.Items.Clear();
+                    comboBoxProgram.Items.Insert(0, "Select a Program");
+                    comboBoxProgram.SelectedIndex = 0;
+
+                    foreach (DataRow r in programDs.Tables["Table"].Rows)
+                    {
+                        comboBoxProgram.Items.Add(r["Name"]);
+                    }
+                }
+            }
+        }
+
+        private void ButtonProgramEdit_Click(object sender, EventArgs e)
+        {
+            if (!comboBoxProgram.Text.Equals("Select a Program"))
+            {
+                var result = new ProgramForm((string)comboBoxProgram.SelectedItem).ShowDialog();
+                if (System.Windows.Forms.DialogResult.OK == result)
+                {
+                    comboBoxProgram.Items.Clear();
+                    comboBoxProgram.Items.Insert(0, "Select a Program");
+                    comboBoxProgram.SelectedIndex = 0;
+                    programDs.Clear();
+                    programAdapter.Fill(programDs);
+                    foreach (DataRow r in programDs.Tables["Table"].Rows)
+                    {
+                        comboBoxProgram.Items.Add(r["Name"]);
+                    }
                 }
             }
         }

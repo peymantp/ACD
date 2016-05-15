@@ -15,9 +15,17 @@ namespace ACD
 {
     public partial class ProgramForm : MaterialForm
     {
+        private string currName;
         public ProgramForm()
         {
             InitializeComponent();
+        }
+        public ProgramForm(string name)
+        {
+            InitializeComponent();
+            ButtonProgramAdd.Text = "Edit";
+            textBoxName.Text = name;
+            currName = name;
         }
 
         private void ButtonProgramAdd_Click(object sender, EventArgs e)
@@ -40,15 +48,23 @@ namespace ACD
                 DataColumn[] keyColumns = new DataColumn[1];
                 keyColumns[0] = ds.Tables["Table"].Columns["Name"];
                 ds.Tables["Table"].PrimaryKey = keyColumns;
+
                 if (!(ds.Tables["Table"].Rows.Contains(textBoxName.Text)))
                 {
-                    var newRow = ds.Tables["Table"].NewRow();
-                    newRow["Name"] = textBoxName.Text;
-                    ds.Tables["Table"].Rows.Add(newRow);
-
+                    if (ButtonProgramAdd.Text.Equals("Edit"))
+                    {
+                        ds.Tables["Table"].Rows.Find(currName)["Name"] = textBoxName.Text;
+                    }
+                    else
+                    {
+                        var newRow = ds.Tables["Table"].NewRow();
+                        newRow["Name"] = textBoxName.Text;
+                        ds.Tables["Table"].Rows.Add(newRow);
+                    }
                     new SqlCommandBuilder(dadapter);
                     dadapter.Update(ds);
                     connection.Close();
+                    this.DialogResult = DialogResult.OK;
                     this.Close();
                 } else
                 {
@@ -60,6 +76,7 @@ namespace ACD
 
         private void materialRaisedButton1_Click(object sender, EventArgs e)
         {
+            this.DialogResult = DialogResult.Cancel;
             this.Close();
         }
     }

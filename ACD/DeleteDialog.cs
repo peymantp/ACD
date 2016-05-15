@@ -16,6 +16,17 @@ namespace ACD
         public DeleteDialog(string name)
         {
             InitializeComponent();
+            warningLabel.Text = "Are you sure you want to delete " + name;
+        }
+
+        private void deleteButton_Click(object sender, EventArgs e)
+        {
+            this.DialogResult = DialogResult.OK;
+        }
+
+        private void cancelButton_Click(object sender, EventArgs e)
+        {
+            this.DialogResult = DialogResult.Cancel;
         }
     }
 }

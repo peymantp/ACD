@@ -65,6 +65,12 @@
     <Compile Include="CourseGroupForm.Designer.cs">
       <DependentUpon>CourseGroupForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="DeleteDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DeleteDialog.Designer.cs">
+      <DependentUpon>DeleteDialog.cs</DependentUpon>
+    </Compile>
     <Compile Include="PerformanceIndicatorForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -108,6 +114,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="CourseGroupForm.resx">
       <DependentUpon>CourseGroupForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DeleteDialog.resx">
+      <DependentUpon>DeleteDialog.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="PerformanceIndicatorForm.resx">
       <DependentUpon>PerformanceIndicatorForm.cs</DependentUpon>
