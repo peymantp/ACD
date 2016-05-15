@@ -99,9 +99,6 @@ namespace ACD
 
         private void programOutcomesButtonAdd_Click(object sender, EventArgs e) => new ProgramOutcomeForm().ShowDialog(); 
 
-<<<<<<< HEAD
-        private void ButtonProgramAdd_Click(object sender, EventArgs e) => new ProgramForm().ShowDialog();
-=======
         private void ButtonProgramAdd_Click(object sender, EventArgs e)
         {
             var result = new ProgramForm().ShowDialog();
@@ -118,7 +115,6 @@ namespace ACD
                 }
             }
         }
->>>>>>> 4922923facba1c0abb063fb3cc5821a64c1fb14a
 
         private void ButtonProgramDelete_Click(object sender, EventArgs e)
         {
