@@ -4,12 +4,19 @@ using System.Configuration;
 using MaterialSkin.Controls;
 using MaterialSkin;
 using System.Drawing;
+using System.Data.SqlClient;
+using System.Data;
 
 namespace ACD
 {
     public partial class MainForm : MaterialForm
     {
-        private MaterialSkinManager skinManager; 
+        private MaterialSkinManager skinManager;
+        private string conn = ConfigurationManager.ConnectionStrings["ACD.Properties.Settings.vaxasDatabaseConnectionString"].ConnectionString;
+        private SqlConnection connection;
+        private string programQuery = "select * FROM dbo.Faculty";
+        private SqlDataAdapter programAdapter;
+        private DataSet programDs;
         public MainForm()
         {
             
@@ -62,9 +69,23 @@ namespace ACD
         private void MainForm_Load(object sender, EventArgs e)
         {
             // TODO: This line of code loads data into the 'vaxasDatabaseDataSet.PerformanceIndicator' table. You can move, or remove it, as needed.
-            this.performanceIndicatorTableAdapter.Fill(this.vaxasDatabaseDataSet.PerformanceIndicator);
+            //this.performanceIndicatorTableAdapter.Fill(this.vaxasDatabaseDataSet.PerformanceIndicator);
             // TODO: This line of code loads data into the 'vaxasDatabaseDataSet.Course' table. You can move, or remove it, as needed.
-            this.courseTableAdapter.Fill(this.vaxasDatabaseDataSet.Course);
+            //this.courseTableAdapter.Fill(this.vaxasDatabaseDataSet.Course);
+            connection = new SqlConnection(conn);
+            programAdapter = new SqlDataAdapter(programQuery, connection);
+            programDs = new DataSet();
+            programAdapter.Fill(programDs);
+            DataColumn[] keyColumns = new DataColumn[1];
+            keyColumns[0] = programDs.Tables["Table"].Columns["Name"];
+            programDs.Tables["Table"].PrimaryKey = keyColumns;
+            comboBoxProgram.Items.Insert(0, "Select a Program");
+            comboBoxProgram.SelectedIndex = 0;
+
+            foreach(DataRow r in programDs.Tables["Table"].Rows)
+            {
+                comboBoxProgram.Items.Add(r["Name"]);
+            }
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -80,5 +101,31 @@ namespace ACD
         private void courseButtonAdd_Click(object sender, EventArgs e) => new CourseForm().Show();
 
         private void coreButtonAdd_Click(object sender, EventArgs e) => new CourseGroupForm().Show();
+
+        private void ButtonProgramAdd_Click(object sender, EventArgs e)
+        {
+            new ProgramForm().ShowDialog();
+        }
+
+        private void ButtonProgramDelete_Click(object sender, EventArgs e)
+        {
+            if(!comboBoxProgram.Text.Equals("Select a Program"))
+            {
+                programDs.Tables["Table"].Rows[programDs.Tables["Table"].Rows.IndexOf(programDs.Tables["Table"].Rows.Find(comboBoxProgram.Text))].Delete();
+
+                new SqlCommandBuilder(programAdapter);
+                programAdapter.Update(programDs);
+                programAdapter.Fill(programDs);
+
+                comboBoxProgram.Items.Clear();
+                comboBoxProgram.Items.Insert(0, "Select a Program");
+                comboBoxProgram.SelectedIndex = 0;
+
+                foreach (DataRow r in programDs.Tables["Table"].Rows)
+                {
+                    comboBoxProgram.Items.Add(r["Name"]);
+                }
+            }
+        }
     }
 }
