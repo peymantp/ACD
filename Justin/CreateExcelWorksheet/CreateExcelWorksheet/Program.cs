@@ -332,19 +332,6 @@ public class CreateExcelWorksheet
 
         using (SqlDataReader oReader = oCmd.ExecuteReader())
         {
-
-            foreach (KeyValuePair<string, int> kvp in xAxis)
-            {
-                Debug.WriteLine("xKey = {0}, xValue = {1}",
-                    kvp.Key, kvp.Value);
-            }
-
-            foreach (KeyValuePair<string, int> kvp in yAxis)
-            {
-                Debug.WriteLine("yKey = {0}, yValue = {1}",
-                    kvp.Key, kvp.Value);
-            }
-
             while (oReader.Read())
             {
                 Debug.WriteLine("x: " + oReader["PerformanceIndicatorKey"].ToString());
@@ -355,8 +342,21 @@ public class CreateExcelWorksheet
                 int y = yAxis[oReader["CouresKey"].ToString()];
 
                 (ws.Cells[y, x] as Range).Value = oReader["Value"].ToString();
+
+                //11119017
+                (ws.Cells[y, x] as Range).Interior.Color = 11908533;
+                BorderAround((ws.Cells[y, x] as Range), 13421772);
             }
         }
+
+        Range learningLevels = ws.get_Range("D3", GetExcelColumnName(performanceIndicatorsCount + 3) + (numAllCourses + 2));
+
+        learningLevels.WrapText = true;
+
+        learningLevels.HorizontalAlignment = Microsoft.Office.Interop.Excel.XlHAlign.xlHAlignCenter;
+        learningLevels.VerticalAlignment = Microsoft.Office.Interop.Excel.XlVAlign.xlVAlignCenter;
+
+        learningLevels.Font.Bold = true;
     }
 
     private static void Merge()
