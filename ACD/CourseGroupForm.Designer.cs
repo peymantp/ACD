@@ -40,12 +40,12 @@
             // 
             this.labelProgram.AutoSize = true;
             this.labelProgram.Depth = 0;
-            this.labelProgram.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
+            this.labelProgram.Font = new System.Drawing.Font("Roboto", 11F);
             this.labelProgram.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.labelProgram.Location = new System.Drawing.Point(23, 83);
             this.labelProgram.MouseState = MaterialSkin.MouseState.HOVER;
             this.labelProgram.Name = "labelProgram";
-            this.labelProgram.Size = new System.Drawing.Size(66, 18);
+            this.labelProgram.Size = new System.Drawing.Size(66, 19);
             this.labelProgram.TabIndex = 0;
             this.labelProgram.Text = "Program";
             // 
@@ -99,7 +99,7 @@
             // ButtonCancel
             // 
             this.ButtonCancel.Depth = 0;
-            this.ButtonCancel.Location = new System.Drawing.Point(26, 167);
+            this.ButtonCancel.Location = new System.Drawing.Point(261, 163);
             this.ButtonCancel.MouseState = MaterialSkin.MouseState.HOVER;
             this.ButtonCancel.Name = "ButtonCancel";
             this.ButtonCancel.Primary = true;
@@ -112,7 +112,7 @@
             // ButtonSave
             // 
             this.ButtonSave.Depth = 0;
-            this.ButtonSave.Location = new System.Drawing.Point(261, 167);
+            this.ButtonSave.Location = new System.Drawing.Point(95, 163);
             this.ButtonSave.MouseState = MaterialSkin.MouseState.HOVER;
             this.ButtonSave.Name = "ButtonSave";
             this.ButtonSave.Primary = true;
@@ -125,7 +125,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(415, 233);
+            this.ClientSize = new System.Drawing.Size(415, 214);
             this.Controls.Add(this.ButtonSave);
             this.Controls.Add(this.ButtonCancel);
             this.Controls.Add(this.materialSingleLineTextField2);

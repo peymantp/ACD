@@ -61,7 +61,6 @@ namespace ACD
             this.indicatorButtonEdit = new MaterialSkin.Controls.MaterialRaisedButton();
             this.coreButtonEdit = new MaterialSkin.Controls.MaterialRaisedButton();
             this.courseButtonEdit = new MaterialSkin.Controls.MaterialRaisedButton();
-            this.button1 = new System.Windows.Forms.Button();
             this.performanceIndicatorTableAdapter1 = new ACD.vaxasDatabaseDataSetTableAdapters.PerformanceIndicatorTableAdapter();
             this.courseTableAdapter2 = new ACD.vaxasDatabaseDataSetTableAdapters.CourseTableAdapter();
             this.courseTableAdapter3 = new ACD.vaxasDatabaseDataSetTableAdapters.CourseTableAdapter();
@@ -74,12 +73,10 @@ namespace ACD
             // 
             this.comboBoxProgram.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxProgram.FormattingEnabled = true;
-            this.comboBoxProgram.Location = new System.Drawing.Point(124, 94);
-            this.comboBoxProgram.Margin = new System.Windows.Forms.Padding(4);
+            this.comboBoxProgram.Location = new System.Drawing.Point(93, 76);
             this.comboBoxProgram.Name = "comboBoxProgram";
-            this.comboBoxProgram.Size = new System.Drawing.Size(160, 24);
+            this.comboBoxProgram.Size = new System.Drawing.Size(121, 21);
             this.comboBoxProgram.TabIndex = 1;
-            this.comboBoxProgram.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
             // labelProgram
             // 
@@ -87,11 +84,10 @@ namespace ACD
             this.labelProgram.Depth = 0;
             this.labelProgram.Font = new System.Drawing.Font("Roboto", 11F);
             this.labelProgram.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.labelProgram.Location = new System.Drawing.Point(11, 94);
-            this.labelProgram.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.labelProgram.Location = new System.Drawing.Point(8, 76);
             this.labelProgram.MouseState = MaterialSkin.MouseState.HOVER;
             this.labelProgram.Name = "labelProgram";
-            this.labelProgram.Size = new System.Drawing.Size(93, 24);
+            this.labelProgram.Size = new System.Drawing.Size(74, 19);
             this.labelProgram.TabIndex = 2;
             this.labelProgram.Text = "Programs";
             // 
@@ -124,11 +120,10 @@ namespace ACD
             this.labelOutcomes.Depth = 0;
             this.labelOutcomes.Font = new System.Drawing.Font("Roboto", 11F);
             this.labelOutcomes.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.labelOutcomes.Location = new System.Drawing.Point(11, 156);
-            this.labelOutcomes.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.labelOutcomes.Location = new System.Drawing.Point(8, 127);
             this.labelOutcomes.MouseState = MaterialSkin.MouseState.HOVER;
             this.labelOutcomes.Name = "labelOutcomes";
-            this.labelOutcomes.Size = new System.Drawing.Size(97, 24);
+            this.labelOutcomes.Size = new System.Drawing.Size(78, 19);
             this.labelOutcomes.TabIndex = 4;
             this.labelOutcomes.Text = "Outcomes";
             // 
@@ -138,11 +133,10 @@ namespace ACD
             this.labelIndicators.Depth = 0;
             this.labelIndicators.Font = new System.Drawing.Font("Roboto", 11F);
             this.labelIndicators.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.labelIndicators.Location = new System.Drawing.Point(11, 210);
-            this.labelIndicators.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.labelIndicators.Location = new System.Drawing.Point(8, 171);
             this.labelIndicators.MouseState = MaterialSkin.MouseState.HOVER;
             this.labelIndicators.Name = "labelIndicators";
-            this.labelIndicators.Size = new System.Drawing.Size(94, 24);
+            this.labelIndicators.Size = new System.Drawing.Size(76, 19);
             this.labelIndicators.TabIndex = 5;
             this.labelIndicators.Text = "Indicators";
             // 
@@ -152,11 +146,10 @@ namespace ACD
             this.labelCores.Depth = 0;
             this.labelCores.Font = new System.Drawing.Font("Roboto", 11F);
             this.labelCores.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.labelCores.Location = new System.Drawing.Point(11, 271);
-            this.labelCores.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.labelCores.Location = new System.Drawing.Point(8, 220);
             this.labelCores.MouseState = MaterialSkin.MouseState.HOVER;
             this.labelCores.Name = "labelCores";
-            this.labelCores.Size = new System.Drawing.Size(59, 24);
+            this.labelCores.Size = new System.Drawing.Size(49, 19);
             this.labelCores.TabIndex = 6;
             this.labelCores.Text = "Cores";
             // 
@@ -166,11 +159,10 @@ namespace ACD
             this.labelCourses.Depth = 0;
             this.labelCourses.Font = new System.Drawing.Font("Roboto", 11F);
             this.labelCourses.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.labelCourses.Location = new System.Drawing.Point(11, 327);
-            this.labelCourses.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.labelCourses.Location = new System.Drawing.Point(8, 266);
             this.labelCourses.MouseState = MaterialSkin.MouseState.HOVER;
             this.labelCourses.Name = "labelCourses";
-            this.labelCourses.Size = new System.Drawing.Size(79, 24);
+            this.labelCourses.Size = new System.Drawing.Size(65, 19);
             this.labelCourses.TabIndex = 7;
             this.labelCourses.Text = "Courses";
             // 
@@ -178,51 +170,46 @@ namespace ACD
             // 
             this.comboBoxOutcome.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxOutcome.FormattingEnabled = true;
-            this.comboBoxOutcome.Location = new System.Drawing.Point(124, 156);
-            this.comboBoxOutcome.Margin = new System.Windows.Forms.Padding(4);
+            this.comboBoxOutcome.Location = new System.Drawing.Point(93, 127);
             this.comboBoxOutcome.Name = "comboBoxOutcome";
-            this.comboBoxOutcome.Size = new System.Drawing.Size(160, 24);
+            this.comboBoxOutcome.Size = new System.Drawing.Size(121, 21);
             this.comboBoxOutcome.TabIndex = 8;
             // 
             // comboBoxIndicator
             // 
             this.comboBoxIndicator.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxIndicator.FormattingEnabled = true;
-            this.comboBoxIndicator.Location = new System.Drawing.Point(124, 212);
-            this.comboBoxIndicator.Margin = new System.Windows.Forms.Padding(4);
+            this.comboBoxIndicator.Location = new System.Drawing.Point(93, 172);
             this.comboBoxIndicator.Name = "comboBoxIndicator";
-            this.comboBoxIndicator.Size = new System.Drawing.Size(160, 24);
+            this.comboBoxIndicator.Size = new System.Drawing.Size(121, 21);
             this.comboBoxIndicator.TabIndex = 9;
             // 
             // comboBoxCore
             // 
             this.comboBoxCore.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxCore.FormattingEnabled = true;
-            this.comboBoxCore.Location = new System.Drawing.Point(124, 272);
-            this.comboBoxCore.Margin = new System.Windows.Forms.Padding(4);
+            this.comboBoxCore.Location = new System.Drawing.Point(93, 221);
             this.comboBoxCore.Name = "comboBoxCore";
-            this.comboBoxCore.Size = new System.Drawing.Size(160, 24);
+            this.comboBoxCore.Size = new System.Drawing.Size(121, 21);
             this.comboBoxCore.TabIndex = 10;
             // 
             // comboBoxCourse
             // 
             this.comboBoxCourse.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxCourse.FormattingEnabled = true;
-            this.comboBoxCourse.Location = new System.Drawing.Point(124, 330);
-            this.comboBoxCourse.Margin = new System.Windows.Forms.Padding(4);
+            this.comboBoxCourse.Location = new System.Drawing.Point(93, 268);
             this.comboBoxCourse.Name = "comboBoxCourse";
-            this.comboBoxCourse.Size = new System.Drawing.Size(160, 24);
+            this.comboBoxCourse.Size = new System.Drawing.Size(121, 21);
             this.comboBoxCourse.TabIndex = 11;
             // 
             // ButtonProgramAdd
             // 
             this.ButtonProgramAdd.Depth = 0;
-            this.ButtonProgramAdd.Location = new System.Drawing.Point(304, 92);
-            this.ButtonProgramAdd.Margin = new System.Windows.Forms.Padding(4);
+            this.ButtonProgramAdd.Location = new System.Drawing.Point(228, 75);
             this.ButtonProgramAdd.MouseState = MaterialSkin.MouseState.HOVER;
             this.ButtonProgramAdd.Name = "ButtonProgramAdd";
             this.ButtonProgramAdd.Primary = true;
-            this.ButtonProgramAdd.Size = new System.Drawing.Size(100, 28);
+            this.ButtonProgramAdd.Size = new System.Drawing.Size(75, 23);
             this.ButtonProgramAdd.TabIndex = 12;
             this.ButtonProgramAdd.Text = "Add";
             this.ButtonProgramAdd.UseVisualStyleBackColor = true;
@@ -231,12 +218,11 @@ namespace ACD
             // ButtonProgramDelete
             // 
             this.ButtonProgramDelete.Depth = 0;
-            this.ButtonProgramDelete.Location = new System.Drawing.Point(428, 91);
-            this.ButtonProgramDelete.Margin = new System.Windows.Forms.Padding(4);
+            this.ButtonProgramDelete.Location = new System.Drawing.Point(321, 74);
             this.ButtonProgramDelete.MouseState = MaterialSkin.MouseState.HOVER;
             this.ButtonProgramDelete.Name = "ButtonProgramDelete";
             this.ButtonProgramDelete.Primary = true;
-            this.ButtonProgramDelete.Size = new System.Drawing.Size(100, 28);
+            this.ButtonProgramDelete.Size = new System.Drawing.Size(75, 23);
             this.ButtonProgramDelete.TabIndex = 13;
             this.ButtonProgramDelete.Text = "Delete";
             this.ButtonProgramDelete.UseVisualStyleBackColor = true;
@@ -245,25 +231,24 @@ namespace ACD
             // outcomeButtonAdd
             // 
             this.outcomeButtonAdd.Depth = 0;
-            this.outcomeButtonAdd.Location = new System.Drawing.Point(304, 153);
-            this.outcomeButtonAdd.Margin = new System.Windows.Forms.Padding(4);
+            this.outcomeButtonAdd.Location = new System.Drawing.Point(228, 124);
             this.outcomeButtonAdd.MouseState = MaterialSkin.MouseState.HOVER;
             this.outcomeButtonAdd.Name = "outcomeButtonAdd";
             this.outcomeButtonAdd.Primary = true;
-            this.outcomeButtonAdd.Size = new System.Drawing.Size(100, 28);
+            this.outcomeButtonAdd.Size = new System.Drawing.Size(75, 23);
             this.outcomeButtonAdd.TabIndex = 14;
             this.outcomeButtonAdd.Text = "Add";
             this.outcomeButtonAdd.UseVisualStyleBackColor = true;
+            this.outcomeButtonAdd.Click += new System.EventHandler(this.programOutcomesButtonAdd_Click);
             // 
             // outcomeButtonDelete
             // 
             this.outcomeButtonDelete.Depth = 0;
-            this.outcomeButtonDelete.Location = new System.Drawing.Point(428, 153);
-            this.outcomeButtonDelete.Margin = new System.Windows.Forms.Padding(4);
+            this.outcomeButtonDelete.Location = new System.Drawing.Point(321, 124);
             this.outcomeButtonDelete.MouseState = MaterialSkin.MouseState.HOVER;
             this.outcomeButtonDelete.Name = "outcomeButtonDelete";
             this.outcomeButtonDelete.Primary = true;
-            this.outcomeButtonDelete.Size = new System.Drawing.Size(100, 28);
+            this.outcomeButtonDelete.Size = new System.Drawing.Size(75, 23);
             this.outcomeButtonDelete.TabIndex = 15;
             this.outcomeButtonDelete.Text = "delete";
             this.outcomeButtonDelete.UseVisualStyleBackColor = true;
@@ -271,12 +256,11 @@ namespace ACD
             // indicatorButtonAdd
             // 
             this.indicatorButtonAdd.Depth = 0;
-            this.indicatorButtonAdd.Location = new System.Drawing.Point(304, 213);
-            this.indicatorButtonAdd.Margin = new System.Windows.Forms.Padding(4);
+            this.indicatorButtonAdd.Location = new System.Drawing.Point(228, 173);
             this.indicatorButtonAdd.MouseState = MaterialSkin.MouseState.HOVER;
             this.indicatorButtonAdd.Name = "indicatorButtonAdd";
             this.indicatorButtonAdd.Primary = true;
-            this.indicatorButtonAdd.Size = new System.Drawing.Size(100, 28);
+            this.indicatorButtonAdd.Size = new System.Drawing.Size(75, 23);
             this.indicatorButtonAdd.TabIndex = 16;
             this.indicatorButtonAdd.Text = "Add";
             this.indicatorButtonAdd.UseVisualStyleBackColor = true;
@@ -284,12 +268,11 @@ namespace ACD
             // indicatorButtonDelete
             // 
             this.indicatorButtonDelete.Depth = 0;
-            this.indicatorButtonDelete.Location = new System.Drawing.Point(428, 213);
-            this.indicatorButtonDelete.Margin = new System.Windows.Forms.Padding(4);
+            this.indicatorButtonDelete.Location = new System.Drawing.Point(321, 173);
             this.indicatorButtonDelete.MouseState = MaterialSkin.MouseState.HOVER;
             this.indicatorButtonDelete.Name = "indicatorButtonDelete";
             this.indicatorButtonDelete.Primary = true;
-            this.indicatorButtonDelete.Size = new System.Drawing.Size(100, 28);
+            this.indicatorButtonDelete.Size = new System.Drawing.Size(75, 23);
             this.indicatorButtonDelete.TabIndex = 17;
             this.indicatorButtonDelete.Text = "delete";
             this.indicatorButtonDelete.UseVisualStyleBackColor = true;
@@ -297,12 +280,11 @@ namespace ACD
             // coreButtonAdd
             // 
             this.coreButtonAdd.Depth = 0;
-            this.coreButtonAdd.Location = new System.Drawing.Point(304, 270);
-            this.coreButtonAdd.Margin = new System.Windows.Forms.Padding(4);
+            this.coreButtonAdd.Location = new System.Drawing.Point(228, 219);
             this.coreButtonAdd.MouseState = MaterialSkin.MouseState.HOVER;
             this.coreButtonAdd.Name = "coreButtonAdd";
             this.coreButtonAdd.Primary = true;
-            this.coreButtonAdd.Size = new System.Drawing.Size(100, 28);
+            this.coreButtonAdd.Size = new System.Drawing.Size(75, 23);
             this.coreButtonAdd.TabIndex = 18;
             this.coreButtonAdd.Text = "Add";
             this.coreButtonAdd.UseVisualStyleBackColor = true;
@@ -311,12 +293,11 @@ namespace ACD
             // coreButtonDelete
             // 
             this.coreButtonDelete.Depth = 0;
-            this.coreButtonDelete.Location = new System.Drawing.Point(428, 274);
-            this.coreButtonDelete.Margin = new System.Windows.Forms.Padding(4);
+            this.coreButtonDelete.Location = new System.Drawing.Point(321, 223);
             this.coreButtonDelete.MouseState = MaterialSkin.MouseState.HOVER;
             this.coreButtonDelete.Name = "coreButtonDelete";
             this.coreButtonDelete.Primary = true;
-            this.coreButtonDelete.Size = new System.Drawing.Size(100, 28);
+            this.coreButtonDelete.Size = new System.Drawing.Size(75, 23);
             this.coreButtonDelete.TabIndex = 19;
             this.coreButtonDelete.Text = "Delete";
             this.coreButtonDelete.UseVisualStyleBackColor = true;
@@ -324,12 +305,11 @@ namespace ACD
             // courseButtonAdd
             // 
             this.courseButtonAdd.Depth = 0;
-            this.courseButtonAdd.Location = new System.Drawing.Point(304, 327);
-            this.courseButtonAdd.Margin = new System.Windows.Forms.Padding(4);
+            this.courseButtonAdd.Location = new System.Drawing.Point(228, 266);
             this.courseButtonAdd.MouseState = MaterialSkin.MouseState.HOVER;
             this.courseButtonAdd.Name = "courseButtonAdd";
             this.courseButtonAdd.Primary = true;
-            this.courseButtonAdd.Size = new System.Drawing.Size(100, 28);
+            this.courseButtonAdd.Size = new System.Drawing.Size(75, 23);
             this.courseButtonAdd.TabIndex = 20;
             this.courseButtonAdd.Text = "add";
             this.courseButtonAdd.UseVisualStyleBackColor = true;
@@ -338,12 +318,11 @@ namespace ACD
             // courseButtonDelete
             // 
             this.courseButtonDelete.Depth = 0;
-            this.courseButtonDelete.Location = new System.Drawing.Point(428, 330);
-            this.courseButtonDelete.Margin = new System.Windows.Forms.Padding(4);
+            this.courseButtonDelete.Location = new System.Drawing.Point(321, 268);
             this.courseButtonDelete.MouseState = MaterialSkin.MouseState.HOVER;
             this.courseButtonDelete.Name = "courseButtonDelete";
             this.courseButtonDelete.Primary = true;
-            this.courseButtonDelete.Size = new System.Drawing.Size(100, 28);
+            this.courseButtonDelete.Size = new System.Drawing.Size(75, 23);
             this.courseButtonDelete.TabIndex = 21;
             this.courseButtonDelete.Text = "delete";
             this.courseButtonDelete.UseVisualStyleBackColor = true;
@@ -351,12 +330,11 @@ namespace ACD
             // ButtonProgramEdit
             // 
             this.ButtonProgramEdit.Depth = 0;
-            this.ButtonProgramEdit.Location = new System.Drawing.Point(557, 92);
-            this.ButtonProgramEdit.Margin = new System.Windows.Forms.Padding(4);
+            this.ButtonProgramEdit.Location = new System.Drawing.Point(418, 75);
             this.ButtonProgramEdit.MouseState = MaterialSkin.MouseState.HOVER;
             this.ButtonProgramEdit.Name = "ButtonProgramEdit";
             this.ButtonProgramEdit.Primary = true;
-            this.ButtonProgramEdit.Size = new System.Drawing.Size(100, 28);
+            this.ButtonProgramEdit.Size = new System.Drawing.Size(75, 23);
             this.ButtonProgramEdit.TabIndex = 22;
             this.ButtonProgramEdit.Text = "Edit";
             this.ButtonProgramEdit.UseVisualStyleBackColor = true;
@@ -365,12 +343,11 @@ namespace ACD
             // 
             this.outcomeButtonEdit.BackColor = System.Drawing.SystemColors.Control;
             this.outcomeButtonEdit.Depth = 0;
-            this.outcomeButtonEdit.Location = new System.Drawing.Point(557, 154);
-            this.outcomeButtonEdit.Margin = new System.Windows.Forms.Padding(4);
+            this.outcomeButtonEdit.Location = new System.Drawing.Point(418, 125);
             this.outcomeButtonEdit.MouseState = MaterialSkin.MouseState.HOVER;
             this.outcomeButtonEdit.Name = "outcomeButtonEdit";
             this.outcomeButtonEdit.Primary = true;
-            this.outcomeButtonEdit.Size = new System.Drawing.Size(100, 28);
+            this.outcomeButtonEdit.Size = new System.Drawing.Size(75, 23);
             this.outcomeButtonEdit.TabIndex = 23;
             this.outcomeButtonEdit.Text = "Edit";
             this.outcomeButtonEdit.UseVisualStyleBackColor = false;
@@ -378,12 +355,11 @@ namespace ACD
             // indicatorButtonEdit
             // 
             this.indicatorButtonEdit.Depth = 0;
-            this.indicatorButtonEdit.Location = new System.Drawing.Point(557, 213);
-            this.indicatorButtonEdit.Margin = new System.Windows.Forms.Padding(4);
+            this.indicatorButtonEdit.Location = new System.Drawing.Point(418, 173);
             this.indicatorButtonEdit.MouseState = MaterialSkin.MouseState.HOVER;
             this.indicatorButtonEdit.Name = "indicatorButtonEdit";
             this.indicatorButtonEdit.Primary = true;
-            this.indicatorButtonEdit.Size = new System.Drawing.Size(100, 28);
+            this.indicatorButtonEdit.Size = new System.Drawing.Size(75, 23);
             this.indicatorButtonEdit.TabIndex = 24;
             this.indicatorButtonEdit.Text = "edit";
             this.indicatorButtonEdit.UseVisualStyleBackColor = true;
@@ -391,12 +367,11 @@ namespace ACD
             // coreButtonEdit
             // 
             this.coreButtonEdit.Depth = 0;
-            this.coreButtonEdit.Location = new System.Drawing.Point(557, 274);
-            this.coreButtonEdit.Margin = new System.Windows.Forms.Padding(4);
+            this.coreButtonEdit.Location = new System.Drawing.Point(418, 223);
             this.coreButtonEdit.MouseState = MaterialSkin.MouseState.HOVER;
             this.coreButtonEdit.Name = "coreButtonEdit";
             this.coreButtonEdit.Primary = true;
-            this.coreButtonEdit.Size = new System.Drawing.Size(100, 28);
+            this.coreButtonEdit.Size = new System.Drawing.Size(75, 23);
             this.coreButtonEdit.TabIndex = 25;
             this.coreButtonEdit.Text = "edit";
             this.coreButtonEdit.UseVisualStyleBackColor = true;
@@ -404,26 +379,14 @@ namespace ACD
             // courseButtonEdit
             // 
             this.courseButtonEdit.Depth = 0;
-            this.courseButtonEdit.Location = new System.Drawing.Point(557, 330);
-            this.courseButtonEdit.Margin = new System.Windows.Forms.Padding(4);
+            this.courseButtonEdit.Location = new System.Drawing.Point(418, 268);
             this.courseButtonEdit.MouseState = MaterialSkin.MouseState.HOVER;
             this.courseButtonEdit.Name = "courseButtonEdit";
             this.courseButtonEdit.Primary = true;
-            this.courseButtonEdit.Size = new System.Drawing.Size(100, 28);
+            this.courseButtonEdit.Size = new System.Drawing.Size(75, 23);
             this.courseButtonEdit.TabIndex = 26;
             this.courseButtonEdit.Text = "edit";
             this.courseButtonEdit.UseVisualStyleBackColor = true;
-            // 
-            // button1
-            // 
-            this.button1.Enabled = false;
-            this.button1.Location = new System.Drawing.Point(13, 394);
-            this.button1.Margin = new System.Windows.Forms.Padding(4);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(100, 28);
-            this.button1.TabIndex = 27;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
             // 
             // performanceIndicatorTableAdapter1
             // 
@@ -439,10 +402,9 @@ namespace ACD
             // 
             // MainForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(689, 460);
-            this.Controls.Add(this.button1);
+            this.ClientSize = new System.Drawing.Size(517, 321);
             this.Controls.Add(this.courseButtonEdit);
             this.Controls.Add(this.coreButtonEdit);
             this.Controls.Add(this.indicatorButtonEdit);
@@ -468,7 +430,6 @@ namespace ACD
             this.Controls.Add(this.labelOutcomes);
             this.Controls.Add(this.labelProgram);
             this.Controls.Add(this.comboBoxProgram);
-            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "MainForm";
             this.Text = "Texas A&M Program Redesign Tool";
             this.Load += new System.EventHandler(this.MainForm_Load);
@@ -511,7 +472,6 @@ namespace ACD
         private MaterialRaisedButton indicatorButtonEdit;
         private MaterialRaisedButton coreButtonEdit;
         private MaterialRaisedButton courseButtonEdit;
-        private System.Windows.Forms.Button button1;
         private vaxasDatabaseDataSetTableAdapters.PerformanceIndicatorTableAdapter performanceIndicatorTableAdapter1;
         private vaxasDatabaseDataSetTableAdapters.CourseTableAdapter courseTableAdapter2;
         private vaxasDatabaseDataSetTableAdapters.CourseTableAdapter courseTableAdapter3;

@@ -38,7 +38,7 @@
             // ButtonSave
             // 
             this.ButtonSave.Depth = 0;
-            this.ButtonSave.Location = new System.Drawing.Point(250, 232);
+            this.ButtonSave.Location = new System.Drawing.Point(84, 227);
             this.ButtonSave.MouseState = MaterialSkin.MouseState.HOVER;
             this.ButtonSave.Name = "ButtonSave";
             this.ButtonSave.Primary = true;
@@ -50,7 +50,7 @@
             // ButtonCancel
             // 
             this.ButtonCancel.Depth = 0;
-            this.ButtonCancel.Location = new System.Drawing.Point(16, 232);
+            this.ButtonCancel.Location = new System.Drawing.Point(257, 227);
             this.ButtonCancel.MouseState = MaterialSkin.MouseState.HOVER;
             this.ButtonCancel.Name = "ButtonCancel";
             this.ButtonCancel.Primary = true;

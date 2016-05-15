@@ -93,19 +93,13 @@ namespace ACD
             new ProgramLevelForm().Show();
         }
 
-        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
-        {
+        private void courseButtonAdd_Click(object sender, EventArgs e) => new CourseForm().ShowDialog();
 
-        }
+        private void coreButtonAdd_Click(object sender, EventArgs e) => new CourseGroupForm().ShowDialog();
 
-        private void courseButtonAdd_Click(object sender, EventArgs e) => new CourseForm().Show();
+        private void programOutcomesButtonAdd_Click(object sender, EventArgs e) => new ProgramOutcomeForm().ShowDialog(); 
 
-        private void coreButtonAdd_Click(object sender, EventArgs e) => new CourseGroupForm().Show();
-
-        private void ButtonProgramAdd_Click(object sender, EventArgs e)
-        {
-            new ProgramForm().ShowDialog();
-        }
+        private void ButtonProgramAdd_Click(object sender, EventArgs e) => new ProgramForm().ShowDialog();
 
         private void ButtonProgramDelete_Click(object sender, EventArgs e)
         {

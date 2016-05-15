@@ -11,9 +11,9 @@ using System.Windows.Forms;
 
 namespace ACD
 {
-    public partial class ProgramLevelForm : MaterialForm
+    public partial class ProgramOutcomeForm : MaterialForm
     {
-        public ProgramLevelForm()
+        public ProgramOutcomeForm()
         {
             InitializeComponent();
         }

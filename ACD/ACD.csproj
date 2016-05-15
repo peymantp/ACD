@@ -91,6 +91,12 @@
     <Compile Include="ProgramLevelForm.Designer.cs">
       <DependentUpon>ProgramLevelForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="ProgramOutcomeForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ProgramOutcomeForm.Designer.cs">
+      <DependentUpon>ProgramOutcomeForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="vaxasDatabaseDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -114,6 +120,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ProgramLevelForm.resx">
       <DependentUpon>ProgramLevelForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ProgramOutcomeForm.resx">
+      <DependentUpon>ProgramOutcomeForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
