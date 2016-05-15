@@ -33,10 +33,12 @@ namespace ACD
             if (textBoxName.Text.Equals(""))
             {
                 errorProvider1.SetError(textBoxName, "Please enter a name");
-            }else if (textBoxName.Text.Length > 100)
+            }
+            else if (textBoxName.Text.Length > 100)
             {
                 errorProvider1.SetError(textBoxName, "Name too long");
-            }else
+            }
+            else
             {
                 string query = "select * FROM dbo.Faculty";
                 string conn = ConfigurationManager.ConnectionStrings["ACD.Properties.Settings.vaxasDatabaseConnectionString"].ConnectionString;
@@ -48,7 +50,6 @@ namespace ACD
                 DataColumn[] keyColumns = new DataColumn[1];
                 keyColumns[0] = ds.Tables["Table"].Columns["Name"];
                 ds.Tables["Table"].PrimaryKey = keyColumns;
-
                 if (!(ds.Tables["Table"].Rows.Contains(textBoxName.Text)))
                 {
                     if (ButtonProgramAdd.Text.Equals("Edit"))
@@ -66,8 +67,9 @@ namespace ACD
                     connection.Close();
                     this.DialogResult = DialogResult.OK;
                     this.Close();
-                } else
-                {
+                }
+                else
+                {     
                     errorProvider1.SetError(textBoxName, textBoxName.Text + " program already exists");
                 }
                 connection.Close();

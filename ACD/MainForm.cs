@@ -6,6 +6,7 @@ using MaterialSkin;
 using System.Drawing;
 using System.Data.SqlClient;
 using System.Data;
+using System.Windows.Forms;
 
 namespace ACD
 {
@@ -92,7 +93,6 @@ namespace ACD
         {
             new ProgramLevelForm().Show();
         }
-
         private void courseButtonAdd_Click(object sender, EventArgs e) => new CourseForm().ShowDialog();
 
         private void coreButtonAdd_Click(object sender, EventArgs e) => new CourseGroupForm().ShowDialog();
@@ -115,7 +115,6 @@ namespace ACD
                 }
             }
         }
-
         private void ButtonProgramDelete_Click(object sender, EventArgs e)
         {
             if(!comboBoxProgram.Text.Equals("Select a Program"))
@@ -159,6 +158,12 @@ namespace ACD
                         comboBoxProgram.Items.Add(r["Name"]);
                     }
                 }
+            }
+            else
+            {
+
+                MessageBox.Show("Please pick a program before editing", "Redesign Tool message",
+                MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
         }
     }

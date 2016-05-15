@@ -43,23 +43,21 @@
             this.labelProgramName.Depth = 0;
             this.labelProgramName.Font = new System.Drawing.Font("Roboto", 11F);
             this.labelProgramName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.labelProgramName.Location = new System.Drawing.Point(16, 102);
-            this.labelProgramName.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.labelProgramName.Location = new System.Drawing.Point(12, 83);
             this.labelProgramName.MouseState = MaterialSkin.MouseState.HOVER;
             this.labelProgramName.Name = "labelProgramName";
-            this.labelProgramName.Size = new System.Drawing.Size(139, 24);
+            this.labelProgramName.Size = new System.Drawing.Size(110, 19);
             this.labelProgramName.TabIndex = 3;
             this.labelProgramName.Text = "Program Name";
             // 
             // ButtonProgramAdd
             // 
             this.ButtonProgramAdd.Depth = 0;
-            this.ButtonProgramAdd.Location = new System.Drawing.Point(285, 146);
-            this.ButtonProgramAdd.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.ButtonProgramAdd.Location = new System.Drawing.Point(214, 119);
             this.ButtonProgramAdd.MouseState = MaterialSkin.MouseState.HOVER;
             this.ButtonProgramAdd.Name = "ButtonProgramAdd";
             this.ButtonProgramAdd.Primary = true;
-            this.ButtonProgramAdd.Size = new System.Drawing.Size(135, 36);
+            this.ButtonProgramAdd.Size = new System.Drawing.Size(101, 29);
             this.ButtonProgramAdd.TabIndex = 13;
             this.ButtonProgramAdd.Text = "Add Program";
             this.ButtonProgramAdd.UseVisualStyleBackColor = true;
@@ -68,12 +66,11 @@
             // materialRaisedButton1
             // 
             this.materialRaisedButton1.Depth = 0;
-            this.materialRaisedButton1.Location = new System.Drawing.Point(447, 146);
-            this.materialRaisedButton1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.materialRaisedButton1.Location = new System.Drawing.Point(335, 119);
             this.materialRaisedButton1.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialRaisedButton1.Name = "materialRaisedButton1";
             this.materialRaisedButton1.Primary = true;
-            this.materialRaisedButton1.Size = new System.Drawing.Size(100, 36);
+            this.materialRaisedButton1.Size = new System.Drawing.Size(75, 29);
             this.materialRaisedButton1.TabIndex = 14;
             this.materialRaisedButton1.Text = "Cancel";
             this.materialRaisedButton1.UseVisualStyleBackColor = true;
@@ -87,8 +84,7 @@
             // 
             this.textBoxName.Depth = 0;
             this.textBoxName.Hint = "";
-            this.textBoxName.Location = new System.Drawing.Point(191, 97);
-            this.textBoxName.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBoxName.Location = new System.Drawing.Point(142, 83);
             this.textBoxName.MaxLength = 32767;
             this.textBoxName.MouseState = MaterialSkin.MouseState.HOVER;
             this.textBoxName.Name = "textBoxName";
@@ -96,21 +92,21 @@
             this.textBoxName.SelectedText = "";
             this.textBoxName.SelectionLength = 0;
             this.textBoxName.SelectionStart = 0;
-            this.textBoxName.Size = new System.Drawing.Size(357, 28);
+            this.textBoxName.Size = new System.Drawing.Size(268, 23);
             this.textBoxName.TabIndex = 15;
             this.textBoxName.TabStop = false;
             this.textBoxName.UseSystemPasswordChar = false;
             // 
             // ProgramForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(563, 199);
+            this.ClientSize = new System.Drawing.Size(431, 162);
             this.Controls.Add(this.textBoxName);
             this.Controls.Add(this.materialRaisedButton1);
             this.Controls.Add(this.ButtonProgramAdd);
             this.Controls.Add(this.labelProgramName);
-            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "ProgramForm";
             this.Text = "ProgramForm";
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();

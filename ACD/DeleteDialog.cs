@@ -16,7 +16,7 @@ namespace ACD
         public DeleteDialog(string name)
         {
             InitializeComponent();
-            warningLabel.Text = "Are you sure you want to delete " + name;
+            warningLabel.Text = "Are you sure you want to delete " + name + "?";
         }
 
         private void deleteButton_Click(object sender, EventArgs e)
