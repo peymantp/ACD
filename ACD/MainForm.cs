@@ -9,8 +9,6 @@ namespace ACD
 {
     public partial class MainForm : MaterialForm
     {
-        //#510104
-        List<Course> coursesList = new List<Course>();
         private MaterialSkinManager skinManager; 
         public MainForm()
         {
@@ -61,8 +59,6 @@ namespace ACD
             */
         }
 
-        private void button5_Click(object sender, EventArgs e) => new CourseForm().Show();
-
         private void MainForm_Load(object sender, EventArgs e)
         {
             // TODO: This line of code loads data into the 'vaxasDatabaseDataSet.PerformanceIndicator' table. You can move, or remove it, as needed.
@@ -80,5 +76,9 @@ namespace ACD
         {
 
         }
+
+        private void courseButtonAdd_Click(object sender, EventArgs e) => new CourseForm().Show();
+
+        private void coreButtonAdd_Click(object sender, EventArgs e) => new CourseGroupForm().Show();
     }
 }

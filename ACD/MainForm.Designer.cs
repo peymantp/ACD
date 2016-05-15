@@ -279,6 +279,7 @@ namespace ACD
             this.coreButtonAdd.TabIndex = 18;
             this.coreButtonAdd.Text = "Add";
             this.coreButtonAdd.UseVisualStyleBackColor = true;
+            this.coreButtonAdd.Click += new System.EventHandler(this.coreButtonAdd_Click);
             // 
             // coreButtonDelete
             // 
@@ -303,6 +304,7 @@ namespace ACD
             this.courseButtonAdd.TabIndex = 20;
             this.courseButtonAdd.Text = "add";
             this.courseButtonAdd.UseVisualStyleBackColor = true;
+            this.courseButtonAdd.Click += new System.EventHandler(this.courseButtonAdd_Click);
             // 
             // courseButtonDelete
             // 
