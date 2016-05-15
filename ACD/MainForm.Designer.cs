@@ -360,6 +360,7 @@ namespace ACD
             this.ButtonProgramEdit.TabIndex = 22;
             this.ButtonProgramEdit.Text = "Edit";
             this.ButtonProgramEdit.UseVisualStyleBackColor = true;
+            this.ButtonProgramEdit.Click += new System.EventHandler(this.ButtonProgramEdit_Click);
             // 
             // outcomeButtonEdit
             // 
