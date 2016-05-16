@@ -75,7 +75,6 @@ namespace ACD
                 connection.Close();
             }
         }
-
         private void materialRaisedButton1_Click(object sender, EventArgs e)
         {
             this.DialogResult = DialogResult.Cancel;
