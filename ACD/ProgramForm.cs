@@ -16,6 +16,10 @@ namespace ACD
     public partial class ProgramForm : MaterialForm
     {
         private string currName;
+        private string newName;
+
+        public string getName { get { return newName; } }
+
         public ProgramForm()
         {
             InitializeComponent();
@@ -65,6 +69,7 @@ namespace ACD
                     new SqlCommandBuilder(dadapter);
                     dadapter.Update(ds);
                     connection.Close();
+                    newName = textBoxName.Text;
                     this.DialogResult = DialogResult.OK;
                     this.Close();
                 }

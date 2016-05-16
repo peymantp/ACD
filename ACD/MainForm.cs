@@ -36,7 +36,6 @@ namespace ACD
             DataColumn[] keyColumns = new DataColumn[1];
             keyColumns[0] = programDs.Tables["Table"].Columns["Name"];
             programDs.Tables["Table"].PrimaryKey = keyColumns;
-            //comboBoxProgram.SelectedIndex = 0;
 
             foreach(DataRow r in programDs.Tables["Table"].Rows)
             {
@@ -62,13 +61,14 @@ namespace ACD
             if (System.Windows.Forms.DialogResult.OK == result)
             {
                 comboBoxProgram.Items.Clear();
-                //comboBoxProgram.SelectedIndex = 0;
                 programDs.Clear();
                 programAdapter.Fill(programDs);
                 foreach (DataRow r in programDs.Tables["Table"].Rows)
                 {
                     comboBoxProgram.Items.Add(r["Name"]);
                 }
+
+                comboBoxProgram.SelectedIndex = comboBoxProgram.Items.IndexOf(form.getName);
             }
         }
         private void ButtonProgramDelete_Click(object sender, EventArgs e)
@@ -98,19 +98,22 @@ namespace ACD
 
         private void ButtonProgramEdit_Click(object sender, EventArgs e)
         {
-            
-                var result = new ProgramForm((string)comboBoxProgram.SelectedItem).ShowDialog();
+            using (var form = new ProgramForm((string)comboBoxProgram.SelectedItem)) { 
+                var result = form.ShowDialog();
+
                 if (System.Windows.Forms.DialogResult.OK == result)
                 {
                     comboBoxProgram.Items.Clear();
-                    //comboBoxProgram.SelectedIndex = 0;
                     programDs.Clear();
                     programAdapter.Fill(programDs);
                     foreach (DataRow r in programDs.Tables["Table"].Rows)
                     {
                         comboBoxProgram.Items.Add(r["Name"]);
                     }
+
+                    comboBoxProgram.SelectedIndex = comboBoxProgram.Items.IndexOf(form.getName);
                 }
+            }
             
         }
     }
