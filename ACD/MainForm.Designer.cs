@@ -218,7 +218,7 @@ namespace ACD
             // ButtonProgramDelete
             // 
             this.ButtonProgramDelete.Depth = 0;
-            this.ButtonProgramDelete.Location = new System.Drawing.Point(321, 74);
+            this.ButtonProgramDelete.Location = new System.Drawing.Point(418, 76);
             this.ButtonProgramDelete.MouseState = MaterialSkin.MouseState.HOVER;
             this.ButtonProgramDelete.Name = "ButtonProgramDelete";
             this.ButtonProgramDelete.Primary = true;
@@ -244,7 +244,7 @@ namespace ACD
             // outcomeButtonDelete
             // 
             this.outcomeButtonDelete.Depth = 0;
-            this.outcomeButtonDelete.Location = new System.Drawing.Point(321, 124);
+            this.outcomeButtonDelete.Location = new System.Drawing.Point(418, 123);
             this.outcomeButtonDelete.MouseState = MaterialSkin.MouseState.HOVER;
             this.outcomeButtonDelete.Name = "outcomeButtonDelete";
             this.outcomeButtonDelete.Primary = true;
@@ -268,7 +268,7 @@ namespace ACD
             // indicatorButtonDelete
             // 
             this.indicatorButtonDelete.Depth = 0;
-            this.indicatorButtonDelete.Location = new System.Drawing.Point(321, 173);
+            this.indicatorButtonDelete.Location = new System.Drawing.Point(418, 173);
             this.indicatorButtonDelete.MouseState = MaterialSkin.MouseState.HOVER;
             this.indicatorButtonDelete.Name = "indicatorButtonDelete";
             this.indicatorButtonDelete.Primary = true;
@@ -293,7 +293,7 @@ namespace ACD
             // coreButtonDelete
             // 
             this.coreButtonDelete.Depth = 0;
-            this.coreButtonDelete.Location = new System.Drawing.Point(321, 223);
+            this.coreButtonDelete.Location = new System.Drawing.Point(418, 221);
             this.coreButtonDelete.MouseState = MaterialSkin.MouseState.HOVER;
             this.coreButtonDelete.Name = "coreButtonDelete";
             this.coreButtonDelete.Primary = true;
@@ -318,7 +318,7 @@ namespace ACD
             // courseButtonDelete
             // 
             this.courseButtonDelete.Depth = 0;
-            this.courseButtonDelete.Location = new System.Drawing.Point(321, 268);
+            this.courseButtonDelete.Location = new System.Drawing.Point(418, 268);
             this.courseButtonDelete.MouseState = MaterialSkin.MouseState.HOVER;
             this.courseButtonDelete.Name = "courseButtonDelete";
             this.courseButtonDelete.Primary = true;
@@ -330,7 +330,7 @@ namespace ACD
             // ButtonProgramEdit
             // 
             this.ButtonProgramEdit.Depth = 0;
-            this.ButtonProgramEdit.Location = new System.Drawing.Point(418, 75);
+            this.ButtonProgramEdit.Location = new System.Drawing.Point(321, 76);
             this.ButtonProgramEdit.MouseState = MaterialSkin.MouseState.HOVER;
             this.ButtonProgramEdit.Name = "ButtonProgramEdit";
             this.ButtonProgramEdit.Primary = true;
@@ -344,7 +344,7 @@ namespace ACD
             // 
             this.outcomeButtonEdit.BackColor = System.Drawing.SystemColors.Control;
             this.outcomeButtonEdit.Depth = 0;
-            this.outcomeButtonEdit.Location = new System.Drawing.Point(418, 125);
+            this.outcomeButtonEdit.Location = new System.Drawing.Point(321, 123);
             this.outcomeButtonEdit.MouseState = MaterialSkin.MouseState.HOVER;
             this.outcomeButtonEdit.Name = "outcomeButtonEdit";
             this.outcomeButtonEdit.Primary = true;
@@ -356,7 +356,7 @@ namespace ACD
             // indicatorButtonEdit
             // 
             this.indicatorButtonEdit.Depth = 0;
-            this.indicatorButtonEdit.Location = new System.Drawing.Point(418, 173);
+            this.indicatorButtonEdit.Location = new System.Drawing.Point(321, 173);
             this.indicatorButtonEdit.MouseState = MaterialSkin.MouseState.HOVER;
             this.indicatorButtonEdit.Name = "indicatorButtonEdit";
             this.indicatorButtonEdit.Primary = true;
@@ -368,7 +368,7 @@ namespace ACD
             // coreButtonEdit
             // 
             this.coreButtonEdit.Depth = 0;
-            this.coreButtonEdit.Location = new System.Drawing.Point(418, 223);
+            this.coreButtonEdit.Location = new System.Drawing.Point(321, 220);
             this.coreButtonEdit.MouseState = MaterialSkin.MouseState.HOVER;
             this.coreButtonEdit.Name = "coreButtonEdit";
             this.coreButtonEdit.Primary = true;
@@ -380,7 +380,7 @@ namespace ACD
             // courseButtonEdit
             // 
             this.courseButtonEdit.Depth = 0;
-            this.courseButtonEdit.Location = new System.Drawing.Point(418, 268);
+            this.courseButtonEdit.Location = new System.Drawing.Point(321, 266);
             this.courseButtonEdit.MouseState = MaterialSkin.MouseState.HOVER;
             this.courseButtonEdit.Name = "courseButtonEdit";
             this.courseButtonEdit.Primary = true;
