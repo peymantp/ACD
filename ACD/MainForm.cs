@@ -57,7 +57,7 @@ namespace ACD
 
         private void ButtonProgramAdd_Click(object sender, EventArgs e)
         {
-            using (var form = new ProgramForm((string)comboBoxProgram.SelectedItem))
+            using (var form = new ProgramForm())
             {
                 var result = form.ShowDialog();
                 if (System.Windows.Forms.DialogResult.OK == result)
