@@ -139,6 +139,12 @@ namespace ACD
                     }
                 }
             }
+            else
+            {
+                MessageBox.Show("Please pick a program before deleting", "Redesign Tool message",
+                   MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+
+            }
         }
 
         private void ButtonProgramEdit_Click(object sender, EventArgs e)

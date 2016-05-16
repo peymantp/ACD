@@ -7,24 +7,23 @@ using System.Diagnostics;
 public class CreateExcelWorksheet
 {
     static Worksheet ws;
-    static String faculty;
+    static string faculty;
     static readonly int CELL_SIZE = 18;
 
     static int performanceIndicatorsCount;
     static int numAllCourses;
 
-    static SortedDictionary<String, int> xAxis;
-    static SortedDictionary<String, int> yAxis;
+    static SortedDictionary<string, int> xAxis;
+    static SortedDictionary<string, int> yAxis;
 
     static void Main()
     {
         CreateNewExcelDocument();
         faculty = "Geos";
 
-        xAxis = new SortedDictionary<String, int>();
-        yAxis = new SortedDictionary<String, int>();
-
-        string password = Console.ReadLine();
+        xAxis = new SortedDictionary<string, int>();
+        yAxis = new SortedDictionary<string, int>();
+        string password = "texasa&m1"; 
 
         using (SqlConnection myConnection = new SqlConnection("Server = tcp:vaxas.database.windows.net,1433; Database = vaxasDatabase; User ID = vaxasAdmin@vaxas; Password = " + password + "; Encrypt = True; TrustServerCertificate = False; Connection Timeout = 30"))
         {
