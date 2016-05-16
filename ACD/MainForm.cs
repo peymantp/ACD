@@ -36,12 +36,15 @@ namespace ACD
             DataColumn[] keyColumns = new DataColumn[1];
             keyColumns[0] = programDs.Tables["Table"].Columns["Name"];
             programDs.Tables["Table"].PrimaryKey = keyColumns;
-            comboBoxProgram.SelectedIndex = 0;
 
             foreach(DataRow r in programDs.Tables["Table"].Rows)
             {
                 comboBoxProgram.Items.Add(r["Name"]);
             }
+            if (comboBoxProgram.Items.Count == 0)
+                comboBoxProgram.Items.Add("No Programs in Database");
+
+            comboBoxProgram.SelectedIndex = 0;
         }
 
         private void button1_Click(object sender, EventArgs e) { new ProgramLevelForm().ShowDialog(); }
@@ -58,7 +61,7 @@ namespace ACD
             if (System.Windows.Forms.DialogResult.OK == result)
             {
                 comboBoxProgram.Items.Clear();
-                comboBoxProgram.SelectedIndex = 0;
+                //comboBoxProgram.SelectedIndex = 0;
                 programDs.Clear();
                 programAdapter.Fill(programDs);
                 foreach (DataRow r in programDs.Tables["Table"].Rows)
@@ -80,13 +83,16 @@ namespace ACD
                     programAdapter.Fill(programDs);
 
                     comboBoxProgram.Items.Clear();
-                    comboBoxProgram.SelectedIndex = 0;
 
                     foreach (DataRow r in programDs.Tables["Table"].Rows)
                     {
                         comboBoxProgram.Items.Add(r["Name"]);
                     }
-                }
+                    if (comboBoxProgram.Items.Count == 0)
+                        comboBoxProgram.Items.Add("No Programs in Database");
+
+                    comboBoxProgram.SelectedIndex = 0;
+            }
         }
 
         private void ButtonProgramEdit_Click(object sender, EventArgs e)
@@ -96,7 +102,7 @@ namespace ACD
                 if (System.Windows.Forms.DialogResult.OK == result)
                 {
                     comboBoxProgram.Items.Clear();
-                    comboBoxProgram.SelectedIndex = 0;
+                    //comboBoxProgram.SelectedIndex = 0;
                     programDs.Clear();
                     programAdapter.Fill(programDs);
                     foreach (DataRow r in programDs.Tables["Table"].Rows)
