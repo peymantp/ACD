@@ -7,23 +7,24 @@ using System.Diagnostics;
 public class CreateExcelWorksheet
 {
     static Worksheet ws;
-    static string faculty;
+    static String faculty;
     static readonly int CELL_SIZE = 18;
 
     static int performanceIndicatorsCount;
     static int numAllCourses;
 
-    static SortedDictionary<string, int> xAxis;
-    static SortedDictionary<string, int> yAxis;
+    static SortedDictionary<String, int> xAxis;
+    static SortedDictionary<String, int> yAxis;
 
     static void Main()
     {
         CreateNewExcelDocument();
         faculty = "Geos";
 
-        xAxis = new SortedDictionary<string, int>();
-        yAxis = new SortedDictionary<string, int>();
-        string password = "texasa&m1"; 
+        xAxis = new SortedDictionary<String, int>();
+        yAxis = new SortedDictionary<String, int>();
+
+        string password = "texasa&m1";
 
         using (SqlConnection myConnection = new SqlConnection("Server = tcp:vaxas.database.windows.net,1433; Database = vaxasDatabase; User ID = vaxasAdmin@vaxas; Password = " + password + "; Encrypt = True; TrustServerCertificate = False; Connection Timeout = 30"))
         {
@@ -83,17 +84,17 @@ public class CreateExcelWorksheet
         bRange.Font.Bold = true;
 
         aRange.HorizontalAlignment = Microsoft.Office.Interop.Excel.XlHAlign.xlHAlignCenter;
-        aRange.VerticalAlignment =  Microsoft.Office.Interop.Excel.XlVAlign.xlVAlignCenter;
+        aRange.VerticalAlignment = Microsoft.Office.Interop.Excel.XlVAlign.xlVAlignCenter;
 
         bRange.HorizontalAlignment = Microsoft.Office.Interop.Excel.XlHAlign.xlHAlignCenter;
         bRange.VerticalAlignment = Microsoft.Office.Interop.Excel.XlVAlign.xlVAlignCenter;
-        
+
         string oString;
         SqlCommand oCmd;
 
         performanceIndicatorsCount = 0;
 
-        oString = "Select count(Name) as Count from PerformanceIndicator where \"Key\" like '" + faculty + "%'";
+        oString = "Select count(Name) as Count from PerformanceIndicatorWithKey where \"Key\" like '" + faculty + "%'";
         oCmd = new SqlCommand(oString, myConnection);
 
         using (SqlDataReader oReader = oCmd.ExecuteReader())
@@ -104,27 +105,27 @@ public class CreateExcelWorksheet
             }
         }
 
-        oString = "select prog.\"Description\", CONVERT(int, progNum), CONVERT(int, perfNum), case when (prog.\"Description\" is not null) then progNum + '. ' + prog.\"Name\"  + ': ' + prog.\"Description\" else progNum + '. ' + prog.\"Name\" end as ProgramLevel, progNum + '.' + perfNum + ' ' + perf.\"Name\" as PerformanceIndicator, prog.\"Name\" as progNameNoNum, perf.\"Name\" as perfNameNoNum from (select CONVERT(varchar(10), perfTemp.num2) as perfNum, perfTemp.\"Name\", perfTemp.\"Key\" from (select ROW_NUMBER() over (partition by \"Key\" order by \"Name\") as num2, Name, \"Key\" from PerformanceIndicator where SUBSTRING(\"Key\", 1, CASE CHARINDEX('_', \"Key\") WHEN 0 THEN LEN(\"Key\") ELSE CHARINDEX('_', \"Key\")-1 END) = '" + faculty + "') perfTemp ) perf left join (select CONVERT(varchar(10), progTemp.num2) as progNum, progTemp.\"Name\", progTemp.\"Description\", progTemp.\"Key\" from (select ROW_NUMBER() over (partition by \"Key\" order by \"Description\" desc, \"Name\") as num2, Name, \"Description\", \"Key\" from ProgramLevel where \"Key\" = '" + faculty + "') progTemp ) prog on SUBSTRING(perf.\"Key\", CASE CHARINDEX('_', perf.\"Key\") WHEN 0 THEN LEN(perf.\"Key\")+1 ELSE CHARINDEX('_', perf.\"Key\")+1 END, 1000) = prog.\"Name\" and SUBSTRING(perf.\"Key\", 1, CASE CHARINDEX('_', perf.\"Key\") WHEN 0 THEN LEN(perf.\"Key\") ELSE CHARINDEX('_', perf.\"Key\")-1 END) = prog.\"Key\" order by 1 desc, 2,3,4,5";
+        oString = "select prog.\"Description\", CONVERT(int, progNum), CONVERT(int, perfNum), case when (prog.\"Description\" is not null) then progNum + '. ' + prog.\"Name\"  + ': ' + prog.\"Description\" else progNum + '. ' + prog.\"Name\" end as ProgramLevel, progNum + '.' + perfNum + ' ' + perf.\"Name\" as PerformanceIndicator, prog.\"Name\" as progNameNoNum, perf.\"Name\" as perfNameNoNum from (select CONVERT(varchar(10), perfTemp.num2) as perfNum, perfTemp.\"Name\", perfTemp.\"Key\" from (select ROW_NUMBER() over (partition by \"Key\" order by \"Name\") as num2, Name, \"Key\" from PerformanceIndicatorWithKey where SUBSTRING(\"Key\", 1, CASE CHARINDEX('_', \"Key\") WHEN 0 THEN LEN(\"Key\") ELSE CHARINDEX('_', \"Key\")-1 END) = '" + faculty + "') perfTemp ) perf left join (select CONVERT(varchar(10), progTemp.num2) as progNum, progTemp.\"Name\", progTemp.\"Description\", progTemp.\"Key\" from (select ROW_NUMBER() over (partition by \"Key\" order by \"Description\" desc, \"Name\") as num2, Name, \"Description\", \"Key\" from ProgramLevelWithKey where \"Key\" = '" + faculty + "') progTemp ) prog on SUBSTRING(perf.\"Key\", CASE CHARINDEX('_', perf.\"Key\") WHEN 0 THEN LEN(perf.\"Key\")+1 ELSE CHARINDEX('_', perf.\"Key\")+1 END, 1000) = prog.\"Name\" and SUBSTRING(perf.\"Key\", 1, CASE CHARINDEX('_', perf.\"Key\") WHEN 0 THEN LEN(perf.\"Key\") ELSE CHARINDEX('_', perf.\"Key\")-1 END) = prog.\"Key\" order by 1 desc, 2,3,4,5";
         oCmd = new SqlCommand(oString, myConnection);
 
         Range progRange = ws.get_Range("D1", GetExcelColumnName(performanceIndicatorsCount + 3) + "1");
         Range perfRange = ws.get_Range("D2", GetExcelColumnName(performanceIndicatorsCount + 3) + "2");
-        
+
         progRange.ColumnWidth = CELL_SIZE;
         progRange.RowHeight = CELL_SIZE * 5;
-        
+
         perfRange.ColumnWidth = CELL_SIZE;
         perfRange.RowHeight = CELL_SIZE * 5;
-        
+
         progRange.WrapText = true;
         perfRange.WrapText = true;
 
         progRange.HorizontalAlignment = Microsoft.Office.Interop.Excel.XlHAlign.xlHAlignCenter;
         progRange.VerticalAlignment = Microsoft.Office.Interop.Excel.XlVAlign.xlVAlignCenter;
-        
+
         perfRange.HorizontalAlignment = Microsoft.Office.Interop.Excel.XlHAlign.xlHAlignCenter;
         perfRange.VerticalAlignment = Microsoft.Office.Interop.Excel.XlVAlign.xlVAlignCenter;
-        
+
         int i = 1;
 
         using (SqlDataReader oReader = oCmd.ExecuteReader())
@@ -160,11 +161,11 @@ public class CreateExcelWorksheet
     {
         string oString;
         SqlCommand oCmd;
-        
+
         int numCourses = 0;
         numAllCourses = 0;
 
-        oString = "select sum(a.NumCourses) as AllCourses from (select grp.Name, COUNT(crs.Name) + AVG(grp.NumberOfElectives) as NumCourses from Course crs left join CourseGroup grp on SUBSTRING(crs.\"Key\", 1, CASE CHARINDEX('_', crs.\"Key\") WHEN 0 THEN LEN(crs.\"Key\") ELSE CHARINDEX('_', crs.\"Key\")-1 END) = grp.\"Key\" and SUBSTRING(crs.\"Key\", CASE CHARINDEX('_', crs.\"Key\") WHEN 0 THEN LEN(crs.\"Key\")+1 ELSE CHARINDEX('_', crs.\"Key\")+1 END, 1000) = grp.\"Name\" where grp.\"Key\" = '" + faculty + "' group by grp.Name) a";
+        oString = "select sum(a.NumCourses) as AllCourses from (select grp.Name, COUNT(crs.Name) + AVG(grp.NumberOfElectives) as NumCourses from CourseWithKey crs left join CourseGroupWithKey grp on SUBSTRING(crs.\"Key\", 1, CASE CHARINDEX('_', crs.\"Key\") WHEN 0 THEN LEN(crs.\"Key\") ELSE CHARINDEX('_', crs.\"Key\")-1 END) = grp.\"Key\" and SUBSTRING(crs.\"Key\", CASE CHARINDEX('_', crs.\"Key\") WHEN 0 THEN LEN(crs.\"Key\")+1 ELSE CHARINDEX('_', crs.\"Key\")+1 END, 1000) = grp.\"Name\" where grp.\"Key\" = '" + faculty + "' group by grp.Name) a";
         oCmd = new SqlCommand(oString, myConnection);
 
         using (SqlDataReader oReader = oCmd.ExecuteReader())
@@ -209,8 +210,8 @@ public class CreateExcelWorksheet
         courseNameRange.Interior.Color = XlRgbColor.rgbMistyRose;
 
         groupRange.Font.Bold = true;
-        
-        oString = "select grp.Name as \"Group\", crs.Name as \"Course\", grp.NumberOfElectives,  ROW_NUMBER() over (partition by grp.\"Key\" order by grp.\"Name\", crs.Name) as num1 from Course crs left join CourseGroup grp on SUBSTRING(crs.\"Key\", 1, CASE CHARINDEX('_', crs.\"Key\") WHEN 0 THEN LEN(crs.\"Key\") ELSE CHARINDEX('_', crs.\"Key\")-1 END) = grp.\"Key\" and SUBSTRING(crs.\"Key\", CASE CHARINDEX('_', crs.\"Key\") WHEN 0 THEN LEN(crs.\"Key\")+1 ELSE CHARINDEX('_', crs.\"Key\")+1 END, 1000) = grp.\"Name\" where grp.\"Key\" = '" + faculty + "' order by 4";
+
+        oString = "select grp.Name as \"Group\", crs.Name as \"Course\", grp.NumberOfElectives,  ROW_NUMBER() over (partition by grp.\"Key\" order by grp.\"Name\", crs.Name) as num1 from CourseWithKey crs left join CourseGroupWithKey grp on SUBSTRING(crs.\"Key\", 1, CASE CHARINDEX('_', crs.\"Key\") WHEN 0 THEN LEN(crs.\"Key\") ELSE CHARINDEX('_', crs.\"Key\")-1 END) = grp.\"Key\" and SUBSTRING(crs.\"Key\", CASE CHARINDEX('_', crs.\"Key\") WHEN 0 THEN LEN(crs.\"Key\")+1 ELSE CHARINDEX('_', crs.\"Key\")+1 END, 1000) = grp.\"Name\" where grp.\"Key\" = '" + faculty + "' order by 4";
         oCmd = new SqlCommand(oString, myConnection);
 
         int i = 1;
@@ -325,24 +326,20 @@ public class CreateExcelWorksheet
         string oString;
         SqlCommand oCmd;
 
-        oString = "select * from LearningLevel where SUBSTRING(\"PerformanceIndicatorKey\", 1, CASE CHARINDEX('_', \"PerformanceIndicatorKey\") WHEN 0 THEN LEN(\"PerformanceIndicatorKey\") ELSE CHARINDEX('_', \"PerformanceIndicatorKey\")-1 END) = '" + faculty + "'";
+        oString = "select * from LearningLevelWithKey where SUBSTRING(\"PerformanceIndicatorKey\", 1, CASE CHARINDEX('_', \"PerformanceIndicatorKey\") WHEN 0 THEN LEN(\"PerformanceIndicatorKey\") ELSE CHARINDEX('_', \"PerformanceIndicatorKey\")-1 END) = '" + faculty + "'";
 
-       oCmd = new SqlCommand(oString, myConnection);
+        oCmd = new SqlCommand(oString, myConnection);
 
         using (SqlDataReader oReader = oCmd.ExecuteReader())
         {
             while (oReader.Read())
             {
-                Debug.WriteLine("x: " + oReader["PerformanceIndicatorKey"].ToString());
-                Debug.WriteLine("y: " + oReader["CouresKey"].ToString());
-
                 //Include error checking to see if the key exists in the dictionary
                 int x = xAxis[oReader["PerformanceIndicatorKey"].ToString()];
-                int y = yAxis[oReader["CouresKey"].ToString()];
+                int y = yAxis[oReader["CourseKey"].ToString()];
 
                 (ws.Cells[y, x] as Range).Value = oReader["Value"].ToString();
 
-                //11119017
                 (ws.Cells[y, x] as Range).Interior.Color = 11908533;
                 BorderAround((ws.Cells[y, x] as Range), 13421772);
             }

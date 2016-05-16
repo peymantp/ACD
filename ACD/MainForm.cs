@@ -53,7 +53,7 @@ namespace ACD
 
         private void coreButtonAdd_Click(object sender, EventArgs e) { new CourseGroupForm().ShowDialog(); }
 
-        private void programOutcomesButtonAdd_Click(object sender, EventArgs e) { new ProgramOutcomeForm().ShowDialog(); }
+        private void programOutcomesButtonAdd_Click(object sender, EventArgs e) { new ProgramLevelForm().ShowDialog(); }
 
         private void ButtonProgramAdd_Click(object sender, EventArgs e)
         {
