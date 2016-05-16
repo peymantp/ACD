@@ -36,7 +36,7 @@ namespace ACD
             DataColumn[] keyColumns = new DataColumn[1];
             keyColumns[0] = programDs.Tables["Table"].Columns["Name"];
             programDs.Tables["Table"].PrimaryKey = keyColumns;
-            comboBoxProgram.SelectedIndex = 0;
+            //comboBoxProgram.SelectedIndex = 0;
 
             foreach(DataRow r in programDs.Tables["Table"].Rows)
             {
