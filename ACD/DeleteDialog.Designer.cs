@@ -108,6 +108,7 @@
             this.Controls.Add(this.warningLabel);
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "DeleteDialog";
+            this.Sizable = false;
             this.Text = "DeleteDialog";
             this.ResumeLayout(false);
             this.PerformLayout();
