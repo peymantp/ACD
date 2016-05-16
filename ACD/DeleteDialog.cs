@@ -1,4 +1,5 @@
-﻿using MaterialSkin.Controls;
+﻿using MaterialSkin;
+using MaterialSkin.Controls;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -16,7 +17,10 @@ namespace ACD
         public DeleteDialog(string name)
         {
             InitializeComponent();
-            warningLabel.Text = "Are you sure you want to delete " + name + "?";
+            materialLabel1.ForeColor = Color.Red;
+            materialLabel1.Font = new Font("Tahoma", 15, FontStyle.Bold);
+            warningBox.Font = new Font("Tahoma", 15, FontStyle.Bold);
+            warningBox.Text += " Are you sure you want to delete " + name + "?";
         }
 
         private void deleteButton_Click(object sender, EventArgs e)

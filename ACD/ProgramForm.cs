@@ -54,7 +54,7 @@ namespace ACD
                 DataColumn[] keyColumns = new DataColumn[1];
                 keyColumns[0] = ds.Tables["Table"].Columns["Name"];
                 ds.Tables["Table"].PrimaryKey = keyColumns;
-                if (!(ds.Tables["Table"].Rows.Contains(textBoxName.Text)) || currName.Equals(textBoxName.Text))
+                if (!(ds.Tables["Table"].Rows.Contains(textBoxName.Text)) || (ButtonProgramAdd.Text.Equals("Edit") && currName.Equals(textBoxName.Text)))
                 {
                     if (ButtonProgramAdd.Text.Equals("Edit"))
                     {
