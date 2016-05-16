@@ -57,18 +57,21 @@ namespace ACD
 
         private void ButtonProgramAdd_Click(object sender, EventArgs e)
         {
-            var result = new ProgramForm().ShowDialog();
-            if (System.Windows.Forms.DialogResult.OK == result)
+            using (var form = new ProgramForm((string)comboBoxProgram.SelectedItem))
             {
-                comboBoxProgram.Items.Clear();
-                programDs.Clear();
-                programAdapter.Fill(programDs);
-                foreach (DataRow r in programDs.Tables["Table"].Rows)
+                var result = form.ShowDialog();
+                if (System.Windows.Forms.DialogResult.OK == result)
                 {
-                    comboBoxProgram.Items.Add(r["Name"]);
-                }
+                    comboBoxProgram.Items.Clear();
+                    programDs.Clear();
+                    programAdapter.Fill(programDs);
+                    foreach (DataRow r in programDs.Tables["Table"].Rows)
+                    {
+                        comboBoxProgram.Items.Add(r["Name"]);
+                    }
 
-                comboBoxProgram.SelectedIndex = comboBoxProgram.Items.IndexOf(form.getName);
+                    comboBoxProgram.SelectedIndex = comboBoxProgram.Items.IndexOf(form.getName);
+                }
             }
         }
         private void ButtonProgramDelete_Click(object sender, EventArgs e)
