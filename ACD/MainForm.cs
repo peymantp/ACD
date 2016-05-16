@@ -25,54 +25,10 @@ namespace ACD
             skinManager = MaterialSkinManager.Instance;
             skinManager.AddFormToManage(this);
             skinManager.ColorScheme = new ColorScheme(Primary.BlueGrey800, Primary.BlueGrey900, Primary.BlueGrey500, Accent.LightBlue200, TextShade.WHITE);
-            pullData();
-        }
-
-        private void pullData()
-        {
-            /*
-             * Course
-            [CourseNumber]  VARCHAR (10)  NOT NULL,
-            [Core]          VARCHAR (50)  NOT NULL,
-            [CourseName]    VARCHAR (50)  NOT NULL,
-            [Description]   VARCHAR (MAX) NOT NULL,
-            [CreditHours]   FLOAT (53)    NOT NULL,
-            [Format]        VARCHAR (50)  NULL,
-            [Prerequisites] VARCHAR (250) NULL,
-            [hasLab]        INT           NULL,
-            CONSTRAINT [pk_Course] PRIMARY KEY CLUSTERED ([CourseNumber] ASC, [Core] ASC)
-            
-            using (SqlConnection myConnection = new SqlConnection("Server = tcp:vaxas.database.windows.net,1433; Database = vaxasDatabase; User ID = vaxasAdmin@vaxas; Password = Study1327; Encrypt = True; TrustServerCertificate = False; Connection Timeout = 30"))
-            {
-                myConnection.Open();
-                string oString = "select * from dbo.Course";
-                SqlCommand CourseCmd = new SqlCommand(oString, myConnection);
-                using (SqlDataReader courseReader = CourseCmd.ExecuteReader())
-                {
-                    while (courseReader.Read())
-                    {
-                        string CourseNumber = (string)courseReader["CourseNumber"];
-                        string Core = (string)courseReader["Core"];
-                        string CourseName = (string)courseReader["CourseName"];
-                        //string Description = (string)courseReader["Description"];
-                        string Description = "descrption dowant work";
-                        double CreditHours = (double)courseReader["CreditHours"];
-                        //string Format= (string)courseReader["Format"];
-                        //string Prerequisites= (string)courseReader["Prerequisites"];
-                        //boll hasLab= (int)courseReader["hasLab"];
-                        coursesList.Add(new Course(CourseNumber,Core,CourseName,Description,CreditHours));
-                    }
-                }
-            }
-            */
         }
 
         private void MainForm_Load(object sender, EventArgs e)
         {
-            // TODO: This line of code loads data into the 'vaxasDatabaseDataSet.PerformanceIndicator' table. You can move, or remove it, as needed.
-            //this.performanceIndicatorTableAdapter.Fill(this.vaxasDatabaseDataSet.PerformanceIndicator);
-            // TODO: This line of code loads data into the 'vaxasDatabaseDataSet.Course' table. You can move, or remove it, as needed.
-            //this.courseTableAdapter.Fill(this.vaxasDatabaseDataSet.Course);
             connection = new SqlConnection(conn);
             programAdapter = new SqlDataAdapter(programQuery, connection);
             programDs = new DataSet();
@@ -80,7 +36,6 @@ namespace ACD
             DataColumn[] keyColumns = new DataColumn[1];
             keyColumns[0] = programDs.Tables["Table"].Columns["Name"];
             programDs.Tables["Table"].PrimaryKey = keyColumns;
-            comboBoxProgram.Items.Insert(0, "Select a Program");
             comboBoxProgram.SelectedIndex = 0;
 
             foreach(DataRow r in programDs.Tables["Table"].Rows)
@@ -89,15 +44,13 @@ namespace ACD
             }
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-            new ProgramLevelForm().Show();
-        }
-        private void courseButtonAdd_Click(object sender, EventArgs e) => new CourseForm().ShowDialog();
+        private void button1_Click(object sender, EventArgs e) { new ProgramLevelForm().ShowDialog(); }
 
-        private void coreButtonAdd_Click(object sender, EventArgs e) => new CourseGroupForm().ShowDialog();
+        private void courseButtonAdd_Click(object sender, EventArgs e) { new CourseForm().ShowDialog(); }
 
-        private void programOutcomesButtonAdd_Click(object sender, EventArgs e) => new ProgramOutcomeForm().ShowDialog(); 
+        private void coreButtonAdd_Click(object sender, EventArgs e) { new CourseGroupForm().ShowDialog(); }
+
+        private void programOutcomesButtonAdd_Click(object sender, EventArgs e) { new ProgramOutcomeForm().ShowDialog(); }
 
         private void ButtonProgramAdd_Click(object sender, EventArgs e)
         {
@@ -105,7 +58,6 @@ namespace ACD
             if (System.Windows.Forms.DialogResult.OK == result)
             {
                 comboBoxProgram.Items.Clear();
-                comboBoxProgram.Items.Insert(0, "Select a Program");
                 comboBoxProgram.SelectedIndex = 0;
                 programDs.Clear();
                 programAdapter.Fill(programDs);
@@ -117,8 +69,6 @@ namespace ACD
         }
         private void ButtonProgramDelete_Click(object sender, EventArgs e)
         {
-            if(!comboBoxProgram.Text.Equals("Select a Program"))
-            {
                 var result = new DeleteDialog(comboBoxProgram.Text).ShowDialog();
                 if (System.Windows.Forms.DialogResult.OK == result && programDs.Tables["Table"].Rows.Contains(comboBoxProgram.Text))
                 {
@@ -130,7 +80,6 @@ namespace ACD
                     programAdapter.Fill(programDs);
 
                     comboBoxProgram.Items.Clear();
-                    comboBoxProgram.Items.Insert(0, "Select a Program");
                     comboBoxProgram.SelectedIndex = 0;
 
                     foreach (DataRow r in programDs.Tables["Table"].Rows)
@@ -138,18 +87,15 @@ namespace ACD
                         comboBoxProgram.Items.Add(r["Name"]);
                     }
                 }
-            }
         }
 
         private void ButtonProgramEdit_Click(object sender, EventArgs e)
         {
-            if (!comboBoxProgram.Text.Equals("Select a Program"))
-            {
+            
                 var result = new ProgramForm((string)comboBoxProgram.SelectedItem).ShowDialog();
                 if (System.Windows.Forms.DialogResult.OK == result)
                 {
                     comboBoxProgram.Items.Clear();
-                    comboBoxProgram.Items.Insert(0, "Select a Program");
                     comboBoxProgram.SelectedIndex = 0;
                     programDs.Clear();
                     programAdapter.Fill(programDs);
@@ -158,13 +104,7 @@ namespace ACD
                         comboBoxProgram.Items.Add(r["Name"]);
                     }
                 }
-            }
-            else
-            {
-
-                MessageBox.Show("Please pick a program before editing", "Redesign Tool message",
-                MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-            }
+            
         }
     }
 }

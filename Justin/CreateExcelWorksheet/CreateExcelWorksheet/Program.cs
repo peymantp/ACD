@@ -1,8 +1,8 @@
 ﻿using System;
-using Microsoft.Office.Interop.Excel;
 using System.Data.SqlClient;
 using System.Collections.Generic;
 using System.Diagnostics;
+using Microsoft.Office.Interop.Excel;
 
 public class CreateExcelWorksheet
 {
@@ -24,7 +24,7 @@ public class CreateExcelWorksheet
         xAxis = new SortedDictionary<String, int>();
         yAxis = new SortedDictionary<String, int>();
 
-        string password = Console.ReadLine();
+        string password = "texasa&m1";
 
         using (SqlConnection myConnection = new SqlConnection("Server = tcp:vaxas.database.windows.net,1433; Database = vaxasDatabase; User ID = vaxasAdmin@vaxas; Password = " + password + "; Encrypt = True; TrustServerCertificate = False; Connection Timeout = 30"))
         {
