@@ -229,12 +229,8 @@ namespace ACD
             // ButtonProgramDelete
             // 
             this.ButtonProgramDelete.Depth = 0;
-<<<<<<< HEAD
-            this.ButtonProgramDelete.Location = new System.Drawing.Point(418, 76);
-=======
             this.ButtonProgramDelete.Location = new System.Drawing.Point(757, 89);
             this.ButtonProgramDelete.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
->>>>>>> 48ce279bf81bcac57748dfdd32030656c78cedf6
             this.ButtonProgramDelete.MouseState = MaterialSkin.MouseState.HOVER;
             this.ButtonProgramDelete.Name = "ButtonProgramDelete";
             this.ButtonProgramDelete.Primary = true;
@@ -261,12 +257,8 @@ namespace ACD
             // outcomeButtonDelete
             // 
             this.outcomeButtonDelete.Depth = 0;
-<<<<<<< HEAD
-            this.outcomeButtonDelete.Location = new System.Drawing.Point(418, 123);
-=======
             this.outcomeButtonDelete.Location = new System.Drawing.Point(757, 151);
             this.outcomeButtonDelete.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
->>>>>>> 48ce279bf81bcac57748dfdd32030656c78cedf6
             this.outcomeButtonDelete.MouseState = MaterialSkin.MouseState.HOVER;
             this.outcomeButtonDelete.Name = "outcomeButtonDelete";
             this.outcomeButtonDelete.Primary = true;
@@ -291,12 +283,8 @@ namespace ACD
             // indicatorButtonDelete
             // 
             this.indicatorButtonDelete.Depth = 0;
-<<<<<<< HEAD
-            this.indicatorButtonDelete.Location = new System.Drawing.Point(418, 173);
-=======
             this.indicatorButtonDelete.Location = new System.Drawing.Point(757, 211);
             this.indicatorButtonDelete.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
->>>>>>> 48ce279bf81bcac57748dfdd32030656c78cedf6
             this.indicatorButtonDelete.MouseState = MaterialSkin.MouseState.HOVER;
             this.indicatorButtonDelete.Name = "indicatorButtonDelete";
             this.indicatorButtonDelete.Primary = true;
@@ -322,12 +310,8 @@ namespace ACD
             // coreButtonDelete
             // 
             this.coreButtonDelete.Depth = 0;
-<<<<<<< HEAD
-            this.coreButtonDelete.Location = new System.Drawing.Point(418, 221);
-=======
             this.coreButtonDelete.Location = new System.Drawing.Point(757, 272);
             this.coreButtonDelete.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
->>>>>>> 48ce279bf81bcac57748dfdd32030656c78cedf6
             this.coreButtonDelete.MouseState = MaterialSkin.MouseState.HOVER;
             this.coreButtonDelete.Name = "coreButtonDelete";
             this.coreButtonDelete.Primary = true;
@@ -353,12 +337,8 @@ namespace ACD
             // courseButtonDelete
             // 
             this.courseButtonDelete.Depth = 0;
-<<<<<<< HEAD
-            this.courseButtonDelete.Location = new System.Drawing.Point(418, 268);
-=======
             this.courseButtonDelete.Location = new System.Drawing.Point(757, 328);
             this.courseButtonDelete.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
->>>>>>> 48ce279bf81bcac57748dfdd32030656c78cedf6
             this.courseButtonDelete.MouseState = MaterialSkin.MouseState.HOVER;
             this.courseButtonDelete.Name = "courseButtonDelete";
             this.courseButtonDelete.Primary = true;
@@ -370,12 +350,8 @@ namespace ACD
             // ButtonProgramEdit
             // 
             this.ButtonProgramEdit.Depth = 0;
-<<<<<<< HEAD
-            this.ButtonProgramEdit.Location = new System.Drawing.Point(321, 76);
-=======
             this.ButtonProgramEdit.Location = new System.Drawing.Point(884, 90);
             this.ButtonProgramEdit.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
->>>>>>> 48ce279bf81bcac57748dfdd32030656c78cedf6
             this.ButtonProgramEdit.MouseState = MaterialSkin.MouseState.HOVER;
             this.ButtonProgramEdit.Name = "ButtonProgramEdit";
             this.ButtonProgramEdit.Primary = true;
@@ -389,12 +365,8 @@ namespace ACD
             // 
             this.outcomeButtonEdit.BackColor = System.Drawing.SystemColors.Control;
             this.outcomeButtonEdit.Depth = 0;
-<<<<<<< HEAD
-            this.outcomeButtonEdit.Location = new System.Drawing.Point(321, 123);
-=======
             this.outcomeButtonEdit.Location = new System.Drawing.Point(884, 152);
             this.outcomeButtonEdit.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
->>>>>>> 48ce279bf81bcac57748dfdd32030656c78cedf6
             this.outcomeButtonEdit.MouseState = MaterialSkin.MouseState.HOVER;
             this.outcomeButtonEdit.Name = "outcomeButtonEdit";
             this.outcomeButtonEdit.Primary = true;
@@ -406,12 +378,8 @@ namespace ACD
             // indicatorButtonEdit
             // 
             this.indicatorButtonEdit.Depth = 0;
-<<<<<<< HEAD
-            this.indicatorButtonEdit.Location = new System.Drawing.Point(321, 173);
-=======
             this.indicatorButtonEdit.Location = new System.Drawing.Point(884, 211);
             this.indicatorButtonEdit.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
->>>>>>> 48ce279bf81bcac57748dfdd32030656c78cedf6
             this.indicatorButtonEdit.MouseState = MaterialSkin.MouseState.HOVER;
             this.indicatorButtonEdit.Name = "indicatorButtonEdit";
             this.indicatorButtonEdit.Primary = true;
@@ -423,12 +391,8 @@ namespace ACD
             // coreButtonEdit
             // 
             this.coreButtonEdit.Depth = 0;
-<<<<<<< HEAD
-            this.coreButtonEdit.Location = new System.Drawing.Point(321, 220);
-=======
             this.coreButtonEdit.Location = new System.Drawing.Point(884, 272);
             this.coreButtonEdit.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
->>>>>>> 48ce279bf81bcac57748dfdd32030656c78cedf6
             this.coreButtonEdit.MouseState = MaterialSkin.MouseState.HOVER;
             this.coreButtonEdit.Name = "coreButtonEdit";
             this.coreButtonEdit.Primary = true;
@@ -440,12 +404,8 @@ namespace ACD
             // courseButtonEdit
             // 
             this.courseButtonEdit.Depth = 0;
-<<<<<<< HEAD
-            this.courseButtonEdit.Location = new System.Drawing.Point(321, 266);
-=======
             this.courseButtonEdit.Location = new System.Drawing.Point(884, 328);
             this.courseButtonEdit.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
->>>>>>> 48ce279bf81bcac57748dfdd32030656c78cedf6
             this.courseButtonEdit.MouseState = MaterialSkin.MouseState.HOVER;
             this.courseButtonEdit.Name = "courseButtonEdit";
             this.courseButtonEdit.Primary = true;
