@@ -404,6 +404,7 @@ namespace ACD
             this.ButtonExport.TabIndex = 27;
             this.ButtonExport.Text = "Export";
             this.ButtonExport.UseVisualStyleBackColor = true;
+            this.ButtonExport.Click += new System.EventHandler(this.ButtonExport_Click);
             // 
             // MainForm
             // 
