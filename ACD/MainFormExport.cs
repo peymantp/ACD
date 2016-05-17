@@ -29,11 +29,25 @@ namespace ACD
             using (SqlConnection myConnection = new SqlConnection("Server = tcp:vaxas.database.windows.net,1433; Database = vaxasDatabase; User ID = vaxasAdmin@vaxas; Password = " + password + "; Encrypt = True; TrustServerCertificate = False; Connection Timeout = 30"))
             {
                 myConnection.Open();
-
                 GenerateXAxis(myConnection);
-                GenerateYAxis(myConnection);
-                InsertLearningLevels(myConnection);
-                Merge();
+                try
+                {
+                    GenerateYAxis(myConnection);
+                    InsertLearningLevels(myConnection);
+                    Merge();
+                }
+                catch (Exception exception)
+                {
+                    if (exception is System.Runtime.InteropServices.COMException)
+                    {
+                        new ErrorDialog("Excel exited durring creation").ShowDialog();
+                    }
+                    else
+                    {
+                        new ErrorDialog(exception.Message).ShowDialog();
+                        ws.Application.Quit();
+                    }
+                }
             }
 
             performanceIndicatorsCount = 0;
@@ -52,15 +66,6 @@ namespace ACD
 
             Workbook wb = xlApp.Workbooks.Add(XlWBATemplate.xlWBATWorksheet);
             ws = (Worksheet)wb.Worksheets[1];
-
-            if (ws == null)
-            {
-                Console.WriteLine(@"Worksheet could not be created. Check that your office installation and project references are correct.");
-            }
-            else
-            {
-                Console.WriteLine(@"Creating Excel document...");
-            }
         }
 
         private void GenerateXAxis(SqlConnection myConnection)
@@ -172,9 +177,17 @@ namespace ACD
 
             using (SqlDataReader oReader = oCmd.ExecuteReader())
             {
-                while (oReader.Read())
+                try
                 {
-                    numAllCourses = Int32.Parse(oReader["AllCourses"].ToString());
+                    while (oReader.Read())
+                    {
+                        numAllCourses = int.Parse(oReader["AllCourses"].ToString());
+                    }
+                }
+                catch (FormatException formatException)
+                {
+                    Exception exception = new Exception("This program does not contain any courses");
+                    throw exception;
                 }
             }
 
@@ -213,7 +226,10 @@ namespace ACD
 
             groupRange.Font.Bold = true;
 
-            oString = "select grp.Name as \"Group\", crs.Name as \"Course\", grp.NumberOfElectives,  ROW_NUMBER() over (partition by grp.\"Key\" order by grp.\"Name\", crs.Name) as num1 from CourseWithKey crs left join CourseGroupWithKey grp on SUBSTRING(crs.\"Key\", 1, CASE CHARINDEX('_', crs.\"Key\") WHEN 0 THEN LEN(crs.\"Key\") ELSE CHARINDEX('_', crs.\"Key\")-1 END) = grp.\"Key\" and SUBSTRING(crs.\"Key\", CASE CHARINDEX('_', crs.\"Key\") WHEN 0 THEN LEN(crs.\"Key\")+1 ELSE CHARINDEX('_', crs.\"Key\")+1 END, 1000) = grp.\"Name\" where grp.\"Key\" = '" +  (string)comboBoxProgram.SelectedItem + "' order by 4";
+            oString = "select grp.Name as \"Group\", crs.Name as \"Course\", grp.NumberOfElectives,  ROW_NUMBER() over (partition by grp.\"Key\" order by grp.\"Name\", crs.Name) "+
+                "as num1 from CourseWithKey crs left join CourseGroupWithKey grp on SUBSTRING(crs.\"Key\", 1, CASE CHARINDEX('_', crs.\"Key\") WHEN 0 THEN LEN(crs.\"Key\") "+
+                "ELSE CHARINDEX('_', crs.\"Key\")-1 END) = grp.\"Key\" and SUBSTRING(crs.\"Key\", CASE CHARINDEX('_', crs.\"Key\") WHEN 0 THEN LEN(crs.\"Key\")+1 "+
+                "ELSE CHARINDEX('_', crs.\"Key\")+1 END, 1000) = grp.\"Name\" where grp.\"Key\" = '" +  (string)comboBoxProgram.SelectedItem + "' order by 4";
             oCmd = new SqlCommand(oString, myConnection);
 
             int i = 1;
@@ -328,7 +344,8 @@ namespace ACD
             string oString;
             SqlCommand oCmd;
 
-            oString = "select * from LearningLevelWithKey where SUBSTRING(\"PerformanceIndicatorKey\", 1, CASE CHARINDEX('_', \"PerformanceIndicatorKey\") WHEN 0 THEN LEN(\"PerformanceIndicatorKey\") ELSE CHARINDEX('_', \"PerformanceIndicatorKey\")-1 END) = '" +  (string)comboBoxProgram.SelectedItem + "'";
+            oString = "select * from LearningLevelWithKey where SUBSTRING(\"PerformanceIndicatorKey\", 1, CASE CHARINDEX('_', \"PerformanceIndicatorKey\") WHEN 0 THEN LEN(\"PerformanceIndicatorKey\") ELSE CHARINDEX('_', \"PerformanceIndicatorKey\")-1 END) = '" 
+                +  (string)comboBoxProgram.SelectedItem + "'";
 
             oCmd = new SqlCommand(oString, myConnection);
 
@@ -347,14 +364,20 @@ namespace ACD
                 }
             }
 
-            Range learningLevels = ws.get_Range("D3", GetExcelColumnName(performanceIndicatorsCount + 3) + (numAllCourses + 2));
+            try
+            {
+                Range learningLevels = ws.get_Range("D3", GetExcelColumnName(performanceIndicatorsCount + 3) + (numAllCourses + 2)); //System.Runtime.InteropServices.COMException
+                learningLevels.WrapText = true;
 
-            learningLevels.WrapText = true;
+                learningLevels.HorizontalAlignment = XlHAlign.xlHAlignCenter;
+                learningLevels.VerticalAlignment = XlVAlign.xlVAlignCenter;
 
-            learningLevels.HorizontalAlignment = XlHAlign.xlHAlignCenter;
-            learningLevels.VerticalAlignment = XlVAlign.xlVAlignCenter;
-
-            learningLevels.Font.Bold = true;
+                learningLevels.Font.Bold = true;
+            }
+            catch (System.Runtime.InteropServices.COMException Runtimeexception)
+            {
+                throw Runtimeexception;
+            }
         }
 
         private void Merge()

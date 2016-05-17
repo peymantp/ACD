@@ -71,6 +71,12 @@
     <Compile Include="DeleteDialog.Designer.cs">
       <DependentUpon>DeleteDialog.cs</DependentUpon>
     </Compile>
+    <Compile Include="ErrorDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ErrorDialog.Designer.cs">
+      <DependentUpon>ErrorDialog.cs</DependentUpon>
+    </Compile>
     <Compile Include="MainFormExport.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -114,6 +120,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="DeleteDialog.resx">
       <DependentUpon>DeleteDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ErrorDialog.resx">
+      <DependentUpon>ErrorDialog.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="PerformanceIndicatorForm.resx">
       <DependentUpon>PerformanceIndicatorForm.cs</DependentUpon>
