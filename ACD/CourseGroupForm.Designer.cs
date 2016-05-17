@@ -47,7 +47,7 @@
             this.labelProgram.Depth = 0;
             this.labelProgram.Font = new System.Drawing.Font("Roboto", 11F);
             this.labelProgram.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.labelProgram.Location = new System.Drawing.Point(23, 83);
+            this.labelProgram.Location = new System.Drawing.Point(12, 83);
             this.labelProgram.MouseState = MaterialSkin.MouseState.HOVER;
             this.labelProgram.Name = "labelProgram";
             this.labelProgram.Size = new System.Drawing.Size(66, 19);
@@ -60,7 +60,7 @@
             this.labelGroup.Depth = 0;
             this.labelGroup.Font = new System.Drawing.Font("Roboto", 11F);
             this.labelGroup.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.labelGroup.Location = new System.Drawing.Point(23, 123);
+            this.labelGroup.Location = new System.Drawing.Point(12, 123);
             this.labelGroup.MouseState = MaterialSkin.MouseState.HOVER;
             this.labelGroup.Name = "labelGroup";
             this.labelGroup.Size = new System.Drawing.Size(101, 19);
@@ -134,7 +134,7 @@
             this.labelElectives.Depth = 0;
             this.labelElectives.Font = new System.Drawing.Font("Roboto", 11F);
             this.labelElectives.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.labelElectives.Location = new System.Drawing.Point(23, 162);
+            this.labelElectives.Location = new System.Drawing.Point(12, 159);
             this.labelElectives.MouseState = MaterialSkin.MouseState.HOVER;
             this.labelElectives.Name = "labelElectives";
             this.labelElectives.Size = new System.Drawing.Size(145, 19);
