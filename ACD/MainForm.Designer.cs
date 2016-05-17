@@ -57,6 +57,7 @@ namespace ACD
             this.indicatorButtonEdit = new MaterialSkin.Controls.MaterialRaisedButton();
             this.coreButtonEdit = new MaterialSkin.Controls.MaterialRaisedButton();
             this.courseButtonEdit = new MaterialSkin.Controls.MaterialRaisedButton();
+            this.ButtonExport = new MaterialSkin.Controls.MaterialRaisedButton();
             ((System.ComponentModel.ISupportInitialize)(this.vaxasDatabaseDataSet)).BeginInit();
             this.SuspendLayout();
             // 
@@ -147,6 +148,8 @@ namespace ACD
             // 
             // comboBoxOutcome
             // 
+            this.comboBoxOutcome.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.comboBoxOutcome.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxOutcome.FormattingEnabled = true;
             this.comboBoxOutcome.Location = new System.Drawing.Point(114, 127);
@@ -156,6 +159,8 @@ namespace ACD
             // 
             // comboBoxIndicator
             // 
+            this.comboBoxIndicator.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.comboBoxIndicator.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxIndicator.FormattingEnabled = true;
             this.comboBoxIndicator.Location = new System.Drawing.Point(114, 172);
@@ -165,6 +170,8 @@ namespace ACD
             // 
             // comboBoxCore
             // 
+            this.comboBoxCore.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.comboBoxCore.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxCore.FormattingEnabled = true;
             this.comboBoxCore.Location = new System.Drawing.Point(114, 221);
@@ -174,6 +181,8 @@ namespace ACD
             // 
             // comboBoxCourse
             // 
+            this.comboBoxCourse.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.comboBoxCourse.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxCourse.FormattingEnabled = true;
             this.comboBoxCourse.Location = new System.Drawing.Point(114, 268);
@@ -238,6 +247,7 @@ namespace ACD
             // 
             // indicatorButtonAdd
             // 
+            this.indicatorButtonAdd.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.indicatorButtonAdd.Depth = 0;
             this.indicatorButtonAdd.Location = new System.Drawing.Point(475, 171);
             this.indicatorButtonAdd.MouseState = MaterialSkin.MouseState.HOVER;
@@ -250,6 +260,7 @@ namespace ACD
             // 
             // indicatorButtonDelete
             // 
+            this.indicatorButtonDelete.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.indicatorButtonDelete.Depth = 0;
             this.indicatorButtonDelete.Location = new System.Drawing.Point(670, 171);
             this.indicatorButtonDelete.MouseState = MaterialSkin.MouseState.HOVER;
@@ -262,6 +273,7 @@ namespace ACD
             // 
             // coreButtonAdd
             // 
+            this.coreButtonAdd.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.coreButtonAdd.Depth = 0;
             this.coreButtonAdd.Location = new System.Drawing.Point(475, 218);
             this.coreButtonAdd.MouseState = MaterialSkin.MouseState.HOVER;
@@ -275,6 +287,7 @@ namespace ACD
             // 
             // coreButtonDelete
             // 
+            this.coreButtonDelete.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.coreButtonDelete.Depth = 0;
             this.coreButtonDelete.Location = new System.Drawing.Point(670, 218);
             this.coreButtonDelete.MouseState = MaterialSkin.MouseState.HOVER;
@@ -287,6 +300,7 @@ namespace ACD
             // 
             // courseButtonAdd
             // 
+            this.courseButtonAdd.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.courseButtonAdd.Depth = 0;
             this.courseButtonAdd.Location = new System.Drawing.Point(475, 264);
             this.courseButtonAdd.MouseState = MaterialSkin.MouseState.HOVER;
@@ -300,6 +314,7 @@ namespace ACD
             // 
             // courseButtonDelete
             // 
+            this.courseButtonDelete.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.courseButtonDelete.Depth = 0;
             this.courseButtonDelete.Location = new System.Drawing.Point(670, 264);
             this.courseButtonDelete.MouseState = MaterialSkin.MouseState.HOVER;
@@ -340,6 +355,7 @@ namespace ACD
             // 
             // indicatorButtonEdit
             // 
+            this.indicatorButtonEdit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.indicatorButtonEdit.Depth = 0;
             this.indicatorButtonEdit.Location = new System.Drawing.Point(574, 171);
             this.indicatorButtonEdit.MouseState = MaterialSkin.MouseState.HOVER;
@@ -352,6 +368,7 @@ namespace ACD
             // 
             // coreButtonEdit
             // 
+            this.coreButtonEdit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.coreButtonEdit.Depth = 0;
             this.coreButtonEdit.Location = new System.Drawing.Point(574, 218);
             this.coreButtonEdit.MouseState = MaterialSkin.MouseState.HOVER;
@@ -364,6 +381,7 @@ namespace ACD
             // 
             // courseButtonEdit
             // 
+            this.courseButtonEdit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.courseButtonEdit.Depth = 0;
             this.courseButtonEdit.Location = new System.Drawing.Point(574, 264);
             this.courseButtonEdit.MouseState = MaterialSkin.MouseState.HOVER;
@@ -374,11 +392,25 @@ namespace ACD
             this.courseButtonEdit.Text = "edit";
             this.courseButtonEdit.UseVisualStyleBackColor = true;
             // 
+            // ButtonExport
+            // 
+            this.ButtonExport.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.ButtonExport.Depth = 0;
+            this.ButtonExport.Location = new System.Drawing.Point(475, 305);
+            this.ButtonExport.MouseState = MaterialSkin.MouseState.HOVER;
+            this.ButtonExport.Name = "ButtonExport";
+            this.ButtonExport.Primary = true;
+            this.ButtonExport.Size = new System.Drawing.Size(270, 23);
+            this.ButtonExport.TabIndex = 27;
+            this.ButtonExport.Text = "Export";
+            this.ButtonExport.UseVisualStyleBackColor = true;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(757, 321);
+            this.ClientSize = new System.Drawing.Size(757, 340);
+            this.Controls.Add(this.ButtonExport);
             this.Controls.Add(this.courseButtonEdit);
             this.Controls.Add(this.coreButtonEdit);
             this.Controls.Add(this.indicatorButtonEdit);
@@ -404,6 +436,9 @@ namespace ACD
             this.Controls.Add(this.labelOutcomes);
             this.Controls.Add(this.labelProgram);
             this.Controls.Add(this.comboBoxProgram);
+            this.MaximizeBox = false;
+            this.MaximumSize = new System.Drawing.Size(1920, 400);
+            this.MinimumSize = new System.Drawing.Size(757, 330);
             this.Name = "MainForm";
             this.Text = "Texas A&M Program Redesign Tool";
             this.Load += new System.EventHandler(this.MainForm_Load);
@@ -441,6 +476,7 @@ namespace ACD
         private MaterialRaisedButton indicatorButtonEdit;
         private MaterialRaisedButton coreButtonEdit;
         private MaterialRaisedButton courseButtonEdit;
+        private MaterialRaisedButton ButtonExport;
     }
 }
 
