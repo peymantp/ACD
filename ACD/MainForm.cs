@@ -10,6 +10,11 @@ using System.Windows.Forms;
 
 namespace ACD
 {
+    /// <summary>
+    /// The main form displays the information of every program in the database
+    /// and allows adding, deleting and, editing of information related to 
+    /// every program
+    /// </summary>
     public partial class MainForm : MaterialForm
     {
         private MaterialSkinManager skinManager;
@@ -31,11 +36,17 @@ namespace ACD
         {
             
             InitializeComponent();
+
+            //color design off app
             skinManager = MaterialSkinManager.Instance;
             skinManager.AddFormToManage(this);
             skinManager.ColorScheme = new ColorScheme(Primary.BlueGrey800, Primary.BlueGrey900, Primary.BlueGrey500, Accent.LightBlue200, TextShade.WHITE);
         }
-
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void MainForm_Load(object sender, EventArgs e)
         {
             connection = new SqlConnection(conn);
@@ -82,23 +93,29 @@ namespace ACD
             var result = new DeleteDialog(comboBoxProgram.Text).ShowDialog();
             if (System.Windows.Forms.DialogResult.OK == result && programDs.Tables["Table"].Rows.Contains(comboBoxProgram.Text))
             {
-                programDs.Tables["Table"].Rows[programDs.Tables["Table"].Rows.IndexOf(programDs.Tables["Table"].Rows.Find(comboBoxProgram.Text))].Delete();
+                try {
+                    programDs.Tables["Table"].Rows[programDs.Tables["Table"].Rows.IndexOf(programDs.Tables["Table"].Rows.Find(comboBoxProgram.Text))].Delete();
 
-                new SqlCommandBuilder(programAdapter);
-                programAdapter.Update(programDs);
-                programDs.Clear();
-                programAdapter.Fill(programDs);
+                    new SqlCommandBuilder(programAdapter);
+                    programAdapter.Update(programDs);
+                    programDs.Clear();
+                    programAdapter.Fill(programDs);
 
-                comboBoxProgram.Items.Clear();
+                    comboBoxProgram.Items.Clear();
 
-                foreach (DataRow r in programDs.Tables["Table"].Rows)
-                {
-                    comboBoxProgram.Items.Add(r["Name"]);
+                    foreach (DataRow r in programDs.Tables["Table"].Rows)
+                    {
+                        comboBoxProgram.Items.Add(r["Name"]);
+                    }
+                    if (comboBoxProgram.Items.Count == 0)
+                        comboBoxProgram.Items.Add("No Programs in Database");
+
+                    comboBoxProgram.SelectedIndex = 0;
                 }
-                if (comboBoxProgram.Items.Count == 0)
-                    comboBoxProgram.Items.Add("No Programs in Database");
-
-                comboBoxProgram.SelectedIndex = 0;
+                catch (System.Data.SqlClient.SqlException sqlexception)
+                {
+                    new ErrorDialog("You must delete all related level outcomes, indicators, course groups and, courses to the program first").ShowDialog();
+                }
             }
         }
 
