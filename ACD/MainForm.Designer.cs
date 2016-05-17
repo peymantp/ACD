@@ -30,13 +30,9 @@ namespace ACD
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             this.comboBoxProgram = new System.Windows.Forms.ComboBox();
             this.labelProgram = new MaterialSkin.Controls.MaterialLabel();
-            this.performanceIndicatorBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.vaxasDatabaseDataSet = new ACD.vaxasDatabaseDataSet();
-            this.courseBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.courseTableAdapter = new ACD.vaxasDatabaseDataSetTableAdapters.CourseTableAdapter();
             this.performanceIndicatorTableAdapter = new ACD.vaxasDatabaseDataSetTableAdapters.PerformanceIndicatorTableAdapter();
             this.labelOutcomes = new MaterialSkin.Controls.MaterialLabel();
             this.labelIndicators = new MaterialSkin.Controls.MaterialLabel();
@@ -61,12 +57,7 @@ namespace ACD
             this.indicatorButtonEdit = new MaterialSkin.Controls.MaterialRaisedButton();
             this.coreButtonEdit = new MaterialSkin.Controls.MaterialRaisedButton();
             this.courseButtonEdit = new MaterialSkin.Controls.MaterialRaisedButton();
-            this.performanceIndicatorTableAdapter1 = new ACD.vaxasDatabaseDataSetTableAdapters.PerformanceIndicatorTableAdapter();
-            this.courseTableAdapter2 = new ACD.vaxasDatabaseDataSetTableAdapters.CourseTableAdapter();
-            this.courseTableAdapter3 = new ACD.vaxasDatabaseDataSetTableAdapters.CourseTableAdapter();
-            ((System.ComponentModel.ISupportInitialize)(this.performanceIndicatorBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.vaxasDatabaseDataSet)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.courseBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // comboBoxProgram
@@ -93,24 +84,10 @@ namespace ACD
             this.labelProgram.TabIndex = 2;
             this.labelProgram.Text = "Programs";
             // 
-            // performanceIndicatorBindingSource
-            // 
-            this.performanceIndicatorBindingSource.DataMember = "PerformanceIndicator";
-            this.performanceIndicatorBindingSource.DataSource = this.vaxasDatabaseDataSet;
-            // 
             // vaxasDatabaseDataSet
             // 
             this.vaxasDatabaseDataSet.DataSetName = "vaxasDatabaseDataSet";
             this.vaxasDatabaseDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // courseBindingSource
-            // 
-            this.courseBindingSource.DataMember = "Course";
-            this.courseBindingSource.DataSource = this.vaxasDatabaseDataSet;
-            // 
-            // courseTableAdapter
-            // 
-            this.courseTableAdapter.ClearBeforeFill = true;
             // 
             // performanceIndicatorTableAdapter
             // 
@@ -222,7 +199,7 @@ namespace ACD
             // 
             this.ButtonProgramDelete.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.ButtonProgramDelete.Depth = 0;
-            this.ButtonProgramDelete.Location = new System.Drawing.Point(568, 72);
+            this.ButtonProgramDelete.Location = new System.Drawing.Point(670, 73);
             this.ButtonProgramDelete.MouseState = MaterialSkin.MouseState.HOVER;
             this.ButtonProgramDelete.Name = "ButtonProgramDelete";
             this.ButtonProgramDelete.Primary = true;
@@ -250,7 +227,7 @@ namespace ACD
             // 
             this.outcomeButtonDelete.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.outcomeButtonDelete.Depth = 0;
-            this.outcomeButtonDelete.Location = new System.Drawing.Point(568, 123);
+            this.outcomeButtonDelete.Location = new System.Drawing.Point(670, 123);
             this.outcomeButtonDelete.MouseState = MaterialSkin.MouseState.HOVER;
             this.outcomeButtonDelete.Name = "outcomeButtonDelete";
             this.outcomeButtonDelete.Primary = true;
@@ -274,7 +251,7 @@ namespace ACD
             // indicatorButtonDelete
             // 
             this.indicatorButtonDelete.Depth = 0;
-            this.indicatorButtonDelete.Location = new System.Drawing.Point(568, 171);
+            this.indicatorButtonDelete.Location = new System.Drawing.Point(670, 171);
             this.indicatorButtonDelete.MouseState = MaterialSkin.MouseState.HOVER;
             this.indicatorButtonDelete.Name = "indicatorButtonDelete";
             this.indicatorButtonDelete.Primary = true;
@@ -299,7 +276,7 @@ namespace ACD
             // coreButtonDelete
             // 
             this.coreButtonDelete.Depth = 0;
-            this.coreButtonDelete.Location = new System.Drawing.Point(568, 221);
+            this.coreButtonDelete.Location = new System.Drawing.Point(670, 218);
             this.coreButtonDelete.MouseState = MaterialSkin.MouseState.HOVER;
             this.coreButtonDelete.Name = "coreButtonDelete";
             this.coreButtonDelete.Primary = true;
@@ -324,7 +301,7 @@ namespace ACD
             // courseButtonDelete
             // 
             this.courseButtonDelete.Depth = 0;
-            this.courseButtonDelete.Location = new System.Drawing.Point(568, 266);
+            this.courseButtonDelete.Location = new System.Drawing.Point(670, 264);
             this.courseButtonDelete.MouseState = MaterialSkin.MouseState.HOVER;
             this.courseButtonDelete.Name = "courseButtonDelete";
             this.courseButtonDelete.Primary = true;
@@ -337,7 +314,7 @@ namespace ACD
             // 
             this.ButtonProgramEdit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.ButtonProgramEdit.Depth = 0;
-            this.ButtonProgramEdit.Location = new System.Drawing.Point(663, 73);
+            this.ButtonProgramEdit.Location = new System.Drawing.Point(574, 73);
             this.ButtonProgramEdit.MouseState = MaterialSkin.MouseState.HOVER;
             this.ButtonProgramEdit.Name = "ButtonProgramEdit";
             this.ButtonProgramEdit.Primary = true;
@@ -352,7 +329,7 @@ namespace ACD
             this.outcomeButtonEdit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.outcomeButtonEdit.BackColor = System.Drawing.SystemColors.Control;
             this.outcomeButtonEdit.Depth = 0;
-            this.outcomeButtonEdit.Location = new System.Drawing.Point(663, 124);
+            this.outcomeButtonEdit.Location = new System.Drawing.Point(574, 123);
             this.outcomeButtonEdit.MouseState = MaterialSkin.MouseState.HOVER;
             this.outcomeButtonEdit.Name = "outcomeButtonEdit";
             this.outcomeButtonEdit.Primary = true;
@@ -364,7 +341,7 @@ namespace ACD
             // indicatorButtonEdit
             // 
             this.indicatorButtonEdit.Depth = 0;
-            this.indicatorButtonEdit.Location = new System.Drawing.Point(663, 171);
+            this.indicatorButtonEdit.Location = new System.Drawing.Point(574, 171);
             this.indicatorButtonEdit.MouseState = MaterialSkin.MouseState.HOVER;
             this.indicatorButtonEdit.Name = "indicatorButtonEdit";
             this.indicatorButtonEdit.Primary = true;
@@ -376,7 +353,7 @@ namespace ACD
             // coreButtonEdit
             // 
             this.coreButtonEdit.Depth = 0;
-            this.coreButtonEdit.Location = new System.Drawing.Point(663, 221);
+            this.coreButtonEdit.Location = new System.Drawing.Point(574, 218);
             this.coreButtonEdit.MouseState = MaterialSkin.MouseState.HOVER;
             this.coreButtonEdit.Name = "coreButtonEdit";
             this.coreButtonEdit.Primary = true;
@@ -388,7 +365,7 @@ namespace ACD
             // courseButtonEdit
             // 
             this.courseButtonEdit.Depth = 0;
-            this.courseButtonEdit.Location = new System.Drawing.Point(663, 266);
+            this.courseButtonEdit.Location = new System.Drawing.Point(574, 264);
             this.courseButtonEdit.MouseState = MaterialSkin.MouseState.HOVER;
             this.courseButtonEdit.Name = "courseButtonEdit";
             this.courseButtonEdit.Primary = true;
@@ -396,18 +373,6 @@ namespace ACD
             this.courseButtonEdit.TabIndex = 26;
             this.courseButtonEdit.Text = "edit";
             this.courseButtonEdit.UseVisualStyleBackColor = true;
-            // 
-            // performanceIndicatorTableAdapter1
-            // 
-            this.performanceIndicatorTableAdapter1.ClearBeforeFill = true;
-            // 
-            // courseTableAdapter2
-            // 
-            this.courseTableAdapter2.ClearBeforeFill = true;
-            // 
-            // courseTableAdapter3
-            // 
-            this.courseTableAdapter3.ClearBeforeFill = true;
             // 
             // MainForm
             // 
@@ -442,9 +407,7 @@ namespace ACD
             this.Name = "MainForm";
             this.Text = "Texas A&M Program Redesign Tool";
             this.Load += new System.EventHandler(this.MainForm_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.performanceIndicatorBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.vaxasDatabaseDataSet)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.courseBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -454,9 +417,6 @@ namespace ACD
         private System.Windows.Forms.ComboBox comboBoxProgram;
         private MaterialLabel labelProgram;
         private vaxasDatabaseDataSet vaxasDatabaseDataSet;
-        private System.Windows.Forms.BindingSource courseBindingSource;
-        private vaxasDatabaseDataSetTableAdapters.CourseTableAdapter courseTableAdapter;
-        private System.Windows.Forms.BindingSource performanceIndicatorBindingSource;
         private vaxasDatabaseDataSetTableAdapters.PerformanceIndicatorTableAdapter performanceIndicatorTableAdapter;
         private MaterialLabel labelOutcomes;
         private MaterialLabel labelIndicators;
@@ -481,9 +441,6 @@ namespace ACD
         private MaterialRaisedButton indicatorButtonEdit;
         private MaterialRaisedButton coreButtonEdit;
         private MaterialRaisedButton courseButtonEdit;
-        private vaxasDatabaseDataSetTableAdapters.PerformanceIndicatorTableAdapter performanceIndicatorTableAdapter1;
-        private vaxasDatabaseDataSetTableAdapters.CourseTableAdapter courseTableAdapter2;
-        private vaxasDatabaseDataSetTableAdapters.CourseTableAdapter courseTableAdapter3;
     }
 }
 
