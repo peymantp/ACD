@@ -31,7 +31,7 @@
             this.components = new System.ComponentModel.Container();
             this.labelProgramName = new MaterialSkin.Controls.MaterialLabel();
             this.ButtonProgramAdd = new MaterialSkin.Controls.MaterialRaisedButton();
-            this.materialRaisedButton1 = new MaterialSkin.Controls.MaterialRaisedButton();
+            this.ButtonCancel = new MaterialSkin.Controls.MaterialRaisedButton();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.textBoxName = new MaterialSkin.Controls.MaterialSingleLineTextField();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
@@ -63,18 +63,18 @@
             this.ButtonProgramAdd.UseVisualStyleBackColor = true;
             this.ButtonProgramAdd.Click += new System.EventHandler(this.ButtonProgramAdd_Click);
             // 
-            // materialRaisedButton1
+            // ButtonCancel
             // 
-            this.materialRaisedButton1.Depth = 0;
-            this.materialRaisedButton1.Location = new System.Drawing.Point(335, 119);
-            this.materialRaisedButton1.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialRaisedButton1.Name = "materialRaisedButton1";
-            this.materialRaisedButton1.Primary = true;
-            this.materialRaisedButton1.Size = new System.Drawing.Size(75, 29);
-            this.materialRaisedButton1.TabIndex = 14;
-            this.materialRaisedButton1.Text = "Cancel";
-            this.materialRaisedButton1.UseVisualStyleBackColor = true;
-            this.materialRaisedButton1.Click += new System.EventHandler(this.materialRaisedButton1_Click);
+            this.ButtonCancel.Depth = 0;
+            this.ButtonCancel.Location = new System.Drawing.Point(335, 119);
+            this.ButtonCancel.MouseState = MaterialSkin.MouseState.HOVER;
+            this.ButtonCancel.Name = "ButtonCancel";
+            this.ButtonCancel.Primary = true;
+            this.ButtonCancel.Size = new System.Drawing.Size(75, 29);
+            this.ButtonCancel.TabIndex = 14;
+            this.ButtonCancel.Text = "Cancel";
+            this.ButtonCancel.UseVisualStyleBackColor = true;
+            this.ButtonCancel.Click += new System.EventHandler(this.ButtonCancel_Click);
             // 
             // errorProvider1
             // 
@@ -103,11 +103,17 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(431, 162);
             this.Controls.Add(this.textBoxName);
-            this.Controls.Add(this.materialRaisedButton1);
+            this.Controls.Add(this.ButtonCancel);
             this.Controls.Add(this.ButtonProgramAdd);
             this.Controls.Add(this.labelProgramName);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
+            this.MaximizeBox = false;
+            this.MaximumSize = new System.Drawing.Size(431, 162);
+            this.MinimizeBox = false;
+            this.MinimumSize = new System.Drawing.Size(431, 162);
             this.Name = "ProgramForm";
+            this.ShowInTaskbar = false;
+            this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Show;
             this.Text = "ProgramForm";
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);
@@ -119,7 +125,7 @@
 
         private MaterialSkin.Controls.MaterialLabel labelProgramName;
         private MaterialSkin.Controls.MaterialRaisedButton ButtonProgramAdd;
-        private MaterialSkin.Controls.MaterialRaisedButton materialRaisedButton1;
+        private MaterialSkin.Controls.MaterialRaisedButton ButtonCancel;
         private System.Windows.Forms.ErrorProvider errorProvider1;
         private MaterialSkin.Controls.MaterialSingleLineTextField textBoxName;
     }

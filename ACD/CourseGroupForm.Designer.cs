@@ -47,11 +47,10 @@
             this.labelProgram.Depth = 0;
             this.labelProgram.Font = new System.Drawing.Font("Roboto", 11F);
             this.labelProgram.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.labelProgram.Location = new System.Drawing.Point(31, 102);
-            this.labelProgram.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.labelProgram.Location = new System.Drawing.Point(23, 83);
             this.labelProgram.MouseState = MaterialSkin.MouseState.HOVER;
             this.labelProgram.Name = "labelProgram";
-            this.labelProgram.Size = new System.Drawing.Size(83, 24);
+            this.labelProgram.Size = new System.Drawing.Size(66, 19);
             this.labelProgram.TabIndex = 0;
             this.labelProgram.Text = "Program";
             // 
@@ -61,11 +60,10 @@
             this.labelGroup.Depth = 0;
             this.labelGroup.Font = new System.Drawing.Font("Roboto", 11F);
             this.labelGroup.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.labelGroup.Location = new System.Drawing.Point(31, 151);
-            this.labelGroup.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.labelGroup.Location = new System.Drawing.Point(23, 123);
             this.labelGroup.MouseState = MaterialSkin.MouseState.HOVER;
             this.labelGroup.Name = "labelGroup";
-            this.labelGroup.Size = new System.Drawing.Size(125, 24);
+            this.labelGroup.Size = new System.Drawing.Size(101, 19);
             this.labelGroup.TabIndex = 1;
             this.labelGroup.Text = "Course Group";
             // 
@@ -74,8 +72,7 @@
             this.programNameField.Depth = 0;
             this.programNameField.Enabled = false;
             this.programNameField.Hint = "";
-            this.programNameField.Location = new System.Drawing.Point(222, 102);
-            this.programNameField.Margin = new System.Windows.Forms.Padding(4);
+            this.programNameField.Location = new System.Drawing.Point(166, 83);
             this.programNameField.MaxLength = 32767;
             this.programNameField.MouseState = MaterialSkin.MouseState.HOVER;
             this.programNameField.Name = "programNameField";
@@ -83,7 +80,7 @@
             this.programNameField.SelectedText = "";
             this.programNameField.SelectionLength = 0;
             this.programNameField.SelectionStart = 0;
-            this.programNameField.Size = new System.Drawing.Size(395, 28);
+            this.programNameField.Size = new System.Drawing.Size(296, 23);
             this.programNameField.TabIndex = 2;
             this.programNameField.TabStop = false;
             this.programNameField.UseSystemPasswordChar = false;
@@ -92,8 +89,7 @@
             // 
             this.courseGroupNameField.Depth = 0;
             this.courseGroupNameField.Hint = "";
-            this.courseGroupNameField.Location = new System.Drawing.Point(222, 151);
-            this.courseGroupNameField.Margin = new System.Windows.Forms.Padding(4);
+            this.courseGroupNameField.Location = new System.Drawing.Point(166, 123);
             this.courseGroupNameField.MaxLength = 32767;
             this.courseGroupNameField.MouseState = MaterialSkin.MouseState.HOVER;
             this.courseGroupNameField.Name = "courseGroupNameField";
@@ -101,7 +97,7 @@
             this.courseGroupNameField.SelectedText = "";
             this.courseGroupNameField.SelectionLength = 0;
             this.courseGroupNameField.SelectionStart = 0;
-            this.courseGroupNameField.Size = new System.Drawing.Size(395, 28);
+            this.courseGroupNameField.Size = new System.Drawing.Size(296, 23);
             this.courseGroupNameField.TabIndex = 3;
             this.courseGroupNameField.TabStop = false;
             this.courseGroupNameField.UseSystemPasswordChar = false;
@@ -109,12 +105,11 @@
             // ButtonCancel
             // 
             this.ButtonCancel.Depth = 0;
-            this.ButtonCancel.Location = new System.Drawing.Point(443, 244);
-            this.ButtonCancel.Margin = new System.Windows.Forms.Padding(4);
+            this.ButtonCancel.Location = new System.Drawing.Point(332, 198);
             this.ButtonCancel.MouseState = MaterialSkin.MouseState.HOVER;
             this.ButtonCancel.Name = "ButtonCancel";
             this.ButtonCancel.Primary = true;
-            this.ButtonCancel.Size = new System.Drawing.Size(173, 43);
+            this.ButtonCancel.Size = new System.Drawing.Size(130, 35);
             this.ButtonCancel.TabIndex = 4;
             this.ButtonCancel.Text = "Cancel";
             this.ButtonCancel.UseVisualStyleBackColor = true;
@@ -123,12 +118,11 @@
             // acceptButton
             // 
             this.acceptButton.Depth = 0;
-            this.acceptButton.Location = new System.Drawing.Point(222, 244);
-            this.acceptButton.Margin = new System.Windows.Forms.Padding(4);
+            this.acceptButton.Location = new System.Drawing.Point(166, 198);
             this.acceptButton.MouseState = MaterialSkin.MouseState.HOVER;
             this.acceptButton.Name = "acceptButton";
             this.acceptButton.Primary = true;
-            this.acceptButton.Size = new System.Drawing.Size(173, 43);
+            this.acceptButton.Size = new System.Drawing.Size(130, 35);
             this.acceptButton.TabIndex = 5;
             this.acceptButton.Text = "Add";
             this.acceptButton.UseVisualStyleBackColor = true;
@@ -140,11 +134,10 @@
             this.labelElectives.Depth = 0;
             this.labelElectives.Font = new System.Drawing.Font("Roboto", 11F);
             this.labelElectives.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.labelElectives.Location = new System.Drawing.Point(31, 200);
-            this.labelElectives.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.labelElectives.Location = new System.Drawing.Point(23, 162);
             this.labelElectives.MouseState = MaterialSkin.MouseState.HOVER;
             this.labelElectives.Name = "labelElectives";
-            this.labelElectives.Size = new System.Drawing.Size(182, 24);
+            this.labelElectives.Size = new System.Drawing.Size(145, 19);
             this.labelElectives.TabIndex = 6;
             this.labelElectives.Text = "Number of Electives";
             // 
@@ -152,8 +145,7 @@
             // 
             this.electiveField.Depth = 0;
             this.electiveField.Hint = "";
-            this.electiveField.Location = new System.Drawing.Point(222, 196);
-            this.electiveField.Margin = new System.Windows.Forms.Padding(4);
+            this.electiveField.Location = new System.Drawing.Point(166, 159);
             this.electiveField.MaxLength = 32767;
             this.electiveField.MouseState = MaterialSkin.MouseState.HOVER;
             this.electiveField.Name = "electiveField";
@@ -161,7 +153,7 @@
             this.electiveField.SelectedText = "";
             this.electiveField.SelectionLength = 0;
             this.electiveField.SelectionStart = 0;
-            this.electiveField.Size = new System.Drawing.Size(395, 28);
+            this.electiveField.Size = new System.Drawing.Size(296, 23);
             this.electiveField.TabIndex = 7;
             this.electiveField.TabStop = false;
             this.electiveField.Text = "0";
@@ -173,9 +165,9 @@
             // 
             // CourseGroupForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(657, 300);
+            this.ClientSize = new System.Drawing.Size(493, 244);
             this.Controls.Add(this.electiveField);
             this.Controls.Add(this.labelElectives);
             this.Controls.Add(this.acceptButton);
@@ -184,8 +176,12 @@
             this.Controls.Add(this.programNameField);
             this.Controls.Add(this.labelGroup);
             this.Controls.Add(this.labelProgram);
-            this.Margin = new System.Windows.Forms.Padding(4);
+            this.MaximizeBox = false;
+            this.MaximumSize = new System.Drawing.Size(493, 244);
+            this.MinimizeBox = false;
+            this.MinimumSize = new System.Drawing.Size(493, 244);
             this.Name = "CourseGroupForm";
+            this.ShowInTaskbar = false;
             this.Text = "Course Group";
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);

@@ -13,6 +13,10 @@ using System.Configuration;
 
 namespace ACD
 {
+    /// <summary>
+    /// Program form provides the functionality to edit and add
+    /// programs to the database
+    /// </summary>
     public partial class ProgramForm : MaterialForm
     {
         private string currName;
@@ -78,7 +82,12 @@ namespace ACD
                 connection.Close();
             }
         }
-        private void materialRaisedButton1_Click(object sender, EventArgs e)
+        /// <summary>
+        /// Exits the Form
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void ButtonCancel_Click(object sender, EventArgs e)
         {
             this.DialogResult = DialogResult.Cancel;
             this.Close();

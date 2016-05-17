@@ -47,11 +47,10 @@
             this.programNameLabel.Depth = 0;
             this.programNameLabel.Font = new System.Drawing.Font("Roboto", 11F);
             this.programNameLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.programNameLabel.Location = new System.Drawing.Point(16, 96);
-            this.programNameLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.programNameLabel.Location = new System.Drawing.Point(12, 78);
             this.programNameLabel.MouseState = MaterialSkin.MouseState.HOVER;
             this.programNameLabel.Name = "programNameLabel";
-            this.programNameLabel.Size = new System.Drawing.Size(83, 24);
+            this.programNameLabel.Size = new System.Drawing.Size(66, 19);
             this.programNameLabel.TabIndex = 9;
             this.programNameLabel.Text = "Program";
             // 
@@ -61,11 +60,10 @@
             this.outcomeNameLabel.Depth = 0;
             this.outcomeNameLabel.Font = new System.Drawing.Font("Roboto", 11F);
             this.outcomeNameLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.outcomeNameLabel.Location = new System.Drawing.Point(16, 145);
-            this.outcomeNameLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.outcomeNameLabel.Location = new System.Drawing.Point(12, 118);
             this.outcomeNameLabel.MouseState = MaterialSkin.MouseState.HOVER;
             this.outcomeNameLabel.Name = "outcomeNameLabel";
-            this.outcomeNameLabel.Size = new System.Drawing.Size(143, 24);
+            this.outcomeNameLabel.Size = new System.Drawing.Size(114, 19);
             this.outcomeNameLabel.TabIndex = 10;
             this.outcomeNameLabel.Text = "Outcome Name";
             // 
@@ -75,23 +73,21 @@
             this.descriptionLabel.Depth = 0;
             this.descriptionLabel.Font = new System.Drawing.Font("Roboto", 11F);
             this.descriptionLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.descriptionLabel.Location = new System.Drawing.Point(17, 194);
-            this.descriptionLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.descriptionLabel.Location = new System.Drawing.Point(13, 158);
             this.descriptionLabel.MouseState = MaterialSkin.MouseState.HOVER;
             this.descriptionLabel.Name = "descriptionLabel";
-            this.descriptionLabel.Size = new System.Drawing.Size(106, 24);
+            this.descriptionLabel.Size = new System.Drawing.Size(86, 19);
             this.descriptionLabel.TabIndex = 12;
             this.descriptionLabel.Text = "Description";
             // 
             // acceptButton
             // 
             this.acceptButton.Depth = 0;
-            this.acceptButton.Location = new System.Drawing.Point(302, 384);
-            this.acceptButton.Margin = new System.Windows.Forms.Padding(4);
+            this.acceptButton.Location = new System.Drawing.Point(226, 312);
             this.acceptButton.MouseState = MaterialSkin.MouseState.HOVER;
             this.acceptButton.Name = "acceptButton";
             this.acceptButton.Primary = true;
-            this.acceptButton.Size = new System.Drawing.Size(100, 41);
+            this.acceptButton.Size = new System.Drawing.Size(75, 33);
             this.acceptButton.TabIndex = 13;
             this.acceptButton.Text = "Add";
             this.acceptButton.UseVisualStyleBackColor = true;
@@ -102,8 +98,7 @@
             this.programNameField.Depth = 0;
             this.programNameField.Enabled = false;
             this.programNameField.Hint = "";
-            this.programNameField.Location = new System.Drawing.Point(196, 96);
-            this.programNameField.Margin = new System.Windows.Forms.Padding(4);
+            this.programNameField.Location = new System.Drawing.Point(147, 78);
             this.programNameField.MaxLength = 32767;
             this.programNameField.MouseState = MaterialSkin.MouseState.HOVER;
             this.programNameField.Name = "programNameField";
@@ -111,7 +106,7 @@
             this.programNameField.SelectedText = "";
             this.programNameField.SelectionLength = 0;
             this.programNameField.SelectionStart = 0;
-            this.programNameField.Size = new System.Drawing.Size(361, 28);
+            this.programNameField.Size = new System.Drawing.Size(271, 23);
             this.programNameField.TabIndex = 14;
             this.programNameField.TabStop = false;
             this.programNameField.UseSystemPasswordChar = false;
@@ -120,8 +115,7 @@
             // 
             this.outcomeNameField.Depth = 0;
             this.outcomeNameField.Hint = "";
-            this.outcomeNameField.Location = new System.Drawing.Point(196, 145);
-            this.outcomeNameField.Margin = new System.Windows.Forms.Padding(4);
+            this.outcomeNameField.Location = new System.Drawing.Point(147, 118);
             this.outcomeNameField.MaxLength = 32767;
             this.outcomeNameField.MouseState = MaterialSkin.MouseState.HOVER;
             this.outcomeNameField.Name = "outcomeNameField";
@@ -129,7 +123,7 @@
             this.outcomeNameField.SelectedText = "";
             this.outcomeNameField.SelectionLength = 0;
             this.outcomeNameField.SelectionStart = 0;
-            this.outcomeNameField.Size = new System.Drawing.Size(361, 28);
+            this.outcomeNameField.Size = new System.Drawing.Size(271, 23);
             this.outcomeNameField.TabIndex = 15;
             this.outcomeNameField.TabStop = false;
             this.outcomeNameField.UseSystemPasswordChar = false;
@@ -137,22 +131,20 @@
             // descriptionTextBox
             // 
             this.descriptionTextBox.BackColor = System.Drawing.SystemColors.Control;
-            this.descriptionTextBox.Location = new System.Drawing.Point(196, 194);
-            this.descriptionTextBox.Margin = new System.Windows.Forms.Padding(4);
+            this.descriptionTextBox.Location = new System.Drawing.Point(147, 158);
             this.descriptionTextBox.Name = "descriptionTextBox";
-            this.descriptionTextBox.Size = new System.Drawing.Size(361, 168);
+            this.descriptionTextBox.Size = new System.Drawing.Size(272, 137);
             this.descriptionTextBox.TabIndex = 18;
             this.descriptionTextBox.Text = "";
             // 
             // cancelButton
             // 
             this.cancelButton.Depth = 0;
-            this.cancelButton.Location = new System.Drawing.Point(458, 384);
-            this.cancelButton.Margin = new System.Windows.Forms.Padding(4);
+            this.cancelButton.Location = new System.Drawing.Point(344, 312);
             this.cancelButton.MouseState = MaterialSkin.MouseState.HOVER;
             this.cancelButton.Name = "cancelButton";
             this.cancelButton.Primary = true;
-            this.cancelButton.Size = new System.Drawing.Size(100, 41);
+            this.cancelButton.Size = new System.Drawing.Size(75, 33);
             this.cancelButton.TabIndex = 19;
             this.cancelButton.Text = "Cancel";
             this.cancelButton.UseVisualStyleBackColor = true;
@@ -164,9 +156,9 @@
             // 
             // ProgramLevelForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(589, 450);
+            this.ClientSize = new System.Drawing.Size(442, 366);
             this.Controls.Add(this.cancelButton);
             this.Controls.Add(this.descriptionTextBox);
             this.Controls.Add(this.outcomeNameField);
@@ -175,8 +167,13 @@
             this.Controls.Add(this.descriptionLabel);
             this.Controls.Add(this.outcomeNameLabel);
             this.Controls.Add(this.programNameLabel);
-            this.Margin = new System.Windows.Forms.Padding(4);
+            this.MaximizeBox = false;
+            this.MaximumSize = new System.Drawing.Size(442, 366);
+            this.MinimizeBox = false;
+            this.MinimumSize = new System.Drawing.Size(442, 366);
             this.Name = "ProgramLevelForm";
+            this.ShowInTaskbar = false;
+            this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
             this.Text = "Program Level Outcome";
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);

@@ -121,7 +121,13 @@
             this.Controls.Add(this.ButtonCancel);
             this.Controls.Add(this.TextFieldLearningLevel);
             this.Controls.Add(this.TextFieldProgram);
+            this.MaximizeBox = false;
+            this.MaximumSize = new System.Drawing.Size(399, 275);
+            this.MinimizeBox = false;
+            this.MinimumSize = new System.Drawing.Size(399, 275);
             this.Name = "PerformanceIndicatorForm";
+            this.ShowInTaskbar = false;
+            this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
             this.Text = "PerformanceIndicatorForm";
             this.ResumeLayout(false);
 

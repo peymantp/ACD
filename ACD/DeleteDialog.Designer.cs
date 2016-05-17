@@ -107,8 +107,14 @@
             this.Controls.Add(this.deleteButton);
             this.Controls.Add(this.warningLabel);
             this.Margin = new System.Windows.Forms.Padding(2);
+            this.MaximizeBox = false;
+            this.MaximumSize = new System.Drawing.Size(381, 231);
+            this.MinimizeBox = false;
+            this.MinimumSize = new System.Drawing.Size(381, 231);
             this.Name = "DeleteDialog";
+            this.ShowInTaskbar = false;
             this.Sizable = false;
+            this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
             this.Text = "DeleteDialog";
             this.ResumeLayout(false);
             this.PerformLayout();
