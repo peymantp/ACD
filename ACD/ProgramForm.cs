@@ -18,11 +18,18 @@ namespace ACD
         private string currName;
         private string newName;
 
+        private string query;
+        private string conn;
+        private SqlConnection connection;
+        private SqlDataAdapter dadapter;
+        private DataSet ds = new DataSet();
+
         public string getName { get { return newName; } }
 
         public ProgramForm()
         {
             InitializeComponent();
+            openConnection();
         }
         public ProgramForm(string name)
         {
@@ -30,6 +37,7 @@ namespace ACD
             ButtonProgramAdd.Text = "Edit";
             textBoxName.Text = name;
             currName = name;
+            openConnection();
         }
 
         private void ButtonProgramAdd_Click(object sender, EventArgs e)
@@ -44,16 +52,6 @@ namespace ACD
             }
             else
             {
-                string query = "select * FROM dbo.Faculty";
-                string conn = ConfigurationManager.ConnectionStrings["ACD.Properties.Settings.vaxasDatabaseConnectionString"].ConnectionString;
-                SqlConnection connection = new SqlConnection(conn);
-                SqlDataAdapter dadapter = new SqlDataAdapter(query, connection);
-                DataSet ds = new DataSet();
-                connection.Open();
-                dadapter.Fill(ds);
-                DataColumn[] keyColumns = new DataColumn[1];
-                keyColumns[0] = ds.Tables["Table"].Columns["Name"];
-                ds.Tables["Table"].PrimaryKey = keyColumns;
                 if (!(ds.Tables["Table"].Rows.Contains(textBoxName.Text)) || (ButtonProgramAdd.Text.Equals("Edit") && currName.Equals(textBoxName.Text)))
                 {
                     if (ButtonProgramAdd.Text.Equals("Edit"))
@@ -84,6 +82,19 @@ namespace ACD
         {
             this.DialogResult = DialogResult.Cancel;
             this.Close();
+        }
+        private void openConnection()
+        {
+            query = "select * FROM dbo.Faculty";
+            conn = ConfigurationManager.ConnectionStrings["ACD.Properties.Settings.vaxasDatabaseConnectionString"].ConnectionString;
+            connection = new SqlConnection(conn);
+            dadapter = new SqlDataAdapter(query, connection);
+
+            connection.Open();
+            dadapter.Fill(ds);
+            DataColumn[] keyColumns = new DataColumn[1];
+            keyColumns[0] = ds.Tables["Table"].Columns["Name"];
+            ds.Tables["Table"].PrimaryKey = keyColumns;
         }
     }
 }

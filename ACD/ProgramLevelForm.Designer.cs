@@ -28,186 +28,171 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.materialLabel1 = new MaterialSkin.Controls.MaterialLabel();
-            this.materialLabel2 = new MaterialSkin.Controls.MaterialLabel();
-            this.materialLabel3 = new MaterialSkin.Controls.MaterialLabel();
-            this.materialLabel4 = new MaterialSkin.Controls.MaterialLabel();
-            this.materialRaisedButton1 = new MaterialSkin.Controls.MaterialRaisedButton();
-            this.materialSingleLineTextField1 = new MaterialSkin.Controls.MaterialSingleLineTextField();
-            this.materialSingleLineTextField2 = new MaterialSkin.Controls.MaterialSingleLineTextField();
-            this.materialSingleLineTextField3 = new MaterialSkin.Controls.MaterialSingleLineTextField();
-            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
-            this.materialRaisedButton2 = new MaterialSkin.Controls.MaterialRaisedButton();
+            this.components = new System.ComponentModel.Container();
+            this.programNameLabel = new MaterialSkin.Controls.MaterialLabel();
+            this.outcomeNameLabel = new MaterialSkin.Controls.MaterialLabel();
+            this.descriptionLabel = new MaterialSkin.Controls.MaterialLabel();
+            this.acceptButton = new MaterialSkin.Controls.MaterialRaisedButton();
+            this.programNameField = new MaterialSkin.Controls.MaterialSingleLineTextField();
+            this.outcomeNameField = new MaterialSkin.Controls.MaterialSingleLineTextField();
+            this.descriptionTextBox = new System.Windows.Forms.RichTextBox();
+            this.cancelButton = new MaterialSkin.Controls.MaterialRaisedButton();
+            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
             // 
-            // materialLabel1
+            // programNameLabel
             // 
-            this.materialLabel1.AutoSize = true;
-            this.materialLabel1.Depth = 0;
-            this.materialLabel1.Font = new System.Drawing.Font("Roboto", 11F);
-            this.materialLabel1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialLabel1.Location = new System.Drawing.Point(12, 78);
-            this.materialLabel1.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialLabel1.Name = "materialLabel1";
-            this.materialLabel1.Size = new System.Drawing.Size(114, 19);
-            this.materialLabel1.TabIndex = 9;
-            this.materialLabel1.Text = "Course Number";
+            this.programNameLabel.AutoSize = true;
+            this.programNameLabel.Depth = 0;
+            this.programNameLabel.Font = new System.Drawing.Font("Roboto", 11F);
+            this.programNameLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.programNameLabel.Location = new System.Drawing.Point(16, 96);
+            this.programNameLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.programNameLabel.MouseState = MaterialSkin.MouseState.HOVER;
+            this.programNameLabel.Name = "programNameLabel";
+            this.programNameLabel.Size = new System.Drawing.Size(83, 24);
+            this.programNameLabel.TabIndex = 9;
+            this.programNameLabel.Text = "Program";
             // 
-            // materialLabel2
+            // outcomeNameLabel
             // 
-            this.materialLabel2.AutoSize = true;
-            this.materialLabel2.Depth = 0;
-            this.materialLabel2.Font = new System.Drawing.Font("Roboto", 11F);
-            this.materialLabel2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialLabel2.Location = new System.Drawing.Point(12, 118);
-            this.materialLabel2.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialLabel2.Name = "materialLabel2";
-            this.materialLabel2.Size = new System.Drawing.Size(49, 19);
-            this.materialLabel2.TabIndex = 10;
-            this.materialLabel2.Text = "Name";
+            this.outcomeNameLabel.AutoSize = true;
+            this.outcomeNameLabel.Depth = 0;
+            this.outcomeNameLabel.Font = new System.Drawing.Font("Roboto", 11F);
+            this.outcomeNameLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.outcomeNameLabel.Location = new System.Drawing.Point(16, 145);
+            this.outcomeNameLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.outcomeNameLabel.MouseState = MaterialSkin.MouseState.HOVER;
+            this.outcomeNameLabel.Name = "outcomeNameLabel";
+            this.outcomeNameLabel.Size = new System.Drawing.Size(143, 24);
+            this.outcomeNameLabel.TabIndex = 10;
+            this.outcomeNameLabel.Text = "Outcome Name";
             // 
-            // materialLabel3
+            // descriptionLabel
             // 
-            this.materialLabel3.AutoSize = true;
-            this.materialLabel3.Depth = 0;
-            this.materialLabel3.Font = new System.Drawing.Font("Roboto", 11F);
-            this.materialLabel3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialLabel3.Location = new System.Drawing.Point(12, 156);
-            this.materialLabel3.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialLabel3.Name = "materialLabel3";
-            this.materialLabel3.Size = new System.Drawing.Size(41, 19);
-            this.materialLabel3.TabIndex = 11;
-            this.materialLabel3.Text = "Core";
+            this.descriptionLabel.AutoSize = true;
+            this.descriptionLabel.Depth = 0;
+            this.descriptionLabel.Font = new System.Drawing.Font("Roboto", 11F);
+            this.descriptionLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.descriptionLabel.Location = new System.Drawing.Point(17, 194);
+            this.descriptionLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.descriptionLabel.MouseState = MaterialSkin.MouseState.HOVER;
+            this.descriptionLabel.Name = "descriptionLabel";
+            this.descriptionLabel.Size = new System.Drawing.Size(106, 24);
+            this.descriptionLabel.TabIndex = 12;
+            this.descriptionLabel.Text = "Description";
             // 
-            // materialLabel4
+            // acceptButton
             // 
-            this.materialLabel4.AutoSize = true;
-            this.materialLabel4.Depth = 0;
-            this.materialLabel4.Font = new System.Drawing.Font("Roboto", 11F);
-            this.materialLabel4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialLabel4.Location = new System.Drawing.Point(12, 201);
-            this.materialLabel4.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialLabel4.Name = "materialLabel4";
-            this.materialLabel4.Size = new System.Drawing.Size(86, 19);
-            this.materialLabel4.TabIndex = 12;
-            this.materialLabel4.Text = "Description";
+            this.acceptButton.Depth = 0;
+            this.acceptButton.Location = new System.Drawing.Point(302, 384);
+            this.acceptButton.Margin = new System.Windows.Forms.Padding(4);
+            this.acceptButton.MouseState = MaterialSkin.MouseState.HOVER;
+            this.acceptButton.Name = "acceptButton";
+            this.acceptButton.Primary = true;
+            this.acceptButton.Size = new System.Drawing.Size(100, 41);
+            this.acceptButton.TabIndex = 13;
+            this.acceptButton.Text = "Add";
+            this.acceptButton.UseVisualStyleBackColor = true;
+            this.acceptButton.Click += new System.EventHandler(this.acceptButton_Click);
             // 
-            // materialRaisedButton1
+            // programNameField
             // 
-            this.materialRaisedButton1.Depth = 0;
-            this.materialRaisedButton1.Location = new System.Drawing.Point(226, 355);
-            this.materialRaisedButton1.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialRaisedButton1.Name = "materialRaisedButton1";
-            this.materialRaisedButton1.Primary = true;
-            this.materialRaisedButton1.Size = new System.Drawing.Size(75, 33);
-            this.materialRaisedButton1.TabIndex = 13;
-            this.materialRaisedButton1.Text = "Create";
-            this.materialRaisedButton1.UseVisualStyleBackColor = true;
+            this.programNameField.Depth = 0;
+            this.programNameField.Enabled = false;
+            this.programNameField.Hint = "";
+            this.programNameField.Location = new System.Drawing.Point(196, 96);
+            this.programNameField.Margin = new System.Windows.Forms.Padding(4);
+            this.programNameField.MaxLength = 32767;
+            this.programNameField.MouseState = MaterialSkin.MouseState.HOVER;
+            this.programNameField.Name = "programNameField";
+            this.programNameField.PasswordChar = '\0';
+            this.programNameField.SelectedText = "";
+            this.programNameField.SelectionLength = 0;
+            this.programNameField.SelectionStart = 0;
+            this.programNameField.Size = new System.Drawing.Size(361, 28);
+            this.programNameField.TabIndex = 14;
+            this.programNameField.TabStop = false;
+            this.programNameField.UseSystemPasswordChar = false;
             // 
-            // materialSingleLineTextField1
+            // outcomeNameField
             // 
-            this.materialSingleLineTextField1.Depth = 0;
-            this.materialSingleLineTextField1.Hint = "";
-            this.materialSingleLineTextField1.Location = new System.Drawing.Point(147, 78);
-            this.materialSingleLineTextField1.MaxLength = 32767;
-            this.materialSingleLineTextField1.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialSingleLineTextField1.Name = "materialSingleLineTextField1";
-            this.materialSingleLineTextField1.PasswordChar = '\0';
-            this.materialSingleLineTextField1.SelectedText = "";
-            this.materialSingleLineTextField1.SelectionLength = 0;
-            this.materialSingleLineTextField1.SelectionStart = 0;
-            this.materialSingleLineTextField1.Size = new System.Drawing.Size(200, 23);
-            this.materialSingleLineTextField1.TabIndex = 14;
-            this.materialSingleLineTextField1.TabStop = false;
-            this.materialSingleLineTextField1.UseSystemPasswordChar = false;
+            this.outcomeNameField.Depth = 0;
+            this.outcomeNameField.Hint = "";
+            this.outcomeNameField.Location = new System.Drawing.Point(196, 145);
+            this.outcomeNameField.Margin = new System.Windows.Forms.Padding(4);
+            this.outcomeNameField.MaxLength = 32767;
+            this.outcomeNameField.MouseState = MaterialSkin.MouseState.HOVER;
+            this.outcomeNameField.Name = "outcomeNameField";
+            this.outcomeNameField.PasswordChar = '\0';
+            this.outcomeNameField.SelectedText = "";
+            this.outcomeNameField.SelectionLength = 0;
+            this.outcomeNameField.SelectionStart = 0;
+            this.outcomeNameField.Size = new System.Drawing.Size(361, 28);
+            this.outcomeNameField.TabIndex = 15;
+            this.outcomeNameField.TabStop = false;
+            this.outcomeNameField.UseSystemPasswordChar = false;
             // 
-            // materialSingleLineTextField2
+            // descriptionTextBox
             // 
-            this.materialSingleLineTextField2.Depth = 0;
-            this.materialSingleLineTextField2.Hint = "";
-            this.materialSingleLineTextField2.Location = new System.Drawing.Point(147, 118);
-            this.materialSingleLineTextField2.MaxLength = 32767;
-            this.materialSingleLineTextField2.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialSingleLineTextField2.Name = "materialSingleLineTextField2";
-            this.materialSingleLineTextField2.PasswordChar = '\0';
-            this.materialSingleLineTextField2.SelectedText = "";
-            this.materialSingleLineTextField2.SelectionLength = 0;
-            this.materialSingleLineTextField2.SelectionStart = 0;
-            this.materialSingleLineTextField2.Size = new System.Drawing.Size(200, 23);
-            this.materialSingleLineTextField2.TabIndex = 15;
-            this.materialSingleLineTextField2.TabStop = false;
-            this.materialSingleLineTextField2.UseSystemPasswordChar = false;
+            this.descriptionTextBox.BackColor = System.Drawing.SystemColors.Control;
+            this.descriptionTextBox.Location = new System.Drawing.Point(196, 194);
+            this.descriptionTextBox.Margin = new System.Windows.Forms.Padding(4);
+            this.descriptionTextBox.Name = "descriptionTextBox";
+            this.descriptionTextBox.Size = new System.Drawing.Size(361, 168);
+            this.descriptionTextBox.TabIndex = 18;
+            this.descriptionTextBox.Text = "";
             // 
-            // materialSingleLineTextField3
+            // cancelButton
             // 
-            this.materialSingleLineTextField3.Depth = 0;
-            this.materialSingleLineTextField3.Hint = "";
-            this.materialSingleLineTextField3.Location = new System.Drawing.Point(147, 156);
-            this.materialSingleLineTextField3.MaxLength = 32767;
-            this.materialSingleLineTextField3.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialSingleLineTextField3.Name = "materialSingleLineTextField3";
-            this.materialSingleLineTextField3.PasswordChar = '\0';
-            this.materialSingleLineTextField3.SelectedText = "";
-            this.materialSingleLineTextField3.SelectionLength = 0;
-            this.materialSingleLineTextField3.SelectionStart = 0;
-            this.materialSingleLineTextField3.Size = new System.Drawing.Size(200, 23);
-            this.materialSingleLineTextField3.TabIndex = 16;
-            this.materialSingleLineTextField3.TabStop = false;
-            this.materialSingleLineTextField3.UseSystemPasswordChar = false;
+            this.cancelButton.Depth = 0;
+            this.cancelButton.Location = new System.Drawing.Point(458, 384);
+            this.cancelButton.Margin = new System.Windows.Forms.Padding(4);
+            this.cancelButton.MouseState = MaterialSkin.MouseState.HOVER;
+            this.cancelButton.Name = "cancelButton";
+            this.cancelButton.Primary = true;
+            this.cancelButton.Size = new System.Drawing.Size(100, 41);
+            this.cancelButton.TabIndex = 19;
+            this.cancelButton.Text = "Cancel";
+            this.cancelButton.UseVisualStyleBackColor = true;
+            this.cancelButton.Click += new System.EventHandler(this.cancelButton_Click);
             // 
-            // richTextBox1
+            // errorProvider1
             // 
-            this.richTextBox1.BackColor = System.Drawing.SystemColors.Control;
-            this.richTextBox1.Location = new System.Drawing.Point(146, 201);
-            this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(272, 137);
-            this.richTextBox1.TabIndex = 18;
-            this.richTextBox1.Text = "";
-            // 
-            // materialRaisedButton2
-            // 
-            this.materialRaisedButton2.Depth = 0;
-            this.materialRaisedButton2.Location = new System.Drawing.Point(343, 355);
-            this.materialRaisedButton2.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialRaisedButton2.Name = "materialRaisedButton2";
-            this.materialRaisedButton2.Primary = true;
-            this.materialRaisedButton2.Size = new System.Drawing.Size(75, 33);
-            this.materialRaisedButton2.TabIndex = 19;
-            this.materialRaisedButton2.Text = "Cancel";
-            this.materialRaisedButton2.UseVisualStyleBackColor = true;
+            this.errorProvider1.ContainerControl = this;
             // 
             // ProgramLevelForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(430, 396);
-            this.Controls.Add(this.materialRaisedButton2);
-            this.Controls.Add(this.richTextBox1);
-            this.Controls.Add(this.materialSingleLineTextField3);
-            this.Controls.Add(this.materialSingleLineTextField2);
-            this.Controls.Add(this.materialSingleLineTextField1);
-            this.Controls.Add(this.materialRaisedButton1);
-            this.Controls.Add(this.materialLabel4);
-            this.Controls.Add(this.materialLabel3);
-            this.Controls.Add(this.materialLabel2);
-            this.Controls.Add(this.materialLabel1);
+            this.ClientSize = new System.Drawing.Size(589, 450);
+            this.Controls.Add(this.cancelButton);
+            this.Controls.Add(this.descriptionTextBox);
+            this.Controls.Add(this.outcomeNameField);
+            this.Controls.Add(this.programNameField);
+            this.Controls.Add(this.acceptButton);
+            this.Controls.Add(this.descriptionLabel);
+            this.Controls.Add(this.outcomeNameLabel);
+            this.Controls.Add(this.programNameLabel);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "ProgramLevelForm";
-            this.Text = "Program Level";
+            this.Text = "Program Level Outcome";
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-        private MaterialSkin.Controls.MaterialLabel materialLabel1;
-        private MaterialSkin.Controls.MaterialLabel materialLabel2;
-        private MaterialSkin.Controls.MaterialLabel materialLabel3;
-        private MaterialSkin.Controls.MaterialLabel materialLabel4;
-        private MaterialSkin.Controls.MaterialRaisedButton materialRaisedButton1;
-        private MaterialSkin.Controls.MaterialSingleLineTextField materialSingleLineTextField1;
-        private MaterialSkin.Controls.MaterialSingleLineTextField materialSingleLineTextField2;
-        private MaterialSkin.Controls.MaterialSingleLineTextField materialSingleLineTextField3;
-        private System.Windows.Forms.RichTextBox richTextBox1;
-        private MaterialSkin.Controls.MaterialRaisedButton materialRaisedButton2;
+        private MaterialSkin.Controls.MaterialLabel programNameLabel;
+        private MaterialSkin.Controls.MaterialLabel outcomeNameLabel;
+        private MaterialSkin.Controls.MaterialLabel descriptionLabel;
+        private MaterialSkin.Controls.MaterialRaisedButton acceptButton;
+        private MaterialSkin.Controls.MaterialSingleLineTextField programNameField;
+        private MaterialSkin.Controls.MaterialSingleLineTextField outcomeNameField;
+        private System.Windows.Forms.RichTextBox descriptionTextBox;
+        private MaterialSkin.Controls.MaterialRaisedButton cancelButton;
+        private System.Windows.Forms.ErrorProvider errorProvider1;
     }
 }
