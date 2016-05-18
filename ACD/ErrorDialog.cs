@@ -24,7 +24,8 @@ namespace ACD
         public ErrorDialog(string msg)
         {
             InitializeComponent();
-            warningBox.Text = msg;
+            errorBox.Font = new Font("Tahoma", 15, FontStyle.Bold);
+            errorBox.Text = msg;
         }
     }
 }
