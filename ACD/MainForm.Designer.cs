@@ -58,6 +58,7 @@ namespace ACD
             this.coreButtonEdit = new MaterialSkin.Controls.MaterialRaisedButton();
             this.courseButtonEdit = new MaterialSkin.Controls.MaterialRaisedButton();
             this.ButtonExport = new MaterialSkin.Controls.MaterialRaisedButton();
+            this.materialRaisedButton1 = new MaterialSkin.Controls.MaterialRaisedButton();
             ((System.ComponentModel.ISupportInitialize)(this.vaxasDatabaseDataSet)).BeginInit();
             this.SuspendLayout();
             // 
@@ -407,15 +408,28 @@ namespace ACD
             this.ButtonExport.Primary = true;
             this.ButtonExport.Size = new System.Drawing.Size(270, 23);
             this.ButtonExport.TabIndex = 27;
-            this.ButtonExport.Text = "Export";
+            this.ButtonExport.Text = "Create matrix";
             this.ButtonExport.UseVisualStyleBackColor = true;
             this.ButtonExport.Click += new System.EventHandler(this.ButtonExport_Click);
+            // 
+            // materialRaisedButton1
+            // 
+            this.materialRaisedButton1.Depth = 0;
+            this.materialRaisedButton1.Location = new System.Drawing.Point(387, 422);
+            this.materialRaisedButton1.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialRaisedButton1.Name = "materialRaisedButton1";
+            this.materialRaisedButton1.Primary = true;
+            this.materialRaisedButton1.Size = new System.Drawing.Size(270, 23);
+            this.materialRaisedButton1.TabIndex = 28;
+            this.materialRaisedButton1.Text = "materialRaisedButton1";
+            this.materialRaisedButton1.UseVisualStyleBackColor = true;
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(675, 447);
+            this.ClientSize = new System.Drawing.Size(675, 457);
+            this.Controls.Add(this.materialRaisedButton1);
             this.Controls.Add(this.ButtonExport);
             this.Controls.Add(this.courseButtonEdit);
             this.Controls.Add(this.coreButtonEdit);
@@ -483,6 +497,7 @@ namespace ACD
         private MaterialRaisedButton coreButtonEdit;
         private MaterialRaisedButton courseButtonEdit;
         private MaterialRaisedButton ButtonExport;
+        private MaterialRaisedButton materialRaisedButton1;
     }
 }
 
