@@ -450,8 +450,9 @@ namespace ACD
             this.materialRaisedButton1.Primary = true;
             this.materialRaisedButton1.Size = new System.Drawing.Size(360, 28);
             this.materialRaisedButton1.TabIndex = 28;
-            this.materialRaisedButton1.Text = "materialRaisedButton1";
+            this.materialRaisedButton1.Text = "Create Rubric";
             this.materialRaisedButton1.UseVisualStyleBackColor = true;
+            this.materialRaisedButton1.Click += new System.EventHandler(this.CreateRubric_Click);
             // 
             // MainForm
             // 

@@ -32,7 +32,7 @@
             this.deleteButton = new MaterialSkin.Controls.MaterialRaisedButton();
             this.cancelButton = new MaterialSkin.Controls.MaterialRaisedButton();
             this.warningBox = new System.Windows.Forms.RichTextBox();
-            this.materialLabel1 = new System.Windows.Forms.Label();
+            this.labelWarning = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // warningLabel
@@ -85,23 +85,23 @@
             this.warningBox.TabIndex = 17;
             this.warningBox.Text = "";
             // 
-            // materialLabel1
+            // labelWarning
             // 
-            this.materialLabel1.AutoSize = true;
-            this.materialLabel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.materialLabel1.ForeColor = System.Drawing.Color.Red;
-            this.materialLabel1.Location = new System.Drawing.Point(12, 73);
-            this.materialLabel1.Name = "materialLabel1";
-            this.materialLabel1.Size = new System.Drawing.Size(126, 25);
-            this.materialLabel1.TabIndex = 18;
-            this.materialLabel1.Text = "WARNING:";
+            this.labelWarning.AutoSize = true;
+            this.labelWarning.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelWarning.ForeColor = System.Drawing.Color.Red;
+            this.labelWarning.Location = new System.Drawing.Point(12, 73);
+            this.labelWarning.Name = "labelWarning";
+            this.labelWarning.Size = new System.Drawing.Size(126, 25);
+            this.labelWarning.TabIndex = 18;
+            this.labelWarning.Text = "WARNING:";
             // 
             // DeleteDialog
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(381, 231);
-            this.Controls.Add(this.materialLabel1);
+            this.Controls.Add(this.labelWarning);
             this.Controls.Add(this.warningBox);
             this.Controls.Add(this.cancelButton);
             this.Controls.Add(this.deleteButton);
@@ -127,6 +127,6 @@
         private MaterialSkin.Controls.MaterialRaisedButton deleteButton;
         private MaterialSkin.Controls.MaterialRaisedButton cancelButton;
         private System.Windows.Forms.RichTextBox warningBox;
-        private System.Windows.Forms.Label materialLabel1;
+        private System.Windows.Forms.Label labelWarning;
     }
 }

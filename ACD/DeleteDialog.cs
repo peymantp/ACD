@@ -17,8 +17,8 @@ namespace ACD
         public DeleteDialog(string name)
         {
             InitializeComponent();
-            materialLabel1.ForeColor = Color.Red;
-            materialLabel1.Font = new Font("Tahoma", 15, FontStyle.Bold);
+            labelWarning.ForeColor = Color.Red;
+            labelWarning.Font = new Font("Tahoma", 15, FontStyle.Bold);
             warningBox.Font = new Font("Tahoma", 15, FontStyle.Bold);
             warningBox.Text += " Are you sure you want to delete " + name + "?";
         }
