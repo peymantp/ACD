@@ -419,7 +419,7 @@ namespace ACD
                 if (comboBoxIndicator.Items.Count == 0)
                     comboBoxIndicator.Items.Add("No Indicators in Database");
 
-                comboBoxCourseGroup.SelectedIndex = 0;
+                comboBoxIndicator.SelectedIndex = 0;
             }
         }
 

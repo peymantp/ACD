@@ -36,6 +36,8 @@ namespace ACD
         private SqlDataAdapter dadapterIndicator;
         private DataSet dsIndicator = new DataSet();
 
+        private CheckBox[] boxArray;
+
         public string getName { get { return newName; } }
 
         public PerformanceIndicatorForm(string programName, string programLevelName)
@@ -146,7 +148,7 @@ namespace ACD
             DataColumn[] keyColumns = new DataColumn[1];
             keyColumns[0] = dsCourse.Tables["Table"].Columns["Name"];
             dsCourse.Tables["Table"].PrimaryKey = keyColumns;
-
+            int maxSize = 0;
             if (dsCourse.Tables["Table"].Rows.Count == 0)
             {
                 MaterialLabel emptyCourse = new MaterialLabel();
@@ -159,12 +161,17 @@ namespace ACD
                 emptyCourse.Text = "There are currently no courses in the database";
                 emptyCourse.Location = new Point(courseLabel.Location.X, courseLabel.Location.Y + courseLabel.Size.Height + 10);
                 Controls.Add(emptyCourse);
+                maxSize = emptyCourse.Location.X + emptyCourse.Size.Width + 100;
             }
             else
             {
                 int y = courseLabel.Location.Y + courseLabel.Size.Height + 10;
+                boxArray = new CheckBox[dsCourse.Tables["Table"].Rows.Count * 3];
                 MaterialLabel courseName;
-                foreach(DataRow row in dsCourse.Tables["Table"].Rows)
+                CheckBox indicatorBoxI;
+                CheckBox indicatorBoxR;
+                CheckBox indicatorBoxD;
+                foreach (DataRow row in dsCourse.Tables["Table"].Rows)
                 {
                     courseName = new MaterialLabel();
                     courseName.AutoSize = true;
@@ -175,10 +182,48 @@ namespace ACD
                     courseName.MouseState = MaterialSkin.MouseState.HOVER;
                     courseName.Text = (string)row["Name"];
                     courseName.Location = new Point(courseLabel.Location.X, y);
-                    y += courseLabel.Size.Height + 10;
                     Controls.Add(courseName);
+                    if ((courseName.Location.X + courseName.Size.Width) > maxSize)
+                    {
+                        maxSize = courseName.Location.X + courseName.Size.Width + 30;
+                    }
+                    y += courseLabel.Size.Height + 10;
                 }
+                y = courseLabel.Location.Y + courseLabel.Size.Height + 10;
+                foreach (DataRow row in dsCourse.Tables["Table"].Rows)
+                {
+                    indicatorBoxI = new CheckBox();
+                    indicatorBoxI.AutoSize = true;
+                    indicatorBoxI.Location = new Point(maxSize + 36, y);
+                    indicatorBoxI.Name = (string)row["Name"] + "I"; 
+                    indicatorBoxI.Size = new Size(18, 17);
+                    indicatorBoxI.UseVisualStyleBackColor = true;
+                    Controls.Add(indicatorBoxI);
+
+                    indicatorBoxR = new CheckBox();
+                    indicatorBoxR.AutoSize = true;
+                    indicatorBoxR.Location = new Point(maxSize + 72, y);
+                    indicatorBoxR.Name = (string)row["Name"] + "r";
+                    indicatorBoxR.Size = new Size(18, 17);
+                    indicatorBoxR.UseVisualStyleBackColor = true;
+                    Controls.Add(indicatorBoxR);
+
+                    indicatorBoxD = new CheckBox();
+                    indicatorBoxD.AutoSize = true;
+                    indicatorBoxD.Location = new Point(maxSize + 108, y);
+                    indicatorBoxD.Name = (string)row["Name"] + "d";
+                    indicatorBoxD.Size = new Size(18, 17);
+                    indicatorBoxD.UseVisualStyleBackColor = true;
+                    Controls.Add(indicatorBoxD);
+
+                    y += courseLabel.Size.Height + 10;
+                }
+                materialLabelI.Location = new Point(maxSize + 36, courseLabel.Location.Y);
+                materialLabelR.Location = new Point(maxSize + 72, courseLabel.Location.Y);
+                materialLabelD.Location = new Point(maxSize + 108, courseLabel.Location.Y);
+                maxSize += 150;
             }
+            Size = new Size(maxSize, Size.Width);
         }
 
     }
