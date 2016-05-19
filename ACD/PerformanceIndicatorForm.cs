@@ -146,10 +146,9 @@ namespace ACD
             DataColumn[] keyColumns = new DataColumn[1];
             keyColumns[0] = dsCourse.Tables["Table"].Columns["Name"];
             dsCourse.Tables["Table"].PrimaryKey = keyColumns;
-            System.Diagnostics.Debug.WriteLine(dsCourse.Tables["Table"].Rows.Count);
+
             if (dsCourse.Tables["Table"].Rows.Count == 0)
             {
-                System.Diagnostics.Debug.WriteLine("No courses");
                 MaterialLabel emptyCourse = new MaterialLabel();
                 emptyCourse.AutoSize = true;
                 emptyCourse.Depth = 0;
@@ -158,23 +157,27 @@ namespace ACD
                 emptyCourse.Margin = new Padding(4, 0, 4, 0);
                 emptyCourse.MouseState = MaterialSkin.MouseState.HOVER;
                 emptyCourse.Text = "There are currently no courses in the database";
-                emptyCourse.Location = new Point(courseLabel.Location.X, courseLabel.Location.Y + courseLabel.Location.Y + 10);
+                emptyCourse.Location = new Point(courseLabel.Location.X, courseLabel.Location.Y + courseLabel.Size.Height + 10);
                 Controls.Add(emptyCourse);
-
-                /*
-                this.labelProgram.AutoSize = true;
-                this.labelProgram.Depth = 0;
-                this.labelProgram.Font = new System.Drawing.Font("Roboto", 11F);
-                this.labelProgram.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-                this.labelProgram.Location = new System.Drawing.Point(8, 77);
-                this.labelProgram.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-                this.labelProgram.MouseState = MaterialSkin.MouseState.HOVER;
-                this.labelProgram.Name = "labelProgram";
-                this.labelProgram.Size = new System.Drawing.Size(83, 24);
-                this.labelProgram.TabIndex = 13;
-                this.labelProgram.Text = "Program";
-
-                */
+            }
+            else
+            {
+                int y = courseLabel.Location.Y + courseLabel.Size.Height + 10;
+                MaterialLabel courseName;
+                foreach(DataRow row in dsCourse.Tables["Table"].Rows)
+                {
+                    courseName = new MaterialLabel();
+                    courseName.AutoSize = true;
+                    courseName.Depth = 0;
+                    courseName.Font = new Font("Roboto", 11F);
+                    courseName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+                    courseName.Margin = new Padding(4, 0, 4, 0);
+                    courseName.MouseState = MaterialSkin.MouseState.HOVER;
+                    courseName.Text = (string)row["Name"];
+                    courseName.Location = new Point(courseLabel.Location.X, y);
+                    y += courseLabel.Size.Height + 10;
+                    Controls.Add(courseName);
+                }
             }
         }
     }
