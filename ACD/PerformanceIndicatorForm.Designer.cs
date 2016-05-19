@@ -46,6 +46,10 @@
             this.criteria2TextField = new System.Windows.Forms.RichTextBox();
             this.criteria3TextField = new System.Windows.Forms.RichTextBox();
             this.criteria4TextField = new System.Windows.Forms.RichTextBox();
+            this.courseLabel = new MaterialSkin.Controls.MaterialLabel();
+            this.materialLabel8 = new MaterialSkin.Controls.MaterialLabel();
+            this.materialLabel9 = new MaterialSkin.Controls.MaterialLabel();
+            this.materialLabel10 = new MaterialSkin.Controls.MaterialLabel();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -275,11 +279,71 @@
             this.criteria4TextField.TabIndex = 29;
             this.criteria4TextField.Text = "";
             // 
+            // courseLabel
+            // 
+            this.courseLabel.AutoSize = true;
+            this.courseLabel.Depth = 0;
+            this.courseLabel.Font = new System.Drawing.Font("Roboto", 11F);
+            this.courseLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.courseLabel.Location = new System.Drawing.Point(527, 77);
+            this.courseLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.courseLabel.MouseState = MaterialSkin.MouseState.HOVER;
+            this.courseLabel.Name = "courseLabel";
+            this.courseLabel.Size = new System.Drawing.Size(79, 24);
+            this.courseLabel.TabIndex = 30;
+            this.courseLabel.Text = "Courses";
+            // 
+            // materialLabel8
+            // 
+            this.materialLabel8.AutoSize = true;
+            this.materialLabel8.Depth = 0;
+            this.materialLabel8.Font = new System.Drawing.Font("Roboto", 11F);
+            this.materialLabel8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.materialLabel8.Location = new System.Drawing.Point(847, 77);
+            this.materialLabel8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.materialLabel8.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialLabel8.Name = "materialLabel8";
+            this.materialLabel8.Size = new System.Drawing.Size(15, 24);
+            this.materialLabel8.TabIndex = 31;
+            this.materialLabel8.Text = "I";
+            // 
+            // materialLabel9
+            // 
+            this.materialLabel9.AutoSize = true;
+            this.materialLabel9.Depth = 0;
+            this.materialLabel9.Font = new System.Drawing.Font("Roboto", 11F);
+            this.materialLabel9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.materialLabel9.Location = new System.Drawing.Point(870, 77);
+            this.materialLabel9.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.materialLabel9.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialLabel9.Name = "materialLabel9";
+            this.materialLabel9.Size = new System.Drawing.Size(22, 24);
+            this.materialLabel9.TabIndex = 32;
+            this.materialLabel9.Text = "R";
+            // 
+            // materialLabel10
+            // 
+            this.materialLabel10.AutoSize = true;
+            this.materialLabel10.Depth = 0;
+            this.materialLabel10.Font = new System.Drawing.Font("Roboto", 11F);
+            this.materialLabel10.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.materialLabel10.Location = new System.Drawing.Point(900, 77);
+            this.materialLabel10.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.materialLabel10.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialLabel10.Name = "materialLabel10";
+            this.materialLabel10.Size = new System.Drawing.Size(22, 24);
+            this.materialLabel10.TabIndex = 33;
+            this.materialLabel10.Text = "D";
+            // 
             // PerformanceIndicatorForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(532, 858);
+            this.ClientSize = new System.Drawing.Size(935, 858);
+            this.Controls.Add(this.materialLabel10);
+            this.Controls.Add(this.materialLabel9);
+            this.Controls.Add(this.materialLabel8);
+            this.Controls.Add(this.courseLabel);
             this.Controls.Add(this.criteria4TextField);
             this.Controls.Add(this.criteria3TextField);
             this.Controls.Add(this.criteria2TextField);
@@ -329,5 +393,9 @@
         private System.Windows.Forms.RichTextBox criteria2TextField;
         private System.Windows.Forms.RichTextBox criteria3TextField;
         private System.Windows.Forms.RichTextBox criteria4TextField;
+        private MaterialSkin.Controls.MaterialLabel materialLabel10;
+        private MaterialSkin.Controls.MaterialLabel materialLabel9;
+        private MaterialSkin.Controls.MaterialLabel materialLabel8;
+        private MaterialSkin.Controls.MaterialLabel courseLabel;
     }
 }

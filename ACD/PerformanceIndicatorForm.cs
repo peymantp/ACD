@@ -24,6 +24,17 @@ namespace ACD
         private SqlDataAdapter dadapter;
         private DataSet ds = new DataSet();
 
+        private string queryCourse;
+        private string connCourse;
+        private SqlConnection connectionCourse;
+        private SqlDataAdapter dadapterCourse;
+        private DataSet dsCourse = new DataSet();
+
+        private string queryIndicator;
+        private string connIndicator;
+        private SqlConnection connectionIndicator;
+        private SqlDataAdapter dadapterIndicator;
+        private DataSet dsIndicator = new DataSet();
 
         public string getName { get { return newName; } }
 
@@ -33,6 +44,7 @@ namespace ACD
             TextFieldProgram.Text = programName;
             TextFieldProgramLevel.Text = programLevelName;
             openConnection();
+            populateCourses();
         }
 
         public PerformanceIndicatorForm(string programName, string programLevelName, string indicatorName)
@@ -44,7 +56,8 @@ namespace ACD
             indicatorNameField.Text = indicatorName;
             currName = indicatorName;
             openConnection();
-            
+            populateCourses();
+
             criteria4TextField.Text = ds.Tables["Table"].Rows.Find(currName)["Level4Criteria"].ToString();
             criteria3TextField.Text = ds.Tables["Table"].Rows.Find(currName)["Level3Criteria"].ToString();
             criteria2TextField.Text = ds.Tables["Table"].Rows.Find(currName)["Level2Criteria"].ToString();
@@ -120,6 +133,49 @@ namespace ACD
             DataColumn[] keyColumns = new DataColumn[1];
             keyColumns[0] = ds.Tables["Table"].Columns["Name"];
             ds.Tables["Table"].PrimaryKey = keyColumns;
+        }
+
+        private void populateCourses()
+        {
+            queryCourse = "select Name FROM dbo.Course WHERE FacultyName = '" + TextFieldProgram.Text+ "'";
+            connCourse = ConfigurationManager.ConnectionStrings["ACD.Properties.Settings.vaxasDatabaseConnectionString"].ConnectionString;
+            connectionCourse = new SqlConnection(connCourse);
+            dadapterCourse = new SqlDataAdapter(queryCourse, connectionCourse);
+            connectionCourse.Open();
+            dadapterCourse.Fill(dsCourse);
+            DataColumn[] keyColumns = new DataColumn[1];
+            keyColumns[0] = dsCourse.Tables["Table"].Columns["Name"];
+            dsCourse.Tables["Table"].PrimaryKey = keyColumns;
+            System.Diagnostics.Debug.WriteLine(dsCourse.Tables["Table"].Rows.Count);
+            if (dsCourse.Tables["Table"].Rows.Count == 0)
+            {
+                System.Diagnostics.Debug.WriteLine("No courses");
+                MaterialLabel emptyCourse = new MaterialLabel();
+                emptyCourse.AutoSize = true;
+                emptyCourse.Depth = 0;
+                emptyCourse.Font = new Font("Roboto", 11F);
+                emptyCourse.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+                emptyCourse.Margin = new Padding(4, 0, 4, 0);
+                emptyCourse.MouseState = MaterialSkin.MouseState.HOVER;
+                emptyCourse.Text = "There are currently no courses in the database";
+                emptyCourse.Location = new Point(courseLabel.Location.X, courseLabel.Location.Y + courseLabel.Location.Y + 10);
+                Controls.Add(emptyCourse);
+
+                /*
+                this.labelProgram.AutoSize = true;
+                this.labelProgram.Depth = 0;
+                this.labelProgram.Font = new System.Drawing.Font("Roboto", 11F);
+                this.labelProgram.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+                this.labelProgram.Location = new System.Drawing.Point(8, 77);
+                this.labelProgram.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+                this.labelProgram.MouseState = MaterialSkin.MouseState.HOVER;
+                this.labelProgram.Name = "labelProgram";
+                this.labelProgram.Size = new System.Drawing.Size(83, 24);
+                this.labelProgram.TabIndex = 13;
+                this.labelProgram.Text = "Program";
+
+                */
+            }
         }
     }
 }

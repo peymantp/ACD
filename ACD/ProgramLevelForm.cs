@@ -67,6 +67,7 @@ namespace ACD
                     if (acceptButton.Text.Equals("Edit"))
                     {
                         ds.Tables["Table"].Rows.Find(currName)["Name"] = outcomeNameField.Text;
+                        currName = outcomeNameField.Text;
                         ds.Tables["Table"].Rows.Find(currName)["Description"] = descriptionTextBox.Text;
                     }
                     else
