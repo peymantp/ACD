@@ -115,7 +115,7 @@
             this.ShowInTaskbar = false;
             this.Sizable = false;
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
-            this.Text = "DeleteDialog";
+            this.Text = "Delete";
             this.ResumeLayout(false);
             this.PerformLayout();
 

@@ -324,7 +324,7 @@ namespace ACD
             this.Controls.Add(this.textBoxName);
             this.Controls.Add(this.labelNumber);
             this.Name = "CourseForm";
-            this.Text = "CourseForm";
+            this.Text = "Course";
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

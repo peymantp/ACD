@@ -347,7 +347,7 @@
             this.Name = "PerformanceIndicatorForm";
             this.ShowInTaskbar = false;
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
-            this.Text = "PerformanceIndicatorForm";
+            this.Text = "Indicator";
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
