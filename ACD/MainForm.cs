@@ -20,17 +20,23 @@ namespace ACD
         private MaterialSkinManager skinManager;
         private string conn = ConfigurationManager.ConnectionStrings["ACD.Properties.Settings.vaxasDatabaseConnectionString"].ConnectionString;
         private SqlConnection connection;
-        private string programQuery = "select * FROM dbo.Faculty";
+        private string programQuery = "select Name FROM dbo.Faculty";
         private string outcomeQuery;
+        private string indicatorQuery;
         private string courseGroupQuery;
+        private string courseQuery;
 
         private SqlDataAdapter programAdapter;
         private SqlDataAdapter outcomeAdapter;
+        private SqlDataAdapter indicatorAdapter;
         private SqlDataAdapter courseGroupAdapter;
+        private SqlDataAdapter courseAdapter;
 
         private DataSet programDs;
         private DataSet outcomeDs;
+        private DataSet indicatorDs;
         private DataSet courseGroupDs;
+        private DataSet courseDs;
 
         public MainForm()
         {
@@ -142,7 +148,7 @@ namespace ACD
 
         private void comboBoxProgram_SelectedIndexChanged(object sender, EventArgs e)
         {
-            outcomeQuery = "select* FROM dbo.ProgramLevel WHERE FacultyName = '" + comboBoxProgram.Text + "'";
+            outcomeQuery = "select Name FROM dbo.ProgramLevel WHERE FacultyName = '" + comboBoxProgram.Text + "'";
             outcomeAdapter = new SqlDataAdapter(outcomeQuery, connection);
             outcomeDs = new DataSet();
             outcomeAdapter.Fill(outcomeDs);
@@ -160,7 +166,7 @@ namespace ACD
 
             comboBoxOutcome.SelectedIndex = 0;
 
-            courseGroupQuery = "select* FROM dbo.CourseGroup WHERE FacultyName = '" + comboBoxProgram.Text + "'";
+            courseGroupQuery = "select Name FROM dbo.CourseGroup WHERE FacultyName = '" + comboBoxProgram.Text + "'";
             courseGroupAdapter = new SqlDataAdapter(courseGroupQuery, connection);
             courseGroupDs = new DataSet();
             courseGroupAdapter.Fill(courseGroupDs);
@@ -176,6 +182,48 @@ namespace ACD
                 comboBoxCourseGroup.Items.Add("No course groups in Database");
 
             comboBoxCourseGroup.SelectedIndex = 0;
+        }
+
+        private void comboBoxOutcome_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            indicatorQuery = "select Name FROM dbo.PerformanceIndicator WHERE FacultyName = '" + comboBoxProgram.Text + "' AND ProgramLevelName = '" + comboBoxOutcome.Text +"'";
+            indicatorAdapter = new SqlDataAdapter(indicatorQuery, connection);
+            indicatorDs = new DataSet();
+            indicatorAdapter.Fill(indicatorDs);
+            DataColumn[] keyColumns = new DataColumn[1];
+            keyColumns[0] = indicatorDs.Tables["Table"].Columns["Name"];
+            indicatorDs.Tables["Table"].PrimaryKey = keyColumns;
+
+            comboBoxIndicator.Items.Clear();
+            foreach (DataRow r in indicatorDs.Tables["Table"].Rows)
+            {
+                comboBoxIndicator.Items.Add(r["Name"]);
+            }
+            if (comboBoxIndicator.Items.Count == 0)
+                comboBoxIndicator.Items.Add("No indicators in Database");
+
+            comboBoxIndicator.SelectedIndex = 0;
+        }
+
+        private void comboBoxCourseGroup_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            courseQuery = "select Name FROM dbo.Course WHERE CourseGroupName = '" + comboBoxCourseGroup.Text +"' AND FacultyName = '" + comboBoxProgram.Text + "'";
+            courseAdapter = new SqlDataAdapter(courseQuery, connection);
+            courseDs = new DataSet();
+            DataColumn[] keyColumns = new DataColumn[1];
+            courseAdapter.Fill(courseDs);
+            keyColumns[0] = courseDs.Tables["Table"].Columns["Name"];
+            courseDs.Tables["Table"].PrimaryKey = keyColumns;
+
+            comboBoxCourse.Items.Clear();
+            foreach (DataRow r in courseDs.Tables["Table"].Rows)
+            {
+                comboBoxCourse.Items.Add(r["Name"]);
+            }
+            if (comboBoxCourse.Items.Count == 0)
+                comboBoxCourse.Items.Add("No courses in Database");
+
+            comboBoxCourse.SelectedIndex = 0;
         }
 
         private void programOutcomesButtonAdd_Click(object sender, EventArgs e)
