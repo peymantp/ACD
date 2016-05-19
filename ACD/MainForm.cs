@@ -363,5 +363,13 @@ namespace ACD
         private void indicatorButtonEdit_Click(object sender, EventArgs e) => new PerformanceIndicatorForm((Button)sender).ShowDialog();
 
         private void indicatorButtonDelete_Click(object sender, EventArgs e) => new DeleteDialog(comboBoxIndicator.Text).ShowDialog(); 
+        public string programText
+        {
+            get { return comboBoxProgram.Text; }
+        }
+        public string programLevelOutcome
+        {
+            get { return comboBoxOutcome.Text;  }
+        }
     }
 }

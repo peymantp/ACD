@@ -28,15 +28,19 @@ namespace ACD
         {
             InitializeComponent();
             sender_ = sender;
+            FormCollection fc = Application.OpenForms;
+            MainForm mf = (MainForm)fc[0];
+            TextFieldProgram.Text = mf.programText;
+            TextFieldLearningLevel.Text = mf.programLevelOutcome;
         }
 
         private void ButtonCancel_Click(object sender, EventArgs e) => Close();
 
         private void ButtonSave_Click(object sender, EventArgs e)
         {
-            if (!(ds.Tables["Table"].Rows.Contains(TextFieldLearningLevel.Text)))
+            if (!sender_.Text.Equals("Edit", StringComparison.InvariantCultureIgnoreCase))
             {
-
+                
             }
             else
             {

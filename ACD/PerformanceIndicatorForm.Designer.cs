@@ -73,6 +73,7 @@
             // TextFieldLearningLevel
             // 
             this.TextFieldLearningLevel.Depth = 0;
+            this.TextFieldLearningLevel.Enabled = false;
             this.TextFieldLearningLevel.Hint = "";
             this.TextFieldLearningLevel.Location = new System.Drawing.Point(10, 169);
             this.TextFieldLearningLevel.MaxLength = 32767;
@@ -90,6 +91,7 @@
             // TextFieldProgram
             // 
             this.TextFieldProgram.Depth = 0;
+            this.TextFieldProgram.Enabled = false;
             this.TextFieldProgram.Hint = "";
             this.TextFieldProgram.Location = new System.Drawing.Point(10, 106);
             this.TextFieldProgram.MaxLength = 32767;
