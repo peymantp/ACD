@@ -145,7 +145,6 @@ namespace ACD
             }
             
         }
-
         private void comboBoxProgram_SelectedIndexChanged(object sender, EventArgs e)
         {
             outcomeQuery = "select Name FROM dbo.ProgramLevel WHERE FacultyName = '" + comboBoxProgram.Text + "'";

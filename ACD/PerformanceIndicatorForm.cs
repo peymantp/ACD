@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using MaterialSkin.Controls;
 using System.Data.SqlClient;
+using System.Configuration;
 
 namespace ACD
 {
@@ -38,16 +39,43 @@ namespace ACD
 
         private void ButtonSave_Click(object sender, EventArgs e)
         {
-            if (!sender_.Text.Equals("Edit", StringComparison.InvariantCultureIgnoreCase))
+            if (!(ds.Tables["Table"].Rows.Contains(indicatorName.Text)) || (sender_.Text.Equals("Edit") && currName.Equals(indicatorName.Text)))
             {
-                
+                if (sender_.Text.Equals("Edit"))
+                {
+                    ds.Tables["Table"].Rows.Find(currName)["Name"] = indicatorName.Text;
+                }
+                else
+                {
+                    var newRow = ds.Tables["Table"].NewRow();
+                    newRow["Name"] = indicatorName.Text;
+                    ds.Tables["Table"].Rows.Add(newRow);
+                }
+                new SqlCommandBuilder(dadapter);
+                dadapter.Update(ds);
+                connection.Close();
+                newName = indicatorName.Text;
+                this.DialogResult = DialogResult.OK;
+                this.Close();
             }
             else
             {
-
+                errorProvider1.SetError(indicatorName, indicatorName.Text + " indicator already exists");
             }
+            connection.Close();
+        }
+        private void openConnection()
+        {
+            query = "select * FROM dbo.Faculty";
+            conn = ConfigurationManager.ConnectionStrings["ACD.Properties.Settings.vaxasDatabaseConnectionString"].ConnectionString;
+            connection = new SqlConnection(conn);
+            dadapter = new SqlDataAdapter(query, connection);
+
+            connection.Open();
+            dadapter.Fill(ds);
+            DataColumn[] keyColumns = new DataColumn[1];
+            keyColumns[0] = ds.Tables["Table"].Columns["Name"];
+            ds.Tables["Table"].PrimaryKey = keyColumns;
         }
     }
-
-
 }

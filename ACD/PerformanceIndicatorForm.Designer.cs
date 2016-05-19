@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.ButtonSave = new MaterialSkin.Controls.MaterialRaisedButton();
             this.ButtonCancel = new MaterialSkin.Controls.MaterialRaisedButton();
             this.TextFieldLearningLevel = new MaterialSkin.Controls.MaterialSingleLineTextField();
@@ -43,7 +44,9 @@
             this.materialSingleLineTextField3 = new MaterialSkin.Controls.MaterialSingleLineTextField();
             this.materialSingleLineTextField4 = new MaterialSkin.Controls.MaterialSingleLineTextField();
             this.materialLabel1 = new MaterialSkin.Controls.MaterialLabel();
-            this.materialSingleLineTextField5 = new MaterialSkin.Controls.MaterialSingleLineTextField();
+            this.indicatorName = new MaterialSkin.Controls.MaterialSingleLineTextField();
+            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
             // 
             // ButtonSave
@@ -267,29 +270,33 @@
             this.materialLabel1.TabIndex = 24;
             this.materialLabel1.Text = "Indicator name";
             // 
-            // materialSingleLineTextField5
+            // indicatorName
             // 
-            this.materialSingleLineTextField5.Depth = 0;
-            this.materialSingleLineTextField5.Hint = "";
-            this.materialSingleLineTextField5.Location = new System.Drawing.Point(10, 116);
-            this.materialSingleLineTextField5.MaxLength = 32767;
-            this.materialSingleLineTextField5.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialSingleLineTextField5.Name = "materialSingleLineTextField5";
-            this.materialSingleLineTextField5.PasswordChar = '\0';
-            this.materialSingleLineTextField5.SelectedText = "";
-            this.materialSingleLineTextField5.SelectionLength = 0;
-            this.materialSingleLineTextField5.SelectionStart = 0;
-            this.materialSingleLineTextField5.Size = new System.Drawing.Size(376, 23);
-            this.materialSingleLineTextField5.TabIndex = 25;
-            this.materialSingleLineTextField5.TabStop = false;
-            this.materialSingleLineTextField5.UseSystemPasswordChar = false;
+            this.indicatorName.Depth = 0;
+            this.indicatorName.Hint = "";
+            this.indicatorName.Location = new System.Drawing.Point(10, 116);
+            this.indicatorName.MaxLength = 32767;
+            this.indicatorName.MouseState = MaterialSkin.MouseState.HOVER;
+            this.indicatorName.Name = "indicatorName";
+            this.indicatorName.PasswordChar = '\0';
+            this.indicatorName.SelectedText = "";
+            this.indicatorName.SelectionLength = 0;
+            this.indicatorName.SelectionStart = 0;
+            this.indicatorName.Size = new System.Drawing.Size(376, 23);
+            this.indicatorName.TabIndex = 25;
+            this.indicatorName.TabStop = false;
+            this.indicatorName.UseSystemPasswordChar = false;
+            // 
+            // errorProvider1
+            // 
+            this.errorProvider1.ContainerControl = this;
             // 
             // PerformanceIndicatorForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(434, 644);
-            this.Controls.Add(this.materialSingleLineTextField5);
+            this.Controls.Add(this.indicatorName);
             this.Controls.Add(this.materialLabel1);
             this.Controls.Add(this.materialSingleLineTextField4);
             this.Controls.Add(this.materialSingleLineTextField3);
@@ -312,6 +319,7 @@
             this.ShowInTaskbar = false;
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
             this.Text = "PerformanceIndicatorForm";
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -334,6 +342,7 @@
         private MaterialSkin.Controls.MaterialSingleLineTextField materialSingleLineTextField3;
         private MaterialSkin.Controls.MaterialSingleLineTextField materialSingleLineTextField4;
         private MaterialSkin.Controls.MaterialLabel materialLabel1;
-        private MaterialSkin.Controls.MaterialSingleLineTextField materialSingleLineTextField5;
+        private MaterialSkin.Controls.MaterialSingleLineTextField indicatorName;
+        private System.Windows.Forms.ErrorProvider errorProvider1;
     }
 }
