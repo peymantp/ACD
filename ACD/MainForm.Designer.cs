@@ -276,6 +276,7 @@ namespace ACD
             this.indicatorButtonDelete.TabIndex = 17;
             this.indicatorButtonDelete.Text = "delete";
             this.indicatorButtonDelete.UseVisualStyleBackColor = true;
+            this.indicatorButtonDelete.Click += new System.EventHandler(this.indicatorButtonDelete_Click);
             // 
             // coreButtonAdd
             // 
