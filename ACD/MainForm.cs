@@ -145,10 +145,9 @@ namespace ACD
             }
             
         }
-
         private void comboBoxProgram_SelectedIndexChanged(object sender, EventArgs e)
         {
-            outcomeQuery = "select Name FROM dbo.ProgramLevel WHERE FacultyName = '" + comboBoxProgram.Text + "'";
+            outcomeQuery = "select * FROM dbo.ProgramLevel WHERE FacultyName = '" + comboBoxProgram.Text + "'";
             outcomeAdapter = new SqlDataAdapter(outcomeQuery, connection);
             outcomeDs = new DataSet();
             outcomeAdapter.Fill(outcomeDs);
@@ -166,7 +165,7 @@ namespace ACD
 
             comboBoxOutcome.SelectedIndex = 0;
 
-            courseGroupQuery = "select Name FROM dbo.CourseGroup WHERE FacultyName = '" + comboBoxProgram.Text + "'";
+            courseGroupQuery = "select * FROM dbo.CourseGroup WHERE FacultyName = '" + comboBoxProgram.Text + "'";
             courseGroupAdapter = new SqlDataAdapter(courseGroupQuery, connection);
             courseGroupDs = new DataSet();
             courseGroupAdapter.Fill(courseGroupDs);
@@ -186,7 +185,7 @@ namespace ACD
 
         private void comboBoxOutcome_SelectedIndexChanged(object sender, EventArgs e)
         {
-            indicatorQuery = "select Name FROM dbo.PerformanceIndicator WHERE FacultyName = '" + comboBoxProgram.Text + "' AND ProgramLevelName = '" + comboBoxOutcome.Text +"'";
+            indicatorQuery = "select * FROM dbo.PerformanceIndicator WHERE FacultyName = '" + comboBoxProgram.Text + "' AND ProgramLevelName = '" + comboBoxOutcome.Text +"'";
             indicatorAdapter = new SqlDataAdapter(indicatorQuery, connection);
             indicatorDs = new DataSet();
             indicatorAdapter.Fill(indicatorDs);
@@ -207,7 +206,7 @@ namespace ACD
 
         private void comboBoxCourseGroup_SelectedIndexChanged(object sender, EventArgs e)
         {
-            courseQuery = "select Name FROM dbo.Course WHERE CourseGroupName = '" + comboBoxCourseGroup.Text +"' AND FacultyName = '" + comboBoxProgram.Text + "'";
+            courseQuery = "select * FROM dbo.Course WHERE CourseGroupName = '" + comboBoxCourseGroup.Text +"' AND FacultyName = '" + comboBoxProgram.Text + "'";
             courseAdapter = new SqlDataAdapter(courseQuery, connection);
             courseDs = new DataSet();
             DataColumn[] keyColumns = new DataColumn[1];
@@ -340,7 +339,7 @@ namespace ACD
 
         private void coreButtonEdit_Click(object sender, EventArgs e)
         {
-            using (var form = new CourseGroupForm((string)comboBoxProgram.SelectedItem, (string)comboBoxCourseGroup.SelectedItem))
+            using (var form = new CourseGroupForm(comboBoxProgram.Text, comboBoxCourseGroup.Text))
             {
                 var result = form.ShowDialog();
 
@@ -359,7 +358,78 @@ namespace ACD
             }
         }
 
-        private void indicatorButtonAdd_Click(object sender, EventArgs e) => new PerformanceIndicatorForm((Button)sender).ShowDialog();
-        private void indicatorButtonEdit_Click(object sender, EventArgs e) => new PerformanceIndicatorForm((Button)sender).ShowDialog(); 
+        private void indicatorButtonAdd_Click(object sender, EventArgs e)
+        {
+            using (var form = new PerformanceIndicatorForm(comboBoxProgram.Text, comboBoxOutcome.Text))
+            {
+                var result = form.ShowDialog();
+                if (System.Windows.Forms.DialogResult.OK == result)
+                {
+                    comboBoxIndicator.Items.Clear();
+                    indicatorDs.Clear();
+                    indicatorAdapter.Fill(indicatorDs);
+                    foreach (DataRow r in indicatorDs.Tables["Table"].Rows)
+                    {
+                        comboBoxIndicator.Items.Add(r["Name"]);
+                    }
+
+                    comboBoxIndicator.SelectedIndex = comboBoxIndicator.Items.IndexOf(form.getName);
+                }
+            }
+        }
+        private void indicatorButtonEdit_Click(object sender, EventArgs e)
+        {
+            using (var form = new PerformanceIndicatorForm(comboBoxProgram.Text, comboBoxOutcome.Text, comboBoxIndicator.Text))
+            {
+                var result = form.ShowDialog();
+
+                if (System.Windows.Forms.DialogResult.OK == result)
+                {
+                    comboBoxIndicator.Items.Clear();
+                    indicatorDs.Clear();
+                    indicatorAdapter.Fill(indicatorDs);
+                    foreach (DataRow r in indicatorDs.Tables["Table"].Rows)
+                    {
+                        comboBoxIndicator.Items.Add(r["Name"]);
+                    }
+
+                    comboBoxIndicator.SelectedIndex = comboBoxIndicator.Items.IndexOf(form.getName);
+                }
+            }
+        }
+
+        private void indicatorButtonDelete_Click(object sender, EventArgs e)
+        {
+            var result = new DeleteDialog(comboBoxIndicator.Text).ShowDialog();
+            if (System.Windows.Forms.DialogResult.OK == result && indicatorDs.Tables["Table"].Rows.Contains(comboBoxIndicator.Text))
+            {
+                indicatorDs.Tables["Table"].Rows[indicatorDs.Tables["Table"].Rows.IndexOf(indicatorDs.Tables["Table"].Rows.Find(comboBoxIndicator.Text))].Delete();
+
+                new SqlCommandBuilder(indicatorAdapter);
+                indicatorAdapter.Update(indicatorDs);
+                indicatorDs.Clear();
+                indicatorAdapter.Fill(indicatorDs);
+
+                comboBoxIndicator.Items.Clear();
+
+                foreach (DataRow r in indicatorDs.Tables["Table"].Rows)
+                {
+                    comboBoxIndicator.Items.Add(r["Name"]);
+                }
+                if (comboBoxIndicator.Items.Count == 0)
+                    comboBoxIndicator.Items.Add("No Indicators in Database");
+
+                comboBoxCourseGroup.SelectedIndex = 0;
+            }
+        }
+
+        public string programText
+        {
+            get { return comboBoxProgram.Text; }
+        }
+        public string programLevelOutcome
+        {
+            get { return comboBoxOutcome.Text;  }
+        }
     }
 }
