@@ -59,7 +59,7 @@ namespace ACD
             this.labelNumber.Depth = 0;
             this.labelNumber.Font = new System.Drawing.Font("Roboto", 11F);
             this.labelNumber.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.labelNumber.Location = new System.Drawing.Point(35, 156);
+            this.labelNumber.Location = new System.Drawing.Point(21, 189);
             this.labelNumber.MouseState = MaterialSkin.MouseState.HOVER;
             this.labelNumber.Name = "labelNumber";
             this.labelNumber.Size = new System.Drawing.Size(62, 19);
@@ -70,7 +70,7 @@ namespace ACD
             // 
             this.textBoxName.Depth = 0;
             this.textBoxName.Hint = "";
-            this.textBoxName.Location = new System.Drawing.Point(116, 72);
+            this.textBoxName.Location = new System.Drawing.Point(21, 94);
             this.textBoxName.MaxLength = 32767;
             this.textBoxName.MouseState = MaterialSkin.MouseState.HOVER;
             this.textBoxName.Name = "textBoxName";
@@ -78,7 +78,7 @@ namespace ACD
             this.textBoxName.SelectedText = "";
             this.textBoxName.SelectionLength = 0;
             this.textBoxName.SelectionStart = 0;
-            this.textBoxName.Size = new System.Drawing.Size(273, 23);
+            this.textBoxName.Size = new System.Drawing.Size(274, 23);
             this.textBoxName.TabIndex = 1;
             this.textBoxName.TabStop = false;
             this.textBoxName.UseSystemPasswordChar = false;
@@ -89,7 +89,7 @@ namespace ACD
             this.labelCore.Depth = 0;
             this.labelCore.Font = new System.Drawing.Font("Roboto", 11F);
             this.labelCore.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.labelCore.Location = new System.Drawing.Point(50, 117);
+            this.labelCore.Location = new System.Drawing.Point(21, 131);
             this.labelCore.MouseState = MaterialSkin.MouseState.HOVER;
             this.labelCore.Name = "labelCore";
             this.labelCore.Size = new System.Drawing.Size(41, 19);
@@ -102,7 +102,7 @@ namespace ACD
             this.labelName.Depth = 0;
             this.labelName.Font = new System.Drawing.Font("Roboto", 11F);
             this.labelName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.labelName.Location = new System.Drawing.Point(42, 72);
+            this.labelName.Location = new System.Drawing.Point(17, 72);
             this.labelName.MouseState = MaterialSkin.MouseState.HOVER;
             this.labelName.Name = "labelName";
             this.labelName.Size = new System.Drawing.Size(49, 19);
@@ -115,7 +115,7 @@ namespace ACD
             this.labelDesc.Depth = 0;
             this.labelDesc.Font = new System.Drawing.Font("Roboto", 11F);
             this.labelDesc.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.labelDesc.Location = new System.Drawing.Point(12, 204);
+            this.labelDesc.Location = new System.Drawing.Point(21, 246);
             this.labelDesc.MouseState = MaterialSkin.MouseState.HOVER;
             this.labelDesc.Name = "labelDesc";
             this.labelDesc.Size = new System.Drawing.Size(86, 19);
@@ -128,7 +128,7 @@ namespace ACD
             this.labelCredHr.Depth = 0;
             this.labelCredHr.Font = new System.Drawing.Font("Roboto", 11F);
             this.labelCredHr.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.labelCredHr.Location = new System.Drawing.Point(6, 265);
+            this.labelCredHr.Location = new System.Drawing.Point(21, 327);
             this.labelCredHr.MouseState = MaterialSkin.MouseState.HOVER;
             this.labelCredHr.Name = "labelCredHr";
             this.labelCredHr.Size = new System.Drawing.Size(91, 19);
@@ -141,7 +141,7 @@ namespace ACD
             this.labelFormat.Depth = 0;
             this.labelFormat.Font = new System.Drawing.Font("Roboto", 11F);
             this.labelFormat.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.labelFormat.Location = new System.Drawing.Point(40, 309);
+            this.labelFormat.Location = new System.Drawing.Point(21, 387);
             this.labelFormat.MouseState = MaterialSkin.MouseState.HOVER;
             this.labelFormat.Name = "labelFormat";
             this.labelFormat.Size = new System.Drawing.Size(57, 19);
@@ -154,7 +154,7 @@ namespace ACD
             this.labelPrereq.Depth = 0;
             this.labelPrereq.Font = new System.Drawing.Font("Roboto", 11F);
             this.labelPrereq.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.labelPrereq.Location = new System.Drawing.Point(5, 422);
+            this.labelPrereq.Location = new System.Drawing.Point(17, 493);
             this.labelPrereq.MouseState = MaterialSkin.MouseState.HOVER;
             this.labelPrereq.Name = "labelPrereq";
             this.labelPrereq.Size = new System.Drawing.Size(98, 19);
@@ -164,7 +164,7 @@ namespace ACD
             // panelPrereq
             // 
             this.panelPrereq.AutoScroll = true;
-            this.panelPrereq.Location = new System.Drawing.Point(119, 385);
+            this.panelPrereq.Location = new System.Drawing.Point(21, 515);
             this.panelPrereq.Name = "panelPrereq";
             this.panelPrereq.Size = new System.Drawing.Size(270, 118);
             this.panelPrereq.TabIndex = 13;
@@ -172,7 +172,7 @@ namespace ACD
             // buttonCreate
             // 
             this.buttonCreate.Depth = 0;
-            this.buttonCreate.Location = new System.Drawing.Point(119, 519);
+            this.buttonCreate.Location = new System.Drawing.Point(118, 653);
             this.buttonCreate.MouseState = MaterialSkin.MouseState.HOVER;
             this.buttonCreate.Name = "buttonCreate";
             this.buttonCreate.Primary = true;
@@ -185,7 +185,7 @@ namespace ACD
             // buttonCancel
             // 
             this.buttonCancel.Depth = 0;
-            this.buttonCancel.Location = new System.Drawing.Point(314, 519);
+            this.buttonCancel.Location = new System.Drawing.Point(216, 653);
             this.buttonCancel.MouseState = MaterialSkin.MouseState.HOVER;
             this.buttonCancel.Name = "buttonCancel";
             this.buttonCancel.Primary = true;
@@ -206,7 +206,7 @@ namespace ACD
             this.labelhasLab.Depth = 0;
             this.labelhasLab.Font = new System.Drawing.Font("Roboto", 11F);
             this.labelhasLab.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.labelhasLab.Location = new System.Drawing.Point(37, 348);
+            this.labelhasLab.Location = new System.Drawing.Point(21, 453);
             this.labelhasLab.MouseState = MaterialSkin.MouseState.HOVER;
             this.labelhasLab.Name = "labelhasLab";
             this.labelhasLab.Size = new System.Drawing.Size(60, 19);
@@ -216,7 +216,7 @@ namespace ACD
             // checkBoxHasLab
             // 
             this.checkBoxHasLab.AutoSize = true;
-            this.checkBoxHasLab.Location = new System.Drawing.Point(119, 353);
+            this.checkBoxHasLab.Location = new System.Drawing.Point(118, 458);
             this.checkBoxHasLab.Name = "checkBoxHasLab";
             this.checkBoxHasLab.Size = new System.Drawing.Size(15, 14);
             this.checkBoxHasLab.TabIndex = 17;
@@ -226,7 +226,7 @@ namespace ACD
             // 
             this.materialSingleLineTextField1.Depth = 0;
             this.materialSingleLineTextField1.Hint = "";
-            this.materialSingleLineTextField1.Location = new System.Drawing.Point(116, 113);
+            this.materialSingleLineTextField1.Location = new System.Drawing.Point(21, 153);
             this.materialSingleLineTextField1.MaxLength = 32767;
             this.materialSingleLineTextField1.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialSingleLineTextField1.Name = "materialSingleLineTextField1";
@@ -234,7 +234,7 @@ namespace ACD
             this.materialSingleLineTextField1.SelectedText = "";
             this.materialSingleLineTextField1.SelectionLength = 0;
             this.materialSingleLineTextField1.SelectionStart = 0;
-            this.materialSingleLineTextField1.Size = new System.Drawing.Size(273, 23);
+            this.materialSingleLineTextField1.Size = new System.Drawing.Size(277, 23);
             this.materialSingleLineTextField1.TabIndex = 18;
             this.materialSingleLineTextField1.TabStop = false;
             this.materialSingleLineTextField1.UseSystemPasswordChar = false;
@@ -243,7 +243,7 @@ namespace ACD
             // 
             this.materialSingleLineTextField2.Depth = 0;
             this.materialSingleLineTextField2.Hint = "";
-            this.materialSingleLineTextField2.Location = new System.Drawing.Point(116, 152);
+            this.materialSingleLineTextField2.Location = new System.Drawing.Point(22, 211);
             this.materialSingleLineTextField2.MaxLength = 32767;
             this.materialSingleLineTextField2.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialSingleLineTextField2.Name = "materialSingleLineTextField2";
@@ -260,7 +260,7 @@ namespace ACD
             // 
             this.materialSingleLineTextField3.Depth = 0;
             this.materialSingleLineTextField3.Hint = "";
-            this.materialSingleLineTextField3.Location = new System.Drawing.Point(118, 309);
+            this.materialSingleLineTextField3.Location = new System.Drawing.Point(21, 409);
             this.materialSingleLineTextField3.MaxLength = 32767;
             this.materialSingleLineTextField3.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialSingleLineTextField3.Name = "materialSingleLineTextField3";
@@ -277,7 +277,7 @@ namespace ACD
             // 
             this.materialSingleLineTextField4.Depth = 0;
             this.materialSingleLineTextField4.Hint = "";
-            this.materialSingleLineTextField4.Location = new System.Drawing.Point(119, 265);
+            this.materialSingleLineTextField4.Location = new System.Drawing.Point(22, 349);
             this.materialSingleLineTextField4.MaxLength = 32767;
             this.materialSingleLineTextField4.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialSingleLineTextField4.Name = "materialSingleLineTextField4";
@@ -294,7 +294,7 @@ namespace ACD
             // 
             this.richTextBox1.BackColor = System.Drawing.SystemColors.Control;
             this.richTextBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.richTextBox1.Location = new System.Drawing.Point(116, 204);
+            this.richTextBox1.Location = new System.Drawing.Point(22, 268);
             this.richTextBox1.Name = "richTextBox1";
             this.richTextBox1.Size = new System.Drawing.Size(270, 43);
             this.richTextBox1.TabIndex = 22;
@@ -304,7 +304,7 @@ namespace ACD
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(464, 554);
+            this.ClientSize = new System.Drawing.Size(469, 687);
             this.Controls.Add(this.richTextBox1);
             this.Controls.Add(this.materialSingleLineTextField4);
             this.Controls.Add(this.materialSingleLineTextField3);
