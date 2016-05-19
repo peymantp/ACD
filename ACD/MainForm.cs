@@ -244,6 +244,7 @@ namespace ACD
                     comboBoxOutcome.SelectedIndex = comboBoxOutcome.Items.IndexOf(form.getName);
                 }
             }
+
         }
 
         private void outcomeButtonDelete_Click(object sender, EventArgs e)
@@ -357,5 +358,8 @@ namespace ACD
                 }
             }
         }
+
+        private void indicatorButtonAdd_Click(object sender, EventArgs e) => new PerformanceIndicatorForm((Button)sender).ShowDialog();
+        private void indicatorButtonEdit_Click(object sender, EventArgs e) => new PerformanceIndicatorForm((Button)sender).ShowDialog(); 
     }
 }

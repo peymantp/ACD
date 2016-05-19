@@ -89,7 +89,7 @@
             // 
             this.labelWarning.AutoSize = true;
             this.labelWarning.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelWarning.ForeColor = System.Drawing.Color.Red;
+            this.labelWarning.ForeColor = System.Drawing.Color.Orange;
             this.labelWarning.Location = new System.Drawing.Point(12, 73);
             this.labelWarning.Name = "labelWarning";
             this.labelWarning.Size = new System.Drawing.Size(126, 25);

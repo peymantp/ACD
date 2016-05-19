@@ -54,10 +54,12 @@ namespace ACD
             if (outcomeNameField.Text.Equals(""))
             {
                 errorProvider1.SetError(outcomeNameField, "Please enter a name");
-            } else if (outcomeNameField.Text.Length >100) 
+            }
+            else if (outcomeNameField.Text.Length >100) 
             {
                 errorProvider1.SetError(outcomeNameField, "Name too long");
-            }else
+            }
+            else
             {
                 
                 if (!(ds.Tables["Table"].Rows.Contains(outcomeNameField.Text)) || (acceptButton.Text.Equals("Edit") && currName.Equals(outcomeNameField.Text)))
