@@ -58,7 +58,7 @@ public class CreateExcelWorksheet
         string oString;
         SqlCommand oCmd;
 
-        oString = "select * from FacultyCriteriaLevels where FacultyName = '" + faculty + "'";
+        oString = "select * from Faculty where Name = '" + faculty + "'";
         oCmd = new SqlCommand(oString, myConnection);
 
         Range headerRange1 = ws.get_Range("B1", "F1");
@@ -74,10 +74,10 @@ public class CreateExcelWorksheet
         {
             while (oReader.Read())
             {
-                headerRange2[1] = oReader["Level4Header"].ToString();
-                headerRange2[2] = oReader["Level3Header"].ToString();
-                headerRange2[3] = oReader["Level2Header"].ToString();
-                headerRange2[4] = oReader["Level1Header"].ToString();
+                headerRange2[1] = oReader["Level4Title"].ToString();
+                headerRange2[2] = oReader["Level3Title"].ToString();
+                headerRange2[3] = oReader["Level2Title"].ToString();
+                headerRange2[4] = oReader["Level1Title"].ToString();
             }
         }
 
@@ -117,7 +117,7 @@ public class CreateExcelWorksheet
         string oString;
         SqlCommand oCmd;
 
-        oString = "select \"Level1Description\", \"Level2Description\", \"Level3Description\", \"Level4Description\", \"Key\", ROW_NUMBER() over (order by \"Key\") as num1 from PerformanceCriteriaWithKey where SUBSTRING(\"Key\", 1, CASE CHARINDEX('_', \"Key\") WHEN 0 THEN LEN(\"Key\") ELSE CHARINDEX('_', \"Key\")-1 END) = '" + faculty + "' order by 6";
+        oString = "select \"Name\", \"Level4Criteria\", \"Level3Criteria\", \"Level2Criteria\", \"Level1Criteria\", \"Key\", ROW_NUMBER() over (order by \"Key\") as num1 from PerformanceIndicatorWithKey where SUBSTRING(\"Key\", 1, CASE CHARINDEX('_', \"Key\") WHEN 0 THEN LEN(\"Key\") ELSE CHARINDEX('_', \"Key\")-1 END) = '" + faculty + "' and \"Level4Criteria\" is not null and \"Level3Criteria\" is not null and \"Level2Criteria\" is not null and \"Level1Criteria\" is not null order by 6";
         oCmd = new SqlCommand(oString, myConnection);
 
         int i = 3;
@@ -127,11 +127,11 @@ public class CreateExcelWorksheet
             while (oReader.Read())
             {
                 (ws.Cells[i, 1] as Range).Value = GetExcelColumnName(Int32.Parse(oReader["num1"].ToString())) + ".";
-                (ws.Cells[i, 2] as Range).Value = oReader["Key"].ToString().Split('_')[2];
-                (ws.Cells[i, 3] as Range).Value = oReader["Level4Description"].ToString();
-                (ws.Cells[i, 4] as Range).Value = oReader["Level3Description"].ToString();
-                (ws.Cells[i, 5] as Range).Value = oReader["Level2Description"].ToString();
-                (ws.Cells[i, 6] as Range).Value = oReader["Level1Description"].ToString();
+                (ws.Cells[i, 2] as Range).Value = oReader["Name"].ToString();
+                (ws.Cells[i, 3] as Range).Value = oReader["Level4Criteria"].ToString();
+                (ws.Cells[i, 4] as Range).Value = oReader["Level3Criteria"].ToString();
+                (ws.Cells[i, 5] as Range).Value = oReader["Level2Criteria"].ToString();
+                (ws.Cells[i, 6] as Range).Value = oReader["Level1Criteria"].ToString();
 
                 i++;
             }
