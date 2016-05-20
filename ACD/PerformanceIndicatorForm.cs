@@ -36,7 +36,7 @@ namespace ACD
         private SqlDataAdapter dadapterIndicator;
         private DataSet dsIndicator = new DataSet();
 
-        private CheckBox[] boxArray;
+        private CheckBox[,] boxArray;
 
         public string getName { get { return newName; } }
 
@@ -59,6 +59,7 @@ namespace ACD
             currName = indicatorName;
             openConnection();
             populateCourses();
+            fillIndicators();
 
             criteria4TextField.Text = ds.Tables["Table"].Rows.Find(currName)["Level4Criteria"].ToString();
             criteria3TextField.Text = ds.Tables["Table"].Rows.Find(currName)["Level3Criteria"].ToString();
@@ -93,6 +94,7 @@ namespace ACD
                         ds.Tables["Table"].Rows.Find(currName)["Level2Criteria"] = criteria3TextField.Text ;
                         ds.Tables["Table"].Rows.Find(currName)["Level4Criteria"] = criteria2TextField.Text ;
                         ds.Tables["Table"].Rows.Find(currName)["Level1Criteria"] = criteria1TextField.Text;
+                        deleteIndicators();
                     }
                     else
                     {
@@ -107,6 +109,8 @@ namespace ACD
 
                         ds.Tables["Table"].Rows.Add(newRow);
                     }
+
+                    saveIndicators();
                     new SqlCommandBuilder(dadapter);
 
                     dadapter.Update(ds);
@@ -139,7 +143,7 @@ namespace ACD
 
         private void populateCourses()
         {
-            queryCourse = "select Name FROM dbo.Course WHERE FacultyName = '" + TextFieldProgram.Text+ "'";
+            queryCourse = "select Name, CourseGroupName FROM dbo.Course WHERE FacultyName = '" + TextFieldProgram.Text+ "'";
             connCourse = ConfigurationManager.ConnectionStrings["ACD.Properties.Settings.vaxasDatabaseConnectionString"].ConnectionString;
             connectionCourse = new SqlConnection(connCourse);
             dadapterCourse = new SqlDataAdapter(queryCourse, connectionCourse);
@@ -166,7 +170,8 @@ namespace ACD
             else
             {
                 int y = courseLabel.Location.Y + courseLabel.Size.Height + 10;
-                boxArray = new CheckBox[dsCourse.Tables["Table"].Rows.Count * 3];
+                boxArray = new CheckBox[dsCourse.Tables["Table"].Rows.Count, 3];
+                System.Diagnostics.Debug.WriteLine(boxArray.Length);
                 MaterialLabel courseName;
                 CheckBox indicatorBoxI;
                 CheckBox indicatorBoxR;
@@ -190,30 +195,34 @@ namespace ACD
                     y += courseLabel.Size.Height + 10;
                 }
                 y = courseLabel.Location.Y + courseLabel.Size.Height + 10;
+                int i = 0;
                 foreach (DataRow row in dsCourse.Tables["Table"].Rows)
                 {
                     indicatorBoxI = new CheckBox();
                     indicatorBoxI.AutoSize = true;
                     indicatorBoxI.Location = new Point(maxSize + 36, y);
-                    indicatorBoxI.Name = (string)row["Name"] + "I"; 
+                    indicatorBoxI.Name = (string)row["Name"] +"_" + (string)row["CourseGroupName"]+ "_I"; 
                     indicatorBoxI.Size = new Size(18, 17);
                     indicatorBoxI.UseVisualStyleBackColor = true;
+                    boxArray[i,0] = indicatorBoxI;
                     Controls.Add(indicatorBoxI);
 
                     indicatorBoxR = new CheckBox();
                     indicatorBoxR.AutoSize = true;
                     indicatorBoxR.Location = new Point(maxSize + 72, y);
-                    indicatorBoxR.Name = (string)row["Name"] + "r";
+                    indicatorBoxR.Name = (string)row["Name"] + "_" + (string)row["CourseGroupName"] + "_R";
                     indicatorBoxR.Size = new Size(18, 17);
                     indicatorBoxR.UseVisualStyleBackColor = true;
+                    boxArray[i,1] = indicatorBoxR;
                     Controls.Add(indicatorBoxR);
 
                     indicatorBoxD = new CheckBox();
                     indicatorBoxD.AutoSize = true;
                     indicatorBoxD.Location = new Point(maxSize + 108, y);
-                    indicatorBoxD.Name = (string)row["Name"] + "d";
+                    indicatorBoxD.Name = (string)row["Name"] + "_" + (string)row["CourseGroupName"] + "_D";
                     indicatorBoxD.Size = new Size(18, 17);
                     indicatorBoxD.UseVisualStyleBackColor = true;
+                    boxArray[i++,2] = indicatorBoxD;
                     Controls.Add(indicatorBoxD);
 
                     y += courseLabel.Size.Height + 10;
@@ -224,6 +233,107 @@ namespace ACD
                 maxSize += 150;
             }
             Size = new Size(maxSize, Size.Width);
+        }
+
+        private void saveIndicators()
+        {
+            queryIndicator = "select * FROM dbo.LearningLevel WHERE PerformanceIndicatorName = '" + indicatorNameField.Text + "' AND FacultyNameIndicator = '"+ TextFieldProgram.Text + "' AND ProgramLevelName = '" +TextFieldProgramLevel.Text+ "'";
+            connIndicator = ConfigurationManager.ConnectionStrings["ACD.Properties.Settings.vaxasDatabaseConnectionString"].ConnectionString;
+            connectionIndicator = new SqlConnection(connIndicator);
+            dadapterIndicator = new SqlDataAdapter(queryIndicator, connectionIndicator);
+            connectionIndicator.Open();
+            dadapterIndicator.Fill(dsIndicator);
+            DataColumn[] keyColumns = new DataColumn[1];
+            keyColumns[0] = dsCourse.Tables["Table"].Columns["CourseName"];
+            dsIndicator.Tables["Table"].PrimaryKey = keyColumns;
+
+            for (int i =0; i< dsCourse.Tables["Table"].Rows.Count; i++)
+            {
+                if(boxArray[i,0].Checked || boxArray[i, 1].Checked || boxArray[i, 2].Checked)
+                {
+                    string indicatorValue = "";
+                    if(boxArray[i, 0].Checked)
+                    {
+                        indicatorValue += "I";
+                    }
+                    if (boxArray[i, 1].Checked)
+                    {
+                        if (indicatorValue.Equals(""))
+                        {
+                            indicatorValue += "R";
+                        }
+                        else
+                        {
+                            indicatorValue += "/R";
+                        }
+                    }
+                    if (boxArray[i, 2].Checked)
+                    {
+                        if (indicatorValue.Equals(""))
+                        {
+                            indicatorValue += "D";
+                        }
+                        else
+                        {
+                            indicatorValue += "/D";
+                        }
+                    }
+                    var newRow = dsIndicator.Tables["Table"].NewRow();
+                    newRow["Value"] = indicatorValue;
+                    newRow["FacultyNameIndicator"] = TextFieldProgram.Text;
+                    newRow["FacultyNameCourse"] = TextFieldProgram.Text;
+                    newRow["ProgramLevelName"] = TextFieldProgramLevel.Text;
+                    newRow["PerformanceIndicatorName"] = indicatorNameField.Text;
+                    newRow["CourseGroupName"] = boxArray[i, 0].Name.Split('_')[1];
+                    newRow["CourseName"] = boxArray[i, 0].Name.Split('_')[0];
+
+                    dsIndicator.Tables["Table"].Rows.Add(newRow);
+
+                    new SqlCommandBuilder(dadapterIndicator);
+
+                    dadapterIndicator.Update(dsIndicator);
+                }
+            }
+            
+        }
+
+        private void fillIndicators()
+        {
+            queryIndicator = "select * FROM dbo.LearningLevel WHERE PerformanceIndicatorName = '" + indicatorNameField.Text + "' AND FacultyNameIndicator = '" + TextFieldProgram.Text + "' AND ProgramLevelName = '" + TextFieldProgramLevel.Text + "'";
+            connIndicator = ConfigurationManager.ConnectionStrings["ACD.Properties.Settings.vaxasDatabaseConnectionString"].ConnectionString;
+            connectionIndicator = new SqlConnection(connIndicator);
+            dadapterIndicator = new SqlDataAdapter(queryIndicator, connectionIndicator);
+            connectionIndicator.Open();
+            dadapterIndicator.Fill(dsIndicator);
+            DataColumn[] keyColumns = new DataColumn[1];
+            keyColumns[0] = dsCourse.Tables["Table"].Columns["CourseName"];
+            dsIndicator.Tables["Table"].PrimaryKey = keyColumns;
+
+            foreach(DataRow row in dsIndicator.Tables["Table"].Rows)
+            {
+                if (((string)row["Value"]).Contains('I'))
+                {
+                    ((CheckBox)Controls.Find(row["CourseName"] + "_" + row["CourseGroupName"] + "_I", true)[0]).Checked = true;
+                }
+                if (((string)row["Value"]).Contains('R'))
+                {
+                    ((CheckBox)Controls.Find(row["CourseName"] + "_" + row["CourseGroupName"] + "_R", true)[0]).Checked = true;
+                }
+                if (((string)row["Value"]).Contains('D'))
+                {
+                    ((CheckBox)Controls.Find(row["CourseName"] + "_" + row["CourseGroupName"] + "_D", true)[0]).Checked = true;
+                }
+            }
+        }
+
+        private void deleteIndicators()
+        {
+            foreach (DataRow row in dsIndicator.Tables["Table"].Rows)
+            {
+                row.Delete();
+            }
+            new SqlCommandBuilder(dadapterIndicator);
+            dadapterIndicator.Update(dsIndicator);
         }
 
     }

@@ -25,18 +25,21 @@ namespace ACD
         private string indicatorQuery;
         private string courseGroupQuery;
         private string courseQuery;
+        private string learningLevelQuery;
 
         private SqlDataAdapter programAdapter;
         private SqlDataAdapter outcomeAdapter;
         private SqlDataAdapter indicatorAdapter;
         private SqlDataAdapter courseGroupAdapter;
         private SqlDataAdapter courseAdapter;
+        private SqlDataAdapter learningLevelAdapter;
 
         private DataSet programDs;
         private DataSet outcomeDs;
         private DataSet indicatorDs;
         private DataSet courseGroupDs;
         private DataSet courseDs;
+        private DataSet learningLevelDs;
 
         public MainForm()
         {
@@ -403,6 +406,19 @@ namespace ACD
             var result = new DeleteDialog(comboBoxIndicator.Text).ShowDialog();
             if (System.Windows.Forms.DialogResult.OK == result && indicatorDs.Tables["Table"].Rows.Contains(comboBoxIndicator.Text))
             {
+                learningLevelQuery = "select * FROM dbo.ProgramLevel WHERE FacultyName = '" + comboBoxProgram.Text + "'";
+                learningLevelAdapter = new SqlDataAdapter(learningLevelQuery, connection);
+                learningLevelDs = new DataSet();
+                learningLevelAdapter.Fill(learningLevelDs);
+
+                foreach(DataRow row in learningLevelDs.Tables["Table"].Rows)
+                {
+                    row.Delete();
+                }
+
+                new SqlCommandBuilder(learningLevelAdapter);
+                learningLevelAdapter.Update(learningLevelDs);
+
                 indicatorDs.Tables["Table"].Rows[indicatorDs.Tables["Table"].Rows.IndexOf(indicatorDs.Tables["Table"].Rows.Find(comboBoxIndicator.Text))].Delete();
 
                 new SqlCommandBuilder(indicatorAdapter);
