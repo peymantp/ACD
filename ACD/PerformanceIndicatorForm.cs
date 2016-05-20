@@ -154,7 +154,7 @@ namespace ACD
             DataColumn[] keyColumns = new DataColumn[1];
             keyColumns[0] = dsCourse.Tables["Table"].Columns["Name"];
             dsCourse.Tables["Table"].PrimaryKey = keyColumns;
-            int maxSize = 0;
+            int maxSize = courseLabel.Location.X + courseLabel.Size.Width + 50;
             if (dsCourse.Tables["Table"].Rows.Count == 0)
             {
                 MaterialLabel emptyCourse = new MaterialLabel();
