@@ -82,6 +82,7 @@ namespace ACD
                         if (acceptButton.Text.Equals("Edit"))
                         {
                             ds.Tables["Table"].Rows.Find(currName)["Name"] = courseGroupNameField.Text;
+                            currName = courseGroupNameField.Text;
                             ds.Tables["Table"].Rows.Find(currName)["NumberOfElectives"] = n;
                         }
                         else
