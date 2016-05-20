@@ -39,7 +39,7 @@ namespace ACD
 
         private void buttonCreate_Click(object sender, EventArgs e)
         {
-            errorProvider1.Clear();
+            courseError.Clear();
         }
 
         private void populateCourses()
