@@ -21,11 +21,15 @@ namespace ACD
         private SqlDataAdapter dadapterCourse;
         private DataSet dsCourse = new DataSet();
         private string queryCourse;
-
-        public CourseForm()
+        private Button trigger_; 
+        public CourseForm(Button sender)
         {
             InitializeComponent();
-            populateCourses();
+            if (sender.Text.Equals("Edit", StringComparison.InvariantCultureIgnoreCase))
+            {
+                buttonCreate.Text = "Edit";
+            }
+            populateCourses(); 
         }
 
         private void button2_Click(object sender, EventArgs e)

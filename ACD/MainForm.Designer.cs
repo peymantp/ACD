@@ -402,6 +402,7 @@ namespace ACD
             this.courseButtonEdit.TabIndex = 26;
             this.courseButtonEdit.Text = "edit";
             this.courseButtonEdit.UseVisualStyleBackColor = true;
+            this.courseButtonEdit.Click += new System.EventHandler(this.courseButtonEdit_Click);
             // 
             // ButtonExport
             // 

@@ -76,7 +76,8 @@ namespace ACD
             comboBoxProgram.SelectedIndex = 0;
         }
 
-        private void courseButtonAdd_Click(object sender, EventArgs e) { new CourseForm().ShowDialog(); }
+        private void courseButtonAdd_Click(object sender, EventArgs e) { new CourseForm((Button)sender).ShowDialog(); }
+        private void courseButtonEdit_Click(object sender, EventArgs e) { new CourseForm((Button)sender).ShowDialog(); }
 
         private void ButtonProgramAdd_Click(object sender, EventArgs e)
         {
