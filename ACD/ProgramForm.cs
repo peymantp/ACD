@@ -46,6 +46,7 @@ namespace ACD
 
         private void ButtonProgramAdd_Click(object sender, EventArgs e)
         {
+            errorProvider1.Clear();
             if (textBoxName.Text.Equals(""))
             {
                 errorProvider1.SetError(textBoxName, "Please enter a name");

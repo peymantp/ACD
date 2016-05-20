@@ -31,27 +31,23 @@ namespace ACD
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.labelNumber = new MaterialSkin.Controls.MaterialLabel();
-            this.textBoxName = new MaterialSkin.Controls.MaterialSingleLineTextField();
+            this.textBoxProgramName = new MaterialSkin.Controls.MaterialSingleLineTextField();
             this.labelCourseGroup = new MaterialSkin.Controls.MaterialLabel();
             this.labelProgram = new MaterialSkin.Controls.MaterialLabel();
             this.labelDesc = new MaterialSkin.Controls.MaterialLabel();
             this.labelCredHr = new MaterialSkin.Controls.MaterialLabel();
             this.labelFormat = new MaterialSkin.Controls.MaterialLabel();
-            this.labelPrereq = new MaterialSkin.Controls.MaterialLabel();
-            this.panelPrereq = new System.Windows.Forms.Panel();
             this.buttonCreate = new MaterialSkin.Controls.MaterialRaisedButton();
             this.buttonCancel = new MaterialSkin.Controls.MaterialRaisedButton();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.labelhasLab = new MaterialSkin.Controls.MaterialLabel();
             this.checkBoxHasLab = new System.Windows.Forms.CheckBox();
-            this.materialSingleLineTextField1 = new MaterialSkin.Controls.MaterialSingleLineTextField();
-            this.materialSingleLineTextField2 = new MaterialSkin.Controls.MaterialSingleLineTextField();
-            this.materialSingleLineTextField3 = new MaterialSkin.Controls.MaterialSingleLineTextField();
-            this.materialSingleLineTextField4 = new MaterialSkin.Controls.MaterialSingleLineTextField();
-            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
+            this.textBoxCourseGroup = new MaterialSkin.Controls.MaterialSingleLineTextField();
+            this.textBoxFormat = new MaterialSkin.Controls.MaterialSingleLineTextField();
+            this.textBoxCreditHours = new MaterialSkin.Controls.MaterialSingleLineTextField();
+            this.textBoxDescription = new System.Windows.Forms.RichTextBox();
             this.materialLabel1 = new MaterialSkin.Controls.MaterialLabel();
-            this.materialSingleLineTextField5 = new MaterialSkin.Controls.MaterialSingleLineTextField();
+            this.textBoxCourseName = new MaterialSkin.Controls.MaterialSingleLineTextField();
             this.courseLabel = new MaterialSkin.Controls.MaterialLabel();
             this.materialLabelD = new MaterialSkin.Controls.MaterialLabel();
             this.materialLabelR = new MaterialSkin.Controls.MaterialLabel();
@@ -59,37 +55,23 @@ namespace ACD
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
             // 
-            // labelNumber
+            // textBoxProgramName
             // 
-            this.labelNumber.AutoSize = true;
-            this.labelNumber.Depth = 0;
-            this.labelNumber.Font = new System.Drawing.Font("Roboto", 11F);
-            this.labelNumber.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.labelNumber.Location = new System.Drawing.Point(28, 314);
-            this.labelNumber.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.labelNumber.MouseState = MaterialSkin.MouseState.HOVER;
-            this.labelNumber.Name = "labelNumber";
-            this.labelNumber.Size = new System.Drawing.Size(78, 24);
-            this.labelNumber.TabIndex = 0;
-            this.labelNumber.Text = "Number";
-            // 
-            // textBoxName
-            // 
-            this.textBoxName.Depth = 0;
-            this.textBoxName.Hint = "";
-            this.textBoxName.Location = new System.Drawing.Point(28, 116);
-            this.textBoxName.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.textBoxName.MaxLength = 32767;
-            this.textBoxName.MouseState = MaterialSkin.MouseState.HOVER;
-            this.textBoxName.Name = "textBoxName";
-            this.textBoxName.PasswordChar = '\0';
-            this.textBoxName.SelectedText = "";
-            this.textBoxName.SelectionLength = 0;
-            this.textBoxName.SelectionStart = 0;
-            this.textBoxName.Size = new System.Drawing.Size(365, 28);
-            this.textBoxName.TabIndex = 1;
-            this.textBoxName.TabStop = false;
-            this.textBoxName.UseSystemPasswordChar = false;
+            this.textBoxProgramName.Depth = 0;
+            this.textBoxProgramName.Hint = "";
+            this.textBoxProgramName.Location = new System.Drawing.Point(28, 116);
+            this.textBoxProgramName.Margin = new System.Windows.Forms.Padding(4);
+            this.textBoxProgramName.MaxLength = 32767;
+            this.textBoxProgramName.MouseState = MaterialSkin.MouseState.HOVER;
+            this.textBoxProgramName.Name = "textBoxProgramName";
+            this.textBoxProgramName.PasswordChar = '\0';
+            this.textBoxProgramName.SelectedText = "";
+            this.textBoxProgramName.SelectionLength = 0;
+            this.textBoxProgramName.SelectionStart = 0;
+            this.textBoxProgramName.Size = new System.Drawing.Size(365, 28);
+            this.textBoxProgramName.TabIndex = 1;
+            this.textBoxProgramName.TabStop = false;
+            this.textBoxProgramName.UseSystemPasswordChar = false;
             // 
             // labelCourseGroup
             // 
@@ -125,7 +107,7 @@ namespace ACD
             this.labelDesc.Depth = 0;
             this.labelDesc.Font = new System.Drawing.Font("Roboto", 11F);
             this.labelDesc.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.labelDesc.Location = new System.Drawing.Point(28, 384);
+            this.labelDesc.Location = new System.Drawing.Point(28, 311);
             this.labelDesc.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelDesc.MouseState = MaterialSkin.MouseState.HOVER;
             this.labelDesc.Name = "labelDesc";
@@ -139,7 +121,7 @@ namespace ACD
             this.labelCredHr.Depth = 0;
             this.labelCredHr.Font = new System.Drawing.Font("Roboto", 11F);
             this.labelCredHr.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.labelCredHr.Location = new System.Drawing.Point(28, 483);
+            this.labelCredHr.Location = new System.Drawing.Point(28, 410);
             this.labelCredHr.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelCredHr.MouseState = MaterialSkin.MouseState.HOVER;
             this.labelCredHr.Name = "labelCredHr";
@@ -153,7 +135,7 @@ namespace ACD
             this.labelFormat.Depth = 0;
             this.labelFormat.Font = new System.Drawing.Font("Roboto", 11F);
             this.labelFormat.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.labelFormat.Location = new System.Drawing.Point(28, 557);
+            this.labelFormat.Location = new System.Drawing.Point(28, 484);
             this.labelFormat.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelFormat.MouseState = MaterialSkin.MouseState.HOVER;
             this.labelFormat.Name = "labelFormat";
@@ -161,34 +143,11 @@ namespace ACD
             this.labelFormat.TabIndex = 10;
             this.labelFormat.Text = "Format";
             // 
-            // labelPrereq
-            // 
-            this.labelPrereq.AutoSize = true;
-            this.labelPrereq.Depth = 0;
-            this.labelPrereq.Font = new System.Drawing.Font("Roboto", 11F);
-            this.labelPrereq.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.labelPrereq.Location = new System.Drawing.Point(23, 688);
-            this.labelPrereq.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.labelPrereq.MouseState = MaterialSkin.MouseState.HOVER;
-            this.labelPrereq.Name = "labelPrereq";
-            this.labelPrereq.Size = new System.Drawing.Size(121, 24);
-            this.labelPrereq.TabIndex = 12;
-            this.labelPrereq.Text = "Prerequisites";
-            // 
-            // panelPrereq
-            // 
-            this.panelPrereq.AutoScroll = true;
-            this.panelPrereq.Location = new System.Drawing.Point(28, 715);
-            this.panelPrereq.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.panelPrereq.Name = "panelPrereq";
-            this.panelPrereq.Size = new System.Drawing.Size(360, 145);
-            this.panelPrereq.TabIndex = 13;
-            // 
             // buttonCreate
             // 
             this.buttonCreate.Depth = 0;
-            this.buttonCreate.Location = new System.Drawing.Point(157, 885);
-            this.buttonCreate.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.buttonCreate.Location = new System.Drawing.Point(158, 633);
+            this.buttonCreate.Margin = new System.Windows.Forms.Padding(4);
             this.buttonCreate.MouseState = MaterialSkin.MouseState.HOVER;
             this.buttonCreate.Name = "buttonCreate";
             this.buttonCreate.Primary = true;
@@ -201,8 +160,8 @@ namespace ACD
             // buttonCancel
             // 
             this.buttonCancel.Depth = 0;
-            this.buttonCancel.Location = new System.Drawing.Point(288, 885);
-            this.buttonCancel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.buttonCancel.Location = new System.Drawing.Point(289, 633);
+            this.buttonCancel.Margin = new System.Windows.Forms.Padding(4);
             this.buttonCancel.MouseState = MaterialSkin.MouseState.HOVER;
             this.buttonCancel.Name = "buttonCancel";
             this.buttonCancel.Primary = true;
@@ -210,7 +169,7 @@ namespace ACD
             this.buttonCancel.TabIndex = 15;
             this.buttonCancel.Text = "Cancel";
             this.buttonCancel.UseVisualStyleBackColor = true;
-            this.buttonCancel.Click += new System.EventHandler(this.button2_Click);
+            this.buttonCancel.Click += new System.EventHandler(this.buttonCancel_Click);
             // 
             // errorProvider1
             // 
@@ -223,7 +182,7 @@ namespace ACD
             this.labelhasLab.Depth = 0;
             this.labelhasLab.Font = new System.Drawing.Font("Roboto", 11F);
             this.labelhasLab.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.labelhasLab.Location = new System.Drawing.Point(28, 639);
+            this.labelhasLab.Location = new System.Drawing.Point(28, 566);
             this.labelhasLab.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelhasLab.MouseState = MaterialSkin.MouseState.HOVER;
             this.labelhasLab.Name = "labelhasLab";
@@ -234,95 +193,77 @@ namespace ACD
             // checkBoxHasLab
             // 
             this.checkBoxHasLab.AutoSize = true;
-            this.checkBoxHasLab.Location = new System.Drawing.Point(157, 645);
-            this.checkBoxHasLab.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.checkBoxHasLab.Location = new System.Drawing.Point(157, 572);
+            this.checkBoxHasLab.Margin = new System.Windows.Forms.Padding(4);
             this.checkBoxHasLab.Name = "checkBoxHasLab";
             this.checkBoxHasLab.Size = new System.Drawing.Size(18, 17);
             this.checkBoxHasLab.TabIndex = 17;
             this.checkBoxHasLab.UseVisualStyleBackColor = true;
             // 
-            // materialSingleLineTextField1
+            // textBoxCourseGroup
             // 
-            this.materialSingleLineTextField1.Depth = 0;
-            this.materialSingleLineTextField1.Hint = "";
-            this.materialSingleLineTextField1.Location = new System.Drawing.Point(28, 188);
-            this.materialSingleLineTextField1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.materialSingleLineTextField1.MaxLength = 32767;
-            this.materialSingleLineTextField1.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialSingleLineTextField1.Name = "materialSingleLineTextField1";
-            this.materialSingleLineTextField1.PasswordChar = '\0';
-            this.materialSingleLineTextField1.SelectedText = "";
-            this.materialSingleLineTextField1.SelectionLength = 0;
-            this.materialSingleLineTextField1.SelectionStart = 0;
-            this.materialSingleLineTextField1.Size = new System.Drawing.Size(369, 28);
-            this.materialSingleLineTextField1.TabIndex = 18;
-            this.materialSingleLineTextField1.TabStop = false;
-            this.materialSingleLineTextField1.UseSystemPasswordChar = false;
+            this.textBoxCourseGroup.Depth = 0;
+            this.textBoxCourseGroup.Hint = "";
+            this.textBoxCourseGroup.Location = new System.Drawing.Point(28, 188);
+            this.textBoxCourseGroup.Margin = new System.Windows.Forms.Padding(4);
+            this.textBoxCourseGroup.MaxLength = 32767;
+            this.textBoxCourseGroup.MouseState = MaterialSkin.MouseState.HOVER;
+            this.textBoxCourseGroup.Name = "textBoxCourseGroup";
+            this.textBoxCourseGroup.PasswordChar = '\0';
+            this.textBoxCourseGroup.SelectedText = "";
+            this.textBoxCourseGroup.SelectionLength = 0;
+            this.textBoxCourseGroup.SelectionStart = 0;
+            this.textBoxCourseGroup.Size = new System.Drawing.Size(369, 28);
+            this.textBoxCourseGroup.TabIndex = 18;
+            this.textBoxCourseGroup.TabStop = false;
+            this.textBoxCourseGroup.UseSystemPasswordChar = false;
             // 
-            // materialSingleLineTextField2
+            // textBoxFormat
             // 
-            this.materialSingleLineTextField2.Depth = 0;
-            this.materialSingleLineTextField2.Hint = "";
-            this.materialSingleLineTextField2.Location = new System.Drawing.Point(29, 341);
-            this.materialSingleLineTextField2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.materialSingleLineTextField2.MaxLength = 32767;
-            this.materialSingleLineTextField2.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialSingleLineTextField2.Name = "materialSingleLineTextField2";
-            this.materialSingleLineTextField2.PasswordChar = '\0';
-            this.materialSingleLineTextField2.SelectedText = "";
-            this.materialSingleLineTextField2.SelectionLength = 0;
-            this.materialSingleLineTextField2.SelectionStart = 0;
-            this.materialSingleLineTextField2.Size = new System.Drawing.Size(364, 28);
-            this.materialSingleLineTextField2.TabIndex = 19;
-            this.materialSingleLineTextField2.TabStop = false;
-            this.materialSingleLineTextField2.UseSystemPasswordChar = false;
+            this.textBoxFormat.Depth = 0;
+            this.textBoxFormat.Hint = "";
+            this.textBoxFormat.Location = new System.Drawing.Point(28, 511);
+            this.textBoxFormat.Margin = new System.Windows.Forms.Padding(4);
+            this.textBoxFormat.MaxLength = 32767;
+            this.textBoxFormat.MouseState = MaterialSkin.MouseState.HOVER;
+            this.textBoxFormat.Name = "textBoxFormat";
+            this.textBoxFormat.PasswordChar = '\0';
+            this.textBoxFormat.SelectedText = "";
+            this.textBoxFormat.SelectionLength = 0;
+            this.textBoxFormat.SelectionStart = 0;
+            this.textBoxFormat.Size = new System.Drawing.Size(361, 28);
+            this.textBoxFormat.TabIndex = 20;
+            this.textBoxFormat.TabStop = false;
+            this.textBoxFormat.UseSystemPasswordChar = false;
             // 
-            // materialSingleLineTextField3
+            // textBoxCreditHours
             // 
-            this.materialSingleLineTextField3.Depth = 0;
-            this.materialSingleLineTextField3.Hint = "";
-            this.materialSingleLineTextField3.Location = new System.Drawing.Point(28, 584);
-            this.materialSingleLineTextField3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.materialSingleLineTextField3.MaxLength = 32767;
-            this.materialSingleLineTextField3.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialSingleLineTextField3.Name = "materialSingleLineTextField3";
-            this.materialSingleLineTextField3.PasswordChar = '\0';
-            this.materialSingleLineTextField3.SelectedText = "";
-            this.materialSingleLineTextField3.SelectionLength = 0;
-            this.materialSingleLineTextField3.SelectionStart = 0;
-            this.materialSingleLineTextField3.Size = new System.Drawing.Size(361, 28);
-            this.materialSingleLineTextField3.TabIndex = 20;
-            this.materialSingleLineTextField3.TabStop = false;
-            this.materialSingleLineTextField3.UseSystemPasswordChar = false;
+            this.textBoxCreditHours.Depth = 0;
+            this.textBoxCreditHours.Hint = "";
+            this.textBoxCreditHours.Location = new System.Drawing.Point(29, 438);
+            this.textBoxCreditHours.Margin = new System.Windows.Forms.Padding(4);
+            this.textBoxCreditHours.MaxLength = 32767;
+            this.textBoxCreditHours.MouseState = MaterialSkin.MouseState.HOVER;
+            this.textBoxCreditHours.Name = "textBoxCreditHours";
+            this.textBoxCreditHours.PasswordChar = '\0';
+            this.textBoxCreditHours.SelectedText = "";
+            this.textBoxCreditHours.SelectionLength = 0;
+            this.textBoxCreditHours.SelectionStart = 0;
+            this.textBoxCreditHours.Size = new System.Drawing.Size(360, 28);
+            this.textBoxCreditHours.TabIndex = 21;
+            this.textBoxCreditHours.TabStop = false;
+            this.textBoxCreditHours.UseSystemPasswordChar = false;
             // 
-            // materialSingleLineTextField4
+            // textBoxDescription
             // 
-            this.materialSingleLineTextField4.Depth = 0;
-            this.materialSingleLineTextField4.Hint = "";
-            this.materialSingleLineTextField4.Location = new System.Drawing.Point(29, 511);
-            this.materialSingleLineTextField4.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.materialSingleLineTextField4.MaxLength = 32767;
-            this.materialSingleLineTextField4.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialSingleLineTextField4.Name = "materialSingleLineTextField4";
-            this.materialSingleLineTextField4.PasswordChar = '\0';
-            this.materialSingleLineTextField4.SelectedText = "";
-            this.materialSingleLineTextField4.SelectionLength = 0;
-            this.materialSingleLineTextField4.SelectionStart = 0;
-            this.materialSingleLineTextField4.Size = new System.Drawing.Size(360, 28);
-            this.materialSingleLineTextField4.TabIndex = 21;
-            this.materialSingleLineTextField4.TabStop = false;
-            this.materialSingleLineTextField4.UseSystemPasswordChar = false;
-            // 
-            // richTextBox1
-            // 
-            this.richTextBox1.BackColor = System.Drawing.SystemColors.Control;
-            this.richTextBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.richTextBox1.Location = new System.Drawing.Point(29, 411);
-            this.richTextBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(360, 53);
-            this.richTextBox1.TabIndex = 22;
-            this.richTextBox1.Text = "";
+            this.textBoxDescription.BackColor = System.Drawing.SystemColors.Control;
+            this.textBoxDescription.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBoxDescription.Location = new System.Drawing.Point(29, 338);
+            this.textBoxDescription.Margin = new System.Windows.Forms.Padding(4);
+            this.textBoxDescription.Name = "textBoxDescription";
+            this.textBoxDescription.Size = new System.Drawing.Size(360, 53);
+            this.textBoxDescription.TabIndex = 22;
+            this.textBoxDescription.Text = "";
             // 
             // materialLabel1
             // 
@@ -338,23 +279,23 @@ namespace ACD
             this.materialLabel1.TabIndex = 24;
             this.materialLabel1.Text = "Course Name";
             // 
-            // materialSingleLineTextField5
+            // textBoxCourseName
             // 
-            this.materialSingleLineTextField5.Depth = 0;
-            this.materialSingleLineTextField5.Hint = "";
-            this.materialSingleLineTextField5.Location = new System.Drawing.Point(28, 264);
-            this.materialSingleLineTextField5.Margin = new System.Windows.Forms.Padding(4);
-            this.materialSingleLineTextField5.MaxLength = 32767;
-            this.materialSingleLineTextField5.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialSingleLineTextField5.Name = "materialSingleLineTextField5";
-            this.materialSingleLineTextField5.PasswordChar = '\0';
-            this.materialSingleLineTextField5.SelectedText = "";
-            this.materialSingleLineTextField5.SelectionLength = 0;
-            this.materialSingleLineTextField5.SelectionStart = 0;
-            this.materialSingleLineTextField5.Size = new System.Drawing.Size(365, 28);
-            this.materialSingleLineTextField5.TabIndex = 23;
-            this.materialSingleLineTextField5.TabStop = false;
-            this.materialSingleLineTextField5.UseSystemPasswordChar = false;
+            this.textBoxCourseName.Depth = 0;
+            this.textBoxCourseName.Hint = "";
+            this.textBoxCourseName.Location = new System.Drawing.Point(28, 264);
+            this.textBoxCourseName.Margin = new System.Windows.Forms.Padding(4);
+            this.textBoxCourseName.MaxLength = 32767;
+            this.textBoxCourseName.MouseState = MaterialSkin.MouseState.HOVER;
+            this.textBoxCourseName.Name = "textBoxCourseName";
+            this.textBoxCourseName.PasswordChar = '\0';
+            this.textBoxCourseName.SelectedText = "";
+            this.textBoxCourseName.SelectionLength = 0;
+            this.textBoxCourseName.SelectionStart = 0;
+            this.textBoxCourseName.Size = new System.Drawing.Size(365, 28);
+            this.textBoxCourseName.TabIndex = 23;
+            this.textBoxCourseName.TabStop = false;
+            this.textBoxCourseName.UseSystemPasswordChar = false;
             // 
             // courseLabel
             // 
@@ -417,32 +358,28 @@ namespace ACD
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
-            this.ClientSize = new System.Drawing.Size(625, 944);
+            this.ClientSize = new System.Drawing.Size(625, 688);
             this.Controls.Add(this.materialLabelI);
             this.Controls.Add(this.materialLabelR);
             this.Controls.Add(this.materialLabelD);
             this.Controls.Add(this.courseLabel);
             this.Controls.Add(this.materialLabel1);
-            this.Controls.Add(this.materialSingleLineTextField5);
-            this.Controls.Add(this.richTextBox1);
-            this.Controls.Add(this.materialSingleLineTextField4);
-            this.Controls.Add(this.materialSingleLineTextField3);
-            this.Controls.Add(this.materialSingleLineTextField2);
-            this.Controls.Add(this.materialSingleLineTextField1);
+            this.Controls.Add(this.textBoxCourseName);
+            this.Controls.Add(this.textBoxDescription);
+            this.Controls.Add(this.textBoxCreditHours);
+            this.Controls.Add(this.textBoxFormat);
+            this.Controls.Add(this.textBoxCourseGroup);
             this.Controls.Add(this.checkBoxHasLab);
             this.Controls.Add(this.labelhasLab);
             this.Controls.Add(this.buttonCancel);
             this.Controls.Add(this.buttonCreate);
-            this.Controls.Add(this.panelPrereq);
-            this.Controls.Add(this.labelPrereq);
             this.Controls.Add(this.labelFormat);
             this.Controls.Add(this.labelCredHr);
             this.Controls.Add(this.labelDesc);
             this.Controls.Add(this.labelProgram);
             this.Controls.Add(this.labelCourseGroup);
-            this.Controls.Add(this.textBoxName);
-            this.Controls.Add(this.labelNumber);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Controls.Add(this.textBoxProgramName);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "CourseForm";
             this.Text = "Course";
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
@@ -452,29 +389,24 @@ namespace ACD
         }
 
         #endregion
-
-        private MaterialLabel labelNumber;
-        private MaterialSingleLineTextField textBoxName;
+        private MaterialSingleLineTextField textBoxProgramName;
         private MaterialLabel labelCourseGroup;
         private MaterialLabel labelProgram;
         private MaterialLabel labelDesc;
         private MaterialLabel labelCredHr;
         private MaterialLabel labelFormat;
-        private MaterialLabel labelPrereq;
-        private System.Windows.Forms.Panel panelPrereq;
         private MaterialRaisedButton buttonCreate;
         private MaterialRaisedButton buttonCancel;
         private System.Windows.Forms.ErrorProvider errorProvider1;
         private System.Windows.Forms.CheckBox checkBoxHasLab;
         private MaterialLabel labelhasLab;
-        private MaterialSingleLineTextField materialSingleLineTextField4;
-        private MaterialSingleLineTextField materialSingleLineTextField3;
-        private MaterialSingleLineTextField materialSingleLineTextField2;
-        private MaterialSingleLineTextField materialSingleLineTextField1;
-        private System.Windows.Forms.RichTextBox richTextBox1;
+        private MaterialSingleLineTextField textBoxCreditHours;
+        private MaterialSingleLineTextField textBoxFormat;
+        private MaterialSingleLineTextField textBoxCourseGroup;
+        private System.Windows.Forms.RichTextBox textBoxDescription;
         private MaterialLabel courseLabel;
         private MaterialLabel materialLabel1;
-        private MaterialSingleLineTextField materialSingleLineTextField5;
+        private MaterialSingleLineTextField textBoxCourseName;
         private MaterialLabel materialLabelI;
         private MaterialLabel materialLabelR;
         private MaterialLabel materialLabelD;

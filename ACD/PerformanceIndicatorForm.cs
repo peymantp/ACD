@@ -59,7 +59,7 @@ namespace ACD
             currName = indicatorName;
             openConnection();
             populateCourses();
-            fillIndicators();
+            fillLevelIndicators();
 
             criteria4TextField.Text = ds.Tables["Table"].Rows.Find(currName)["Level4Criteria"].ToString();
             criteria3TextField.Text = ds.Tables["Table"].Rows.Find(currName)["Level3Criteria"].ToString();
@@ -75,6 +75,7 @@ namespace ACD
 
         private void ButtonSave_Click(object sender, EventArgs e)
         {
+            errorProvider1.Clear();
             if (indicatorNameField.Text.Equals(""))
             {
                 errorProvider1.SetError(indicatorNameField, "Please enter a name");
@@ -90,11 +91,12 @@ namespace ACD
                     if (ButtonSave.Text.Equals("Edit"))
                     {
                         ds.Tables["Table"].Rows.Find(currName)["Name"] = indicatorNameField.Text;
+                        currName = indicatorNameField.Text;
                         ds.Tables["Table"].Rows.Find(currName)["Level3Criteria"] = criteria4TextField.Text ;
                         ds.Tables["Table"].Rows.Find(currName)["Level2Criteria"] = criteria3TextField.Text ;
                         ds.Tables["Table"].Rows.Find(currName)["Level4Criteria"] = criteria2TextField.Text ;
                         ds.Tables["Table"].Rows.Find(currName)["Level1Criteria"] = criteria1TextField.Text;
-                        deleteIndicators();
+                        deleteLevelIndicators();
                     }
                     else
                     {
@@ -110,10 +112,10 @@ namespace ACD
                         ds.Tables["Table"].Rows.Add(newRow);
                     }
 
-                    saveIndicators();
                     new SqlCommandBuilder(dadapter);
 
                     dadapter.Update(ds);
+                    saveLevelIndicators();
                     connection.Close();
                     newName = indicatorNameField.Text;
                     this.DialogResult = DialogResult.OK;
@@ -235,7 +237,7 @@ namespace ACD
             Size = new Size(maxSize, Size.Width);
         }
 
-        private void saveIndicators()
+        private void saveLevelIndicators()
         {
             queryIndicator = "select * FROM dbo.LearningLevel WHERE PerformanceIndicatorName = '" + indicatorNameField.Text + "' AND FacultyNameIndicator = '"+ TextFieldProgram.Text + "' AND ProgramLevelName = '" +TextFieldProgramLevel.Text+ "'";
             connIndicator = ConfigurationManager.ConnectionStrings["ACD.Properties.Settings.vaxasDatabaseConnectionString"].ConnectionString;
@@ -297,7 +299,7 @@ namespace ACD
             
         }
 
-        private void fillIndicators()
+        private void fillLevelIndicators()
         {
             queryIndicator = "select * FROM dbo.LearningLevel WHERE PerformanceIndicatorName = '" + indicatorNameField.Text + "' AND FacultyNameIndicator = '" + TextFieldProgram.Text + "' AND ProgramLevelName = '" + TextFieldProgramLevel.Text + "'";
             connIndicator = ConfigurationManager.ConnectionStrings["ACD.Properties.Settings.vaxasDatabaseConnectionString"].ConnectionString;
@@ -326,7 +328,7 @@ namespace ACD
             }
         }
 
-        private void deleteIndicators()
+        private void deleteLevelIndicators()
         {
             foreach (DataRow row in dsIndicator.Tables["Table"].Rows)
             {

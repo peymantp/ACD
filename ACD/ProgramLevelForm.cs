@@ -51,6 +51,7 @@ namespace ACD
 
         private void acceptButton_Click(object sender, EventArgs e)
         {
+            errorProvider1.Clear();
             if (outcomeNameField.Text.Equals(""))
             {
                 errorProvider1.SetError(outcomeNameField, "Please enter a name");

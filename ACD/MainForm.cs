@@ -76,8 +76,6 @@ namespace ACD
             comboBoxProgram.SelectedIndex = 0;
         }
 
-        private void courseButtonAdd_Click(object sender, EventArgs e) { new CourseForm().ShowDialog(); }
-
         private void ButtonProgramAdd_Click(object sender, EventArgs e)
         {
             using (var form = new ProgramForm())
@@ -406,7 +404,7 @@ namespace ACD
             var result = new DeleteDialog(comboBoxIndicator.Text).ShowDialog();
             if (System.Windows.Forms.DialogResult.OK == result && indicatorDs.Tables["Table"].Rows.Contains(comboBoxIndicator.Text))
             {
-                learningLevelQuery = "select * FROM dbo.ProgramLevel WHERE FacultyName = '" + comboBoxProgram.Text + "'";
+                learningLevelQuery = "select * FROM dbo.LearningLevel WHERE FacultyNameIndicator = '" + comboBoxProgram.Text + "' AND ProgramLevelName = '" + comboBoxOutcome.Text + "'AND PerformanceIndicatorName = '" + comboBoxIndicator.Text + "'";
                 learningLevelAdapter = new SqlDataAdapter(learningLevelQuery, connection);
                 learningLevelDs = new DataSet();
                 learningLevelAdapter.Fill(learningLevelDs);
@@ -439,6 +437,84 @@ namespace ACD
             }
         }
 
+        private void courseButtonAdd_Click(object sender, EventArgs e) {
+            using (var form = new CourseForm(comboBoxProgram.Text, comboBoxCourseGroup.Text))
+            {
+                var result = form.ShowDialog();
+                if (System.Windows.Forms.DialogResult.OK == result)
+                {
+                    comboBoxCourse.Items.Clear();
+                    courseDs.Clear();
+                    courseAdapter.Fill(courseDs);
+                    foreach (DataRow r in courseDs.Tables["Table"].Rows)
+                    {
+                        comboBoxCourse.Items.Add(r["Name"]);
+                    }
+
+                    comboBoxCourse.SelectedIndex = comboBoxCourse.Items.IndexOf(form.getName);
+                }
+            }
+        }
+
+        private void courseButtonEdit_Click(object sender, EventArgs e)
+        {
+            using (var form = new CourseForm(comboBoxProgram.Text, comboBoxCourseGroup.Text, comboBoxCourse.Text))
+            {
+                var result = form.ShowDialog();
+
+                if (System.Windows.Forms.DialogResult.OK == result)
+                {
+                    comboBoxCourse.Items.Clear();
+                    courseDs.Clear();
+                    courseAdapter.Fill(courseDs);
+                    foreach (DataRow r in courseDs.Tables["Table"].Rows)
+                    {
+                        comboBoxCourse.Items.Add(r["Name"]);
+                    }
+
+                    comboBoxCourse.SelectedIndex = comboBoxCourse.Items.IndexOf(form.getName);
+                }
+            }
+        }
+
+        private void courseButtonDelete_Click(object sender, EventArgs e)
+        {
+            var result = new DeleteDialog(comboBoxCourse.Text).ShowDialog();
+            if (System.Windows.Forms.DialogResult.OK == result && courseDs.Tables["Table"].Rows.Contains(comboBoxIndicator.Text))
+            {
+                learningLevelQuery = "select * FROM dbo.LearningLevel WHERE FacultyNameCourse = '" + comboBoxProgram.Text + "' AND CourseGroupName = '" +comboBoxCourseGroup.Text + "'AND CourseName = '" +comboBoxCourse.Text+"'";
+                learningLevelAdapter = new SqlDataAdapter(learningLevelQuery, connection);
+                learningLevelDs = new DataSet();
+                learningLevelAdapter.Fill(learningLevelDs);
+
+                foreach (DataRow row in learningLevelDs.Tables["Table"].Rows)
+                {
+                    row.Delete();
+                }
+
+                new SqlCommandBuilder(learningLevelAdapter);
+                learningLevelAdapter.Update(learningLevelDs);
+
+                courseDs.Tables["Table"].Rows[courseDs.Tables["Table"].Rows.IndexOf(courseDs.Tables["Table"].Rows.Find(comboBoxCourse.Text))].Delete();
+
+                new SqlCommandBuilder(courseAdapter);
+                courseAdapter.Update(courseDs);
+                courseDs.Clear();
+                courseAdapter.Fill(courseDs);
+
+                comboBoxCourse.Items.Clear();
+
+                foreach (DataRow r in indicatorDs.Tables["Table"].Rows)
+                {
+                    comboBoxCourse.Items.Add(r["Name"]);
+                }
+                if (comboBoxCourse.Items.Count == 0)
+                    comboBoxCourse.Items.Add("No Indicators in Database");
+
+                comboBoxCourse.SelectedIndex = 0;
+            }
+        }
+
         public string programText
         {
             get { return comboBoxProgram.Text; }
@@ -447,5 +523,6 @@ namespace ACD
         {
             get { return comboBoxOutcome.Text;  }
         }
+
     }
 }

@@ -64,6 +64,7 @@ namespace ACD
 
         private void acceptButton_Click(object sender, EventArgs e)
         {
+            errorProvider1.Clear();
             if (courseGroupNameField.Text.Equals(""))
             {
                 errorProvider1.SetError(courseGroupNameField, "Please enter a name");
