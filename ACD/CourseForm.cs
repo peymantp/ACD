@@ -329,7 +329,14 @@ namespace ACD
             connectionIndicator = new SqlConnection(connIndicator);
             dadapterIndicator = new SqlDataAdapter(queryIndicator, connectionIndicator);
             connectionIndicator.Open();
-            dadapterIndicator.Fill(dsIndicator);
+            try
+            {
+                dadapterIndicator.Fill(dsIndicator);
+            }
+            catch(Exception e)
+            {
+                new ErrorDialog("The database encountered an error, please try again later").ShowDialog(); 
+            }
             DataColumn[] keyColumns = new DataColumn[1];
             keyColumns[0] = dsCourse.Tables["Table"].Columns["CourseName"];
             dsIndicator.Tables["Table"].PrimaryKey = keyColumns;
