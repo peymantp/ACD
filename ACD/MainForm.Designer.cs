@@ -59,6 +59,7 @@ namespace ACD
             this.courseButtonEdit = new MaterialSkin.Controls.MaterialRaisedButton();
             this.ButtonExport = new MaterialSkin.Controls.MaterialRaisedButton();
             this.materialRaisedButton1 = new MaterialSkin.Controls.MaterialRaisedButton();
+            this.refreshButton = new MaterialSkin.Controls.MaterialRaisedButton();
             ((System.ComponentModel.ISupportInitialize)(this.vaxasDatabaseDataSet)).BeginInit();
             this.SuspendLayout();
             // 
@@ -68,10 +69,9 @@ namespace ACD
             | System.Windows.Forms.AnchorStyles.Right)));
             this.comboBoxProgram.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxProgram.FormattingEnabled = true;
-            this.comboBoxProgram.Location = new System.Drawing.Point(13, 122);
-            this.comboBoxProgram.Margin = new System.Windows.Forms.Padding(4);
+            this.comboBoxProgram.Location = new System.Drawing.Point(10, 99);
             this.comboBoxProgram.Name = "comboBoxProgram";
-            this.comboBoxProgram.Size = new System.Drawing.Size(465, 24);
+            this.comboBoxProgram.Size = new System.Drawing.Size(350, 21);
             this.comboBoxProgram.TabIndex = 1;
             this.comboBoxProgram.SelectedIndexChanged += new System.EventHandler(this.comboBoxProgram_SelectedIndexChanged);
             // 
@@ -81,11 +81,10 @@ namespace ACD
             this.labelProgram.Depth = 0;
             this.labelProgram.Font = new System.Drawing.Font("Roboto", 11F);
             this.labelProgram.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.labelProgram.Location = new System.Drawing.Point(11, 94);
-            this.labelProgram.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.labelProgram.Location = new System.Drawing.Point(8, 76);
             this.labelProgram.MouseState = MaterialSkin.MouseState.HOVER;
             this.labelProgram.Name = "labelProgram";
-            this.labelProgram.Size = new System.Drawing.Size(93, 24);
+            this.labelProgram.Size = new System.Drawing.Size(74, 19);
             this.labelProgram.TabIndex = 2;
             this.labelProgram.Text = "Programs";
             // 
@@ -104,11 +103,10 @@ namespace ACD
             this.labelOutcomes.Depth = 0;
             this.labelOutcomes.Font = new System.Drawing.Font("Roboto", 11F);
             this.labelOutcomes.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.labelOutcomes.Location = new System.Drawing.Point(11, 167);
-            this.labelOutcomes.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.labelOutcomes.Location = new System.Drawing.Point(8, 136);
             this.labelOutcomes.MouseState = MaterialSkin.MouseState.HOVER;
             this.labelOutcomes.Name = "labelOutcomes";
-            this.labelOutcomes.Size = new System.Drawing.Size(224, 24);
+            this.labelOutcomes.Size = new System.Drawing.Size(178, 19);
             this.labelOutcomes.TabIndex = 4;
             this.labelOutcomes.Text = "Program Level Outcomes";
             // 
@@ -118,11 +116,10 @@ namespace ACD
             this.labelIndicators.Depth = 0;
             this.labelIndicators.Font = new System.Drawing.Font("Roboto", 11F);
             this.labelIndicators.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.labelIndicators.Location = new System.Drawing.Point(13, 245);
-            this.labelIndicators.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.labelIndicators.Location = new System.Drawing.Point(10, 199);
             this.labelIndicators.MouseState = MaterialSkin.MouseState.HOVER;
             this.labelIndicators.Name = "labelIndicators";
-            this.labelIndicators.Size = new System.Drawing.Size(94, 24);
+            this.labelIndicators.Size = new System.Drawing.Size(76, 19);
             this.labelIndicators.TabIndex = 5;
             this.labelIndicators.Text = "Indicators";
             // 
@@ -132,11 +129,10 @@ namespace ACD
             this.labelCourseGroup.Depth = 0;
             this.labelCourseGroup.Font = new System.Drawing.Font("Roboto", 11F);
             this.labelCourseGroup.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.labelCourseGroup.Location = new System.Drawing.Point(13, 321);
-            this.labelCourseGroup.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.labelCourseGroup.Location = new System.Drawing.Point(10, 261);
             this.labelCourseGroup.MouseState = MaterialSkin.MouseState.HOVER;
             this.labelCourseGroup.Name = "labelCourseGroup";
-            this.labelCourseGroup.Size = new System.Drawing.Size(125, 24);
+            this.labelCourseGroup.Size = new System.Drawing.Size(101, 19);
             this.labelCourseGroup.TabIndex = 6;
             this.labelCourseGroup.Text = "Course Group";
             // 
@@ -146,11 +142,10 @@ namespace ACD
             this.labelCourses.Depth = 0;
             this.labelCourses.Font = new System.Drawing.Font("Roboto", 11F);
             this.labelCourses.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.labelCourses.Location = new System.Drawing.Point(13, 386);
-            this.labelCourses.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.labelCourses.Location = new System.Drawing.Point(10, 314);
             this.labelCourses.MouseState = MaterialSkin.MouseState.HOVER;
             this.labelCourses.Name = "labelCourses";
-            this.labelCourses.Size = new System.Drawing.Size(79, 24);
+            this.labelCourses.Size = new System.Drawing.Size(65, 19);
             this.labelCourses.TabIndex = 7;
             this.labelCourses.Text = "Courses";
             // 
@@ -160,10 +155,9 @@ namespace ACD
             | System.Windows.Forms.AnchorStyles.Right)));
             this.comboBoxOutcome.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxOutcome.FormattingEnabled = true;
-            this.comboBoxOutcome.Location = new System.Drawing.Point(13, 196);
-            this.comboBoxOutcome.Margin = new System.Windows.Forms.Padding(4);
+            this.comboBoxOutcome.Location = new System.Drawing.Point(10, 159);
             this.comboBoxOutcome.Name = "comboBoxOutcome";
-            this.comboBoxOutcome.Size = new System.Drawing.Size(465, 24);
+            this.comboBoxOutcome.Size = new System.Drawing.Size(350, 21);
             this.comboBoxOutcome.TabIndex = 8;
             this.comboBoxOutcome.SelectedIndexChanged += new System.EventHandler(this.comboBoxOutcome_SelectedIndexChanged);
             // 
@@ -173,10 +167,9 @@ namespace ACD
             | System.Windows.Forms.AnchorStyles.Right)));
             this.comboBoxIndicator.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxIndicator.FormattingEnabled = true;
-            this.comboBoxIndicator.Location = new System.Drawing.Point(13, 273);
-            this.comboBoxIndicator.Margin = new System.Windows.Forms.Padding(4);
+            this.comboBoxIndicator.Location = new System.Drawing.Point(10, 222);
             this.comboBoxIndicator.Name = "comboBoxIndicator";
-            this.comboBoxIndicator.Size = new System.Drawing.Size(465, 24);
+            this.comboBoxIndicator.Size = new System.Drawing.Size(350, 21);
             this.comboBoxIndicator.TabIndex = 9;
             // 
             // comboBoxCourseGroup
@@ -185,10 +178,9 @@ namespace ACD
             | System.Windows.Forms.AnchorStyles.Right)));
             this.comboBoxCourseGroup.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxCourseGroup.FormattingEnabled = true;
-            this.comboBoxCourseGroup.Location = new System.Drawing.Point(13, 350);
-            this.comboBoxCourseGroup.Margin = new System.Windows.Forms.Padding(4);
+            this.comboBoxCourseGroup.Location = new System.Drawing.Point(10, 284);
             this.comboBoxCourseGroup.Name = "comboBoxCourseGroup";
-            this.comboBoxCourseGroup.Size = new System.Drawing.Size(465, 24);
+            this.comboBoxCourseGroup.Size = new System.Drawing.Size(350, 21);
             this.comboBoxCourseGroup.TabIndex = 10;
             this.comboBoxCourseGroup.SelectedIndexChanged += new System.EventHandler(this.comboBoxCourseGroup_SelectedIndexChanged);
             // 
@@ -198,22 +190,20 @@ namespace ACD
             | System.Windows.Forms.AnchorStyles.Right)));
             this.comboBoxCourse.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxCourse.FormattingEnabled = true;
-            this.comboBoxCourse.Location = new System.Drawing.Point(13, 414);
-            this.comboBoxCourse.Margin = new System.Windows.Forms.Padding(4);
+            this.comboBoxCourse.Location = new System.Drawing.Point(10, 336);
             this.comboBoxCourse.Name = "comboBoxCourse";
-            this.comboBoxCourse.Size = new System.Drawing.Size(465, 24);
+            this.comboBoxCourse.Size = new System.Drawing.Size(350, 21);
             this.comboBoxCourse.TabIndex = 11;
             // 
             // ButtonProgramAdd
             // 
             this.ButtonProgramAdd.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.ButtonProgramAdd.Depth = 0;
-            this.ButtonProgramAdd.Location = new System.Drawing.Point(516, 122);
-            this.ButtonProgramAdd.Margin = new System.Windows.Forms.Padding(4);
+            this.ButtonProgramAdd.Location = new System.Drawing.Point(387, 99);
             this.ButtonProgramAdd.MouseState = MaterialSkin.MouseState.HOVER;
             this.ButtonProgramAdd.Name = "ButtonProgramAdd";
             this.ButtonProgramAdd.Primary = true;
-            this.ButtonProgramAdd.Size = new System.Drawing.Size(100, 28);
+            this.ButtonProgramAdd.Size = new System.Drawing.Size(75, 23);
             this.ButtonProgramAdd.TabIndex = 12;
             this.ButtonProgramAdd.Text = "Add";
             this.ButtonProgramAdd.UseVisualStyleBackColor = true;
@@ -223,12 +213,11 @@ namespace ACD
             // 
             this.ButtonProgramDelete.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.ButtonProgramDelete.Depth = 0;
-            this.ButtonProgramDelete.Location = new System.Drawing.Point(776, 122);
-            this.ButtonProgramDelete.Margin = new System.Windows.Forms.Padding(4);
+            this.ButtonProgramDelete.Location = new System.Drawing.Point(582, 99);
             this.ButtonProgramDelete.MouseState = MaterialSkin.MouseState.HOVER;
             this.ButtonProgramDelete.Name = "ButtonProgramDelete";
             this.ButtonProgramDelete.Primary = true;
-            this.ButtonProgramDelete.Size = new System.Drawing.Size(100, 28);
+            this.ButtonProgramDelete.Size = new System.Drawing.Size(75, 23);
             this.ButtonProgramDelete.TabIndex = 13;
             this.ButtonProgramDelete.Text = "Delete";
             this.ButtonProgramDelete.UseVisualStyleBackColor = true;
@@ -238,12 +227,11 @@ namespace ACD
             // 
             this.outcomeButtonAdd.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.outcomeButtonAdd.Depth = 0;
-            this.outcomeButtonAdd.Location = new System.Drawing.Point(516, 194);
-            this.outcomeButtonAdd.Margin = new System.Windows.Forms.Padding(4);
+            this.outcomeButtonAdd.Location = new System.Drawing.Point(387, 158);
             this.outcomeButtonAdd.MouseState = MaterialSkin.MouseState.HOVER;
             this.outcomeButtonAdd.Name = "outcomeButtonAdd";
             this.outcomeButtonAdd.Primary = true;
-            this.outcomeButtonAdd.Size = new System.Drawing.Size(100, 28);
+            this.outcomeButtonAdd.Size = new System.Drawing.Size(75, 23);
             this.outcomeButtonAdd.TabIndex = 14;
             this.outcomeButtonAdd.Text = "Add";
             this.outcomeButtonAdd.UseVisualStyleBackColor = true;
@@ -253,12 +241,11 @@ namespace ACD
             // 
             this.outcomeButtonDelete.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.outcomeButtonDelete.Depth = 0;
-            this.outcomeButtonDelete.Location = new System.Drawing.Point(776, 194);
-            this.outcomeButtonDelete.Margin = new System.Windows.Forms.Padding(4);
+            this.outcomeButtonDelete.Location = new System.Drawing.Point(582, 158);
             this.outcomeButtonDelete.MouseState = MaterialSkin.MouseState.HOVER;
             this.outcomeButtonDelete.Name = "outcomeButtonDelete";
             this.outcomeButtonDelete.Primary = true;
-            this.outcomeButtonDelete.Size = new System.Drawing.Size(100, 28);
+            this.outcomeButtonDelete.Size = new System.Drawing.Size(75, 23);
             this.outcomeButtonDelete.TabIndex = 15;
             this.outcomeButtonDelete.Text = "delete";
             this.outcomeButtonDelete.UseVisualStyleBackColor = true;
@@ -268,12 +255,11 @@ namespace ACD
             // 
             this.indicatorButtonAdd.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.indicatorButtonAdd.Depth = 0;
-            this.indicatorButtonAdd.Location = new System.Drawing.Point(516, 274);
-            this.indicatorButtonAdd.Margin = new System.Windows.Forms.Padding(4);
+            this.indicatorButtonAdd.Location = new System.Drawing.Point(387, 223);
             this.indicatorButtonAdd.MouseState = MaterialSkin.MouseState.HOVER;
             this.indicatorButtonAdd.Name = "indicatorButtonAdd";
             this.indicatorButtonAdd.Primary = true;
-            this.indicatorButtonAdd.Size = new System.Drawing.Size(100, 28);
+            this.indicatorButtonAdd.Size = new System.Drawing.Size(75, 23);
             this.indicatorButtonAdd.TabIndex = 16;
             this.indicatorButtonAdd.Text = "Add";
             this.indicatorButtonAdd.UseVisualStyleBackColor = true;
@@ -283,12 +269,11 @@ namespace ACD
             // 
             this.indicatorButtonDelete.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.indicatorButtonDelete.Depth = 0;
-            this.indicatorButtonDelete.Location = new System.Drawing.Point(776, 274);
-            this.indicatorButtonDelete.Margin = new System.Windows.Forms.Padding(4);
+            this.indicatorButtonDelete.Location = new System.Drawing.Point(582, 223);
             this.indicatorButtonDelete.MouseState = MaterialSkin.MouseState.HOVER;
             this.indicatorButtonDelete.Name = "indicatorButtonDelete";
             this.indicatorButtonDelete.Primary = true;
-            this.indicatorButtonDelete.Size = new System.Drawing.Size(100, 28);
+            this.indicatorButtonDelete.Size = new System.Drawing.Size(75, 23);
             this.indicatorButtonDelete.TabIndex = 17;
             this.indicatorButtonDelete.Text = "delete";
             this.indicatorButtonDelete.UseVisualStyleBackColor = true;
@@ -298,12 +283,11 @@ namespace ACD
             // 
             this.coreButtonAdd.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.coreButtonAdd.Depth = 0;
-            this.coreButtonAdd.Location = new System.Drawing.Point(516, 350);
-            this.coreButtonAdd.Margin = new System.Windows.Forms.Padding(4);
+            this.coreButtonAdd.Location = new System.Drawing.Point(387, 284);
             this.coreButtonAdd.MouseState = MaterialSkin.MouseState.HOVER;
             this.coreButtonAdd.Name = "coreButtonAdd";
             this.coreButtonAdd.Primary = true;
-            this.coreButtonAdd.Size = new System.Drawing.Size(100, 28);
+            this.coreButtonAdd.Size = new System.Drawing.Size(75, 23);
             this.coreButtonAdd.TabIndex = 18;
             this.coreButtonAdd.Text = "Add";
             this.coreButtonAdd.UseVisualStyleBackColor = true;
@@ -313,12 +297,11 @@ namespace ACD
             // 
             this.coreButtonDelete.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.coreButtonDelete.Depth = 0;
-            this.coreButtonDelete.Location = new System.Drawing.Point(776, 351);
-            this.coreButtonDelete.Margin = new System.Windows.Forms.Padding(4);
+            this.coreButtonDelete.Location = new System.Drawing.Point(582, 285);
             this.coreButtonDelete.MouseState = MaterialSkin.MouseState.HOVER;
             this.coreButtonDelete.Name = "coreButtonDelete";
             this.coreButtonDelete.Primary = true;
-            this.coreButtonDelete.Size = new System.Drawing.Size(100, 28);
+            this.coreButtonDelete.Size = new System.Drawing.Size(75, 23);
             this.coreButtonDelete.TabIndex = 19;
             this.coreButtonDelete.Text = "Delete";
             this.coreButtonDelete.UseVisualStyleBackColor = true;
@@ -328,12 +311,11 @@ namespace ACD
             // 
             this.courseButtonAdd.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.courseButtonAdd.Depth = 0;
-            this.courseButtonAdd.Location = new System.Drawing.Point(516, 414);
-            this.courseButtonAdd.Margin = new System.Windows.Forms.Padding(4);
+            this.courseButtonAdd.Location = new System.Drawing.Point(387, 336);
             this.courseButtonAdd.MouseState = MaterialSkin.MouseState.HOVER;
             this.courseButtonAdd.Name = "courseButtonAdd";
             this.courseButtonAdd.Primary = true;
-            this.courseButtonAdd.Size = new System.Drawing.Size(100, 28);
+            this.courseButtonAdd.Size = new System.Drawing.Size(75, 23);
             this.courseButtonAdd.TabIndex = 20;
             this.courseButtonAdd.Text = "add";
             this.courseButtonAdd.UseVisualStyleBackColor = true;
@@ -343,12 +325,11 @@ namespace ACD
             // 
             this.courseButtonDelete.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.courseButtonDelete.Depth = 0;
-            this.courseButtonDelete.Location = new System.Drawing.Point(776, 415);
-            this.courseButtonDelete.Margin = new System.Windows.Forms.Padding(4);
+            this.courseButtonDelete.Location = new System.Drawing.Point(582, 337);
             this.courseButtonDelete.MouseState = MaterialSkin.MouseState.HOVER;
             this.courseButtonDelete.Name = "courseButtonDelete";
             this.courseButtonDelete.Primary = true;
-            this.courseButtonDelete.Size = new System.Drawing.Size(100, 28);
+            this.courseButtonDelete.Size = new System.Drawing.Size(75, 23);
             this.courseButtonDelete.TabIndex = 21;
             this.courseButtonDelete.Text = "delete";
             this.courseButtonDelete.UseVisualStyleBackColor = true;
@@ -358,12 +339,11 @@ namespace ACD
             // 
             this.ButtonProgramEdit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.ButtonProgramEdit.Depth = 0;
-            this.ButtonProgramEdit.Location = new System.Drawing.Point(648, 122);
-            this.ButtonProgramEdit.Margin = new System.Windows.Forms.Padding(4);
+            this.ButtonProgramEdit.Location = new System.Drawing.Point(486, 99);
             this.ButtonProgramEdit.MouseState = MaterialSkin.MouseState.HOVER;
             this.ButtonProgramEdit.Name = "ButtonProgramEdit";
             this.ButtonProgramEdit.Primary = true;
-            this.ButtonProgramEdit.Size = new System.Drawing.Size(100, 28);
+            this.ButtonProgramEdit.Size = new System.Drawing.Size(75, 23);
             this.ButtonProgramEdit.TabIndex = 22;
             this.ButtonProgramEdit.Text = "Edit";
             this.ButtonProgramEdit.UseVisualStyleBackColor = true;
@@ -374,12 +354,11 @@ namespace ACD
             this.outcomeButtonEdit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.outcomeButtonEdit.BackColor = System.Drawing.SystemColors.Control;
             this.outcomeButtonEdit.Depth = 0;
-            this.outcomeButtonEdit.Location = new System.Drawing.Point(648, 194);
-            this.outcomeButtonEdit.Margin = new System.Windows.Forms.Padding(4);
+            this.outcomeButtonEdit.Location = new System.Drawing.Point(486, 158);
             this.outcomeButtonEdit.MouseState = MaterialSkin.MouseState.HOVER;
             this.outcomeButtonEdit.Name = "outcomeButtonEdit";
             this.outcomeButtonEdit.Primary = true;
-            this.outcomeButtonEdit.Size = new System.Drawing.Size(100, 28);
+            this.outcomeButtonEdit.Size = new System.Drawing.Size(75, 23);
             this.outcomeButtonEdit.TabIndex = 23;
             this.outcomeButtonEdit.Text = "Edit";
             this.outcomeButtonEdit.UseVisualStyleBackColor = false;
@@ -389,12 +368,11 @@ namespace ACD
             // 
             this.indicatorButtonEdit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.indicatorButtonEdit.Depth = 0;
-            this.indicatorButtonEdit.Location = new System.Drawing.Point(648, 274);
-            this.indicatorButtonEdit.Margin = new System.Windows.Forms.Padding(4);
+            this.indicatorButtonEdit.Location = new System.Drawing.Point(486, 223);
             this.indicatorButtonEdit.MouseState = MaterialSkin.MouseState.HOVER;
             this.indicatorButtonEdit.Name = "indicatorButtonEdit";
             this.indicatorButtonEdit.Primary = true;
-            this.indicatorButtonEdit.Size = new System.Drawing.Size(100, 28);
+            this.indicatorButtonEdit.Size = new System.Drawing.Size(75, 23);
             this.indicatorButtonEdit.TabIndex = 24;
             this.indicatorButtonEdit.Text = "edit";
             this.indicatorButtonEdit.UseVisualStyleBackColor = true;
@@ -404,12 +382,11 @@ namespace ACD
             // 
             this.coreButtonEdit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.coreButtonEdit.Depth = 0;
-            this.coreButtonEdit.Location = new System.Drawing.Point(648, 350);
-            this.coreButtonEdit.Margin = new System.Windows.Forms.Padding(4);
+            this.coreButtonEdit.Location = new System.Drawing.Point(486, 284);
             this.coreButtonEdit.MouseState = MaterialSkin.MouseState.HOVER;
             this.coreButtonEdit.Name = "coreButtonEdit";
             this.coreButtonEdit.Primary = true;
-            this.coreButtonEdit.Size = new System.Drawing.Size(100, 28);
+            this.coreButtonEdit.Size = new System.Drawing.Size(75, 23);
             this.coreButtonEdit.TabIndex = 25;
             this.coreButtonEdit.Text = "edit";
             this.coreButtonEdit.UseVisualStyleBackColor = true;
@@ -419,12 +396,11 @@ namespace ACD
             // 
             this.courseButtonEdit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.courseButtonEdit.Depth = 0;
-            this.courseButtonEdit.Location = new System.Drawing.Point(648, 414);
-            this.courseButtonEdit.Margin = new System.Windows.Forms.Padding(4);
+            this.courseButtonEdit.Location = new System.Drawing.Point(486, 336);
             this.courseButtonEdit.MouseState = MaterialSkin.MouseState.HOVER;
             this.courseButtonEdit.Name = "courseButtonEdit";
             this.courseButtonEdit.Primary = true;
-            this.courseButtonEdit.Size = new System.Drawing.Size(100, 28);
+            this.courseButtonEdit.Size = new System.Drawing.Size(75, 23);
             this.courseButtonEdit.TabIndex = 26;
             this.courseButtonEdit.Text = "edit";
             this.courseButtonEdit.UseVisualStyleBackColor = true;
@@ -434,12 +410,11 @@ namespace ACD
             // 
             this.ButtonExport.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.ButtonExport.Depth = 0;
-            this.ButtonExport.Location = new System.Drawing.Point(516, 470);
-            this.ButtonExport.Margin = new System.Windows.Forms.Padding(4);
+            this.ButtonExport.Location = new System.Drawing.Point(387, 382);
             this.ButtonExport.MouseState = MaterialSkin.MouseState.HOVER;
             this.ButtonExport.Name = "ButtonExport";
             this.ButtonExport.Primary = true;
-            this.ButtonExport.Size = new System.Drawing.Size(360, 28);
+            this.ButtonExport.Size = new System.Drawing.Size(270, 23);
             this.ButtonExport.TabIndex = 27;
             this.ButtonExport.Text = "Create matrix";
             this.ButtonExport.UseVisualStyleBackColor = true;
@@ -448,22 +423,34 @@ namespace ACD
             // materialRaisedButton1
             // 
             this.materialRaisedButton1.Depth = 0;
-            this.materialRaisedButton1.Location = new System.Drawing.Point(516, 519);
-            this.materialRaisedButton1.Margin = new System.Windows.Forms.Padding(4);
+            this.materialRaisedButton1.Location = new System.Drawing.Point(387, 422);
             this.materialRaisedButton1.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialRaisedButton1.Name = "materialRaisedButton1";
             this.materialRaisedButton1.Primary = true;
-            this.materialRaisedButton1.Size = new System.Drawing.Size(360, 28);
+            this.materialRaisedButton1.Size = new System.Drawing.Size(270, 23);
             this.materialRaisedButton1.TabIndex = 28;
             this.materialRaisedButton1.Text = "Create Rubric";
             this.materialRaisedButton1.UseVisualStyleBackColor = true;
             this.materialRaisedButton1.Click += new System.EventHandler(this.CreateRubric_Click);
             // 
+            // refreshButton
+            // 
+            this.refreshButton.Depth = 0;
+            this.refreshButton.Location = new System.Drawing.Point(10, 410);
+            this.refreshButton.MouseState = MaterialSkin.MouseState.HOVER;
+            this.refreshButton.Name = "refreshButton";
+            this.refreshButton.Primary = true;
+            this.refreshButton.Size = new System.Drawing.Size(101, 35);
+            this.refreshButton.TabIndex = 29;
+            this.refreshButton.Text = "Refresh Page";
+            this.refreshButton.UseVisualStyleBackColor = true;
+            // 
             // MainForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(900, 562);
+            this.ClientSize = new System.Drawing.Size(675, 457);
+            this.Controls.Add(this.refreshButton);
             this.Controls.Add(this.materialRaisedButton1);
             this.Controls.Add(this.ButtonExport);
             this.Controls.Add(this.courseButtonEdit);
@@ -491,10 +478,9 @@ namespace ACD
             this.Controls.Add(this.labelOutcomes);
             this.Controls.Add(this.labelProgram);
             this.Controls.Add(this.comboBoxProgram);
-            this.Margin = new System.Windows.Forms.Padding(4);
             this.MaximizeBox = false;
-            this.MaximumSize = new System.Drawing.Size(2560, 601);
-            this.MinimumSize = new System.Drawing.Size(900, 550);
+            this.MaximumSize = new System.Drawing.Size(1920, 488);
+            this.MinimumSize = new System.Drawing.Size(675, 447);
             this.Name = "MainForm";
             this.Text = "Texas A&M Program Redesign Tool";
             this.Load += new System.EventHandler(this.MainForm_Load);
@@ -534,6 +520,7 @@ namespace ACD
         private MaterialRaisedButton courseButtonEdit;
         private MaterialRaisedButton ButtonExport;
         private MaterialRaisedButton materialRaisedButton1;
+        private MaterialRaisedButton refreshButton;
     }
 }
 

@@ -27,5 +27,10 @@ namespace ACD
             errorBox.Font = new Font("Tahoma", 15, FontStyle.Bold);
             errorBox.Text = msg;
         }
+
+        private void okButton_Click(object sender, EventArgs e)
+        {
+            this.Close(); 
+        }
     }
 }

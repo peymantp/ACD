@@ -31,6 +31,7 @@
             this.warningBox = new System.Windows.Forms.RichTextBox();
             this.materialLabel1 = new System.Windows.Forms.Label();
             this.errorBox = new System.Windows.Forms.RichTextBox();
+            this.okButton = new MaterialSkin.Controls.MaterialRaisedButton();
             this.SuspendLayout();
             // 
             // warningBox
@@ -38,11 +39,11 @@
             this.warningBox.BackColor = System.Drawing.SystemColors.Control;
             this.warningBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.warningBox.Font = new System.Drawing.Font("Tahoma", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.warningBox.Location = new System.Drawing.Point(1, 65);
+            this.warningBox.Location = new System.Drawing.Point(1, 60);
             this.warningBox.Name = "warningBox";
             this.warningBox.ReadOnly = true;
             this.warningBox.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.Vertical;
-            this.warningBox.Size = new System.Drawing.Size(416, 162);
+            this.warningBox.Size = new System.Drawing.Size(416, 167);
             this.warningBox.TabIndex = 18;
             this.warningBox.Text = "";
             // 
@@ -51,7 +52,7 @@
             this.materialLabel1.AutoSize = true;
             this.materialLabel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.materialLabel1.ForeColor = System.Drawing.Color.Red;
-            this.materialLabel1.Location = new System.Drawing.Point(12, 80);
+            this.materialLabel1.Location = new System.Drawing.Point(12, 60);
             this.materialLabel1.Name = "materialLabel1";
             this.materialLabel1.Size = new System.Drawing.Size(99, 25);
             this.materialLabel1.TabIndex = 19;
@@ -61,17 +62,31 @@
             // 
             this.errorBox.BackColor = System.Drawing.SystemColors.Control;
             this.errorBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.errorBox.Location = new System.Drawing.Point(17, 108);
+            this.errorBox.Location = new System.Drawing.Point(12, 88);
             this.errorBox.Name = "errorBox";
             this.errorBox.Size = new System.Drawing.Size(388, 96);
             this.errorBox.TabIndex = 20;
             this.errorBox.Text = "";
+            // 
+            // okButton
+            // 
+            this.okButton.Depth = 0;
+            this.okButton.Location = new System.Drawing.Point(330, 190);
+            this.okButton.MouseState = MaterialSkin.MouseState.HOVER;
+            this.okButton.Name = "okButton";
+            this.okButton.Primary = true;
+            this.okButton.Size = new System.Drawing.Size(70, 25);
+            this.okButton.TabIndex = 21;
+            this.okButton.Text = "OK";
+            this.okButton.UseVisualStyleBackColor = true;
+            this.okButton.Click += new System.EventHandler(this.okButton_Click);
             // 
             // ErrorDialog
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(417, 227);
+            this.Controls.Add(this.okButton);
             this.Controls.Add(this.errorBox);
             this.Controls.Add(this.materialLabel1);
             this.Controls.Add(this.warningBox);
@@ -94,5 +109,6 @@
         private System.Windows.Forms.RichTextBox warningBox;
         private System.Windows.Forms.Label materialLabel1;
         private System.Windows.Forms.RichTextBox errorBox;
+        private MaterialSkin.Controls.MaterialRaisedButton okButton;
     }
 }

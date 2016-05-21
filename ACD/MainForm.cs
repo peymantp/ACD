@@ -61,7 +61,15 @@ namespace ACD
             connection = new SqlConnection(conn);
             programAdapter = new SqlDataAdapter(programQuery, connection);
             programDs = new DataSet();
-            programAdapter.Fill(programDs);
+            try
+            {
+                programAdapter.Fill(programDs);
+            }
+            catch(Exception exc)
+            {
+                new ErrorDialog("The database had trouble connecting, please check your internet and try again").ShowDialog();
+                return; 
+            }
             DataColumn[] keyColumns = new DataColumn[1];
             keyColumns[0] = programDs.Tables["Table"].Columns["Name"];
             programDs.Tables["Table"].PrimaryKey = keyColumns;
@@ -523,6 +531,5 @@ namespace ACD
         {
             get { return comboBoxOutcome.Text;  }
         }
-
     }
 }
