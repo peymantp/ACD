@@ -239,7 +239,7 @@ namespace ACD
 
         private void saveLevelIndicators()
         {
-            queryIndicator = "select * FROM dbo.LearningLevel WHERE PerformanceIndicatorName = '" + indicatorNameField.Text + "' AND FacultyNameIndicator = '"+ TextFieldProgram.Text + "' AND ProgramLevelName = '" +TextFieldProgramLevel.Text+ "'";
+            queryIndicator = "select * FROM dbo.LearningLevel WHERE PerformanceIndicatorName = '" + indicatorNameField.Text + "' AND FacultyName = '"+ TextFieldProgram.Text + "' AND ProgramLevelName = '" +TextFieldProgramLevel.Text+ "'";
             connIndicator = ConfigurationManager.ConnectionStrings["ACD.Properties.Settings.vaxasDatabaseConnectionString"].ConnectionString;
             connectionIndicator = new SqlConnection(connIndicator);
             dadapterIndicator = new SqlDataAdapter(queryIndicator, connectionIndicator);
@@ -282,7 +282,7 @@ namespace ACD
                     }
                     var newRow = dsIndicator.Tables["Table"].NewRow();
                     newRow["Value"] = indicatorValue;
-                    newRow["FacultyNameIndicator"] = TextFieldProgram.Text;
+                    newRow["FacultyName"] = TextFieldProgram.Text;
                     newRow["FacultyNameCourse"] = TextFieldProgram.Text;
                     newRow["ProgramLevelName"] = TextFieldProgramLevel.Text;
                     newRow["PerformanceIndicatorName"] = indicatorNameField.Text;
@@ -301,7 +301,7 @@ namespace ACD
 
         private void fillLevelIndicators()
         {
-            queryIndicator = "select * FROM dbo.LearningLevel WHERE PerformanceIndicatorName = '" + indicatorNameField.Text + "' AND FacultyNameIndicator = '" + TextFieldProgram.Text + "' AND ProgramLevelName = '" + TextFieldProgramLevel.Text + "'";
+            queryIndicator = "select * FROM dbo.LearningLevel WHERE PerformanceIndicatorName = '" + indicatorNameField.Text + "' AND FacultyName = '" + TextFieldProgram.Text + "' AND ProgramLevelName = '" + TextFieldProgramLevel.Text + "'";
             connIndicator = ConfigurationManager.ConnectionStrings["ACD.Properties.Settings.vaxasDatabaseConnectionString"].ConnectionString;
             connectionIndicator = new SqlConnection(connIndicator);
             dadapterIndicator = new SqlDataAdapter(queryIndicator, connectionIndicator);
