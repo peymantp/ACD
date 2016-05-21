@@ -444,6 +444,7 @@ namespace ACD
             this.refreshButton.TabIndex = 29;
             this.refreshButton.Text = "Refresh Page";
             this.refreshButton.UseVisualStyleBackColor = true;
+            this.refreshButton.Click += new System.EventHandler(this.refreshButton_Click);
             // 
             // MainForm
             // 
