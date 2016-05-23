@@ -6,38 +6,68 @@ using System.Threading.Tasks;
 using Microsoft.Office.Interop.Excel;
 using System.Data.SqlClient;
 
+/// <summary>
+/// Author: Justin Huchet, May 2016
+/// </summary>
 namespace ACD
 {
+    /// <summary>
+    /// This class generates an excel documents based on 
+    /// </summary>
     partial class MainForm
     {
-        Worksheet ws;
-        readonly int CELL_SIZE = 18;
-        int performanceIndicatorsCount;
-        int numAllCourses;
-        static Worksheet rubric;
-        static string faculty;
+        //The excel document
+        static Worksheet ws;
+
+        //The cell widths
+        static readonly int MATRIX_CELL_SIZE = 18;
         static readonly int RUBRIC_CELL_SIZE = 27;
 
+        //The total number of cells on each axis
+        static int performanceIndicatorsCount;
+        static int numAllCourses;
+
+        //The faculty currently selected
+        static string faculty;
+
+        //The location of each cell on the axis
         SortedDictionary<String, int> xAxis;
         SortedDictionary<String, int> yAxis;
+
+        /// <summary>
+        /// Starts the matrix creation.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void ButtonExport_Click(object sender, EventArgs e)
         {
+            //Creates a new Excel document
             CreateNewExcelDocument();
 
+            //Instantiates the dictionaries
             xAxis = new SortedDictionary<String, int>();
             yAxis = new SortedDictionary<String, int>();
 
+            //Hardcodes the password
             string password = "texasa&m1";
 
+            //Starts a connections to the database
             using (SqlConnection myConnection = new SqlConnection("Server = tcp:vaxas.database.windows.net,1433; Database = vaxasDatabase; User ID = vaxasAdmin@vaxas; Password = " + password + "; Encrypt = True; TrustServerCertificate = False; Connection Timeout = 30"))
             {
+                //Opens the connection
                 myConnection.Open();
-                GenerateXAxis(myConnection);
+
                 try
                 {
+                    //Creates the x and y axes
+                    GenerateXAxis(myConnection);
                     GenerateYAxis(myConnection);
-                    InsertLearningLevels(myConnection);
+
+                    //Merges cells with common values
                     Merge();
+
+                    //Inserts the I/R/D values for each cell
+                    InsertLearningLevels(myConnection);
                 }
                 catch (Exception exception)
                 {
@@ -53,22 +83,13 @@ namespace ACD
                 }
             }
 
+            //Resets the 
             performanceIndicatorsCount = 0;
             numAllCourses = 0;
+
+            //
             xAxis = null;
             yAxis = null;
-        }
-
-        private void CreateNewExcelDocument()
-        {
-            Application xlApp = new Application
-            {
-                DisplayAlerts = false,
-                Visible = true
-            };
-
-            Workbook wb = xlApp.Workbooks.Add(XlWBATemplate.xlWBATWorksheet);
-            ws = (Worksheet)wb.Worksheets[1];
         }
 
         private void GenerateXAxis(SqlConnection myConnection)
@@ -115,14 +136,14 @@ namespace ACD
             oString = "select prog.\"Description\", CONVERT(int, progNum), CONVERT(int, perfNum), case when (prog.\"Description\" is not null) then progNum + '. ' + prog.\"Name\"  + ': ' + prog.\"Description\" else progNum + '. ' + prog.\"Name\" end as ProgramLevel, progNum + '.' + perfNum + ' ' + perf.\"Name\" as PerformanceIndicator, prog.\"Name\" as progNameNoNum, perf.\"Name\" as perfNameNoNum from (select CONVERT(varchar(10), perfTemp.num2) as perfNum, perfTemp.\"Name\", perfTemp.\"Key\" from (select ROW_NUMBER() over (partition by \"Key\" order by \"Name\") as num2, Name, \"Key\" from PerformanceIndicatorWithKey where SUBSTRING(\"Key\", 1, CASE CHARINDEX('_', \"Key\") WHEN 0 THEN LEN(\"Key\") ELSE CHARINDEX('_', \"Key\")-1 END) = '" +  (string)comboBoxProgram.SelectedItem + "') perfTemp ) perf left join (select CONVERT(varchar(10), progTemp.num2) as progNum, progTemp.\"Name\", progTemp.\"Description\", progTemp.\"Key\" from (select ROW_NUMBER() over (partition by \"Key\" order by \"Description\" desc, \"Name\") as num2, Name, \"Description\", \"Key\" from ProgramLevelWithKey where \"Key\" = '" +  (string)comboBoxProgram.SelectedItem + "') progTemp ) prog on SUBSTRING(perf.\"Key\", CASE CHARINDEX('_', perf.\"Key\") WHEN 0 THEN LEN(perf.\"Key\")+1 ELSE CHARINDEX('_', perf.\"Key\")+1 END, 1000) = prog.\"Name\" and SUBSTRING(perf.\"Key\", 1, CASE CHARINDEX('_', perf.\"Key\") WHEN 0 THEN LEN(perf.\"Key\") ELSE CHARINDEX('_', perf.\"Key\")-1 END) = prog.\"Key\" order by 1 desc, 2,3,4,5";
             oCmd = new SqlCommand(oString, myConnection);
 
-            Range progRange = ws.get_Range("D1", GetExcelColumnName(performanceIndicatorsCount + 3) + "1");
-            Range perfRange = ws.get_Range("D2", GetExcelColumnName(performanceIndicatorsCount + 3) + "2");
+            Range progRange = ws.get_Range("D1", GetColumnName(performanceIndicatorsCount + 3, true) + "1");
+            Range perfRange = ws.get_Range("D2", GetColumnName(performanceIndicatorsCount + 3, true) + "2");
 
-            progRange.ColumnWidth = CELL_SIZE;
-            progRange.RowHeight = CELL_SIZE * 5;
+            progRange.ColumnWidth = MATRIX_CELL_SIZE;
+            progRange.RowHeight = MATRIX_CELL_SIZE * 5;
 
-            perfRange.ColumnWidth = CELL_SIZE;
-            perfRange.RowHeight = CELL_SIZE * 5;
+            perfRange.ColumnWidth = MATRIX_CELL_SIZE;
+            perfRange.RowHeight = MATRIX_CELL_SIZE * 5;
 
             progRange.WrapText = true;
             perfRange.WrapText = true;
@@ -160,7 +181,7 @@ namespace ACD
                 }
             }
 
-            Range nullDescriptions = ws.get_Range(GetExcelColumnName(i) + "1", GetExcelColumnName(performanceIndicatorsCount + 3) + "1");
+            Range nullDescriptions = ws.get_Range(GetColumnName(i, true) + "1", GetColumnName(performanceIndicatorsCount + 3, true) + "1");
             nullDescriptions.Font.Bold = true;
         }
 
@@ -198,14 +219,14 @@ namespace ACD
             Range courseNumRange = ws.get_Range("B3", "B" + (numAllCourses + 2).ToString());
             Range courseNameRange = ws.get_Range("C3", "C" + (numAllCourses + 2).ToString());
 
-            groupRange.ColumnWidth = CELL_SIZE;
-            groupRange.RowHeight = CELL_SIZE * 5;
+            groupRange.ColumnWidth = MATRIX_CELL_SIZE;
+            groupRange.RowHeight = MATRIX_CELL_SIZE * 5;
 
-            courseNumRange.ColumnWidth = CELL_SIZE;
-            courseNumRange.RowHeight = CELL_SIZE * 5;
+            courseNumRange.ColumnWidth = MATRIX_CELL_SIZE;
+            courseNumRange.RowHeight = MATRIX_CELL_SIZE * 5;
 
-            courseNameRange.ColumnWidth = CELL_SIZE;
-            courseNameRange.RowHeight = CELL_SIZE * 5;
+            courseNameRange.ColumnWidth = MATRIX_CELL_SIZE;
+            courseNameRange.RowHeight = MATRIX_CELL_SIZE * 5;
 
             groupRange.WrapText = true;
             courseNumRange.WrapText = true;
@@ -311,37 +332,6 @@ namespace ACD
             }
         }
 
-        private string GetExcelColumnName(int columnNumber)
-        {
-            int dividend = columnNumber;
-            string columnName = String.Empty;
-            int modulo;
-
-            while (dividend > 0)
-            {
-                modulo = (dividend - 1) % 26;
-                columnName = Convert.ToChar(65 + modulo).ToString() + columnName;
-                dividend = (int)((dividend - modulo) / 26);
-            }
-
-            return columnName;
-        }
-
-        private void BorderAround(Range range, int colour)
-        {
-            Borders borders = range.Borders;
-            borders[XlBordersIndex.xlEdgeLeft].LineStyle = XlLineStyle.xlContinuous;
-            borders[XlBordersIndex.xlEdgeTop].LineStyle = XlLineStyle.xlContinuous;
-            borders[XlBordersIndex.xlEdgeBottom].LineStyle = XlLineStyle.xlContinuous;
-            borders[XlBordersIndex.xlEdgeRight].LineStyle = XlLineStyle.xlContinuous;
-            borders.Color = colour;
-            borders[XlBordersIndex.xlInsideVertical].LineStyle = XlLineStyle.xlLineStyleNone;
-            borders[XlBordersIndex.xlInsideHorizontal].LineStyle = XlLineStyle.xlLineStyleNone;
-            borders[XlBordersIndex.xlDiagonalUp].LineStyle = XlLineStyle.xlLineStyleNone;
-            borders[XlBordersIndex.xlDiagonalDown].LineStyle = XlLineStyle.xlLineStyleNone;
-            borders = null;
-        }
-
         private void InsertLearningLevels(SqlConnection myConnection)
         {
             string oString;
@@ -369,7 +359,7 @@ namespace ACD
 
             try
             {
-                Range learningLevels = ws.get_Range("D3", GetExcelColumnName(performanceIndicatorsCount + 3) + (numAllCourses + 2)); //System.Runtime.InteropServices.COMException
+                Range learningLevels = ws.get_Range("D3", GetColumnName(performanceIndicatorsCount + 3, true) + (numAllCourses + 2)); //System.Runtime.InteropServices.COMException
                 learningLevels.WrapText = true;
 
                 learningLevels.HorizontalAlignment = XlHAlign.xlHAlignCenter;
@@ -427,9 +417,11 @@ namespace ACD
         }
         private void CreateRubric_Click(object sender, EventArgs e)
         {
-            CreateNewRubric();
+            CreateNewExcelDocument();
+
             faculty = comboBoxProgram.Text;
             string password = "texasa&m1";
+
             using (SqlConnection myConnection = new SqlConnection("Server = tcp:vaxas.database.windows.net,1433; Database = vaxasDatabase; User ID = vaxasAdmin@vaxas; Password = " + password + "; Encrypt = True; TrustServerCertificate = False; Connection Timeout = 30"))
             {
                 myConnection.Open();
@@ -438,30 +430,6 @@ namespace ACD
                 PopulateRubric(myConnection);
 
                 myConnection.Close();
-            }
-        }
-        private static void CreateNewRubric()
-        {
-            Microsoft.Office.Interop.Excel.Application xlApp = new Microsoft.Office.Interop.Excel.Application();
-            xlApp.DisplayAlerts = false;
-
-            if (xlApp == null)
-            {
-                Console.WriteLine("EXCEL could not be started. Check that your office installation and project references are correct.");
-                return;
-            }
-            xlApp.Visible = true;
-
-            Workbook wb = xlApp.Workbooks.Add(XlWBATemplate.xlWBATWorksheet);
-            rubric = (Worksheet)wb.Worksheets[1];
-
-            if (rubric == null)
-            {
-                Console.WriteLine("Worksheet could not be created. Check that your office installation and project references are correct.");
-            }
-            else
-            {
-                Console.WriteLine("Creating Excel document...");
             }
         }
 
@@ -473,8 +441,8 @@ namespace ACD
             oString = "select * from Faculty where Name = '" + faculty + "'";
             oCmd = new SqlCommand(oString, myConnection);
 
-            Range headerRange1 = rubric.get_Range("B1", "F1");
-            Range headerRange2 = rubric.get_Range("C2", "F2");
+            Range headerRange1 = ws.get_Range("B1", "F1");
+            Range headerRange2 = ws.get_Range("C2", "F2");
 
             headerRange1[1] = "Performance Indicators";
             headerRange1[2] = "4";
@@ -520,7 +488,7 @@ namespace ACD
 
             for (int z = 2; z < 6; z++)
             {
-                RubricBorderAround(rubric.UsedRange.Cells[z][2], color);
+                BorderAround(ws.UsedRange.Cells[z][2], color);
             }
         }
 
@@ -538,20 +506,20 @@ namespace ACD
             {
                 while (oReader.Read())
                 {
-                    (rubric.Cells[i, 1] as Range).Value = GetRubricColumnName(Int32.Parse(oReader["num1"].ToString())) + ".";
-                    (rubric.Cells[i, 2] as Range).Value = oReader["Name"].ToString();
-                    (rubric.Cells[i, 3] as Range).Value = oReader["Level4Criteria"].ToString();
-                    (rubric.Cells[i, 4] as Range).Value = oReader["Level3Criteria"].ToString();
-                    (rubric.Cells[i, 5] as Range).Value = oReader["Level2Criteria"].ToString();
-                    (rubric.Cells[i, 6] as Range).Value = oReader["Level1Criteria"].ToString();
+                    (ws.Cells[i, 1] as Range).Value = GetColumnName(Int32.Parse(oReader["num1"].ToString()), false) + ".";
+                    (ws.Cells[i, 2] as Range).Value = oReader["Name"].ToString();
+                    (ws.Cells[i, 3] as Range).Value = oReader["Level4Criteria"].ToString();
+                    (ws.Cells[i, 4] as Range).Value = oReader["Level3Criteria"].ToString();
+                    (ws.Cells[i, 5] as Range).Value = oReader["Level2Criteria"].ToString();
+                    (ws.Cells[i, 6] as Range).Value = oReader["Level1Criteria"].ToString();
 
                     i++;
                 }
             }
 
-            Range leftSideRange1 = rubric.get_Range("A3", "A" + (i - 1));
-            Range leftSideRange2 = rubric.get_Range("B3", "B" + (i - 1));
-            Range descriptionsRange = rubric.get_Range("C3", "F" + (i - 1));
+            Range leftSideRange1 = ws.get_Range("A3", "A" + (i - 1));
+            Range leftSideRange2 = ws.get_Range("B3", "B" + (i - 1));
+            Range descriptionsRange = ws.get_Range("C3", "F" + (i - 1));
 
             leftSideRange1.WrapText = true;
             leftSideRange2.WrapText = true;
@@ -579,7 +547,19 @@ namespace ACD
             leftSideRange2.Font.Bold = true;
         }
 
-        private static string GetRubricColumnName(int columnNumber)
+        private void CreateNewExcelDocument()
+        {
+            Application xlApp = new Application
+            {
+                DisplayAlerts = false,
+                Visible = true
+            };
+
+            Workbook wb = xlApp.Workbooks.Add(XlWBATemplate.xlWBATWorksheet);
+            ws = (Worksheet)wb.Worksheets[1];
+        }
+
+        private static string GetColumnName(int columnNumber, Boolean isCaps)
         {
             int dividend = columnNumber;
             string columnName = string.Empty;
@@ -588,14 +568,23 @@ namespace ACD
             while (dividend > 0)
             {
                 modulo = (dividend - 1) % 26;
-                columnName = Convert.ToChar(97 + modulo).ToString() + columnName;
+
+                if (isCaps)
+                {
+                    columnName = Convert.ToChar(65 + modulo).ToString() + columnName;
+                }
+                else
+                {
+                    columnName = Convert.ToChar(97 + modulo).ToString() + columnName;
+                }
+                
                 dividend = (int)((dividend - modulo) / 26);
             }
 
             return columnName;
         }
 
-        private static void RubricBorderAround(Range range, int colour)
+        private static void BorderAround(Range range, int colour)
         {
             Borders borders = range.Borders;
             borders[XlBordersIndex.xlEdgeLeft].LineStyle = XlLineStyle.xlContinuous;
