@@ -262,7 +262,7 @@ namespace ACD
 
         private void saveLevelIndicators()
         {
-            queryIndicator = "select * FROM dbo.LearningLevel WHERE courseName = '" + textBoxCourseName.Text + "' AND FacultyNameCourse = '" + textBoxProgramName.Text + "' AND CourseGroupName = '" + textBoxCourseGroup.Text + "'";
+            queryIndicator = "select * FROM dbo.LearningLevel WHERE courseName = '" + textBoxCourseName.Text + "' AND FacultyName = '" + textBoxProgramName.Text + "' AND CourseGroupName = '" + textBoxCourseGroup.Text + "'";
             connIndicator = ConfigurationManager.ConnectionStrings["ACD.Properties.Settings.vaxasDatabaseConnectionString"].ConnectionString;
             connectionIndicator = new SqlConnection(connIndicator);
             dadapterIndicator = new SqlDataAdapter(queryIndicator, connectionIndicator);
@@ -305,8 +305,7 @@ namespace ACD
                     }
                     var newRow = dsIndicator.Tables["Table"].NewRow();
                     newRow["Value"] = indicatorValue;
-                    newRow["FacultyNameIndicator"] = textBoxProgramName.Text;
-                    newRow["FacultyNameCourse"] = textBoxProgramName.Text;
+                    newRow["FacultyName"] = textBoxProgramName.Text;
                     
                     newRow["ProgramLevelName"] = boxArray[i, 0].Name.Split('_')[1];
                     newRow["PerformanceIndicatorName"] = boxArray[i, 0].Name.Split('_')[0];
