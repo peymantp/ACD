@@ -10,7 +10,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
+/// <summary>
+/// Author: Eric Lau, Manish Mallavarapu, Peyman Parsa
+/// Last Updated: May/20/2016
+/// </summary>
 namespace ACD
 {
     public partial class CourseForm : MaterialForm
@@ -38,7 +41,11 @@ namespace ACD
         private DataSet dsIndicator = new DataSet();
 
         public string getName { get { return newName; } }
-
+        /// <summary>
+        /// Creates the course form with specified parameteres
+        /// </summary>
+        /// <param name="programName"></param>
+        /// <param name="courseGroupName"></param>
         public CourseForm(string programName, string courseGroupName)
         {
             InitializeComponent();
@@ -47,7 +54,12 @@ namespace ACD
             openConnection();
             populateIndicators();
         }
-
+        /// <summary>
+        /// Creates the course form with specified parameters
+        /// </summary>
+        /// <param name="programName"></param>
+        /// <param name="courseGroupName"></param>
+        /// <param name="courseName"></param>
         public CourseForm(string programName, string courseGroupName, string courseName)
         {
             InitializeComponent();
@@ -69,13 +81,22 @@ namespace ACD
                 checkBoxHasLab.Checked = true;
             }
         }
-
+        /// <summary>
+        /// closes form when cancel is clicked
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void buttonCancel_Click(object sender, EventArgs e)
         {
             DialogResult = DialogResult.Cancel;
             Close();
         }
-
+        /// <summary>
+        /// Trigger for when create is clicked on course, 
+        /// creates a course in database 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void buttonCreate_Click(object sender, EventArgs e)
         {
             errorProvider1.Clear();
@@ -151,7 +172,9 @@ namespace ACD
                 connection.Close();
             }
         }
-
+        /// <summary>
+        /// opens a connection to the database 
+        /// </summary>
         private void openConnection()
         {
             query = "select * FROM dbo.Course";
@@ -165,7 +188,9 @@ namespace ACD
             keyColumns[0] = ds.Tables["Table"].Columns["Name"];
             ds.Tables["Table"].PrimaryKey = keyColumns;
         }
-
+        /// <summary>
+        /// gets info from database and populates the indicators 
+        /// </summary>
         private void populateIndicators()
         {
             queryCourse = "select Name, ProgramLevelName FROM dbo.PerformanceIndicator WHERE FacultyName = '"+ textBoxProgramName.Text +"'";
@@ -259,7 +284,9 @@ namespace ACD
             }
             Size = new Size(maxSize, Size.Width);
         }
-
+        /// <summary>
+        /// Creates indicator in database from info on form 
+        /// </summary>
         private void saveLevelIndicators()
         {
             queryIndicator = "select * FROM dbo.LearningLevel WHERE courseName = '" + textBoxCourseName.Text + "' AND FacultyName = '" + textBoxProgramName.Text + "' AND CourseGroupName = '" + textBoxCourseGroup.Text + "'";
@@ -320,7 +347,9 @@ namespace ACD
                 }
             }
         }
-
+        /// <summary>
+        /// Connects to the database and fills the form 
+        /// </summary>
         private void fillIndicators()
         {
             queryIndicator = "select * FROM dbo.LearningLevel WHERE courseName = '" + textBoxCourseName.Text + "' AND FacultyName = '" + textBoxProgramName.Text + "' AND CourseGroupName = '" + textBoxCourseGroup.Text + "'";
@@ -356,7 +385,9 @@ namespace ACD
                 }
             }
         }
-
+        /// <summary>
+        /// deletes indicator from database 
+        /// </summary>
         private void deleteIndicators()
         {
             foreach (DataRow row in dsIndicator.Tables["Table"].Rows)

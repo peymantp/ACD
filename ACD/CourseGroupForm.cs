@@ -10,7 +10,10 @@ using System.Windows.Forms;
 using MaterialSkin.Controls;
 using System.Data.SqlClient;
 using System.Configuration;
-
+/// <summary>
+/// Author: Manish Mallavarapu, Eric Lau, Peyman Parsa
+/// Last Updated: May/19/2016
+/// </summary>
 namespace ACD
 {
     public partial class CourseGroupForm : MaterialForm
@@ -24,7 +27,10 @@ namespace ACD
         private DataSet ds = new DataSet();
 
         public string getName { get { return newName; } }
-
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="programName"></param>
         public CourseGroupForm(string programName)
         {
             InitializeComponent();

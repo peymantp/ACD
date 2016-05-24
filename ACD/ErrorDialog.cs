@@ -8,7 +8,10 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using MaterialSkin.Controls;
-
+/// <summary>
+/// Author: Eric Lau 
+/// Last Updated: May/16/2016
+/// </summary>
 namespace ACD
 {
     /// <summary>

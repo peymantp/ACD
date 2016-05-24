@@ -7,7 +7,10 @@ using System.Drawing;
 using System.Data.SqlClient;
 using System.Data;
 using System.Windows.Forms;
-
+/// <summary>
+/// Author: Eric Lau, Peyman Parsa, Manish Mallavarapu, Naseem Hammoud
+/// Last Updated: May/18/2016
+/// </summary>
 namespace ACD
 {
     /// <summary>
@@ -40,7 +43,9 @@ namespace ACD
         private DataSet courseGroupDs;
         private DataSet courseDs;
         private DataSet learningLevelDs;
-
+        /// <summary>
+        /// Constructor, this loads material skin for forms
+        /// </summary>
         public MainForm()
         {
             
@@ -52,7 +57,8 @@ namespace ACD
             skinManager.ColorScheme = new ColorScheme(Primary.BlueGrey800, Primary.BlueGrey900, Primary.BlueGrey500, Accent.LightBlue200, TextShade.WHITE);
         }
         /// <summary>
-        /// 
+        /// When Form loads we connect to the database, 
+        /// if we cannot catch the exception and show an error message
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -83,7 +89,12 @@ namespace ACD
 
             comboBoxProgram.SelectedIndex = 0;
         }
-
+        /// <summary>
+        /// When add button for program is clicked, 
+        /// opens program form 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void ButtonProgramAdd_Click(object sender, EventArgs e)
         {
             using (var form = new ProgramForm())
@@ -103,6 +114,12 @@ namespace ACD
                 }
             }
         }
+        /// <summary>
+        /// When delete button for program is clicked, 
+        /// opens delete dialog for program 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void ButtonProgramDelete_Click(object sender, EventArgs e)
         {
             var result = new DeleteDialog(comboBoxProgram.Text).ShowDialog();
@@ -133,7 +150,12 @@ namespace ACD
                 }
             }
         }
-
+        /// <summary>
+        /// When edit button for program is clicked, 
+        /// opens program form and fills in fields from database 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void ButtonProgramEdit_Click(object sender, EventArgs e)
         {
             using (var form = new ProgramForm((string)comboBoxProgram.SelectedItem)) { 
@@ -154,6 +176,11 @@ namespace ACD
             }
             
         }
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void comboBoxProgram_SelectedIndexChanged(object sender, EventArgs e)
         {
             outcomeQuery = "select * FROM dbo.ProgramLevel WHERE FacultyName = '" + comboBoxProgram.Text + "'";
@@ -191,7 +218,11 @@ namespace ACD
 
             comboBoxCourseGroup.SelectedIndex = 0;
         }
-
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void comboBoxOutcome_SelectedIndexChanged(object sender, EventArgs e)
         {
             indicatorQuery = "select * FROM dbo.PerformanceIndicator WHERE FacultyName = '" + comboBoxProgram.Text + "' AND ProgramLevelName = '" + comboBoxOutcome.Text +"'";
@@ -212,7 +243,11 @@ namespace ACD
 
             comboBoxIndicator.SelectedIndex = 0;
         }
-
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void comboBoxCourseGroup_SelectedIndexChanged(object sender, EventArgs e)
         {
             courseQuery = "select * FROM dbo.Course WHERE CourseGroupName = '" + comboBoxCourseGroup.Text +"' AND FacultyName = '" + comboBoxProgram.Text + "'";
@@ -233,7 +268,11 @@ namespace ACD
 
             comboBoxCourse.SelectedIndex = 0;
         }
-
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void programOutcomesButtonAdd_Click(object sender, EventArgs e)
         {
             using (var form = new ProgramLevelForm(comboBoxProgram.Text))
