@@ -30,7 +30,11 @@ namespace ACD
             errorBox.Font = new Font("Tahoma", 15, FontStyle.Bold);
             errorBox.Text = msg;
         }
-
+        /// <summary>
+        /// CLoses Error dialog when OK is clicked
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void okButton_Click(object sender, EventArgs e)
         {
             this.Close(); 

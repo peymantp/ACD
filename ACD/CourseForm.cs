@@ -42,7 +42,7 @@ namespace ACD
 
         public string getName { get { return newName; } }
         /// <summary>
-        /// Creates the course form with specified parameteres
+        /// Creates the course form with specified parameteres for adding
         /// </summary>
         /// <param name="programName"></param>
         /// <param name="courseGroupName"></param>
@@ -55,7 +55,7 @@ namespace ACD
             populateIndicators();
         }
         /// <summary>
-        /// Creates the course form with specified parameters
+        /// Creates the course form with specified parameters for editing
         /// </summary>
         /// <param name="programName"></param>
         /// <param name="courseGroupName"></param>
@@ -64,14 +64,17 @@ namespace ACD
         {
             InitializeComponent();
             buttonCreate.Text = "Edit";
+            //Fills in a portion of the form
             textBoxProgramName.Text = programName;
             textBoxCourseGroup.Text = courseGroupName;
             textBoxCourseName.Text = courseName;
             currName = courseName;
             openConnection();
+            //Populates the form dynamically with indicators
             populateIndicators();
+            //Fills in the corresponding indicators
             fillIndicators();
-            
+            //Fills in the remainder of the form
             textBoxDescription.Text = ds.Tables["Table"].Rows.Find(currName)["Description"].ToString();
             textBoxCreditHours.Text = ds.Tables["Table"].Rows.Find(currName)["CreditHours"].ToString();
             textBoxFormat.Text = ds.Tables["Table"].Rows.Find(currName)["Format"].ToString();
@@ -114,6 +117,7 @@ namespace ACD
                 {
                     if (buttonCreate.Text.Equals("Edit"))
                     {
+                        //Saves the edited fields
                         ds.Tables["Table"].Rows.Find(currName)["Name"] = textBoxCourseName.Text;
                         currName = textBoxCourseName.Text;
                         ds.Tables["Table"].Rows.Find(currName)["Description"] = textBoxDescription.Text;
@@ -134,6 +138,7 @@ namespace ACD
                     }
                     else
                     {
+                        //Adds a new row to the database with the new course information
                         var newRow = ds.Tables["Table"].NewRow();
                         newRow["Name"] = textBoxCourseName.Text;
                         newRow["FacultyName"] = textBoxProgramName.Text;
@@ -157,8 +162,9 @@ namespace ACD
                     }
 
                     new SqlCommandBuilder(dadapter);
-
+                    //Updates database
                     dadapter.Update(ds);
+                    //Saves checked indicators
                     saveLevelIndicators();
                     connection.Close();
                     newName = textBoxCourseName.Text;
@@ -202,50 +208,53 @@ namespace ACD
             DataColumn[] keyColumns = new DataColumn[1];
             keyColumns[0] = dsCourse.Tables["Table"].Columns["Name"];
             dsCourse.Tables["Table"].PrimaryKey = keyColumns;
-            int maxSize = courseLabel.Location.X + courseLabel.Size.Width + 50;
+            int maxSize = indicatorLabel.Location.X + indicatorLabel.Size.Width + 50;
+            //Notifies there are no indicators if indicator table is empty
             if (dsCourse.Tables["Table"].Rows.Count == 0)
             {
-                MaterialLabel emptyCourse = new MaterialLabel();
-                emptyCourse.AutoSize = true;
-                emptyCourse.Depth = 0;
-                emptyCourse.Font = new Font("Roboto", 11F);
-                emptyCourse.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-                emptyCourse.Margin = new Padding(4, 0, 4, 0);
-                emptyCourse.MouseState = MaterialSkin.MouseState.HOVER;
-                emptyCourse.Text = "There are currently no courses in the database";
-                emptyCourse.Location = new Point(courseLabel.Location.X, courseLabel.Location.Y + courseLabel.Size.Height + 10);
-                Controls.Add(emptyCourse);
-                maxSize = emptyCourse.Location.X + emptyCourse.Size.Width + 100;
+                MaterialLabel emptyIndictor = new MaterialLabel();
+                emptyIndictor.AutoSize = true;
+                emptyIndictor.Depth = 0;
+                emptyIndictor.Font = new Font("Roboto", 11F);
+                emptyIndictor.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+                emptyIndictor.Margin = new Padding(4, 0, 4, 0);
+                emptyIndictor.MouseState = MaterialSkin.MouseState.HOVER;
+                emptyIndictor.Text = "There are currently no indicators in the database";
+                emptyIndictor.Location = new Point(indicatorLabel.Location.X, indicatorLabel.Location.Y + indicatorLabel.Size.Height + 10);
+                Controls.Add(emptyIndictor);
+                maxSize = emptyIndictor.Location.X + emptyIndictor.Size.Width + 100;
             }
             else
             {
-                int y = courseLabel.Location.Y + courseLabel.Size.Height + 10;
+                int y = indicatorLabel.Location.Y + indicatorLabel.Size.Height + 10;
                 boxArray = new CheckBox[dsCourse.Tables["Table"].Rows.Count , 3];
                 System.Diagnostics.Debug.WriteLine(boxArray.Length);
-                MaterialLabel courseName;
+                MaterialLabel indicatorName;
                 CheckBox indicatorBoxI;
                 CheckBox indicatorBoxR;
                 CheckBox indicatorBoxD;
+                //Adds in course names
                 foreach (DataRow row in dsCourse.Tables["Table"].Rows)
                 {
-                    courseName = new MaterialLabel();
-                    courseName.AutoSize = true;
-                    courseName.Depth = 0;
-                    courseName.Font = new Font("Roboto", 11F);
-                    courseName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-                    courseName.Margin = new Padding(4, 0, 4, 0);
-                    courseName.MouseState = MaterialSkin.MouseState.HOVER;
-                    courseName.Text = (string)row["Name"];
-                    courseName.Location = new Point(courseLabel.Location.X, y);
-                    Controls.Add(courseName);
-                    if ((courseName.Location.X + courseName.Size.Width) > maxSize)
+                    indicatorName = new MaterialLabel();
+                    indicatorName.AutoSize = true;
+                    indicatorName.Depth = 0;
+                    indicatorName.Font = new Font("Roboto", 11F);
+                    indicatorName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+                    indicatorName.Margin = new Padding(4, 0, 4, 0);
+                    indicatorName.MouseState = MaterialSkin.MouseState.HOVER;
+                    indicatorName.Text = (string)row["Name"];
+                    indicatorName.Location = new Point(indicatorLabel.Location.X, y);
+                    Controls.Add(indicatorName);
+                    if ((indicatorName.Location.X + indicatorName.Size.Width) > maxSize)
                     {
-                        maxSize = courseName.Location.X + courseName.Size.Width + 30;
+                        maxSize = indicatorName.Location.X + indicatorName.Size.Width + 30;
                     }
-                    y += courseLabel.Size.Height + 10;
+                    y += indicatorLabel.Size.Height + 10;
                 }
-                y = courseLabel.Location.Y + courseLabel.Size.Height + 10;
+                y = indicatorLabel.Location.Y + indicatorLabel.Size.Height + 10;
                 int i = 0;
+                //Adds check boxes for each indicator/course pair for Learning level indicators
                 foreach (DataRow row in dsCourse.Tables["Table"].Rows)
                 {
                     indicatorBoxI = new CheckBox();
@@ -275,11 +284,12 @@ namespace ACD
                     boxArray[i++,2] = indicatorBoxD;
                     Controls.Add(indicatorBoxD);
 
-                    y += courseLabel.Size.Height + 10;
+                    y += indicatorLabel.Size.Height + 10;
                 }
-                materialLabelI.Location = new Point(maxSize + 36, courseLabel.Location.Y);
-                materialLabelR.Location = new Point(maxSize + 72, courseLabel.Location.Y);
-                materialLabelD.Location = new Point(maxSize + 108, courseLabel.Location.Y);
+                //Sets where the I, R and D Labals are located
+                materialLabelI.Location = new Point(maxSize + 36, indicatorLabel.Location.Y);
+                materialLabelR.Location = new Point(maxSize + 72, indicatorLabel.Location.Y);
+                materialLabelD.Location = new Point(maxSize + 108, indicatorLabel.Location.Y);
                 maxSize += 150;
             }
             Size = new Size(maxSize, Size.Width);
@@ -289,6 +299,7 @@ namespace ACD
         /// </summary>
         private void saveLevelIndicators()
         {
+            //Opens a connection to the LearningLevel tables
             queryIndicator = "select * FROM dbo.LearningLevel WHERE courseName = '" + textBoxCourseName.Text + "' AND FacultyName = '" + textBoxProgramName.Text + "' AND CourseGroupName = '" + textBoxCourseGroup.Text + "'";
             connIndicator = ConfigurationManager.ConnectionStrings["ACD.Properties.Settings.vaxasDatabaseConnectionString"].ConnectionString;
             connectionIndicator = new SqlConnection(connIndicator);
@@ -301,6 +312,7 @@ namespace ACD
 
             for (int i = 0; i < dsCourse.Tables["Table"].Rows.Count; i++)
             {
+                //Creates a string for the Learning Level Indicator checkbox results
                 if (boxArray[i, 0].Checked || boxArray[i, 1].Checked || boxArray[i, 2].Checked)
                 {
                     string indicatorValue = "";
@@ -330,6 +342,7 @@ namespace ACD
                             indicatorValue += "/D";
                         }
                     }
+                    //Creates new rows for Learning Level Indicators
                     var newRow = dsIndicator.Tables["Table"].NewRow();
                     newRow["Value"] = indicatorValue;
                     newRow["FacultyName"] = textBoxProgramName.Text;
@@ -342,7 +355,7 @@ namespace ACD
                     dsIndicator.Tables["Table"].Rows.Add(newRow);
 
                     new SqlCommandBuilder(dadapterIndicator);
-
+                    //Updates database
                     dadapterIndicator.Update(dsIndicator);
                 }
             }
@@ -352,6 +365,7 @@ namespace ACD
         /// </summary>
         private void fillIndicators()
         {
+            //Opens a connection to the Learning Levels table
             queryIndicator = "select * FROM dbo.LearningLevel WHERE courseName = '" + textBoxCourseName.Text + "' AND FacultyName = '" + textBoxProgramName.Text + "' AND CourseGroupName = '" + textBoxCourseGroup.Text + "'";
             connIndicator = ConfigurationManager.ConnectionStrings["ACD.Properties.Settings.vaxasDatabaseConnectionString"].ConnectionString;
             connectionIndicator = new SqlConnection(connIndicator);
@@ -369,6 +383,7 @@ namespace ACD
             keyColumns[0] = dsCourse.Tables["Table"].Columns["CourseName"];
             dsIndicator.Tables["Table"].PrimaryKey = keyColumns;
 
+            //Sets check boxes to checked for the corresponding indicator and course pair
             foreach (DataRow row in dsIndicator.Tables["Table"].Rows)
             {
                 if (((string)row["Value"]).Contains('I'))
@@ -390,11 +405,13 @@ namespace ACD
         /// </summary>
         private void deleteIndicators()
         {
+            //Deletes Each Row
             foreach (DataRow row in dsIndicator.Tables["Table"].Rows)
             {
                 row.Delete();
             }
             new SqlCommandBuilder(dadapterIndicator);
+            //Updates changes onto database
             dadapterIndicator.Update(dsIndicator);
         }
     }

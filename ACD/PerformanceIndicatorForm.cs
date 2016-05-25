@@ -10,7 +10,10 @@ using System.Windows.Forms;
 using MaterialSkin.Controls;
 using System.Data.SqlClient;
 using System.Configuration;
-
+/// <summary>
+/// Author: Manish Mallavarapu, Eric Lau 
+/// Last Updated: May/19/2016
+/// </summary>
 namespace ACD
 {
     public partial class PerformanceIndicatorForm : MaterialForm
@@ -39,7 +42,11 @@ namespace ACD
         private CheckBox[,] boxArray;
 
         public string getName { get { return newName; } }
-
+        /// <summary>
+        /// Constructor, creates form and opens connection to database.
+        /// </summary>
+        /// <param name="programName"></param>
+        /// <param name="programLevelName"></param>
         public PerformanceIndicatorForm(string programName, string programLevelName)
         {
             InitializeComponent();
@@ -48,7 +55,12 @@ namespace ACD
             openConnection();
             populateCourses();
         }
-
+        /// <summary>
+        /// Second Constructor, creates form with specified parameters 
+        /// </summary>
+        /// <param name="programName"></param>
+        /// <param name="programLevelName"></param>
+        /// <param name="indicatorName"></param>
         public PerformanceIndicatorForm(string programName, string programLevelName, string indicatorName)
         {
             InitializeComponent();
@@ -66,13 +78,21 @@ namespace ACD
             criteria2TextField.Text = ds.Tables["Table"].Rows.Find(currName)["Level2Criteria"].ToString();
             criteria1TextField.Text = ds.Tables["Table"].Rows.Find(currName)["Level1Criteria"].ToString();
         }
-
+        /// <summary>
+        /// When cancel button is clicked, closes the form 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void ButtonCancel_Click(object sender, EventArgs e)
         {
             this.DialogResult = DialogResult.Cancel;
             this.Close();
         }
-
+        /// <summary>
+        /// When save is clicked, we update the database. 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void ButtonSave_Click(object sender, EventArgs e)
         {
             errorProvider1.Clear();

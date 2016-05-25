@@ -48,7 +48,7 @@ namespace ACD
             this.textBoxDescription = new System.Windows.Forms.RichTextBox();
             this.materialLabel1 = new MaterialSkin.Controls.MaterialLabel();
             this.textBoxCourseName = new MaterialSkin.Controls.MaterialSingleLineTextField();
-            this.courseLabel = new MaterialSkin.Controls.MaterialLabel();
+            this.indicatorLabel = new MaterialSkin.Controls.MaterialLabel();
             this.materialLabelD = new MaterialSkin.Controls.MaterialLabel();
             this.materialLabelR = new MaterialSkin.Controls.MaterialLabel();
             this.materialLabelI = new MaterialSkin.Controls.MaterialLabel();
@@ -285,16 +285,16 @@ namespace ACD
             // 
             // courseLabel
             // 
-            this.courseLabel.AutoSize = true;
-            this.courseLabel.Depth = 0;
-            this.courseLabel.Font = new System.Drawing.Font("Roboto", 11F);
-            this.courseLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.courseLabel.Location = new System.Drawing.Point(314, 72);
-            this.courseLabel.MouseState = MaterialSkin.MouseState.HOVER;
-            this.courseLabel.Name = "courseLabel";
-            this.courseLabel.Size = new System.Drawing.Size(128, 19);
-            this.courseLabel.TabIndex = 25;
-            this.courseLabel.Text = "Course Indicators";
+            this.indicatorLabel.AutoSize = true;
+            this.indicatorLabel.Depth = 0;
+            this.indicatorLabel.Font = new System.Drawing.Font("Roboto", 11F);
+            this.indicatorLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.indicatorLabel.Location = new System.Drawing.Point(314, 72);
+            this.indicatorLabel.MouseState = MaterialSkin.MouseState.HOVER;
+            this.indicatorLabel.Name = "courseLabel";
+            this.indicatorLabel.Size = new System.Drawing.Size(128, 19);
+            this.indicatorLabel.TabIndex = 25;
+            this.indicatorLabel.Text = "Course Indicators";
             // 
             // materialLabelD
             // 
@@ -344,7 +344,7 @@ namespace ACD
             this.Controls.Add(this.materialLabelI);
             this.Controls.Add(this.materialLabelR);
             this.Controls.Add(this.materialLabelD);
-            this.Controls.Add(this.courseLabel);
+            this.Controls.Add(this.indicatorLabel);
             this.Controls.Add(this.materialLabel1);
             this.Controls.Add(this.textBoxCourseName);
             this.Controls.Add(this.textBoxDescription);
@@ -385,7 +385,7 @@ namespace ACD
         private MaterialSingleLineTextField textBoxFormat;
         private MaterialSingleLineTextField textBoxCourseGroup;
         private System.Windows.Forms.RichTextBox textBoxDescription;
-        private MaterialLabel courseLabel;
+        private MaterialLabel indicatorLabel;
         private MaterialLabel materialLabel1;
         private MaterialSingleLineTextField textBoxCourseName;
         private MaterialLabel materialLabelI;

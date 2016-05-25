@@ -78,7 +78,11 @@ namespace ACD
             this.DialogResult = DialogResult.Cancel;
             this.Close();
         }
-
+        /// <summary>
+        /// Checks the name contraints and updates the database. 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void acceptButton_Click(object sender, EventArgs e)
         {
             errorProvider1.Clear();
