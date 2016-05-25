@@ -77,7 +77,7 @@ namespace ACD
                     this.Close();
                 }
                 else
-                {     
+                {
                     errorProvider1.SetError(textBoxName, textBoxName.Text + " program already exists");
                 }
                 connection.Close();
