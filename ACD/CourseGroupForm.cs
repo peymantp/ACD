@@ -28,7 +28,8 @@ namespace ACD
 
         public string getName { get { return newName; } }
         /// <summary>
-        /// 
+        /// Constructor, creates crouse group form and opens a connection for 
+        /// the database.
         /// </summary>
         /// <param name="programName"></param>
         public CourseGroupForm(string programName)
@@ -37,7 +38,11 @@ namespace ACD
             programNameField.Text = programName;
             openConnection();
         }
-
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="programName"></param>
+        /// <param name="courseGroupName"></param>
         public CourseGroupForm(string programName, string courseGroupName)
         {
             InitializeComponent();
@@ -48,7 +53,9 @@ namespace ACD
             openConnection();
             electiveField.Text = ds.Tables["Table"].Rows.Find(currName)["NumberOfElectives"].ToString();
         }
-
+        /// <summary>
+        /// Opens a connection to the database. 
+        /// </summary>
         private void openConnection()
         {
             query = "select * FROM CourseGroup WHERE FacultyName = '" + programNameField.Text + "'";
@@ -61,7 +68,11 @@ namespace ACD
             keyColumns[0] = ds.Tables["Table"].Columns["Name"];
             ds.Tables["Table"].PrimaryKey = keyColumns;
         }
-
+        /// <summary>
+        /// Closes the form when cancel is clicked
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void ButtonCancel_Click(object sender, EventArgs e)
         {
             this.DialogResult = DialogResult.Cancel;

@@ -208,6 +208,7 @@
             this.Controls.Add(this.labelProgramName);
             this.Name = "ProgramForm";
             this.Text = "ProgramForm";
+            this.Load += new System.EventHandler(this.ProgramForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

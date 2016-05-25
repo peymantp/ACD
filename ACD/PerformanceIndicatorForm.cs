@@ -283,7 +283,6 @@ namespace ACD
                     var newRow = dsIndicator.Tables["Table"].NewRow();
                     newRow["Value"] = indicatorValue;
                     newRow["FacultyName"] = TextFieldProgram.Text;
-                    newRow["FacultyNameCourse"] = TextFieldProgram.Text;
                     newRow["ProgramLevelName"] = TextFieldProgramLevel.Text;
                     newRow["PerformanceIndicatorName"] = indicatorNameField.Text;
                     newRow["CourseGroupName"] = boxArray[i, 0].Name.Split('_')[1];

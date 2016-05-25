@@ -42,6 +42,10 @@ namespace ACD
             textBoxName.Text = name;
             currName = name;
             openConnection();
+            level1DescBox.Text = (string)ds.Tables["Table"].Rows.Find(currName)["Level1Title"];
+            level2DescBox.Text = (string)ds.Tables["Table"].Rows.Find(currName)["Level2Title"];
+            level3DescBox.Text = (string)ds.Tables["Table"].Rows.Find(currName)["Level3Title"];
+            level4DescBox.Text = (string)ds.Tables["Table"].Rows.Find(currName)["Level4Title"];
         }
 
         private void ButtonProgramAdd_Click(object sender, EventArgs e)
@@ -62,15 +66,31 @@ namespace ACD
                     if (ButtonProgramAdd.Text.Equals("Edit"))
                     {
                         ds.Tables["Table"].Rows.Find(currName)["Name"] = textBoxName.Text;
+                        currName = textBoxName.Text;
+                        ds.Tables["Table"].Rows.Find(currName)["Level1Title"] = level1DescBox.Text;
+                        ds.Tables["Table"].Rows.Find(currName)["Level2Title"] = level2DescBox.Text;
+                        ds.Tables["Table"].Rows.Find(currName)["Level3Title"] = level3DescBox.Text;
+                        ds.Tables["Table"].Rows.Find(currName)["Level4Title"] = level4DescBox.Text;
                     }
                     else
                     {
                         var newRow = ds.Tables["Table"].NewRow();
                         newRow["Name"] = textBoxName.Text;
+                        newRow["Level1Title"] = level1DescBox.Text;
+                        newRow["Level2Title"] = level2DescBox.Text;
+                        newRow["Level3Title"] = level3DescBox.Text;
+                        newRow["Level4Title"] = level4DescBox.Text;
                         ds.Tables["Table"].Rows.Add(newRow);
                     }
                     new SqlCommandBuilder(dadapter);
-                    dadapter.Update(ds);
+                    try
+                    {
+                        dadapter.Update(ds);
+                    }
+                    catch(Exception exc)
+                    {
+                        new ErrorDialog("There was a problem with the database please try again").ShowDialog();
+                    }
                     connection.Close();
                     newName = textBoxName.Text;
                     this.DialogResult = DialogResult.OK;
@@ -105,6 +125,11 @@ namespace ACD
             DataColumn[] keyColumns = new DataColumn[1];
             keyColumns[0] = ds.Tables["Table"].Columns["Name"];
             ds.Tables["Table"].PrimaryKey = keyColumns;
+        }
+
+        private void ProgramForm_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
