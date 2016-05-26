@@ -158,20 +158,27 @@ namespace ACD
         /// <param name="e"></param>
         private void ButtonProgramEdit_Click(object sender, EventArgs e)
         {
-            using (var form = new ProgramForm((string)comboBoxProgram.SelectedItem)) { 
-                var result = form.ShowDialog();
-
-                if (System.Windows.Forms.DialogResult.OK == result)
+            if (comboBoxProgram.Text.Equals("No Programs in Database"))
+            {
+                new ErrorDialog("No program to edit ").ShowDialog();
+            }
+            else {
+                using (var form = new ProgramForm((string)comboBoxProgram.SelectedItem))
                 {
-                    comboBoxProgram.Items.Clear();
-                    programDs.Clear();
-                    programAdapter.Fill(programDs);
-                    foreach (DataRow r in programDs.Tables["Table"].Rows)
-                    {
-                        comboBoxProgram.Items.Add(r["Name"]);
-                    }
+                    var result = form.ShowDialog();
 
-                    comboBoxProgram.SelectedIndex = comboBoxProgram.Items.IndexOf(form.getName);
+                    if (System.Windows.Forms.DialogResult.OK == result)
+                    {
+                        comboBoxProgram.Items.Clear();
+                        programDs.Clear();
+                        programAdapter.Fill(programDs);
+                        foreach (DataRow r in programDs.Tables["Table"].Rows)
+                        {
+                            comboBoxProgram.Items.Add(r["Name"]);
+                        }
+
+                        comboBoxProgram.SelectedIndex = comboBoxProgram.Items.IndexOf(form.getName);
+                    }
                 }
             }
             
@@ -197,7 +204,7 @@ namespace ACD
                 comboBoxOutcome.Items.Add(r["Name"]);
             }
             if (comboBoxOutcome.Items.Count == 0)
-                comboBoxOutcome.Items.Add("No outcomes in Database");
+                comboBoxOutcome.Items.Add("No Outcomes in Database");
 
             comboBoxOutcome.SelectedIndex = 0;
 
@@ -214,7 +221,7 @@ namespace ACD
                 comboBoxCourseGroup.Items.Add(r["Name"]);
             }
             if (comboBoxCourseGroup.Items.Count == 0)
-                comboBoxCourseGroup.Items.Add("No course groups in Database");
+                comboBoxCourseGroup.Items.Add("No Course Groups in Database");
 
             comboBoxCourseGroup.SelectedIndex = 0;
         }
@@ -239,7 +246,7 @@ namespace ACD
                 comboBoxIndicator.Items.Add(r["Name"]);
             }
             if (comboBoxIndicator.Items.Count == 0)
-                comboBoxIndicator.Items.Add("No indicators in Database");
+                comboBoxIndicator.Items.Add("No Indicators in Database");
 
             comboBoxIndicator.SelectedIndex = 0;
         }
@@ -264,7 +271,7 @@ namespace ACD
                 comboBoxCourse.Items.Add(r["Name"]);
             }
             if (comboBoxCourse.Items.Count == 0)
-                comboBoxCourse.Items.Add("No courses in Database");
+                comboBoxCourse.Items.Add("No Courses in Database");
 
             comboBoxCourse.SelectedIndex = 0;
         }
@@ -275,23 +282,28 @@ namespace ACD
         /// <param name="e"></param>
         private void programOutcomesButtonAdd_Click(object sender, EventArgs e)
         {
-            using (var form = new ProgramLevelForm(comboBoxProgram.Text))
+            if (comboBoxProgram.Text.Equals("No Programs in Database"))
             {
-                var result = form.ShowDialog();
-                if (System.Windows.Forms.DialogResult.OK == result)
+                new ErrorDialog("No program to add to ").ShowDialog();
+            }
+            else {
+                using (var form = new ProgramLevelForm(comboBoxProgram.Text))
                 {
-                    comboBoxOutcome.Items.Clear();
-                    outcomeDs.Clear();
-                    outcomeAdapter.Fill(outcomeDs);
-                    foreach (DataRow r in outcomeDs.Tables["Table"].Rows)
+                    var result = form.ShowDialog();
+                    if (System.Windows.Forms.DialogResult.OK == result)
                     {
-                        comboBoxOutcome.Items.Add(r["Name"]);
-                    }
+                        comboBoxOutcome.Items.Clear();
+                        outcomeDs.Clear();
+                        outcomeAdapter.Fill(outcomeDs);
+                        foreach (DataRow r in outcomeDs.Tables["Table"].Rows)
+                        {
+                            comboBoxOutcome.Items.Add(r["Name"]);
+                        }
 
-                    comboBoxOutcome.SelectedIndex = comboBoxOutcome.Items.IndexOf(form.getName);
+                        comboBoxOutcome.SelectedIndex = comboBoxOutcome.Items.IndexOf(form.getName);
+                    }
                 }
             }
-
         }
 
         private void outcomeButtonDelete_Click(object sender, EventArgs e)
@@ -321,41 +333,53 @@ namespace ACD
 
         private void outcomeButtonEdit_Click(object sender, EventArgs e)
         {
-            using (var form = new ProgramLevelForm((string)comboBoxProgram.SelectedItem, (string)comboBoxOutcome.SelectedItem))
+            if (comboBoxOutcome.Text.Equals("No Outcomes in Database"))
             {
-                var result = form.ShowDialog();
-
-                if (System.Windows.Forms.DialogResult.OK == result)
+                new ErrorDialog("No outcome to edit ").ShowDialog();
+            }
+            else {
+                using (var form = new ProgramLevelForm((string)comboBoxProgram.SelectedItem, (string)comboBoxOutcome.SelectedItem))
                 {
-                    comboBoxOutcome.Items.Clear();
-                    outcomeDs.Clear();
-                    outcomeAdapter.Fill(outcomeDs);
-                    foreach (DataRow r in outcomeDs.Tables["Table"].Rows)
-                    {
-                        comboBoxOutcome.Items.Add(r["Name"]);
-                    }
+                    var result = form.ShowDialog();
 
-                    comboBoxOutcome.SelectedIndex = comboBoxOutcome.Items.IndexOf(form.getName);
+                    if (System.Windows.Forms.DialogResult.OK == result)
+                    {
+                        comboBoxOutcome.Items.Clear();
+                        outcomeDs.Clear();
+                        outcomeAdapter.Fill(outcomeDs);
+                        foreach (DataRow r in outcomeDs.Tables["Table"].Rows)
+                        {
+                            comboBoxOutcome.Items.Add(r["Name"]);
+                        }
+
+                        comboBoxOutcome.SelectedIndex = comboBoxOutcome.Items.IndexOf(form.getName);
+                    }
                 }
             }
         }
 
         private void coreButtonAdd_Click(object sender, EventArgs e)
         {
-            using (var form = new CourseGroupForm(comboBoxProgram.Text))
+            if (comboBoxProgram.Text.Equals("No Programs in Database"))
             {
-                var result = form.ShowDialog();
-                if (System.Windows.Forms.DialogResult.OK == result)
+                new ErrorDialog("No program to add to ").ShowDialog();
+            }
+            else {
+                using (var form = new CourseGroupForm(comboBoxProgram.Text))
                 {
-                    comboBoxCourseGroup.Items.Clear();
-                    courseGroupDs.Clear();
-                    courseGroupAdapter.Fill(courseGroupDs);
-                    foreach (DataRow r in courseGroupDs.Tables["Table"].Rows)
+                    var result = form.ShowDialog();
+                    if (System.Windows.Forms.DialogResult.OK == result)
                     {
-                        comboBoxCourseGroup.Items.Add(r["Name"]);
-                    }
+                        comboBoxCourseGroup.Items.Clear();
+                        courseGroupDs.Clear();
+                        courseGroupAdapter.Fill(courseGroupDs);
+                        foreach (DataRow r in courseGroupDs.Tables["Table"].Rows)
+                        {
+                            comboBoxCourseGroup.Items.Add(r["Name"]);
+                        }
 
-                    comboBoxCourseGroup.SelectedIndex = comboBoxCourseGroup.Items.IndexOf(form.getName);
+                        comboBoxCourseGroup.SelectedIndex = comboBoxCourseGroup.Items.IndexOf(form.getName);
+                    }
                 }
             }
         }
@@ -387,61 +411,77 @@ namespace ACD
 
         private void coreButtonEdit_Click(object sender, EventArgs e)
         {
-            using (var form = new CourseGroupForm(comboBoxProgram.Text, comboBoxCourseGroup.Text))
+            if (comboBoxCourseGroup.Text.Equals("No Course Groups in Database"))
             {
-                var result = form.ShowDialog();
-
-                if (System.Windows.Forms.DialogResult.OK == result)
+                new ErrorDialog("No course group to edit ").ShowDialog();
+            }
+            else {
+                using (var form = new CourseGroupForm(comboBoxProgram.Text, comboBoxCourseGroup.Text))
                 {
-                    comboBoxCourseGroup.Items.Clear();
-                    courseGroupDs.Clear();
-                    courseGroupAdapter.Fill(courseGroupDs);
-                    foreach (DataRow r in courseGroupDs.Tables["Table"].Rows)
-                    {
-                        comboBoxCourseGroup.Items.Add(r["Name"]);
-                    }
+                    var result = form.ShowDialog();
 
-                    comboBoxCourseGroup.SelectedIndex = comboBoxCourseGroup.Items.IndexOf(form.getName);
+                    if (System.Windows.Forms.DialogResult.OK == result)
+                    {
+                        comboBoxCourseGroup.Items.Clear();
+                        courseGroupDs.Clear();
+                        courseGroupAdapter.Fill(courseGroupDs);
+                        foreach (DataRow r in courseGroupDs.Tables["Table"].Rows)
+                        {
+                            comboBoxCourseGroup.Items.Add(r["Name"]);
+                        }
+
+                        comboBoxCourseGroup.SelectedIndex = comboBoxCourseGroup.Items.IndexOf(form.getName);
+                    }
                 }
             }
         }
 
         private void indicatorButtonAdd_Click(object sender, EventArgs e)
         {
-            using (var form = new PerformanceIndicatorForm(comboBoxProgram.Text, comboBoxOutcome.Text))
+            if (comboBoxOutcome.Text.Equals("No Outcomes in Database"))
             {
-                var result = form.ShowDialog();
-                if (System.Windows.Forms.DialogResult.OK == result)
+                new ErrorDialog("No outcome to add to").ShowDialog();
+            }
+            else {
+                using (var form = new PerformanceIndicatorForm(comboBoxProgram.Text, comboBoxOutcome.Text))
                 {
-                    comboBoxIndicator.Items.Clear();
-                    indicatorDs.Clear();
-                    indicatorAdapter.Fill(indicatorDs);
-                    foreach (DataRow r in indicatorDs.Tables["Table"].Rows)
+                    var result = form.ShowDialog();
+                    if (System.Windows.Forms.DialogResult.OK == result)
                     {
-                        comboBoxIndicator.Items.Add(r["Name"]);
-                    }
+                        comboBoxIndicator.Items.Clear();
+                        indicatorDs.Clear();
+                        indicatorAdapter.Fill(indicatorDs);
+                        foreach (DataRow r in indicatorDs.Tables["Table"].Rows)
+                        {
+                            comboBoxIndicator.Items.Add(r["Name"]);
+                        }
 
-                    comboBoxIndicator.SelectedIndex = comboBoxIndicator.Items.IndexOf(form.getName);
+                        comboBoxIndicator.SelectedIndex = comboBoxIndicator.Items.IndexOf(form.getName);
+                    }
                 }
             }
         }
         private void indicatorButtonEdit_Click(object sender, EventArgs e)
         {
-            using (var form = new PerformanceIndicatorForm(comboBoxProgram.Text, comboBoxOutcome.Text, comboBoxIndicator.Text))
-            {
-                var result = form.ShowDialog();
-
-                if (System.Windows.Forms.DialogResult.OK == result)
+            if (comboBoxIndicator.Text.Equals("No Indicators in Database"))
+            { new ErrorDialog("No indicator to edit").ShowDialog(); }
+            else {
+                using (var form = new PerformanceIndicatorForm(comboBoxProgram.Text, comboBoxOutcome.Text, comboBoxIndicator.Text))
                 {
-                    comboBoxIndicator.Items.Clear();
-                    indicatorDs.Clear();
-                    indicatorAdapter.Fill(indicatorDs);
-                    foreach (DataRow r in indicatorDs.Tables["Table"].Rows)
-                    {
-                        comboBoxIndicator.Items.Add(r["Name"]);
-                    }
+                    var result = form.ShowDialog();
 
-                    comboBoxIndicator.SelectedIndex = comboBoxIndicator.Items.IndexOf(form.getName);
+                    if (System.Windows.Forms.DialogResult.OK == result)
+                    {
+                        comboBoxIndicator.Items.Clear();
+                        indicatorDs.Clear();
+                        indicatorAdapter.Fill(indicatorDs);
+                        foreach (DataRow r in indicatorDs.Tables["Table"].Rows)
+                        {
+                            comboBoxIndicator.Items.Add(r["Name"]);
+                        }
+
+                        comboBoxIndicator.SelectedIndex = comboBoxIndicator.Items.IndexOf(form.getName);
+                    }
                 }
             }
         }
@@ -485,41 +525,53 @@ namespace ACD
         }
 
         private void courseButtonAdd_Click(object sender, EventArgs e) {
-            using (var form = new CourseForm(comboBoxProgram.Text, comboBoxCourseGroup.Text))
+            if (comboBoxCourseGroup.Text.Equals("No Course Groups in Database"))
             {
-                var result = form.ShowDialog();
-                if (System.Windows.Forms.DialogResult.OK == result)
+                new ErrorDialog("No course group to add to ").ShowDialog();
+            }
+            else {
+                using (var form = new CourseForm(comboBoxProgram.Text, comboBoxCourseGroup.Text))
                 {
-                    comboBoxCourse.Items.Clear();
-                    courseDs.Clear();
-                    courseAdapter.Fill(courseDs);
-                    foreach (DataRow r in courseDs.Tables["Table"].Rows)
+                    var result = form.ShowDialog();
+                    if (System.Windows.Forms.DialogResult.OK == result)
                     {
-                        comboBoxCourse.Items.Add(r["Name"]);
-                    }
+                        comboBoxCourse.Items.Clear();
+                        courseDs.Clear();
+                        courseAdapter.Fill(courseDs);
+                        foreach (DataRow r in courseDs.Tables["Table"].Rows)
+                        {
+                            comboBoxCourse.Items.Add(r["Name"]);
+                        }
 
-                    comboBoxCourse.SelectedIndex = comboBoxCourse.Items.IndexOf(form.getName);
+                        comboBoxCourse.SelectedIndex = comboBoxCourse.Items.IndexOf(form.getName);
+                    }
                 }
             }
         }
 
         private void courseButtonEdit_Click(object sender, EventArgs e)
         {
-            using (var form = new CourseForm(comboBoxProgram.Text, comboBoxCourseGroup.Text, comboBoxCourse.Text))
+            if (comboBoxCourse.Text.Equals("No Courses in Database"))
             {
-                var result = form.ShowDialog();
-
-                if (System.Windows.Forms.DialogResult.OK == result)
+                new ErrorDialog("No course to edit ").ShowDialog();
+            }
+            else {
+                using (var form = new CourseForm(comboBoxProgram.Text, comboBoxCourseGroup.Text, comboBoxCourse.Text))
                 {
-                    comboBoxCourse.Items.Clear();
-                    courseDs.Clear();
-                    courseAdapter.Fill(courseDs);
-                    foreach (DataRow r in courseDs.Tables["Table"].Rows)
-                    {
-                        comboBoxCourse.Items.Add(r["Name"]);
-                    }
+                    var result = form.ShowDialog();
 
-                    comboBoxCourse.SelectedIndex = comboBoxCourse.Items.IndexOf(form.getName);
+                    if (System.Windows.Forms.DialogResult.OK == result)
+                    {
+                        comboBoxCourse.Items.Clear();
+                        courseDs.Clear();
+                        courseAdapter.Fill(courseDs);
+                        foreach (DataRow r in courseDs.Tables["Table"].Rows)
+                        {
+                            comboBoxCourse.Items.Add(r["Name"]);
+                        }
+
+                        comboBoxCourse.SelectedIndex = comboBoxCourse.Items.IndexOf(form.getName);
+                    }
                 }
             }
         }
