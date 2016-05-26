@@ -5,7 +5,7 @@ VisualStudioVersion = 14.0.25123.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ACD", "ACD\ACD.csproj", "{9018A8F8-062D-4EC8-87AB-41645F7FC4EC}"
 EndProject
-Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "ACDInstaller", "ACD\ACDInstaller\ACDInstaller.vdproj", "{B5498AD1-49EC-4B0A-8A01-3FB2F764580F}"
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "Automated Curriculum Designer", "Automated Curriculum Designer\Automated Curriculum Designer.vdproj", "{41A1B481-7FC7-4630-9541-3E56EFE6CEBB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -17,8 +17,8 @@ Global
 		{9018A8F8-062D-4EC8-87AB-41645F7FC4EC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9018A8F8-062D-4EC8-87AB-41645F7FC4EC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9018A8F8-062D-4EC8-87AB-41645F7FC4EC}.Release|Any CPU.Build.0 = Release|Any CPU
-		{B5498AD1-49EC-4B0A-8A01-3FB2F764580F}.Debug|Any CPU.ActiveCfg = Debug
-		{B5498AD1-49EC-4B0A-8A01-3FB2F764580F}.Release|Any CPU.ActiveCfg = Release
+		{41A1B481-7FC7-4630-9541-3E56EFE6CEBB}.Debug|Any CPU.ActiveCfg = Debug
+		{41A1B481-7FC7-4630-9541-3E56EFE6CEBB}.Release|Any CPU.ActiveCfg = Release
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
