@@ -491,7 +491,7 @@ namespace ACD
             var result = new DeleteDialog(comboBoxIndicator.Text).ShowDialog();
             if (System.Windows.Forms.DialogResult.OK == result && indicatorDs.Tables["Table"].Rows.Contains(comboBoxIndicator.Text))
             {
-                learningLevelQuery = "select * FROM dbo.LearningLevel WHERE FacultyNameIndicator = '" + comboBoxProgram.Text + "' AND ProgramLevelName = '" + comboBoxOutcome.Text + "'AND PerformanceIndicatorName = '" + comboBoxIndicator.Text + "'";
+                learningLevelQuery = "select * FROM dbo.LearningLevel WHERE FacultyName = '" + comboBoxProgram.Text + "' AND ProgramLevelName = '" + comboBoxOutcome.Text + "'AND PerformanceIndicatorName = '" + comboBoxIndicator.Text + "'";
                 learningLevelAdapter = new SqlDataAdapter(learningLevelQuery, connection);
                 learningLevelDs = new DataSet();
                 learningLevelAdapter.Fill(learningLevelDs);
@@ -579,9 +579,9 @@ namespace ACD
         private void courseButtonDelete_Click(object sender, EventArgs e)
         {
             var result = new DeleteDialog(comboBoxCourse.Text).ShowDialog();
-            if (System.Windows.Forms.DialogResult.OK == result && courseDs.Tables["Table"].Rows.Contains(comboBoxIndicator.Text))
+            if (System.Windows.Forms.DialogResult.OK == result && courseDs.Tables["Table"].Rows.Contains(comboBoxCourse.Text))
             {
-                learningLevelQuery = "select * FROM dbo.LearningLevel WHERE FacultyNameCourse = '" + comboBoxProgram.Text + "' AND CourseGroupName = '" +comboBoxCourseGroup.Text + "'AND CourseName = '" +comboBoxCourse.Text+"'";
+                learningLevelQuery = "select * FROM dbo.LearningLevel WHERE FacultyName = '" + comboBoxProgram.Text + "' AND CourseGroupName = '" +comboBoxCourseGroup.Text + "'AND CourseName = '" +comboBoxCourse.Text+"'";
                 learningLevelAdapter = new SqlDataAdapter(learningLevelQuery, connection);
                 learningLevelDs = new DataSet();
                 learningLevelAdapter.Fill(learningLevelDs);
@@ -603,12 +603,12 @@ namespace ACD
 
                 comboBoxCourse.Items.Clear();
 
-                foreach (DataRow r in indicatorDs.Tables["Table"].Rows)
+                foreach (DataRow r in courseDs.Tables["Table"].Rows)
                 {
                     comboBoxCourse.Items.Add(r["Name"]);
                 }
                 if (comboBoxCourse.Items.Count == 0)
-                    comboBoxCourse.Items.Add("No Indicators in Database");
+                    comboBoxCourse.Items.Add("No Courses in Database");
 
                 comboBoxCourse.SelectedIndex = 0;
             }
